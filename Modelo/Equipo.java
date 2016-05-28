@@ -1,7 +1,9 @@
 package Modelo;
 
-public class Equipo {
+import java.awt.List;
+import java.util.ArrayList;
 
+public class Equipo {
 
 
 }
