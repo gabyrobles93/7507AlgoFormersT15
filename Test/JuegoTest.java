@@ -87,4 +87,15 @@ public class JuegoTest {
 		
 	}
 	
+	@Test
+	public void test06elJuegoTieneUnTablero() {
+		
+		Juego juego = new Juego();
+		
+		Tablero tablero = new Tablero();
+		
+		Assert.assertTrue(juego.getTablero() instanceof Tablero);
+		
+	}
+	
 }

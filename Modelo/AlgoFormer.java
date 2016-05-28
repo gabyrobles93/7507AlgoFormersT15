@@ -1,5 +1,5 @@
 package Modelo;
 
-public class AlgoFormer {
+public class Algoformer {
 
 }

@@ -20,9 +20,9 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertFalse(juego.tieneChispaDelPoder);
+		Assert.assertFalse(juego.tieneChispaDelPoder());
 		
-		Assert.assertFalse(juego.tieneChispaDelPoder);
+		Assert.assertFalse(juego.tieneChispaDelPoder());
 	}
 	
 	@Test
@@ -72,31 +72,21 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getAutobots().algoformers.get(1) instanceof Optimus);
-		Assert.assertTrue(juego.getAutobots().algoformers.get(2) instanceof Bumblebee);
-		Assert.assertTrue(juego.getAutobots().algoformers.get(3) instanceof Ratchet);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer(1) instanceof Optimus);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer(2) instanceof Bumblebee);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer(3) instanceof Ratchet);
 		
 	}
 	
-	@Test
-	public void test07autobotsComienzaConOptimusBumblebeeRatchet() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getAutobots().algoformers.get(1) instanceof Optimus);
-		Assert.assertTrue(juego.getAutobots().algoformers.get(2) instanceof Bumblebee);
-		Assert.assertTrue(juego.getAutobots().algoformers.get(3) instanceof Ratchet);
-		
-	}
 	
 	@Test
-	public void test08decepticonsComienzaConMegatronBonecrusherFrenzy() {
+	public void test07decepticonsComienzaConMegatronBonecrusherFrenzy() {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getDecepticons().algoformers.get(1) instanceof Megatron);
-		Assert.assertTrue(juego.getDecepticons().algoformers.get(2) instanceof Bonecrusher);
-		Assert.assertTrue(juego.getDecepticons().algoformers.get(3) instanceof Frenzy);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer(1) instanceof Megatron);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer(2) instanceof Bonecrusher);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer(3) instanceof Frenzy);
 		
 	}
 	
