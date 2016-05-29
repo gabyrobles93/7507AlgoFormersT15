@@ -97,14 +97,23 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test07elJuegoTieneUnTablero() {
+	public void test07elJuegoTieneUnTableroTierra() {
 		
 		Juego juego = new Juego();
 		
 		Tablero tablero = new Tablero();
 		
-		Assert.assertTrue(juego.getTablero() instanceof Tablero);
+		Assert.assertTrue(juego.getTableroTierra() instanceof Tablero);	
+	}
+	
+	@Test
+	public void test08elJuegoTieneUnTableroCielo() {
 		
+		Juego juego = new Juego();
+		
+		Tablero tablero = new Tablero();
+		
+		Assert.assertTrue(juego.getTableroCielo() instanceof Tablero);	
 	}
 	
 }

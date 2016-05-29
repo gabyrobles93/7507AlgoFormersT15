@@ -32,4 +32,55 @@ public class TableroTest {
 
 	}
 	
+	public void test04elTableroSabeSiTieneUnPersonaje() {
+		
+		Juego juego = new Juego();
+		
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(2)));
+	}
+	
+	@Test
+	public void test05todoAlgoformerNaceEnTableroTierra() {
+		
+		Juego juego = new Juego();
+		
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(1)));
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(2)));
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(3)));
+		
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(1)));
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(2)));
+		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(3)));
+		
+	}
+	
+	@Test
+	public void test06ningunAlgoformerNaceEnTableroCielo() {
+		
+		Juego juego = new Juego();
+		
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(1)));
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(2)));
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(3)));
+		
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(1)));
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(2)));
+		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(3)));
+		
+	}
+	
+	@Test
+	public void test07unTableroPuedeContenerChispaDelPoder() {
+		
+		Juego juego = new Juego();
+		
+		juego.getTableroTierra().setContieneChispaDelPoder(true);
+		
+		Assert.assertTrue(juego.getTableroTierra().getContieneChispaDelPoder());
+		
+		juego.getTableroTierra().setContieneChispaDelPoder(false);
+		
+		Assert.assertFalse(juego.getTableroTierra().getContieneChispaDelPoder());
+	}
+	
 }
