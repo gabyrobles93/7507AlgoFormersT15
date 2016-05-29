@@ -3,6 +3,10 @@ package test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.Juego;
+import Modelo.TableroCielo;
+import Modelo.TableroTierra;
+
 public class JuegoTest {
 
 	@Test
@@ -40,8 +44,8 @@ public class JuegoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertFalse(juego.getGanador() == juego.getDecepticons);
-		Assert.assertFalse(juego.getGanador() == juego.getAutobots);
+		Assert.assertFalse(juego.getGanador() == juego.getDecepticons());
+		Assert.assertFalse(juego.getGanador() == juego.getAutobots());
 	}
 	
 	@Test
@@ -101,9 +105,7 @@ public class JuegoTest {
 		
 		Juego juego = new Juego();
 		
-		Tablero tablero = new Tablero();
-		
-		Assert.assertTrue(juego.getTableroTierra() instanceof Tablero);	
+		Assert.assertTrue(juego.getTableroTierra() instanceof TableroTierra);	
 	}
 	
 	@Test
@@ -111,9 +113,7 @@ public class JuegoTest {
 		
 		Juego juego = new Juego();
 		
-		Tablero tablero = new Tablero();
-		
-		Assert.assertTrue(juego.getTableroCielo() instanceof Tablero);	
+		Assert.assertTrue(juego.getTableroCielo() instanceof TableroCielo);	
 	}
 	
 }

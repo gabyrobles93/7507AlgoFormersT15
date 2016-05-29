@@ -3,7 +3,7 @@ package test;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ChispaDelPoderTest {
+public class ChispaSupremaTest {
 
 	@Test
 	public void test01laChispaEstaEnElTableroTierra() {

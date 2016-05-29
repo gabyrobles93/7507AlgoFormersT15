@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/rt.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/alt-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/charsets.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/deploy.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/javaws.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jce.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jfr.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jfxrt.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jsse.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/management-agent.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/plugin.jar"/>
+	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/resources.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
