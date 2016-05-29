@@ -36,7 +36,16 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test03elJuegoPuedeSetearElPrimerTurno() {
+	public void test03elJuegoComienzaSinGanadores() {
+		
+		Juego juego = new Juego();
+		
+		Assert.assertFalse(juego.getGanador() == juego.getDecepticons);
+		Assert.assertFalse(juego.getGanador() == juego.getAutobots);
+	}
+	
+	@Test
+	public void test04elJuegoPuedeSetearElPrimerTurno() {
 		
 		Juego juego = new Juego();
 		
@@ -51,7 +60,7 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test04elJuegoEjecutaTurnos() {
+	public void test05elJuegoEjecutaTurnos() {
 		
 		Juego juego = new Juego();
 		
@@ -74,7 +83,7 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test05elJuegoFinalizaCuandoUnEquipoGana() {
+	public void test06elJuegoFinalizaCuandoUnEquipoGana() {
 		
 		Juego juego = new Juego();
 		
@@ -88,7 +97,7 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test06elJuegoTieneUnTablero() {
+	public void test07elJuegoTieneUnTablero() {
 		
 		Juego juego = new Juego();
 		

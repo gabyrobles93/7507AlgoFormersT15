@@ -16,11 +16,17 @@ public class TableroTest {
 	}
 	
 	@Test
-	public void test02elTableroDeUnJuegoTiene50x50Casilleros() {
+	public void test02elTableroDeUnJuegoTiene50Filas() {
 		
 		Juego juego = new Juego();
 		
 		Assert.assertTrue(juego.getTablero().getCantidadFilas() == 50);
+
+	}
+	
+	public void test03elTableroDeUnJuegoTiene50Columnas() {
+		
+		Juego juego = new Juego();
 		
 		Assert.assertTrue(juego.getTablero().getCantidadColumnas() == 50);
 

@@ -3,8 +3,6 @@ package test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.modelo.RecursoOcupadoException;
-
 public class MovimientoTest {
 
 	@Test(expected=MovimientoInvalidoMuyLejosExcepcion.class)
@@ -135,7 +133,7 @@ public class MovimientoTest {
 		juego.getDecepticons().getAlgoformer(1).setPosicion(casilleroinicial);
 		juego.getDecepticons().getAlgoformer(2).setPosicion(casillerointermedio);
 		
-		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); 
+		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1);  /* Deberia arrojar excepcion */
 		
 	}
 	
@@ -156,7 +154,7 @@ public class MovimientoTest {
 		juego.getDecepticons().getAlgoformer(1).setPosicion(casilleroinicial);
 		juego.getDecepticons().getAlgoformer(2).setPosicion(casillerointermedio);
 		
-		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); 
+		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); /* Deberia arrojar excepcion */
 		
 	}
 	
@@ -177,7 +175,26 @@ public class MovimientoTest {
 		juego.getDecepticons().getAlgoformer(1).setPosicion(casilleroinicial);
 		juego.getDecepticons().getAlgoformer(2).setPosicion(casillerointermedio);
 		
-		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); 
+		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); /* Deberia arrojar excepcion */
+		
+	}
+	
+	@Test(expected=MovimientoInvalidoAlgoformerObstruyendoExcepcion.class)
+	public void test09algoformerNoPuedeMoverseAPosicionDeOtroAlgoformer() {
+		
+		Juego juego = new Juego();
+		Casillero casilleroinicial = new Casillero();
+		Casillero casillerofinal_1 = new Casillero();
+		
+		int velocidad = juego.getDecepticons().getAlgoformer(1).setVelocidad(5);
+		
+		casilleroinicial.setPosicion(30,30);
+		casillerofinal_1.setPosicion(32,32);
+		
+		juego.getDecepticons().getAlgoformer(1).setPosicion(casilleroinicial);
+		juego.getDecepticons().getAlgoformer(2).setPosicion(casillerofinal_1);
+		
+		juego.getDecepticons().getAlgoformer(1).mover(casillerofinal_1); /* Deberia arrojar excepcion */
 		
 	}
 	

@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Tablero {
+public abstract class Tablero{
 
 
 
