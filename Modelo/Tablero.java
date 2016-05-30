@@ -58,28 +58,41 @@ public boolean movimientoPosible(AlgoFormer unAlgoformer, int filaDestino, int c
 	boolean caminoInterrumpido=false;
  int distanciaFila=filaDestino-unAlgoformer.getFila();
  int distanciaColumna=columnaDestino-unAlgoformer.getColumna();
- if(distanciaFila==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))&&distanciaColumna<0){//misma fila, mov horizontal->velocidadPermitida
+ if(distanciaFila==0&&distanciaColumna<0){//misma fila, mov horizontal->velocidadPermitida
 	 for(int i=1;i<=Math.abs(distanciaColumna);i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()][unAlgoformer.getColumna()-i].estaOcupado();
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
+	 if(unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))){
+		 return !caminoInterrumpido;}//se puede mover
+		 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
  }
- else if(distanciaFila==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))&&distanciaColumna>0){//misma fila, mov horizontal->velocidadPermitida
+ else if(distanciaFila==0&&distanciaColumna>0){//misma fila, mov horizontal->velocidadPermitida
 	 for(int i=1;i<=distanciaColumna;i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()][unAlgoformer.getColumna()+i].estaOcupado();
+		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
+	 if(unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))){
+	 return !caminoInterrumpido;}//se puede mover
+	 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
  }
  else if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila<0){//misma col, mov vertical->velocidadPermitida
 	 for(int i=1;i<=Math.abs(distanciaFila);i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()-i][unAlgoformer.getColumna()].estaOcupado();
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
+	 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+		 return !caminoInterrumpido;}//se puede mover
+		 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
  }
- else if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila>0){//misma col,mov vertical ->velocidadPermitida
+ else if(distanciaColumna==0&&distanciaFila>0){//misma col,mov vertical ->velocidadPermitida
 	 for(int i=1;i<=distanciaFila;i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()].estaOcupado();
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
+	 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+		 return !caminoInterrumpido;}//se puede mover
+		 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
  }
  
  else if(Math.abs(distanciaColumna)==Math.abs(distanciaFila)){//movimiento en diagonal
@@ -88,24 +101,36 @@ public boolean movimientoPosible(AlgoFormer unAlgoformer, int filaDestino, int c
 			 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()-i].estaOcupado();
 			 if(caminoInterrumpido==true) return !caminoInterrumpido;
 		 }
+		 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+			 return !caminoInterrumpido;}//se puede mover
+			 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
 	 }
 	 if(distanciaColumna<0&&distanciaFila<0){//mov hacia izq arriba
 		 for(int i=1;i<=Math.abs(distanciaFila);i++){
 			 caminoInterrumpido=matriz[unAlgoformer.getFila()-i][unAlgoformer.getColumna()-i].estaOcupado();
 			 if(caminoInterrumpido==true) return !caminoInterrumpido;
 		 }
+		 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+			 return !caminoInterrumpido;}//se puede mover
+			 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
 	 }
 	 if(distanciaColumna>0&&distanciaFila<0){//mov hacia derecha arriba
 		 for(int i=1;i<=Math.abs(distanciaFila);i++){
 			 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()-i].estaOcupado();
 			 if(caminoInterrumpido==true) return !caminoInterrumpido;
 		 }
+		 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+			 return !caminoInterrumpido;}//se puede mover
+			 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
 	 }
 	 if(distanciaColumna>0&&distanciaFila>0){//mov hacia derecha abajo
 		 for(int i=1;i<=Math.abs(distanciaFila);i++){
 			 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()+i].estaOcupado();
 			 if(caminoInterrumpido==true) return !caminoInterrumpido;
 		 }
+		 if(unAlgoformer.distanciaPosible(Math.abs(distanciaFila))){
+			 return !caminoInterrumpido;}//se puede mover
+			 else throw new ErrorVelocidadDelAlgoformerInsuficiente();
 	 }
  }
  else throw new ErrorCasillerosNoConectadosPorLineaRecta();

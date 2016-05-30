@@ -2,6 +2,8 @@ package Test;
 
 import org.junit.Assert;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
+import Modelo.ErrorVelocidadDelAlgoformerInsuficiente;
+
 import org.junit.Test;
 
 import Modelo.AlgoFormer;
@@ -28,8 +30,8 @@ public void test02MuevoAlgoformerYverificoPosicion(){
 	Tablero unTablero =new Tablero();
 	AlgoFormer megatron=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron,1,1);
-	unTablero.moverAlgoformer(megatron,20,20);
-	Assert.assertTrue(megatron.getFila()==20&&megatron.getColumna()==20);
+	unTablero.moverAlgoformer(megatron,2,2);
+	Assert.assertTrue(megatron.getFila()==2&&megatron.getColumna()==2);
 	
 }
 @Test (expected=ErrorCasillerosNoConectadosPorLineaRecta.class)
@@ -37,7 +39,7 @@ public void test06movimientoPosibleArrojaExcepcionSiLosCasillerosNoEstanEnLinea(
 	Tablero unTablero =new Tablero();
 	AlgoFormer megatron=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron,1,1);
-	unTablero.moverAlgoformer(megatron,1,42);
+	unTablero.moverAlgoformer(megatron,3,5);
 }
 @Test
 public void test03CaminoInterrumpidoMovimientoDiagonal(){
@@ -80,10 +82,17 @@ public void test03CaminoInterrumpidoMovimientoHorizontal(){
 	
 	Assert.assertFalse(unTablero.movimientoPosible(megatron2, 5, 3));
 	// megatron se encuentra en el medio, megatron 2 nopuede ir en esa direcc
-	Assert.assertTrue(unTablero.movimientoPosible(megatron, 5, 6));
+	Assert.assertTrue(unTablero.movimientoPosible(megatron2, 5, 6));
 	// megatron se puede mover a 2,3 
 	Assert.assertFalse(unTablero.movimientoPosible(megatron2, 5, 4));
 	// megatron esta en 2,2, entonces megatron2 no puede moverse ahi;
+}
+@Test(expected=ErrorVelocidadDelAlgoformerInsuficiente.class)
+public void test56movimientoPosibleLanzaExcepVelocidadDelAlgoformerInsuficiente(){
+	Tablero unTablero =new Tablero();
+	AlgoFormer megatron=new MegatronAlterno();
+	unTablero.ubicarAlgoformer(megatron,1,1);
+	unTablero.moverAlgoformer(megatron,20,20);
 }
 	
 }
