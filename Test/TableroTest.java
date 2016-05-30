@@ -1,86 +1,31 @@
-package test;
+package Test;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.AlgoFormer;
+
+import Modelo.MegatronAlterno;
+import Modelo.Tablero;
+
 
 public class TableroTest {
 
+	
 	@Test
-	public void test01elTableroEstaCompuestoPorCasilleros() {
+	public void test01AgregoAlgoformerAtableroYloBusco() {
 		
-		Tablero tablero = new Tablero();
+		Tablero tablero1=new Tablero();
+		AlgoFormer megatron=new MegatronAlterno();
+		tablero1.ubicarAlgoformer(megatron,1,2);
 		
-		Assert.assertTrue(tablero.getCasillero(25,25) instanceof Casillero);
+		Assert.assertTrue(tablero1.existeAlgoFormer(megatron));
+		Assert.assertTrue(tablero1.getCasillero(1,2)==megatron.getPosicion());
+	}
+	
 
-	}
 	
-	@Test
-	public void test02elTableroDeUnJuegoTiene50Filas() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getTablero().getCantidadFilas() == 50);
+	
 
-	}
-	
-	public void test03elTableroDeUnJuegoTiene50Columnas() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getTablero().getCantidadColumnas() == 50);
-
-	}
-	
-	public void test04elTableroSabeSiTieneUnPersonaje() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(2)));
-	}
-	
-	@Test
-	public void test05todoAlgoformerNaceEnTableroTierra() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(1)));
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(2)));
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getAutobots().getAlgoformer(3)));
-		
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(1)));
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(2)));
-		Assert.assertTrue(juego.getTableroTierra().contieneA(juego.getDecepticons().getAlgoformer(3)));
-		
-	}
-	
-	@Test
-	public void test06ningunAlgoformerNaceEnTableroCielo() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(1)));
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(2)));
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getAutobots().getAlgoformer(3)));
-		
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(1)));
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(2)));
-		Assert.assertFalse(juego.getTableroCielo().contieneA(juego.getDecepticons().getAlgoformer(3)));
-		
-	}
-	
-	@Test
-	public void test07unTableroPuedeContenerChispaDelPoder() {
-		
-		Juego juego = new Juego();
-		
-		juego.getTableroTierra().setContieneChispaDelPoder(true);
-		
-		Assert.assertTrue(juego.getTableroTierra().getContieneChispaDelPoder());
-		
-		juego.getTableroTierra().setContieneChispaDelPoder(false);
-		
-		Assert.assertFalse(juego.getTableroTierra().getContieneChispaDelPoder());
-	}
 	
 }

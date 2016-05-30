@@ -1,18 +1,25 @@
 package Modelo;
 
 public class Casillero {
+	private AlgoFormer algoformerOcupa;
+	public Casillero(){
+	algoformerOcupa=null;
+	}
+	public AlgoFormer getAlgoformerOcupa() {
 	
-	
-	
-	public void setPosicion(int x, int y){
+		return  algoformerOcupa;
+	}
+	public void setAlgoformerOcupa(AlgoFormer unAlgoformer) {
 		
+		algoformerOcupa=unAlgoformer;
+	}
+	public boolean estaOcupado() {
 		
+		return (algoformerOcupa!=null);
 	}
 	
-	public Casillero getPosicion(){
-		return posicion;
-	}
+	
 
 }
 
-}
+

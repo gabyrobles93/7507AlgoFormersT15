@@ -1,20 +1,20 @@
 package Modelo;
 
-public class Algoformer {
-	int[] posicion;
-	int vida;
-	int ataque;
-	int velovidad;
-	int alcance;
+public class AlgoFormer {
+	protected Casillero posicion;
+	protected int vida;
+	protected int ataque;
+	protected int velocidad;
+	protected int alcance;
 	
 	
-	public void setPosicion(int[] unaPosicion){
+	public void setPosicion(Casillero unaPosicion){
 	
 		posicion=unaPosicion;
 			
 	}
 	
-	public int[] getPosicion(){
+	public Casillero getPosicion(){
 		return posicion;
 	}
 

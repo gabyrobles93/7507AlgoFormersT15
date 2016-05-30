@@ -1,5 +1,5 @@
 package Modelo;
 
-public class Megatron extends Algoformer {
+public class Megatron extends AlgoFormer {
 
 }

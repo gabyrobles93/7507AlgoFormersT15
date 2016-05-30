@@ -1,4 +1,4 @@
-package test;
+package Test;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -8,7 +8,7 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.TableroTierra;
 
-public class AlgoformerTest {
+public class AlgoFormerTest {
 	
 	@Test
 	public void test01unAlgoformerTieneUnaPosicion() {
