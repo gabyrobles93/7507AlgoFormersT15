@@ -1,21 +1,36 @@
 package Modelo;
 
 public class AlgoFormer {
-	protected Casillero posicion;
+	protected int Fila;
+	protected int Columna;
 	protected int vida;
 	protected int ataque;
 	protected int velocidad;
 	protected int alcance;
 	
 	
-	public void setPosicion(Casillero unaPosicion){
+	public int getColumna(){
 	
-		posicion=unaPosicion;
+		return Columna;
 			
 	}
 	
-	public Casillero getPosicion(){
-		return posicion;
+	public int getFila(){
+		return Fila;
+	}
+
+	public void setFila(int fila2) {
+	Fila=fila2;
+		
+	}
+
+	public void setColumna(int columna2) {
+	Columna=columna2;
+	}
+
+	public boolean distanciaPosible(int distanciaColumna) {
+		return (distanciaColumna<=velocidad);
+		
 	}
 
 

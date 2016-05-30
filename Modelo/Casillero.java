@@ -2,8 +2,10 @@ package Modelo;
 
 public class Casillero {
 	private AlgoFormer algoformerOcupa;
+	
 	public Casillero(){
 	algoformerOcupa=null;
+
 	}
 	public AlgoFormer getAlgoformerOcupa() {
 	
@@ -17,6 +19,7 @@ public class Casillero {
 		
 		return (algoformerOcupa!=null);
 	}
+
 	
 	
 
