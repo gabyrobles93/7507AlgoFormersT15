@@ -38,10 +38,15 @@ public Casillero getCasillero(int fila, int columna) {
 }
 
 public void moverAlgoformer(AlgoFormer megatron, int filaDestino, int columnaDestino) {
-	if(movimientoPosible(megatron,filaDestino,columnaDestino)){
+	boolean movimientoPermitido=false;
+	try{
+		movimientoPermitido=movimientoPosible(megatron,filaDestino,columnaDestino);
 		megatron.setFila(filaDestino);
 		megatron.setColumna(columnaDestino);
 		matriz[filaDestino][columnaDestino].setAlgoformerOcupa(megatron);
+	}catch(RuntimeException e){
+		throw e;
+		
 	}
 	
 }
@@ -59,25 +64,25 @@ public boolean movimientoPosible(AlgoFormer unAlgoformer, int filaDestino, int c
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
  }
- if(distanciaFila==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))&&distanciaColumna>0){//misma fila, mov horizontal->velocidadPermitida
+ else if(distanciaFila==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaColumna))&&distanciaColumna>0){//misma fila, mov horizontal->velocidadPermitida
 	 for(int i=1;i<=distanciaColumna;i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()][unAlgoformer.getColumna()+i].estaOcupado();
 	 }
  }
- if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila<0){//misma col, mov vertical->velocidadPermitida
+ else if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila<0){//misma col, mov vertical->velocidadPermitida
 	 for(int i=1;i<=Math.abs(distanciaFila);i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()-i][unAlgoformer.getColumna()].estaOcupado();
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
  }
- if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila>0){//misma col,mov vertical ->velocidadPermitida
+ else if(distanciaColumna==0&&unAlgoformer.distanciaPosible(Math.abs(distanciaFila))&&distanciaFila>0){//misma col,mov vertical ->velocidadPermitida
 	 for(int i=1;i<=distanciaFila;i++){
 		 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()].estaOcupado();
 		 if(caminoInterrumpido==true) return !caminoInterrumpido;
 	 }
  }
  
- if(Math.abs(distanciaColumna)==Math.abs(distanciaFila)){//movimiento en diagonal
+ else if(Math.abs(distanciaColumna)==Math.abs(distanciaFila)){//movimiento en diagonal
 	 if(distanciaColumna<0&&distanciaFila>0){//mov hacia izq abajo
 		 for(int i=1;i<=distanciaFila;i++){
 			 caminoInterrumpido=matriz[unAlgoformer.getFila()+i][unAlgoformer.getColumna()-i].estaOcupado();
@@ -103,7 +108,9 @@ public boolean movimientoPosible(AlgoFormer unAlgoformer, int filaDestino, int c
 		 }
 	 }
  }
- return !caminoInterrumpido;
+ else throw new ErrorCasillerosNoConectadosPorLineaRecta();
+return !caminoInterrumpido;//nunca llega aca, pero me obliga a tener un return en el ambito de la funcion
+ 
 }
 
 }

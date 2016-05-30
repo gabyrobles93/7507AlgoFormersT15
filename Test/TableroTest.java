@@ -1,6 +1,7 @@
 package Test;
 
 import org.junit.Assert;
+import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import org.junit.Test;
 
 import Modelo.AlgoFormer;
@@ -26,9 +27,17 @@ public class TableroTest {
 public void test02MuevoAlgoformerYverificoPosicion(){
 	Tablero unTablero =new Tablero();
 	AlgoFormer megatron=new MegatronAlterno();
-	unTablero.ubicarAlgoformer(megatron,1,2);
+	unTablero.ubicarAlgoformer(megatron,1,1);
 	unTablero.moverAlgoformer(megatron,20,20);
+	Assert.assertTrue(megatron.getFila()==20&&megatron.getColumna()==20);
 	
+}
+@Test (expected=ErrorCasillerosNoConectadosPorLineaRecta.class)
+public void test06movimientoPosibleArrojaExcepcionSiLosCasillerosNoEstanEnLinea(){
+	Tablero unTablero =new Tablero();
+	AlgoFormer megatron=new MegatronAlterno();
+	unTablero.ubicarAlgoformer(megatron,1,1);
+	unTablero.moverAlgoformer(megatron,1,42);
 }
 @Test
 public void test03CaminoInterrumpidoMovimientoDiagonal(){
