@@ -13,7 +13,7 @@ public Tablero(){
 	}
 }
 
-public void ubicarAlgoformer(AlgoFormer unAlgoformer,int fila, int columna)throws ErrorCasillerOcupado {
+public void ubicarAlgoformer(Algoformer unAlgoformer,int fila, int columna)throws ErrorCasillerOcupado {
 	if(matriz[fila][columna].estaOcupado()==true){
 		throw new ErrorCasillerOcupado();
 	}
@@ -22,7 +22,7 @@ public void ubicarAlgoformer(AlgoFormer unAlgoformer,int fila, int columna)throw
 	unAlgoformer.setColumna(columna);
 }
 
-public boolean existeAlgoFormer(AlgoFormer unAlgoformer) {
+public boolean existeAlgoformer(Algoformer unAlgoformer) {
 	boolean encontrado=false;
 for(int i=0;i<CantidadCasilleros;i++){
 	for(int j=0;j<CantidadCasilleros;j++){
@@ -37,7 +37,7 @@ public Casillero getCasillero(int fila, int columna) {
 	return matriz[fila][columna];//metodo usado en tests;
 }
 
-public void moverAlgoformer(AlgoFormer megatron, int filaDestino, int columnaDestino) {
+public void moverAlgoformer(Algoformer megatron, int filaDestino, int columnaDestino) {
 	boolean movimientoPermitido=false;
 	try{
 		movimientoPermitido=movimientoPosible(megatron,filaDestino,columnaDestino);
@@ -51,7 +51,7 @@ public void moverAlgoformer(AlgoFormer megatron, int filaDestino, int columnaDes
 	
 }
 
-public boolean movimientoPosible(AlgoFormer unAlgoformer, int filaDestino, int columnaDestino)throws RuntimeException {
+public boolean movimientoPosible(Algoformer unAlgoformer, int filaDestino, int columnaDestino)throws RuntimeException {
 	if(filaDestino>CantidadCasilleros||columnaDestino>CantidadCasilleros){
 		throw new ErrorCasilleroInvalido();
 	}

@@ -4,22 +4,25 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Area;
 import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.TableroTierra;
 
-public class AlgoFormerTest {
+public class AlgoformerTest {
 	
 	@Test
 	public void test01unAlgoformerTieneUnaPosicion() {
 		
 		Algoformer algoformer = new Algoformer();
-		int[] coordenada=new int[2];
+		int fila=5;
+		int col=10;
+		
+		algoformer.setFila(fila);
+		algoformer.setColumna(col);
 		
 		
-		algoformer.setPosicion(coordenada);
-		
-		Assert.assertTrue(algoformer.getPosicion() == coordenada);
+		Assert.assertTrue((algoformer.getFila()==fila)&&(algoformer.getColumna()==col));
 
 	}
 	
@@ -51,21 +54,7 @@ public class AlgoFormerTest {
 
 	}
 	
-	@Test
-	public void test04dosAlgoformersNoPuedenEstarEnLaMismaPosicion() {
-		
-		TableroTierra tablero = new TableroTierra();
-		int[] coordenanda=new int[2];
-		Algoformer algof1=new Algoformer();
-		Algoformer algof2=new Algoformer();
-		
-		//prueba no terminadaaaaa
-		
-		
-	/*	juego.getDecepticons().setPosicion(casillero1);*/
 
-	}
-	
 
 
 }

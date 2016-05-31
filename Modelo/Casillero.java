@@ -1,17 +1,17 @@
 package Modelo;
 
 public class Casillero {
-	private AlgoFormer algoformerOcupa;
+	private Algoformer algoformerOcupa;
 	
 	public Casillero(){
 	algoformerOcupa=null;
 
 	}
-	public AlgoFormer getAlgoformerOcupa() {
+	public Algoformer getAlgoformerOcupa() {
 	
 		return  algoformerOcupa;
 	}
-	public void setAlgoformerOcupa(AlgoFormer unAlgoformer) {
+	public void setAlgoformerOcupa(Algoformer unAlgoformer) {
 		
 		algoformerOcupa=unAlgoformer;
 	}

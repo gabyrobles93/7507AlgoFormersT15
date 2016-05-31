@@ -6,7 +6,7 @@ import Modelo.ErrorVelocidadDelAlgoformerInsuficiente;
 
 import org.junit.Test;
 
-import Modelo.AlgoFormer;
+import Modelo.Algoformer;
 
 import Modelo.MegatronAlterno;
 import Modelo.Tablero;
@@ -19,16 +19,16 @@ public class TableroTest {
 	public void test01AgregoAlgoformerAtableroYloBusco() {
 		
 		Tablero tablero1=new Tablero();
-		AlgoFormer megatron=new MegatronAlterno();
+		Algoformer megatron=new MegatronAlterno();
 		tablero1.ubicarAlgoformer(megatron,1,2);
 		
-		Assert.assertTrue(tablero1.existeAlgoFormer(megatron));
+		Assert.assertTrue(tablero1.existeAlgoformer(megatron));
 		Assert.assertTrue(megatron.getFila()==1&&megatron.getColumna()==2);
 	}
 @Test
 public void test02MuevoAlgoformerYverificoPosicion(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron,1,1);
 	unTablero.moverAlgoformer(megatron,2,2);
 	Assert.assertTrue(megatron.getFila()==2&&megatron.getColumna()==2);
@@ -37,15 +37,15 @@ public void test02MuevoAlgoformerYverificoPosicion(){
 @Test (expected=ErrorCasillerosNoConectadosPorLineaRecta.class)
 public void test06movimientoPosibleArrojaExcepcionSiLosCasillerosNoEstanEnLinea(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron,1,1);
 	unTablero.moverAlgoformer(megatron,3,5);
 }
 @Test
 public void test03CaminoInterrumpidoMovimientoDiagonal(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
-	AlgoFormer megatron2=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
+	Algoformer megatron2=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron2,1,1);
 	unTablero.ubicarAlgoformer(megatron,2,2);
 	
@@ -60,8 +60,8 @@ public void test03CaminoInterrumpidoMovimientoDiagonal(){
 @Test
 public void test04CaminoInterrumpidoMovimientoVertical(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
-	AlgoFormer megatron2=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
+	Algoformer megatron2=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron2,3,3);
 	unTablero.ubicarAlgoformer(megatron,2,3);
 	
@@ -75,8 +75,8 @@ public void test04CaminoInterrumpidoMovimientoVertical(){
 @Test
 public void test03CaminoInterrumpidoMovimientoHorizontal(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
-	AlgoFormer megatron2=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
+	Algoformer megatron2=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron2,5,5);
 	unTablero.ubicarAlgoformer(megatron,5,4);
 	
@@ -90,7 +90,7 @@ public void test03CaminoInterrumpidoMovimientoHorizontal(){
 @Test(expected=ErrorVelocidadDelAlgoformerInsuficiente.class)
 public void test56movimientoPosibleLanzaExcepVelocidadDelAlgoformerInsuficiente(){
 	Tablero unTablero =new Tablero();
-	AlgoFormer megatron=new MegatronAlterno();
+	Algoformer megatron=new MegatronAlterno();
 	unTablero.ubicarAlgoformer(megatron,1,1);
 	unTablero.moverAlgoformer(megatron,20,20);
 }

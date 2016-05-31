@@ -1,22 +1,27 @@
 package Modelo;
 
 public class Juego {
-	private Equipo autobots;
-	private Equipo decepticons;
+	public Equipo autobots;//se cambio la visibilidad por problemas en pruebas.
+	public Equipo decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
 	private boolean estaIniciado=false;
 	private boolean estaFinalizado=true;
 	private TableroCielo tableroCielo;
 	private TableroTierra tableroTierra;
 	private Equipo turnoDelEquipo;
-	
+
 	public void setAutobots(){
-		
-		autobots= new Equipo();
+		MegatronAlterno mega1=new MegatronAlterno();
+		MegatronAlterno mega2=new MegatronAlterno();
+		MegatronAlterno mega3=new MegatronAlterno();
+		autobots= new Equipo(mega1,mega2,mega3);
 	}
 	public void setDesepticons(){
 		
-		decepticons= new Equipo();
+		MegatronAlterno mega1=new MegatronAlterno();
+		MegatronAlterno mega2=new MegatronAlterno();
+		MegatronAlterno mega3=new MegatronAlterno();
+		decepticons= new Equipo(mega1,mega2,mega3);
 	}
 	public void setTableroCielo(){
 		
