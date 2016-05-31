@@ -10,7 +10,7 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
-import Modelo.TableroTierra;
+
 
 public class AlgoformerTest {
 	

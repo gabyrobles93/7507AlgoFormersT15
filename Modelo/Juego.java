@@ -109,8 +109,15 @@ public class Juego {
 	
 	public Equipo getGanador(){
 		
-		return ganador;
+		if((autobots.getVidaTotal()==0)||(decepticons.getTieneChispaSuprema())||(autobots.cantidadMiembrosVivos==0)){
+			return decepticons;
+		}
+		if((decepticons.getVidaTotal()==0)||(autobots.getTieneChispaSuprema())||(decepticons.cantidadMiembrosVivos==0)){
+			return autobots;
+		}
+		return null;
 	}
+	
 	public Tablero getTablero() {
 		
 		return tablero;
