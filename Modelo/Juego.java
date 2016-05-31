@@ -41,15 +41,16 @@ public class Juego {
 	}
 	
 	private void ubicarAutobots() {
-		int fila1=(int)Math.random()*2+47;
-		
-		
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("megatron"), fila, columna);
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("bonecrusher"), fila, columna);
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("frenzy"), fila, columna);
+	
+		tablero.ubicarAlgoformer(autobots.getAlgoformer("optimus"), 2, 2);
+		tablero.ubicarAlgoformer(autobots.getAlgoformer("ratchet"), 0, 2);
+		tablero.ubicarAlgoformer(autobots.getAlgoformer("bumblebee"), 2, 0);
 	}
 	private void ubicarDecepticons() {
-		// TODO Auto-generated method stub
+
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("megatron"), 47, 47);
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("bonecrusher"), 49,47);
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("frenzy"), 47, 49);
 		
 	}
 	public Equipo getAutobots(){

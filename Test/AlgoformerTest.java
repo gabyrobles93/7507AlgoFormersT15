@@ -10,10 +10,7 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
-<<<<<<< HEAD
-=======
 
->>>>>>> 60355e7f920c66b25ffb717cd0ab03cbd15f1e69
 
 public class AlgoformerTest {
 	
@@ -31,30 +28,27 @@ public class AlgoformerTest {
 		Assert.assertTrue((algoformer.getFila()==fila)&&(algoformer.getColumna()==col));
 
 	}
-	
+
 	@Test
-	public void test02autobotNaceEnEsquinaInferiorDerecha() {
+	public void test03AutobotsEnEsquinaInferiorDerecha() {
 		
 		Juego juego = new Juego();
 	
-		
-		
 		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("optimus")));
 		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("bumblebee")));
 		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("ratchet")));
+		
 	}
 	@Test
-	public void test03DecepticonNaceEnEsquinaSuperiorIzquierda() {
+	public void test04DecepticonNaceEnEsquinaSuperiorIzquierda() {
 		
 		Juego juego = new Juego();
 	
 		
-		
-		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("megatron")));
-		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("frenzy")));
-		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("bonecrusher")));
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("megatron")));
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("frenzy")));
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("bonecrusher")));
 	}
-	
 	@Test
 	public void test04CambioAlgoformerDeModo(){
 		Algoformer megatron=new MegatronHumanoide();
