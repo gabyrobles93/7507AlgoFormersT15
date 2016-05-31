@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Juego;
-import Modelo.TableroCielo;
-import Modelo.TableroTierra;
+import Modelo.Tablero;
+
 
 public class JuegoTest {
 
@@ -101,19 +101,13 @@ public class JuegoTest {
 	}
 	
 	@Test
-	public void test07elJuegoTieneUnTableroTierra() {
+	public void test07elJuegoTieneUnTablero() {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getTableroTierra() instanceof TableroTierra);	
+		Assert.assertTrue(juego.getTablero() instanceof Tablero);	
 	}
 	
-	@Test
-	public void test08elJuegoTieneUnTableroCielo() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertTrue(juego.getTableroCielo() instanceof TableroCielo);	
-	}
+
 	
 }

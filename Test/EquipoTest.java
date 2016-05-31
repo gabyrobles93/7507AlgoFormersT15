@@ -3,8 +3,14 @@ package Test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.Bonecrusher;
+import Modelo.Bumblebee;
 import Modelo.Casillero;
+import Modelo.Frenzy;
 import Modelo.Juego;
+import Modelo.Megatron;
+import Modelo.Optimus;
+import Modelo.Ratchet;
 
 public class EquipoTest {
 
@@ -25,7 +31,9 @@ public class EquipoTest {
 		
 		int vidatotal = juego.getAutobots().getVidaTotal();
 		
-		int sumvidaintegrantes = juego.getAutobots().getAlgoformer(0).getVida() + juego.getAutobots().getAlgoformer(1).getVida() + juego.getAutobots().getAlgoformer(2).getVida();
+		int sumvidaintegrantes = juego.getAutobots().getAlgoformer("optimus").getVida() 
+								+ juego.getAutobots().getAlgoformer("bumblebee").getVida() 
+								+ juego.getAutobots().getAlgoformer("ratchet").getVida();
 		
 		Assert.assertTrue(vidatotal == sumvidaintegrantes);
 	}
@@ -121,9 +129,9 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(1) instanceof Optimus);
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(2) instanceof Bumblebee);
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(3) instanceof Ratchet);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus") instanceof Optimus);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee") instanceof Bumblebee);
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet") instanceof Ratchet);
 		
 	}
 	
@@ -133,9 +141,9 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(1) instanceof Megatron);
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(2) instanceof Bonecrusher);
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(3) instanceof Frenzy);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron") instanceof Megatron);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher") instanceof Bonecrusher);
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy") instanceof Frenzy);
 		
 	}
 }

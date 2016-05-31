@@ -5,8 +5,11 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.Area;
+import Modelo.BumblebeeHumanoide;
 import Modelo.Casillero;
 import Modelo.Juego;
+import Modelo.MegatronAlterno;
+import Modelo.MegatronHumanoide;
 import Modelo.TableroTierra;
 
 public class AlgoformerTest {
@@ -14,7 +17,7 @@ public class AlgoformerTest {
 	@Test
 	public void test01unAlgoformerTieneUnaPosicion() {
 		
-		Algoformer algoformer = new Algoformer();
+		Algoformer algoformer = new BumblebeeHumanoide();
 		int fila=5;
 		int col=10;
 		
@@ -34,9 +37,9 @@ public class AlgoformerTest {
 		
 		area = juego.getAutobots().getAreaNacimiento();
 		
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(1).getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(2).getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getAutobots().getAlgoformer(3).getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().estaIncluidoEnArea(area));
 
 	}
 	
@@ -48,10 +51,16 @@ public class AlgoformerTest {
 		
 		area = juego.getDecepticons().getAreaNacimiento();
 		
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(1).getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(2).getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer(3).getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().estaIncluidoEnArea(area));
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().estaIncluidoEnArea(area));
 
+	}
+	@Test
+	public void test04CambioAlgoformerDeModo(){
+		Algoformer megatron=new MegatronHumanoide();
+		megatron=megatron.cambiarModo();
+		Assert.assertTrue(megatron instanceof MegatronAlterno);
 	}
 	
 

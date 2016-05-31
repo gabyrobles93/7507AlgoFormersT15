@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Algoformer {
+public abstract class Algoformer {
 	protected int Fila;
 	protected int Columna;
 	protected int vida;
@@ -8,7 +8,7 @@ public class Algoformer {
 	protected int velocidad;
 	protected int alcance;
 	
-	
+	public abstract Algoformer cambiarModo();
 	
 	public int getColumna(){
 	

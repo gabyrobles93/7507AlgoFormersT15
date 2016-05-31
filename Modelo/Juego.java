@@ -1,43 +1,41 @@
 package Modelo;
 
+
+
 public class Juego {
 	public Equipo autobots;//se cambio la visibilidad por problemas en pruebas.
 	public Equipo decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
 	private boolean estaIniciado=false;
 	private boolean estaFinalizado=true;
-	private TableroCielo tableroCielo;
-	private TableroTierra tableroTierra;
+	private Tablero	tablero;
+
 	private Equipo turnoDelEquipo;
 
 	public void setAutobots(){
-		MegatronAlterno mega1=new MegatronAlterno();
-		MegatronAlterno mega2=new MegatronAlterno();
-		MegatronAlterno mega3=new MegatronAlterno();
-		autobots= new Equipo(mega1,mega2,mega3);
+		Optimus optimus=new OptimusHumanoide();
+		Bumblebee bumblebee=new BumblebeeHumanoide();
+		Ratchet ratchet=new RatchetHumanoide();
+		autobots= new Autobots(optimus,bumblebee,ratchet);
 	}
 	public void setDesepticons(){
 		
-		MegatronAlterno mega1=new MegatronAlterno();
-		MegatronAlterno mega2=new MegatronAlterno();
-		MegatronAlterno mega3=new MegatronAlterno();
-		decepticons= new Equipo(mega1,mega2,mega3);
+		Megatron megatron=new MegatronHumanoide();
+		Bonecrusher bonecrusher=new BonecrusherHumanoide();
+		Frenzy frenzy=new FrenzyHumanoide();
+		decepticons= new Decepticons(megatron,bonecrusher,frenzy);
 	}
-	public void setTableroCielo(){
+	public void setTablero(){
 		
-		tableroCielo= new TableroCielo();
+		tablero= new Tablero();
 	}
-	public void setTableroTierra(){
-		
-		tableroTierra= new TableroTierra();
-	}
-	
+
 	public Juego(){
 
 		setAutobots();
 		setDesepticons();
-		setTableroCielo();
-		setTableroTierra();
+		setTablero();
+		
 	}
 	
 	public Equipo getAutobots(){
@@ -50,16 +48,7 @@ public class Juego {
 		return decepticons;
 	}
 	
-	public TableroTierra getTableroTierra(){
-		
-		return tableroTierra;
-	}
-	
-	public TableroCielo getTableroCielo(){
-		
-		return tableroCielo;
-	}
-	
+
 	public void iniciar(){
 		
 		estaIniciado=true;
@@ -121,6 +110,10 @@ public class Juego {
 	public Equipo getGanador(){
 		
 		return ganador;
+	}
+	public Tablero getTablero() {
+		
+		return tablero;
 	}
 	
 	/*Posiblles cosas a Refactorizar:
