@@ -10,6 +10,10 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 60355e7f920c66b25ffb717cd0ab03cbd15f1e69
 
 public class AlgoformerTest {
 	

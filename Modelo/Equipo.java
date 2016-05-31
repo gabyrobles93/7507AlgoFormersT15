@@ -1,7 +1,6 @@
 package Modelo;
 
-import java.awt.List;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 
@@ -9,7 +8,7 @@ public class Equipo {
 
 	protected HashMap<String,Algoformer> equipo;
 	protected int vida;
-	;protected int cantidadMiembrosVivos;
+	protected int cantidadMiembrosVivos; 
 	protected boolean tieneChispaSuprema; 
 	
 	
@@ -42,6 +41,8 @@ public class Equipo {
 	
 	public void setVidaTotal(int vidaDeEquipo){
 		vida=vidaDeEquipo;
+		if(vidaDeEquipo==0)
+			cantidadMiembrosVivos=0;
 		
 	}
 	
