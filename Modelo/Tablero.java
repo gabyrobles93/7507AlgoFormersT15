@@ -12,6 +12,15 @@ public Tablero(){
 		}
 	}
 }
+public Tablero(int cantidadCasilleros){
+	matriz=new Casillero[cantidadCasilleros][cantidadCasilleros];
+	for(int i=0;i<cantidadCasilleros;i++){
+		for(int j=0;j<cantidadCasilleros;j++){
+	matriz[i][j]=new Casillero();
+		}
+	}
+	CantidadCasilleros=cantidadCasilleros;
+}
 
 public void ubicarAlgoformer(Algoformer unAlgoformer,int fila, int columna)throws ErrorCasillerOcupado {
 	if(matriz[fila][columna].estaOcupado()==true){
@@ -35,6 +44,9 @@ return false;
 
 public Casillero getCasillero(int fila, int columna) {
 	return matriz[fila][columna];//metodo usado en tests;
+}
+public void setCasillero(Casillero casillero,int fila,int columna){
+	matriz[fila][columna]=casillero;
 }
 
 public void moverAlgoformer(Algoformer megatron, int filaDestino, int columnaDestino) {
@@ -135,7 +147,22 @@ public boolean movimientoPosible(Algoformer unAlgoformer, int filaDestino, int c
  }
  else throw new ErrorCasillerosNoConectadosPorLineaRecta();
 return !caminoInterrumpido;//nunca llega aca, pero me obliga a tener un return en el ambito de la funcion
- 
 }
 
+public Tablero getArea(int columnaCentral,int filaCentral,int distancia)throws RuntimeException{
+	if(distancia<0||columnaCentral<distancia||filaCentral<distancia||filaCentral+distancia>CantidadCasilleros
+			||columnaCentral+distancia>CantidadCasilleros){
+		throw new ErrorAreaFueraDeRangoPosible();
+	}
+		
+	Tablero subTablero=new Tablero(distancia+1);
+	
+	for(int i=0;i<distancia+1;i++){
+		for(int j=0;j<distancia+1;j++){
+		subTablero.setCasillero(this.matriz[filaCentral-distancia+i][columnaCentral-distancia+i],i,j);
+		}
+	}
+	return subTablero;
+}
+/*Esta SubArea No deberia poder modificar los casilleros del original no?*/
 }

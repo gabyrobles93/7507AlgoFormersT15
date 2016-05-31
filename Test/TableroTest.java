@@ -7,8 +7,9 @@ import Modelo.ErrorVelocidadDelAlgoformerInsuficiente;
 import org.junit.Test;
 
 import Modelo.Algoformer;
-
+import Modelo.ErrorAreaFueraDeRangoPosible;
 import Modelo.MegatronAlterno;
+import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
 
 
@@ -94,5 +95,26 @@ public void test56movimientoPosibleLanzaExcepVelocidadDelAlgoformerInsuficiente(
 	unTablero.ubicarAlgoformer(megatron,1,1);
 	unTablero.moverAlgoformer(megatron,20,20);
 }
+@Test
+public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
+	Tablero tablero1 =new Tablero();
+	Algoformer megatron=new MegatronHumanoide();
+	tablero1.ubicarAlgoformer(megatron, 2, 2);
+	Tablero subTablero=tablero1.getArea(2, 2, 2);
+	Assert.assertTrue(subTablero.existeAlgoformer(megatron));
+}
+@Test(expected=ErrorAreaFueraDeRangoPosible.class)
+public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
+	Tablero tablero1=new Tablero();
+	tablero1.getArea(3, 3, 4);
+	
+}
+@Test(expected=ErrorAreaFueraDeRangoPosible.class)
+public void test90getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
+	Tablero tablero1=new Tablero();
+	tablero1.getArea(48, 49, 2);
+	
+}
+	
 	
 }

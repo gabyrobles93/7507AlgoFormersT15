@@ -1,6 +1,6 @@
 package Modelo;
 
-
+import java.util.Random;
 
 public class Juego {
 	public Equipo autobots;//se cambio la visibilidad por problemas en pruebas.
@@ -31,13 +31,27 @@ public class Juego {
 	}
 
 	public Juego(){
-
+		setTablero();
 		setAutobots();
 		setDesepticons();
-		setTablero();
+		ubicarDecepticons();
+		ubicarAutobots();
+		
 		
 	}
 	
+	private void ubicarAutobots() {
+		int fila1=(int)Math.random()*2+47;
+		
+		
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("megatron"), fila, columna);
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("bonecrusher"), fila, columna);
+		tablero.ubicarAlgoformer(decepticons.getAlgoformer("frenzy"), fila, columna);
+	}
+	private void ubicarDecepticons() {
+		// TODO Auto-generated method stub
+		
+	}
 	public Equipo getAutobots(){
 		
 		return autobots;

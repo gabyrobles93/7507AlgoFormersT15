@@ -10,7 +10,6 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
-import Modelo.TableroTierra;
 
 public class AlgoformerTest {
 	
@@ -30,32 +29,28 @@ public class AlgoformerTest {
 	}
 	
 	@Test
-	public void test02autobotNaceEnAreaDeterminada() {
+	public void test02autobotNaceEnEsquinaInferiorDerecha() {
 		
 		Juego juego = new Juego();
-		Area area = new Area();
+	
 		
-		area = juego.getAutobots().getAreaNacimiento();
 		
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().estaIncluidoEnArea(area));
-
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("optimus")));
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("bumblebee")));
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("ratchet")));
+	}
+	@Test
+	public void test03DecepticonNaceEnEsquinaSuperiorIzquierda() {
+		
+		Juego juego = new Juego();
+	
+		
+		
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("megatron")));
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("frenzy")));
+		Assert.assertTrue(juego.getTablero().getArea(1, 1, 1).existeAlgoformer(juego.getAutobots().getAlgoformer("bonecrusher")));
 	}
 	
-	@Test
-	public void test03decepticonNaceEnAreaDeterminada() {
-		
-		Juego juego = new Juego();
-		Area area = new Area();
-		
-		area = juego.getDecepticons().getAreaNacimiento();
-		
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().estaIncluidoEnArea(area));
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().estaIncluidoEnArea(area));
-
-	}
 	@Test
 	public void test04CambioAlgoformerDeModo(){
 		Algoformer megatron=new MegatronHumanoide();
