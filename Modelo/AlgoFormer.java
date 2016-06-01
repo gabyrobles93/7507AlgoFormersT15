@@ -38,4 +38,9 @@ public abstract class Algoformer {
 		return vida;
 	}
 
+	public boolean alcancePosible(int alcance2) {
+		
+		return (alcance2<=alcance);
+	}
+
 }

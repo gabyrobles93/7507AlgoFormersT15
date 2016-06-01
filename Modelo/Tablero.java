@@ -155,14 +155,29 @@ public Tablero getArea(int columnaCentral,int filaCentral,int distancia)throws R
 		throw new ErrorAreaFueraDeRangoPosible();
 	}
 		
-	Tablero subTablero=new Tablero(distancia+1);
+	Tablero subTablero=new Tablero(2*distancia+1);
 	
-	for(int i=0;i<distancia+1;i++){
-		for(int j=0;j<distancia+1;j++){
-		subTablero.setCasillero(this.matriz[filaCentral-distancia+i][columnaCentral-distancia+i],i,j);
+	for(int i=0;i<=2*distancia;i++){
+		for(int j=0;j<=2*distancia;j++){
+		subTablero.setCasillero(this.matriz[filaCentral-distancia+i][columnaCentral-distancia+j],i,j);
 		}
 	}
 	return subTablero;
+}
+public boolean atacarPosible(Algoformer atacante,Algoformer victima){
+	
+	
+	int distanciaColumna=Math.abs(atacante.getColumna()-victima.getColumna());
+	
+	int distanciaFila= Math.abs(atacante.getFila()-victima.getFila());
+	
+	int alcance=(distanciaFila>=distanciaColumna)?distanciaFila:distanciaColumna;//alcance es la mayor de las distancias
+	
+	
+	return atacante.alcancePosible(alcance);
+	
+	
+	
 }
 /*Esta SubArea No deberia poder modificar los casilleros del original no?*/
 }

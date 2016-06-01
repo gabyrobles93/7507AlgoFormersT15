@@ -18,7 +18,7 @@ public class Juego {
 		Ratchet ratchet=new RatchetHumanoide();
 		autobots= new Autobots(optimus,bumblebee,ratchet);
 	}
-	public void setDesepticons(){
+	public void setDecepticons(){
 		
 		Megatron megatron=new MegatronHumanoide();
 		Bonecrusher bonecrusher=new BonecrusherHumanoide();
@@ -33,7 +33,7 @@ public class Juego {
 	public Juego(){
 		setTablero();
 		setAutobots();
-		setDesepticons();
+		setDecepticons();
 		ubicarDecepticons();
 		ubicarAutobots();
 		
@@ -137,7 +137,13 @@ public class Juego {
 		
 		return tablero;
 	}
-	
+	public void moverAlgoformer(Algoformer unAlgoformer,int filaDestino,int columnaDestino){
+		
+		try{ tablero.moverAlgoformer(unAlgoformer, filaDestino, columnaDestino);
+		}catch(RuntimeException e){
+			throw e;
+		}
+	}
 	/*Posiblles cosas a Refactorizar:
 	 1)estaIniciado no tiene mucho sentido menos teniendo estaFinalizado
 	 2)en cambiar turno se necesito un if.

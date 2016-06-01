@@ -3,7 +3,9 @@ package Test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.Algoformer;
 import Modelo.Juego;
+import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
 
 
@@ -110,4 +112,26 @@ public class JuegoTest {
 	
 
 	
+
+@Test
+public void test08UbicarAlgoformerLoPoneDondeDebe(){
+	Juego juego=new Juego();
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getFila()==47);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getColumna()==47);
+	
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getFila()==49);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getColumna()==47);
+	
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getFila()==47);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getColumna()==49);
+	
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getFila()==2);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getColumna()==2);
+	
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getFila()==0);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getColumna()==2);
+	
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getFila()==2);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getColumna()==0);
+}
 }

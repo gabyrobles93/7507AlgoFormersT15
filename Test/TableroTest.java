@@ -10,6 +10,7 @@ import Modelo.Algoformer;
 import Modelo.ErrorAreaFueraDeRangoPosible;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
+import Modelo.OptimusHumanoide;
 import Modelo.Tablero;
 
 
@@ -24,7 +25,8 @@ public class TableroTest {
 		tablero1.ubicarAlgoformer(megatron,1,2);
 		
 		Assert.assertTrue(tablero1.existeAlgoformer(megatron));
-		Assert.assertTrue(megatron.getFila()==1&&megatron.getColumna()==2);
+		Assert.assertTrue(megatron.getFila()==1);
+		Assert.assertTrue(megatron.getColumna()==2);
 	}
 @Test
 public void test02MuevoAlgoformerYverificoPosicion(){
@@ -99,9 +101,12 @@ public void test56movimientoPosibleLanzaExcepVelocidadDelAlgoformerInsuficiente(
 public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
 	Tablero tablero1 =new Tablero();
 	Algoformer megatron=new MegatronHumanoide();
+	Algoformer optimus=new OptimusHumanoide();
 	tablero1.ubicarAlgoformer(megatron, 2, 2);
+	tablero1.ubicarAlgoformer(optimus, 5, 5);
 	Tablero subTablero=tablero1.getArea(2, 2, 2);
 	Assert.assertTrue(subTablero.existeAlgoformer(megatron));
+	Assert.assertFalse(subTablero.existeAlgoformer(optimus));
 }
 @Test(expected=ErrorAreaFueraDeRangoPosible.class)
 public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
