@@ -137,7 +137,7 @@ public class Juego {
 		
 		return tablero;
 	}
-<<<<<<< HEAD
+
 	public void moverAlgoformer(Algoformer unAlgoformer,int filaDestino,int columnaDestino){
 		
 		try{ tablero.moverAlgoformer(unAlgoformer, filaDestino, columnaDestino);
@@ -145,7 +145,6 @@ public class Juego {
 			throw e;
 		}
 	}
-=======
 	
 	public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
 		
@@ -162,7 +161,7 @@ public class Juego {
 	}
 	
 	
->>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
+
 	/*Posiblles cosas a Refactorizar:
 	 1)estaIniciado no tiene mucho sentido menos teniendo estaFinalizado
 	 2)en cambiar turno se necesito un if.

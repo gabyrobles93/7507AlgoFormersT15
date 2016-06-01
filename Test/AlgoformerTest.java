@@ -10,11 +10,8 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
-<<<<<<< HEAD
 import Modelo.Tablero;
-=======
 import Modelo.OptimusHumanoide;
->>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
 
 
 public class AlgoformerTest {

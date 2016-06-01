@@ -63,8 +63,7 @@ public class TableroTest {
 		// megatron2 se puede mover a 0,0 
 		Assert.assertFalse(unTablero.movimientoPosible(megatron2, 2, 2));
 		// megatron esta en 2,2, entonces megatron2 no puede moverse ahi;
-	
-<<<<<<< HEAD
+
 	Assert.assertFalse(unTablero.movimientoPosible(megatron2, 5, 3));
 	// megatron se encuentra en el medio, megatron 2 nopuede ir en esa direcc
 	Assert.assertTrue(unTablero.movimientoPosible(megatron2, 5, 6));
@@ -72,13 +71,7 @@ public class TableroTest {
 	Assert.assertFalse(unTablero.movimientoPosible(megatron2, 5, 4));
 	// megatron esta en 2,2, entonces megatron2 no puede moverse ahi;
 }
-@Test(expected=ErrorVelocidadDelAlgoformerInsuficiente.class)
-public void test56movimientoPosibleLanzaExcepVelocidadDelAlgoformerInsuficiente(){
-	Tablero unTablero =new Tablero();
-	Algoformer megatron=new MegatronAlterno();
-	unTablero.ubicarAlgoformer(megatron,1,1);
-	unTablero.moverAlgoformer(megatron,20,20);
-}
+
 @Test
 public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
 	Tablero tablero1 =new Tablero();
@@ -91,15 +84,15 @@ public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros()
 	Assert.assertFalse(subTablero.existeAlgoformer(optimus));
 }
 @Test(expected=ErrorAreaFueraDeRangoPosible.class)
-public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
+public void test88getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
 	Tablero tablero1=new Tablero();
 	tablero1.getArea(3, 3, 4);
-=======
+
 	}
 
 	@Test
 	public void test04CaminoInterrumpidoMovimientoVertical(){
->>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
+
 	
 		Tablero unTablero =new Tablero();
 		Algoformer megatron=new MegatronAlterno();
@@ -140,14 +133,7 @@ public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
 		unTablero.moverAlgoformer(megatron,20,20);
 	}
 
-	@Test
-	public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
-		Tablero tablero1 =new Tablero();
-		Algoformer megatron=new MegatronHumanoide();
-		tablero1.ubicarAlgoformer(megatron, 2, 2);
-		Tablero subTablero=tablero1.getArea(2, 2, 2);
-		Assert.assertTrue(subTablero.existeAlgoformer(megatron));
-	}
+
 
 	@Test(expected=ErrorAreaFueraDeRangoPosible.class)
 	public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
