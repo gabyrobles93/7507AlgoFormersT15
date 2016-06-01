@@ -3,7 +3,13 @@ package Test;
 import org.junit.Assert;
 import org.junit.Test;
 
+<<<<<<< HEAD
 import Modelo.Algoformer;
+=======
+import Modelo.ErrorAreaFueraDeRangoPosible;
+import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
+>>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
 import Modelo.Juego;
 import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
@@ -110,8 +116,26 @@ public class JuegoTest {
 		Assert.assertTrue(juego.getTablero() instanceof Tablero);	
 	}
 	
-
 	
+	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
+	public void test09dosAlgoformerDeMismoEquipoNoSePuedeAtacar(){
+		
+		Juego juego=new Juego();
+
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("bumblebee"),4,4);
+		
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getAutobots().getAlgoformer("bumblebee"));
+	}
+
+	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
+	public void test10noSePuedeAtacarAlgoformerFueraDeRango(){
+		
+		Juego juego=new Juego();
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),15,15);
+	
+<<<<<<< HEAD
 
 @Test
 public void test08UbicarAlgoformerLoPoneDondeDebe(){
@@ -133,5 +157,21 @@ public void test08UbicarAlgoformerLoPoneDondeDebe(){
 	
 	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getFila()==2);
 	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getColumna()==0);
+=======
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
+	}
+
+	@Test 
+	public void test11dosAlgoformersSeAtacan(){
+		Juego juego=new Juego();
+		 
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),4,4);
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
+		
+		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getVida()==500);
+	}
+>>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
 }
 }

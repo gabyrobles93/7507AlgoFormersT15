@@ -33,13 +33,13 @@ public void ubicarAlgoformer(Algoformer unAlgoformer,int fila, int columna)throw
 
 public boolean existeAlgoformer(Algoformer unAlgoformer) {
 	boolean encontrado=false;
-for(int i=0;i<CantidadCasilleros;i++){
-	for(int j=0;j<CantidadCasilleros;j++){
+	for(int i=0;i<CantidadCasilleros;i++){
+		for(int j=0;j<CantidadCasilleros;j++){
 	
-	if(matriz[i][j].getAlgoformerOcupa()==unAlgoformer) return true;
+			if(matriz[i][j].getAlgoformerOcupa()==unAlgoformer) return true;
+		}
 	}
-}
-return false;
+	return false;
 }
 
 public Casillero getCasillero(int fila, int columna) {
@@ -164,6 +164,7 @@ public Tablero getArea(int columnaCentral,int filaCentral,int distancia)throws R
 	}
 	return subTablero;
 }
+<<<<<<< HEAD
 public boolean atacarPosible(Algoformer atacante,Algoformer victima){
 	
 	
@@ -179,5 +180,12 @@ public boolean atacarPosible(Algoformer atacante,Algoformer victima){
 	
 	
 }
+=======
+
+	public boolean ataquePosible(){
+		
+		return true;
+	}
+>>>>>>> 0e13acb5afddfa127ebc6f278fb4c42c80b1c3d7
 /*Esta SubArea No deberia poder modificar los casilleros del original no?*/
 }
