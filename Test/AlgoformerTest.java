@@ -10,6 +10,7 @@ import Modelo.Casillero;
 import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
+import Modelo.OptimusHumanoide;
 
 
 public class AlgoformerTest {
@@ -51,11 +52,26 @@ public class AlgoformerTest {
 	}
 	@Test
 	public void test04CambioAlgoformerDeModo(){
+		
 		Algoformer megatron=new MegatronHumanoide();
+		
 		megatron=megatron.cambiarModo();
+		
 		Assert.assertTrue(megatron instanceof MegatronAlterno);
 	}
 	
+	
+	@Test
+	public void test05AtacarEnemigo(){
+		
+		Algoformer megatron=new MegatronHumanoide();
+		Algoformer optimus=new OptimusHumanoide();
+		
+		optimus.atacar(megatron);
+		
+		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500
+		Assert.assertTrue(megatron.getVida()==500);
+	}
 
 
 

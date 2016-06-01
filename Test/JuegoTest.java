@@ -3,6 +3,9 @@ package Test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import Modelo.ErrorAreaFueraDeRangoPosible;
+import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.Juego;
 import Modelo.Tablero;
 
@@ -108,6 +111,37 @@ public class JuegoTest {
 		Assert.assertTrue(juego.getTablero() instanceof Tablero);	
 	}
 	
-
 	
+	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
+	public void test09dosAlgoformerDeMismoEquipoNoSePuedeAtacar(){
+		
+		Juego juego=new Juego();
+
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("bumblebee"),4,4);
+		
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getAutobots().getAlgoformer("bumblebee"));
+	}
+
+	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
+	public void test10noSePuedeAtacarAlgoformerFueraDeRango(){
+		
+		Juego juego=new Juego();
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),15,15);
+	
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
+	}
+
+	@Test 
+	public void test11dosAlgoformersSeAtacan(){
+		Juego juego=new Juego();
+		 
+		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),4,4);
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
+		
+		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500
+		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getVida()==500);
+	}
 }

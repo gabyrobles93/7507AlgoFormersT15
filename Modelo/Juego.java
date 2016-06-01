@@ -138,6 +138,21 @@ public class Juego {
 		return tablero;
 	}
 	
+	public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
+		
+		//Deben ser de diferentes equipos
+		if(atacante.getClass()!=enemigo.getClass()){
+			throw new ErrorNoSePuedeAtacarIntegranteDeEquipo();
+		}
+		//Debe estar dentro del rango de ataque
+		if(tablero.ataquePosible()==false){
+			throw  new ErrorDistanciaDeAtaqueInsuficiente();
+		}
+		//Atacar
+		atacante.atacar(enemigo);
+	}
+	
+	
 	/*Posiblles cosas a Refactorizar:
 	 1)estaIniciado no tiene mucho sentido menos teniendo estaFinalizado
 	 2)en cambiar turno se necesito un if.
