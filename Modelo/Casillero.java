@@ -1,23 +1,23 @@
 package Modelo;
 
 public class Casillero {
-	private Algoformer algoformerOcupa;
+	private movil movilOcupa;
 	
 	public Casillero(){
-	algoformerOcupa=null;
+	movilOcupa=null;
 
 	}
-	public Algoformer getAlgoformerOcupa() {
+	public movil getMovilOcupa() {
 	
-		return  algoformerOcupa;
+		return  movilOcupa;
 	}
-	public void setAlgoformerOcupa(Algoformer unAlgoformer) {
+	public void setMovilOcupa(movil unmovil) {
 		
-		algoformerOcupa=unAlgoformer;
+		movilOcupa=unmovil;
 	}
 	public boolean estaOcupado() {
 		
-		return (algoformerOcupa!=null);
+		return (movilOcupa!=null);
 	}
 
 	

@@ -25,6 +25,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 	public Algoformer cambiarModo() {
 	return new BonecrusherHumanoide(Fila,Columna,vida,ataque,velocidad,alcance);
 	}
+	
 
 
 }

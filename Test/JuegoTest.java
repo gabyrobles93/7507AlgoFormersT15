@@ -120,10 +120,8 @@ public class JuegoTest {
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test09dosAlgoformerDeMismoEquipoNoSePuedeAtacar(){
 		
-		Juego juego=new Juego();
+		Juego juego=new Juego();//nacen  a un casillero de distancia
 
-		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
-		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("bumblebee"),4,4);
 		
 		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getAutobots().getAlgoformer("bumblebee"));
 	}
@@ -131,14 +129,13 @@ public class JuegoTest {
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test10noSePuedeAtacarAlgoformerFueraDeRango(){
 		
-		Juego juego=new Juego();
-		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
-		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),15,15);
+		Juego juego=new Juego();//nacen en esquinas opuestas
 	
+		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
 	}
 
 @Test
-public void test08UbicarAlgoformerLoPoneDondeDebe()
+public void test08ubicarMovilLoPoneDondeDebe()
 {
 	Juego juego=new Juego();
 	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getFila()==47);
@@ -165,9 +162,12 @@ public void test08UbicarAlgoformerLoPoneDondeDebe()
 	@Test 
 	public void test11dosAlgoformersSeAtacan(){
 		Juego juego=new Juego();
+		
+		//Los cambio de posicion con ubicarMovil para que no salte la excepcion de movimiento
 		 
-		juego.getTablero().ubicarAlgoformer(juego.getAutobots().getAlgoformer("optimus"),3,3);
-		juego.getTablero().ubicarAlgoformer(juego.getDecepticons().getAlgoformer("megatron"),4,4);
+		
+		juego.getTablero().ubicarMovil(juego.getAutobots().getAlgoformer("optimus"),3,3);
+		juego.getTablero().ubicarMovil(juego.getDecepticons().getAlgoformer("megatron"),4,4);
 		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
 		
 		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500

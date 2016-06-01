@@ -11,6 +11,7 @@ import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
+import Modelo.movil;
 import Modelo.OptimusHumanoide;
 
 
@@ -23,8 +24,10 @@ public class AlgoformerTest {
 		int fila=5;
 		int col=10;
 		
-		algoformer.setFila(fila);
-		algoformer.setColumna(col);
+		
+		
+		algoformer.mover(fila,col);
+	
 		
 		
 		Assert.assertTrue((algoformer.getFila()==fila)&&(algoformer.getColumna()==col));
@@ -37,9 +40,9 @@ public class AlgoformerTest {
 		Juego juego = new Juego();
 	Tablero subtablero=juego.getTablero().getArea(1, 1, 1);
 	
-		Assert.assertTrue(subtablero.existeAlgoformer(juego.getAutobots().getAlgoformer("optimus")));
-		Assert.assertTrue(subtablero.existeAlgoformer(juego.getAutobots().getAlgoformer("bumblebee")));
-		Assert.assertTrue(subtablero.existeAlgoformer(juego.getAutobots().getAlgoformer("ratchet")));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("optimus")));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("bumblebee")));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("ratchet")));
 		
 	}
 	@Test
@@ -48,9 +51,9 @@ public class AlgoformerTest {
 		Juego juego = new Juego();
 	
 		
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("megatron")));
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("frenzy")));
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeAlgoformer(juego.getDecepticons().getAlgoformer("bonecrusher")));
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("megatron")));
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("frenzy")));
+		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("bonecrusher")));
 	}
 	@Test
 	public void test04CambioAlgoformerDeModo(){

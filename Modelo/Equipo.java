@@ -49,5 +49,10 @@ public class Equipo {
 	public int getCantidadMiembrosVivos(){
 		return cantidadMiembrosVivos;
 	}
+	public boolean existeAlgoformer(Algoformer integrante){
+		
+		return equipo.containsValue(integrante);
+		
+	}
 	
 }

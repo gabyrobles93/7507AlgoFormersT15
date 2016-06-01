@@ -42,15 +42,15 @@ public class Juego {
 	
 	private void ubicarAutobots() {
 	
-		tablero.ubicarAlgoformer(autobots.getAlgoformer("optimus"), 2, 2);
-		tablero.ubicarAlgoformer(autobots.getAlgoformer("ratchet"), 0, 2);
-		tablero.ubicarAlgoformer(autobots.getAlgoformer("bumblebee"), 2, 0);
+		tablero.ubicarMovil(autobots.getAlgoformer("optimus"), 2, 2);
+		tablero.ubicarMovil(autobots.getAlgoformer("ratchet"), 0, 2);
+		tablero.ubicarMovil(autobots.getAlgoformer("bumblebee"), 2, 0);
 	}
 	private void ubicarDecepticons() {
 
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("megatron"), 47, 47);
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("bonecrusher"), 49,47);
-		tablero.ubicarAlgoformer(decepticons.getAlgoformer("frenzy"), 47, 49);
+		tablero.ubicarMovil(decepticons.getAlgoformer("megatron"), 47, 47);
+		tablero.ubicarMovil(decepticons.getAlgoformer("bonecrusher"), 49,47);
+		tablero.ubicarMovil(decepticons.getAlgoformer("frenzy"), 47, 49);
 		
 	}
 	public Equipo getAutobots(){
@@ -140,7 +140,7 @@ public class Juego {
 
 	public void moverAlgoformer(Algoformer unAlgoformer,int filaDestino,int columnaDestino){
 		
-		try{ tablero.moverAlgoformer(unAlgoformer, filaDestino, columnaDestino);
+		try{ tablero.moverMovil(unAlgoformer, filaDestino, columnaDestino);
 		}catch(RuntimeException e){
 			throw e;
 		}
@@ -149,11 +149,12 @@ public class Juego {
 	public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
 		
 		//Deben ser de diferentes equipos
-		if(atacante.getClass()!=enemigo.getClass()){
+		if(!(decepticons.existeAlgoformer(atacante)^decepticons.existeAlgoformer(enemigo))){
+			//OPERACION XOR, SI AMBOS DAN VERDADERO O AMBOS FALSOS->a^b =0
 			throw new ErrorNoSePuedeAtacarIntegranteDeEquipo();
 		}
 		//Debe estar dentro del rango de ataque
-		if(tablero.ataquePosible()==false){
+		if(tablero.ataquePosible(atacante,enemigo)==false){
 			throw  new ErrorDistanciaDeAtaqueInsuficiente();
 		}
 		//Atacar
