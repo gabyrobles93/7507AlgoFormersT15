@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
-import Modelo.Area;
+
 import Modelo.BumblebeeHumanoide;
 import Modelo.Casillero;
 import Modelo.Juego;
