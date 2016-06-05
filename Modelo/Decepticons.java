@@ -21,4 +21,9 @@ public class Decepticons extends Equipo {
 		return (Bonecrusher) algof2;
 	}
 
+	public Frenzy getFrenzy() {
+		
+		return (Frenzy) algof3;
+	}
+
 }

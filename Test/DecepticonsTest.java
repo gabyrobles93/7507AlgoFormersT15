@@ -64,4 +64,16 @@ public class DecepticonsTest {
 		Assert.assertTrue(bone==autobots.getBonecrusher());
 		
 	}
+	
+	@Test
+	public void test05ObtenerFrenzyHumanoide(){
+		Megatron mega=new MegatronHumanoide();
+		Bonecrusher bone=new BonecrusherHumanoide();
+		Frenzy freny=new FrenzyHumanoide();
+
+		Decepticons autobots=new Decepticons(mega,bone,freny);
+		
+		Assert.assertTrue(freny==autobots.getFrenzy());
+		
+	}
 }
