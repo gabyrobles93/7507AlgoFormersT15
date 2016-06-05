@@ -8,6 +8,7 @@ import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.Decepticons;
 import Modelo.Frenzy;
+import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
 import Modelo.Megatron;
 import Modelo.MegatronAlterno;
@@ -70,6 +71,18 @@ public class DecepticonsTest {
 		Megatron mega=new MegatronHumanoide();
 		Bonecrusher bone=new BonecrusherHumanoide();
 		Frenzy freny=new FrenzyHumanoide();
+
+		Decepticons autobots=new Decepticons(mega,bone,freny);
+		
+		Assert.assertTrue(freny==autobots.getFrenzy());
+		
+	}
+	
+	@Test
+	public void test06ObtenerFrenzyAlterno(){
+		Megatron mega=new MegatronHumanoide();
+		Bonecrusher bone=new BonecrusherHumanoide();
+		Frenzy freny=new FrenzyAlterno();
 
 		Decepticons autobots=new Decepticons(mega,bone,freny);
 		
