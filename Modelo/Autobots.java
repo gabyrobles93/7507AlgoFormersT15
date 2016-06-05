@@ -20,6 +20,11 @@ public class Autobots extends Equipo {
 		
 		return (Bumblebee) algof2;
 	}
+
+	public Ratchet getRatchet() {
+		
+		return (Ratchet) algof3;
+	}
 	
 }
 

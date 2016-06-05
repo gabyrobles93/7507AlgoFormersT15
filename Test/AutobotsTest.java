@@ -64,5 +64,18 @@ public class AutobotsTest {
 		Assert.assertTrue(bumblebee==autobots.getBumblebee());
 		
 	}
+	
+	@Test
+	public void test05ObtenerRatchetHumanoide(){
+		Optimus optimus=new OptimusHumanoide();
+		Bumblebee bumblebee=new BumblebeeHumanoide();
+		Ratchet ratchet=new RatchetHumanoide();
+
+		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
+		
+		Assert.assertTrue(ratchet==autobots.getRatchet());
+		
+	}
+	
 
 }
