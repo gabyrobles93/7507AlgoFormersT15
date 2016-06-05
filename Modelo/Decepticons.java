@@ -11,4 +11,9 @@ public class Decepticons extends Equipo {
 		cantidadMiembrosVivos=3;
 	}
 
+	public Megatron getMegatron() {
+
+		return (Megatron) algof1;
+	}
+
 }
