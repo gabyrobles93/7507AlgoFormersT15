@@ -42,6 +42,18 @@ public class DecepticonsTest {
 	}
 	
 	@Test
+	public void test03ObtenerBonecrusherHumanoide(){
+		Megatron mega=new MegatronHumanoide();
+		Bonecrusher bone=new BonecrusherHumanoide();
+		Frenzy freny=new FrenzyHumanoide();
+
+		Decepticons autobots=new Decepticons(mega,bone,freny);
+		
+		Assert.assertTrue(bone==autobots.getBonecrusher());
+		
+	}
+	
+	@Test
 	public void test04ObtenerBonecrusherAlterno(){
 		Megatron mega=new MegatronHumanoide();
 		Bonecrusher bone=new BonecrusherAlterno();
