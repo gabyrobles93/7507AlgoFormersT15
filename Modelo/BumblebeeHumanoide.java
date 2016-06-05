@@ -9,9 +9,8 @@ public class BumblebeeHumanoide extends Bumblebee {
 		velocidad=2;
 		
 	}
-	public BumblebeeHumanoide(int unaFila, int unaColumna, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
-		Fila=unaFila;
-		Columna=unaColumna;
+	public BumblebeeHumanoide(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=unAtaque;
 		velocidad=unaVelocidad;
@@ -20,7 +19,7 @@ public class BumblebeeHumanoide extends Bumblebee {
 	}
 	@Override
 	public Algoformer cambiarModo() {
-		return new BumblebeeAlterno(Fila,Columna,vida,ataque,velocidad,alcance);
+		return new BumblebeeAlterno(miPosicion,vida,ataque,velocidad,alcance);
 	}
 
 }

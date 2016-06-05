@@ -9,9 +9,8 @@ public class BonecrusherHumanoide extends Bonecrusher {
 		velocidad=1;
 		
 	}
-	public BonecrusherHumanoide(int unaFila, int unaColumna, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
-		Fila=unaFila;
-		Columna=unaColumna;
+	public BonecrusherHumanoide(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=unAtaque;
 		velocidad=unaVelocidad;
@@ -21,7 +20,7 @@ public class BonecrusherHumanoide extends Bonecrusher {
 
 	@Override
 	public Algoformer cambiarModo() {
-		return new BonecrusherAlterno(Fila,Columna,vida,ataque,velocidad,alcance);
+		return new BonecrusherAlterno(miPosicion,vida,ataque,velocidad,alcance);
 	}
 
 }

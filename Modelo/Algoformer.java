@@ -1,36 +1,31 @@
 package Modelo;
 
 public abstract class Algoformer implements movil,atacable,atacante  {
-	protected int Fila;
-	protected int Columna;
+	
 	protected int vida;
+	protected Posicion miPosicion;
 	protected int ataque;
 	protected int velocidad;
 	protected int alcance;
 	
 	public abstract Algoformer cambiarModo();
 	
-	public int getColumna(){
+	public Posicion getPosicion(){
 	
-		return Columna;
+		return miPosicion;
 			
 	}
-	public void mover(int nuevaFila,int nuevaColumna){
-		Fila=nuevaFila;
-		Columna=nuevaColumna;
+	public void mover(Posicion pos){
+		miPosicion=pos;
 	}
 	
-	public int getFila(){
+
+
+
+
+	public boolean distanciaPosible(int distancia) {
 		
-		return Fila;
-	}
-
-
-
-
-	public boolean distanciaPosible(int distanciaColumna) {
-		
-		return (distanciaColumna<=velocidad);
+		return (distancia<=velocidad);
 		
 	}
 	
@@ -40,7 +35,7 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 	}
 	
 	public void atacate(int danio){
-		
+		if(vida<=danio)vida=0;
 		vida=vida-danio;
 		
 	}
@@ -55,9 +50,11 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 	}
 	public int getDistanciaDeAtaque(movil unMovil){
 		
-		int distanciaColumna=Math.abs(this.getColumna()-unMovil.getColumna());
 		
-		int distanciaFila= Math.abs(this.getFila()-unMovil.getFila());
+		
+		int distanciaColumna=Math.abs(this.getPosicion().getColumna()-unMovil.getPosicion().getColumna());
+		
+		int distanciaFila= Math.abs(this.getPosicion().getFila()-unMovil.getPosicion().getFila());
 		
 		return (distanciaFila>=distanciaColumna)?distanciaFila:distanciaColumna;//alcance es la mayor de las distancias
 		

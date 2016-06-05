@@ -10,9 +10,8 @@ public class MegatronAlterno extends Megatron {
 		velocidad=8;
 		
 	}
-	public MegatronAlterno(int unaFila, int unaColumna, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
-		Fila=unaFila;
-		Columna=unaColumna;
+	public MegatronAlterno(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+	miPosicion=unaPos;
 		vida=unaVida;
 		ataque=unAtaque;
 		velocidad=unaVelocidad;
@@ -22,7 +21,7 @@ public class MegatronAlterno extends Megatron {
 
 	@Override
 	public Algoformer cambiarModo() {
-	return new MegatronHumanoide(Fila,Columna,vida,ataque,velocidad,alcance);
+	return new MegatronHumanoide(miPosicion,vida,ataque,velocidad,alcance);
 	}
 
 }

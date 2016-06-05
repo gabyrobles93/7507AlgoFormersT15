@@ -13,6 +13,7 @@ import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
 import Modelo.movil;
 import Modelo.OptimusHumanoide;
+import Modelo.Posicion;
 
 
 public class AlgoformerTest {
@@ -21,16 +22,15 @@ public class AlgoformerTest {
 	public void test01unAlgoformerTieneUnaPosicion() {
 		
 		Algoformer algoformer = new BumblebeeHumanoide();
-		int fila=5;
-		int col=10;
+		Posicion unaPos=new Posicion(1,5);
 		
 		
 		
-		algoformer.mover(fila,col);
+		algoformer.mover(unaPos);
 	
 		
 		
-		Assert.assertTrue((algoformer.getFila()==fila)&&(algoformer.getColumna()==col));
+		Assert.assertTrue(algoformer.getPosicion()==unaPos);
 
 	}
 
@@ -38,7 +38,10 @@ public class AlgoformerTest {
 	public void test03AutobotsEnEsquinaSuperiorIzquierda() {
 		
 		Juego juego = new Juego();
-	Tablero subtablero=juego.getTablero().getArea(1, 1, 1);
+		
+		Posicion posArranque=new Posicion(1,1);
+		
+		Tablero subtablero=juego.getTablero().getArea(posArranque, 1);
 	
 		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("optimus")));
 		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("bumblebee")));
@@ -49,11 +52,12 @@ public class AlgoformerTest {
 	public void test04DecepticonNaceEnEsquinaInferiorDerecha() {
 		
 		Juego juego = new Juego();
+		Posicion posArranque=new Posicion(48,48);
 	
 		
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("megatron")));
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("frenzy")));
-		Assert.assertTrue(juego.getTablero().getArea(48, 48, 1).existeMovil(juego.getDecepticons().getAlgoformer("bonecrusher")));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("megatron")));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("frenzy")));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("bonecrusher")));
 	}
 	@Test
 	public void test04CambioAlgoformerDeModo(){

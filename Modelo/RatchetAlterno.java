@@ -9,9 +9,8 @@ public class RatchetAlterno extends Ratchet {
 		velocidad=8;
 		
 	}
-	public RatchetAlterno(int unaFila, int unaColumna, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
-		Fila=unaFila;
-		Columna=unaColumna;
+	public RatchetAlterno(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=unAtaque;
 		velocidad=unaVelocidad;
@@ -20,7 +19,7 @@ public class RatchetAlterno extends Ratchet {
 	}
 	@Override
 	public Algoformer cambiarModo() {
-	return new RatchetHumanoide(Fila,Columna,vida,ataque,velocidad,alcance);
+	return new RatchetHumanoide(miPosicion,vida,ataque,velocidad,alcance);
 	}
 
 

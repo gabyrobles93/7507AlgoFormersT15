@@ -12,6 +12,7 @@ import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 
 import Modelo.Juego;
 import Modelo.MegatronHumanoide;
+import Modelo.Posicion;
 import Modelo.Tablero;
 
 
@@ -138,23 +139,24 @@ public class JuegoTest {
 public void test08ubicarMovilLoPoneDondeDebe()
 {
 	Juego juego=new Juego();
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getFila()==47);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getColumna()==47);
 	
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getFila()==49);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getColumna()==47);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().getFila()==47);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().getColumna()==47);
 	
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getFila()==47);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getColumna()==49);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().getFila()==49);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().getColumna()==47);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getFila()==2);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getColumna()==2);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().getFila()==47);
+	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().getColumna()==49);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getFila()==0);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getColumna()==2);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().getFila()==2);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().getColumna()==2);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getFila()==2);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getColumna()==0);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().getFila()==0);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().getColumna()==2);
+	
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().getFila()==2);
+	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().getColumna()==0);
 
 	}
 	
@@ -165,9 +167,12 @@ public void test08ubicarMovilLoPoneDondeDebe()
 		
 		//Los cambio de posicion con ubicarMovil para que no salte la excepcion de movimiento
 		 
+		Posicion pos1=new Posicion(3,3);
+		Posicion pos2=new Posicion(4,4);
 		
-		juego.getTablero().ubicarMovil(juego.getAutobots().getAlgoformer("optimus"),3,3);
-		juego.getTablero().ubicarMovil(juego.getDecepticons().getAlgoformer("megatron"),4,4);
+		
+		juego.getTablero().ubicarMovil(juego.getAutobots().getAlgoformer("optimus"),pos1);
+		juego.getTablero().ubicarMovil(juego.getDecepticons().getAlgoformer("megatron"),pos2);
 		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
 		
 		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500

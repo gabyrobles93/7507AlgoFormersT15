@@ -42,15 +42,23 @@ public class Juego {
 	
 	private void ubicarAutobots() {
 	
-		tablero.ubicarMovil(autobots.getAlgoformer("optimus"), 2, 2);
-		tablero.ubicarMovil(autobots.getAlgoformer("ratchet"), 0, 2);
-		tablero.ubicarMovil(autobots.getAlgoformer("bumblebee"), 2, 0);
+		Posicion posOptimus=new Posicion(2,2);
+		Posicion posRatchet=new Posicion(0,2);
+		Posicion posBumblebee=new Posicion(2,0);
+		
+		tablero.ubicarMovil(autobots.getAlgoformer("optimus"), posOptimus);
+		tablero.ubicarMovil(autobots.getAlgoformer("ratchet"), posRatchet);
+		tablero.ubicarMovil(autobots.getAlgoformer("bumblebee"), posBumblebee);
 	}
 	private void ubicarDecepticons() {
+		
+		Posicion posMegatron=new Posicion(47,47);
+		Posicion posBonecrusher=new Posicion(49,47);
+		Posicion posFrenzy=new Posicion(47,49);
 
-		tablero.ubicarMovil(decepticons.getAlgoformer("megatron"), 47, 47);
-		tablero.ubicarMovil(decepticons.getAlgoformer("bonecrusher"), 49,47);
-		tablero.ubicarMovil(decepticons.getAlgoformer("frenzy"), 47, 49);
+		tablero.ubicarMovil(decepticons.getAlgoformer("megatron"), posMegatron);
+		tablero.ubicarMovil(decepticons.getAlgoformer("bonecrusher"), posBonecrusher);
+		tablero.ubicarMovil(decepticons.getAlgoformer("frenzy"), posFrenzy);
 		
 	}
 	public Equipo getAutobots(){
@@ -138,9 +146,9 @@ public class Juego {
 		return tablero;
 	}
 
-	public void moverAlgoformer(Algoformer unAlgoformer,int filaDestino,int columnaDestino){
+	public void moverAlgoformer(Algoformer unAlgoformer,Posicion posicionDestino){
 		
-		try{ tablero.moverMovil(unAlgoformer, filaDestino, columnaDestino);
+		try{ tablero.moverMovil(unAlgoformer, posicionDestino);
 		}catch(RuntimeException e){
 			throw e;
 		}

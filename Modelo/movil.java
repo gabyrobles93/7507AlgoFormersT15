@@ -1,9 +1,9 @@
 package Modelo;
 
 public interface movil {
-	public int getFila();
-	public int getColumna();
-	public void mover(int fila,int columna);
+	
+	public void mover(Posicion posicionDestino);
 	public boolean distanciaPosible(int abs);
+	public Posicion getPosicion();
 
 }
