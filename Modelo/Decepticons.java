@@ -16,4 +16,9 @@ public class Decepticons extends Equipo {
 		return (Megatron) algof1;
 	}
 
+	public Bonecrusher getBonecrusher() {
+
+		return (Bonecrusher) algof2;
+	}
+
 }
