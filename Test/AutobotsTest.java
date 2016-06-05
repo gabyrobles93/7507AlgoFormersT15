@@ -11,6 +11,7 @@ import Modelo.Optimus;
 import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.Ratchet;
+import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
 
 
@@ -70,6 +71,18 @@ public class AutobotsTest {
 		Optimus optimus=new OptimusHumanoide();
 		Bumblebee bumblebee=new BumblebeeHumanoide();
 		Ratchet ratchet=new RatchetHumanoide();
+
+		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
+		
+		Assert.assertTrue(ratchet==autobots.getRatchet());
+		
+	}
+	
+	@Test
+	public void test06ObtenerRatchetAlterno(){
+		Optimus optimus=new OptimusHumanoide();
+		Bumblebee bumblebee=new BumblebeeHumanoide();
+		Ratchet ratchet=new RatchetAlterno();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
