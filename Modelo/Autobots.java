@@ -1,16 +1,14 @@
 package Modelo;
 
-import java.util.HashMap;
 
 public class Autobots extends Equipo {
 
 	public Autobots(Optimus optimus,Bumblebee bumblebee,Ratchet ratchet){
-		equipo=new HashMap<String,Algoformer>();
-		equipo.put("optimus", optimus);
-		equipo.put("bumblebee", bumblebee);
-		equipo.put("ratchet", ratchet);
+		algof1=optimus;
+		algof2=bumblebee;
+		algof3=ratchet;
 		
-		vida=getAlgoformer("ratchet").getVida()+getAlgoformer("bumblebee").getVida()+getAlgoformer("optimus").getVida();
+		vida=algof1.getVida()+algof2.getVida()+algof3.getVida();
 		tieneChispaSuprema=false;
 		cantidadMiembrosVivos=3;
 	}

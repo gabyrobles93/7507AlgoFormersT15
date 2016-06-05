@@ -1,29 +1,31 @@
 package Modelo;
 
 
-import java.util.HashMap;
+
 
 
 public class Equipo {
 
-	protected HashMap<String,Algoformer> equipo;
+	protected Algoformer algof1;
+	protected Algoformer algof2;
+	protected Algoformer algof3;	
 	protected int vida;
 	protected int cantidadMiembrosVivos; 
-	protected boolean tieneChispaSuprema; 
+	protected boolean tieneChispaSuprema; //REVISAR 
 	
 	
 	
 	public void jugarTurno(){
 	}
 
-	public Algoformer getAlgoformer(String string)throws RuntimeException{
+/*	public Algoformer getAlgoformer(String string)throws RuntimeException{
 		Algoformer respuesta;
 		if((respuesta=equipo.get(string))==null){
 			throw new ErrorAlgoformerInexistente();
 		}; 
 		return respuesta;
 	}
-	
+*/	
 	public void setTieneChispaSuprema(boolean tieneChispa){
 		
 		tieneChispaSuprema=tieneChispa;
@@ -49,10 +51,10 @@ public class Equipo {
 	public int getCantidadMiembrosVivos(){
 		return cantidadMiembrosVivos;
 	}
-	public boolean existeAlgoformer(Algoformer integrante){
+	/*public boolean existeAlgoformer(Algoformer integrante){
 		
 		return equipo.containsValue(integrante);
 		
 	}
-	
+	*/
 }

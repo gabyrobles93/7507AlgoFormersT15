@@ -4,12 +4,11 @@ import java.util.HashMap;
 
 public class Decepticons extends Equipo {
 	public Decepticons(Megatron megatron,Bonecrusher bonecrusher,Frenzy frenzy){
-		equipo=new HashMap<String,Algoformer>();
-		equipo.put("megatron", megatron);
-		equipo.put("bonecrusher", bonecrusher);
-		equipo.put("frenzy", frenzy);
+		algof1=megatron;
+		algof2=bonecrusher;
+		algof3=frenzy;
 		
-		vida=getAlgoformer("frenzy").getVida()+getAlgoformer("megatron").getVida()+getAlgoformer("bonecrusher").getVida();
+		vida=megatron.getVida()+bonecrusher.getVida()+frenzy.getVida();
 		tieneChispaSuprema=false;
 		cantidadMiembrosVivos=3;
 	}
