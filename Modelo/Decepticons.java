@@ -1,6 +1,5 @@
 package Modelo;
 
-import java.util.HashMap;
 
 public class Decepticons extends Equipo {
 	public Decepticons(Megatron megatron,Bonecrusher bonecrusher,Frenzy frenzy){
@@ -9,7 +8,6 @@ public class Decepticons extends Equipo {
 		algof3=frenzy;
 		
 		vida=megatron.getVida()+bonecrusher.getVida()+frenzy.getVida();
-		tieneChispaSuprema=false;
 		cantidadMiembrosVivos=3;
 	}
 

@@ -9,7 +9,12 @@ public class Autobots extends Equipo {
 		algof3=ratchet;
 		
 		vida=algof1.getVida()+algof2.getVida()+algof3.getVida();
-		tieneChispaSuprema=false;
 		cantidadMiembrosVivos=3;
 	}
+	
+	public Optimus getOptimus(){
+		return (Optimus) algof1;
+	}
+	
 }
+
