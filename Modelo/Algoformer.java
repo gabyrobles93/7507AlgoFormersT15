@@ -7,6 +7,7 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 	protected int ataque;
 	protected int velocidad;
 	protected int alcance;
+	protected Efecto efecto;
 	
 	public abstract Algoformer cambiarModo();
 	
@@ -40,24 +41,38 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		
 	}
 	
-	public  void atacar(atacable unEnemigo){
-		unEnemigo.atacate(ataque);
+	public void atacar(Algoformer victima){
+
+		Ataque ataque = new Ataque();
+		
+		try{
+			ataque.validar(victima, this);
+		}
+		catch(ErrorDistanciaDeAtaqueInsuficiente err){
+			
+		}
+		catch(ErrorNoSePuedeAtacarIntegranteDeEquipo err){
+	
+		}
+		
+		ataque.hacer(victima, this.getAtaque());
+		
 	}
 
-	public boolean alcancePosible(int alcance2) {
+	private int getAtaque() {
 		
-		return (alcance2<=alcance);
+		return ataque - ataque * this.getEfectoAtaque();
+		
 	}
-	public int getDistanciaDeAtaque(movil unMovil){
+
+	private int getEfectoAtaque() {
 		
+		return this.efecto.afectaataque;
+	}
+
+	public int getDistanciaDeAtaque(){
 		
-		
-		int distanciaColumna=Math.abs(this.getPosicion().getColumna()-unMovil.getPosicion().getColumna());
-		
-		int distanciaFila= Math.abs(this.getPosicion().getFila()-unMovil.getPosicion().getFila());
-		
-		return (distanciaFila>=distanciaColumna)?distanciaFila:distanciaColumna;//alcance es la mayor de las distancias
-		
+		return alcance;
 	}
 
 }
