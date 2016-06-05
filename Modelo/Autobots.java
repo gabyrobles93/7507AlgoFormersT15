@@ -15,6 +15,11 @@ public class Autobots extends Equipo {
 	public Optimus getOptimus(){
 		return (Optimus) algof1;
 	}
+
+	public Bumblebee getBumblebee() {
+		
+		return (Bumblebee) algof2;
+	}
 	
 }
 
