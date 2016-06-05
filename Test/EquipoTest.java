@@ -24,53 +24,8 @@ public class EquipoTest {
 		Assert.assertTrue(juego.getDecepticons().getCantidadMiembrosVivos() == 3);
 	}
 	
-	@Test
-	public void test02elEquipoComienzaConVidaTotalIgualASumatoriaDeVidasDeIntegrantes() {
-		
-		Juego juego = new Juego();
-		
-		int vidatotal = juego.getAutobots().getVidaTotal();
-		
-		int sumvidaintegrantes = juego.getAutobots().getAlgoformer("optimus").getVida() 
-								+ juego.getAutobots().getAlgoformer("bumblebee").getVida() 
-								+ juego.getAutobots().getAlgoformer("ratchet").getVida();
-		
-		Assert.assertTrue(vidatotal == sumvidaintegrantes);
-	}
 	
-	@Test
-	public void test03losEquiposComienzanSinLaChispaSuprema() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertFalse(juego.autobots.getTieneChispaSuprema());
-		
-		Assert.assertFalse(juego.decepticons.getTieneChispaSuprema());
-	}
-	
-	@Test
-	public void test04siAutobotsTieneChispaDelPoderPierdeDecepticons() {
-		
-		Juego juego = new Juego();
-		
-		juego.getAutobots().setTieneChispaSuprema(true);
-		
-		Assert.assertTrue(juego.getGanador() == juego.getAutobots());
-		
-		Assert.assertFalse(juego.getGanador() == juego.getDecepticons());
-	}
-	
-	@Test
-	public void test05siDecepticonsTieneChispaDelPoderPierdeAutobots() {
-		
-		Juego juego = new Juego();
-		
-		juego.getDecepticons().setTieneChispaSuprema(true);
-		
-		Assert.assertTrue(juego.getGanador() == juego.getDecepticons());
-		
-		Assert.assertFalse(juego.getGanador() == juego.getAutobots());
-	}
+
 	
 	@Test
 	public void test06siAutobotsNoTieneVidaTotalGanaDecepticons() {

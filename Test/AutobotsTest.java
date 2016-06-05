@@ -7,6 +7,7 @@ import Modelo.Autobots;
 import Modelo.Bumblebee;
 import Modelo.BumblebeeAlterno;
 import Modelo.BumblebeeHumanoide;
+import Modelo.Juego;
 import Modelo.Optimus;
 import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
@@ -89,6 +90,23 @@ public class AutobotsTest {
 		Assert.assertTrue(ratchet==autobots.getRatchet());
 		
 	}
+	
+	@Test
+	public void test07AutobotsComienzaConVidaTotalIgualASumatoriaDeVidasDeIntegrantes() {
+		
+		Optimus optimus=new OptimusHumanoide();
+		Bumblebee bumblebee=new BumblebeeHumanoide();
+		Ratchet ratchet=new RatchetHumanoide();
+
+		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
+		
+		int sumvidaintegrantes = autobots.getOptimus().getVida()
+								+ autobots.getBumblebee().getVida() 
+								+ autobots.getRatchet().getVida();
+		
+		Assert.assertTrue(autobots.getVidaTotal() == sumvidaintegrantes);
+	}
+	
 	
 
 }
