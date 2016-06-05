@@ -3,7 +3,7 @@ package Modelo;
 public class MovimientoHorizontal extends Movimiento {
 
 	
-	protected int getSignoColumna(){return 0;}//nunca lo llamo}
+	protected int getSignoDireccion(){return 0;}//nunca lo llamo}
 	@Override
 	public MovimientoHorizontal identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas) {
 		
@@ -14,12 +14,15 @@ public class MovimientoHorizontal extends Movimiento {
 
 	@Override
 	public boolean caminoLibre(movil unMovil, Tablero unTablero,Posicion posDestino) {
-		//TEMPLATE--- getSignoColumna() se redefine en movOeste y Este para modificar la direccion de la iteracion;
+	//PATRON TEMPLATE--- getSignoDireccion() se redefine en movOeste y movEste para modificar la direccion de la iteracion;
 		boolean caminoInterrumpido;
 		
 		for(int i=1;i<=this.getDistancia();i++){
-			Posicion posAux=new Posicion(unMovil.getPosicion().getFila(),unMovil.getPosicion().getColumna()+getSignoColumna()*i);
-			 caminoInterrumpido=unTablero.getCasillero(posAux).estaOcupado();
+		Posicion posAux=
+				new Posicion(unMovil.getPosicion().getFila(),unMovil.getPosicion().getColumna()+getSignoDireccion()*i);
+			 
+	
+		caminoInterrumpido=unTablero.getCasillero(posAux).estaOcupado();
 			 if(caminoInterrumpido==true) return !caminoInterrumpido;
 		 }
 		return true;

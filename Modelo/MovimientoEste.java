@@ -4,7 +4,7 @@ public class MovimientoEste extends MovimientoHorizontal {
 
 	
 	@Override
-	protected int getSignoColumna(){
+	protected int getSignoDireccion(){
 		return -1;
 	}
 
