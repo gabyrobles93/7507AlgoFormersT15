@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
@@ -17,7 +18,7 @@ import Modelo.Posicion;
 public class BumblebeeHumanoideTest {
 	
 	@Test
-	public void test01BumblebeeHumanoideAtacaEnemigo(){
+	public void test01BumblebeeHumanoideAtacaEnemigoHumanoide(){
 		Algoformer bumblebee=new BumblebeeHumanoide();
 		Posicion pos1=new Posicion(3,3);
 		bumblebee.setPosicion(pos1);
@@ -94,12 +95,12 @@ public class BumblebeeHumanoideTest {
 	}
 	
 	@Test
-	public void test08BumblebeeHumanoidePuedeSerAtacado(){
+	public void test08BumblebeeHumanoideEsAtacadoPorEnemigoHumanoide(){
 		Algoformer bumblebee=new BumblebeeHumanoide();
 		Posicion pos1=new Posicion(2,2);
 		bumblebee.setPosicion(pos1);
 		Algoformer bonecrusher=new BonecrusherHumanoide();
-		Posicion pos2=new Posicion(4,4);
+		Posicion pos2=new Posicion(2,5);
 		bonecrusher.setPosicion(pos2);
 		
 		bonecrusher.atacar(bumblebee);
@@ -108,5 +109,35 @@ public class BumblebeeHumanoideTest {
 		Assert.assertTrue(bumblebee.getVida()==500);
 	}
 
+	@Test
+	public void test09BumblebeeHumanoideAtacaEnemigoAlterno(){
+		Algoformer bumblebee=new BumblebeeHumanoide();
+		Posicion pos1=new Posicion(3,3);
+		bumblebee.setPosicion(pos1);
+		Algoformer bonecrusher=new BonecrusherAlterno();
+		Posicion pos2=new Posicion(3,4);
+		bonecrusher.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		bumblebee.atacar(bonecrusher);
+		
+		//como Bonecrusher tiene vida 200 y Bumblebee 40 de ataque le deben quedar 160
+		Assert.assertTrue(bonecrusher.getVida()==160);
+		
+	}
+	
+	@Test
+	public void test10BumblebeeHumanoideEsAtacadoPorEnemigoAlterno(){
+		Algoformer bumblebee=new BumblebeeHumanoide();
+		Posicion pos1=new Posicion(2,2);
+		bumblebee.setPosicion(pos1);
+		Algoformer bonecrusher=new BonecrusherAlterno();
+		Posicion pos2=new Posicion(2,5);
+		bonecrusher.setPosicion(pos2);
+		
+		bonecrusher.atacar(bumblebee);
+		
+		//como Bumblebee tiene vida 350 y Bonecrusher 30 de ataque le deben quedar 320
+		Assert.assertTrue(bumblebee.getVida()==500);
+	}
 
 }

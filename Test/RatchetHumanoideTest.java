@@ -10,13 +10,14 @@ import Modelo.RatchetHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.FrenzyAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 
 public class RatchetHumanoideTest {
 
 	@Test
-	public void test01RatchetHumanoideAtacaEnemigo(){
+	public void test01RatchetHumanoideAtacaEnemigoHumanoide(){
 		Algoformer ratchet=new RatchetHumanoide();
 		Posicion pos1=new Posicion(3,3);
 		ratchet.setPosicion(pos1);
@@ -93,7 +94,7 @@ public class RatchetHumanoideTest {
 	}
 	
 	@Test
-	public void test08RatchetHumanoidePuedeSerAtacado(){
+	public void test08RatchetHumanoideEsAtacadoPorEnemigoHumanoide(){
 		Algoformer ratchet=new RatchetHumanoide();
 		Posicion pos1=new Posicion(2,2);
 		ratchet.setPosicion(pos1);
@@ -108,4 +109,34 @@ public class RatchetHumanoideTest {
 	}
 
 
+	@Test
+	public void test09RatchetHumanoideAtacaEnemigoAlterno(){
+		Algoformer ratchet=new RatchetHumanoide();
+		Posicion pos1=new Posicion(3,3);
+		ratchet.setPosicion(pos1);
+		Algoformer frenzy=new FrenzyAlterno();
+		Posicion pos2=new Posicion(8,3);
+		frenzy.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		ratchet.atacar(frenzy);
+		
+		//como Frenzy tiene vida 400 y Ratchet 5 de ataque le deben quedar 395
+		Assert.assertTrue(frenzy.getVida()==395);
+		
+	}
+	
+	@Test
+	public void test08RatchetHumanoideEsAtacadoPorEnemigoAlterno(){
+		Algoformer ratchet=new RatchetHumanoide();
+		Posicion pos1=new Posicion(2,2);
+		ratchet.setPosicion(pos1);
+		Algoformer frenzy=new FrenzyAlterno();
+		Posicion pos2=new Posicion(2,4);
+		frenzy.setPosicion(pos2);
+		
+		frenzy.atacar(ratchet);
+		
+		//como Ratchet tiene vida 150 y Frenzy 25 de ataque le deben quedar 125
+		Assert.assertTrue(ratchet.getVida()==125);
+	}
 }
