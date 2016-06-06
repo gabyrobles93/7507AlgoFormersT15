@@ -74,7 +74,7 @@ public class BumblebeeHumanoideTest {
 		Algoformer bumble = new BumblebeeHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		bumble.setPosicion(posIni);
-		Posicion posFin=new Posicion(1,5);
+		Posicion posFin=new Posicion(3,4);
 		
 		bumble.mover(posFin);
 	
@@ -87,7 +87,7 @@ public class BumblebeeHumanoideTest {
 		Algoformer bumble = new BumblebeeHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		bumble.setPosicion(posIni);
-		Posicion posFin=new Posicion(1,6);
+		Posicion posFin=new Posicion(1,7);
 		
 		bumble.mover(posFin);
 	
