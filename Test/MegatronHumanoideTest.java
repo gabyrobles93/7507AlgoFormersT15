@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.BonecrusherHumanoide;
+import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.MegatronAlterno;
@@ -12,7 +13,7 @@ import Modelo.MegatronHumanoide;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 
-public class MegatronTest{
+public class MegatronHumanoideTest{
 	
 	@Test
 	public void test01MegatronAtacaEnemigo(){
@@ -77,6 +78,23 @@ public class MegatronTest{
 		
 		Assert.assertTrue(mega_hum.equals(mega_alt.cambiarModo()));
 	}
+	
+	@Test
+	public void test06MegatronSeMueve(){
+		Algoformer mega = new MegatronHumanoide();
+		
+		Posicion unaPos=new Posicion(1,5);
+		
+		
+		
+		algoformer.mover(unaPos);
+	
+		
+		
+		Assert.assertTrue(algoformer.getPosicion()==unaPos);
+	
+	}
+	
 	
 
 	
