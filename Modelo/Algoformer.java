@@ -75,4 +75,10 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		return alcance;
 	}
 
+	//Setter de Posicion creado para utilizar en test
+	public void setPosicion(Posicion unaPosicion) {
+		miPosicion=unaPosicion;
+		
+	}
+
 }

@@ -27,27 +27,7 @@ public class JuegoTest {
 		Assert.assertTrue(juego.getDecepticons() != null);
 	}
 	
-	@Test
-	public void test02elJuegoTieneEstadoIniciadoyFinalizado() {
-		
-		Juego juego = new Juego();
-		
-		/* Antes de iniciar, no esta iniciado y se considera finalizado */
-		Assert.assertFalse(juego.estaIniciado());
-		Assert.assertTrue(juego.estaFinalizado());
-		
-		juego.iniciar();
-		/* Tras iniciar, esta iniciado y no esta finalizado */
-		Assert.assertTrue(juego.estaIniciado());
-		Assert.assertFalse(juego.estaFinalizado());
-		
-		juego.finalizar();
-		/* Tras finalizar, no esta iniciado y si esta finalizado */
-		Assert.assertFalse(juego.estaIniciado());
-		Assert.assertTrue(juego.estaFinalizado());
-		
-	}
-	
+
 	@Test
 	public void test03elJuegoComienzaSinGanadores() {
 		
@@ -95,19 +75,7 @@ public class JuegoTest {
 		
 	}
 	
-	@Test
-	public void test06elJuegoFinalizaCuandoUnEquipoGana() {
-		
-		Juego juego = new Juego();
-		
-		juego.iniciar();
-		
-		juego.setGanador(juego.getAutobots()); 
-		
-		Assert.assertTrue(juego.estaFinalizado());
-		Assert.assertFalse(juego.estaIniciado());
-		
-	}
+
 	
 	@Test
 	public void test07elJuegoTieneUnTablero() {
@@ -117,23 +85,6 @@ public class JuegoTest {
 		Assert.assertTrue(juego.getTablero() instanceof Tablero);	
 	}
 	
-	
-	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
-	public void test09dosAlgoformerDeMismoEquipoNoSePuedeAtacar(){
-		
-		Juego juego=new Juego();//nacen  a un casillero de distancia
-
-		
-		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getAutobots().getAlgoformer("bumblebee"));
-	}
-
-	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test10noSePuedeAtacarAlgoformerFueraDeRango(){
-		
-		Juego juego=new Juego();//nacen en esquinas opuestas
-	
-		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
-	}
 
 @Test
 public void test08ubicarMovilLoPoneDondeDebe()
@@ -160,23 +111,4 @@ public void test08ubicarMovilLoPoneDondeDebe()
 
 	}
 	
-
-	@Test 
-	public void test11dosAlgoformersSeAtacan(){
-		Juego juego=new Juego();
-		
-		//Los cambio de posicion con ubicarMovil para que no salte la excepcion de movimiento
-		 
-		Posicion pos1=new Posicion(3,3);
-		Posicion pos2=new Posicion(4,4);
-		
-		
-		juego.getTablero().ubicarMovil(juego.getAutobots().getAlgoformer("optimus"),pos1);
-		juego.getTablero().ubicarMovil(juego.getDecepticons().getAlgoformer("megatron"),pos2);
-		juego.atacar(juego.getAutobots().getAlgoformer("optimus"), juego.getDecepticons().getAlgoformer("megatron"));
-		
-		//como megatron tiene vida 550 y optimus ataque 50 deberian quedarle 500
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getVida()==500);
-	}
-
 }

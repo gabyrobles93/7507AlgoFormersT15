@@ -6,8 +6,6 @@ public class Juego {
 	public Equipo autobots;//se cambio la visibilidad por problemas en pruebas.
 	public Equipo decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
-	private boolean estaIniciado=false;
-	private boolean estaFinalizado=true;
 	private Tablero	tablero;
 
 	private Equipo turnoDelEquipo;
@@ -46,9 +44,9 @@ public class Juego {
 		Posicion posRatchet=new Posicion(0,2);
 		Posicion posBumblebee=new Posicion(2,0);
 		
-		tablero.ubicarMovil(autobots.getAlgoformer("optimus"), posOptimus);
-		tablero.ubicarMovil(autobots.getAlgoformer("ratchet"), posRatchet);
-		tablero.ubicarMovil(autobots.getAlgoformer("bumblebee"), posBumblebee);
+		tablero.ubicarMovil(autobots.getOptimus(), posOptimus);
+		tablero.ubicarMovil(autobots.getRatchet(), posRatchet);
+		tablero.ubicarMovil(autobots.getBumblebee(), posBumblebee);
 	}
 	private void ubicarDecepticons() {
 		
@@ -72,33 +70,17 @@ public class Juego {
 	}
 	
 
-	public void iniciar(){
-		
-		estaIniciado=true;
-		estaFinalizado=false;
-	}
 	
 	public void setGanador(Equipo unEquipo){
 		
 		ganador=unEquipo;
-		finalizar();
+	
 	}
 	
-	public void finalizar(){
-		
-		estaFinalizado=true;
-		estaIniciado=false;
-	}
+
+
 	
-	public boolean estaIniciado(){
-		
-		return estaIniciado;
-	}
-	
-	public boolean estaFinalizado(){
-		
-		return estaFinalizado;
-	}
+
 	
 	private void setProximoTurno(Equipo unEquipo){
 		
