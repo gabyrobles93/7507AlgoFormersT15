@@ -42,8 +42,6 @@ public class JuegoTest {
 		
 		Juego juego = new Juego();
 		
-		juego.iniciar();
-		
 		juego.setPrimerTurno(juego.getAutobots());
 		
 		Assert.assertTrue(juego.getEjecutorDeTurnoActual() == juego.getAutobots());
@@ -56,8 +54,6 @@ public class JuegoTest {
 	public void test05elJuegoEjecutaTurnos() {
 		
 		Juego juego = new Juego();
-		
-		juego.iniciar();
 		
 		juego.setPrimerTurno(juego.getAutobots());
 		
@@ -82,7 +78,7 @@ public class JuegoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getTablero() instanceof Tablero);	
+		Assert.assertTrue(juego.getTablero().equals( new Tablero()));	
 	}
 	
 

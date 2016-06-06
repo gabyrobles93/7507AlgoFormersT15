@@ -7,6 +7,7 @@ import Modelo.Algoformer;
 import Modelo.BonecrusherHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
+import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
@@ -44,7 +45,7 @@ public class MegatronTest{
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test10MeatronNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03MeatronNoPuedeAtacarAutobotFueraDeRango(){
 
 		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos1=new Posicion(2,0);
@@ -58,5 +59,26 @@ public class MegatronTest{
 		//como optimus tiene vida 500 y megatron 10 de ataque le deben quedar 490
 		Assert.assertTrue(optimus.getVida()==490);
 	}
+	
+	@Test
+	public void test04CambioMegatronDeHumanoideAAlterno(){
+		
+		Algoformer mega_hum=new MegatronHumanoide();
+		Algoformer mega_alt=new MegatronAlterno();
+		
+		Assert.assertTrue(mega_alt.equals(mega_hum.cambiarModo()));
+	}
+	
+	@Test
+	public void test05CambioMegatronDeAlternoAHumanoide(){
+		
+		Algoformer mega_hum=new MegatronHumanoide();
+		Algoformer mega_alt=new MegatronAlterno();
+		
+		Assert.assertTrue(mega_hum.equals(mega_alt.cambiarModo()));
+	}
+	
+
+	
 
 }
