@@ -16,7 +16,7 @@ import Modelo.Posicion;
 public class MegatronHumanoideTest{
 	
 	@Test
-	public void test01MegatronAtacaEnemigo(){
+	public void test01MegatronHumanoideAtacaEnemigo(){
 		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos1=new Posicion(3,3);
 		megatron.setPosicion(pos1);
@@ -32,7 +32,7 @@ public class MegatronHumanoideTest{
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
-	public void test02MegatronNoPuedeAtacarDecepticons(){
+	public void test02MegatronHumanoideNoPuedeAtacarDecepticons(){
 		
 		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos1=new Posicion(3,3);
@@ -46,7 +46,7 @@ public class MegatronHumanoideTest{
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
 
 		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos1=new Posicion(2,0);
@@ -62,40 +62,39 @@ public class MegatronHumanoideTest{
 	}
 	
 	@Test
-	public void test04CambioMegatronDeHumanoideAAlterno(){
+	public void test04CambioMegatronAModoAlterno(){
 		
 		Algoformer mega_hum=new MegatronHumanoide();
 		Algoformer mega_alt=new MegatronAlterno();
 		
 		Assert.assertTrue(mega_alt.equals(mega_hum.cambiarModo()));
 	}
-	
-	@Test
-	public void test05CambioMegatronDeAlternoAHumanoide(){
 		
-		Algoformer mega_hum=new MegatronHumanoide();
-		Algoformer mega_alt=new MegatronAlterno();
-		
-		Assert.assertTrue(mega_hum.equals(mega_alt.cambiarModo()));
-	}
-	
 	@Test
-	public void test06MegatronSeMueve(){
+	public void test06MegatronHumanoideSeMueve(){
 		Algoformer mega = new MegatronHumanoide();
+		Posicion posIni=new Posicion(1,4);
+		mega.setPosicion(posIni);
+		Posicion posFin=new Posicion(1,5);
 		
-		Posicion unaPos=new Posicion(1,5);
-		
-		
-		
-		algoformer.mover(unaPos);
+		mega.mover(posFin);
 	
-		
-		
-		Assert.assertTrue(algoformer.getPosicion()==unaPos);
+		Assert.assertTrue(mega.getPosicion()==posFin);
 	
 	}
 	
+	@Test
+	public void test06MegatronHumanoideTieneLimiteDeVelocidad(){
+		Algoformer mega = new MegatronHumanoide();
+		Posicion posIni=new Posicion(1,4);
+		mega.setPosicion(posIni);
+		Posicion posFin=new Posicion(1,5);
+		
+		mega.mover(posFin);
 	
+		Assert.assertTrue(mega.getPosicion()==posFin);
+	
+	}
 
 	
 
