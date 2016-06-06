@@ -34,7 +34,7 @@ public class OptimusHumaboideTest {
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
-	public void test02OptimusHumanoideNoPuedeAtacarDecepticons(){
+	public void test02OptimusHumanoideNoPuedeAtacarAutobots(){
 		
 		Algoformer optimus=new OptimusHumanoide();
 		Posicion pos1=new Posicion(3,3);
@@ -48,13 +48,13 @@ public class OptimusHumaboideTest {
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03OptimusHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
 
 		Algoformer optimus=new OptimusHumanoide();
 		Posicion pos1=new Posicion(2,0);
 		optimus.setPosicion(pos1);
 		Algoformer megatron=new MegatronHumanoide();
-		Posicion pos2=new Posicion(2,5);
+		Posicion pos2=new Posicion(2,3);
 		megatron.setPosicion(pos2);
 		
 		optimus.atacar(megatron);
@@ -88,7 +88,7 @@ public class OptimusHumaboideTest {
 		Algoformer optimus = new OptimusHumanoide();
 		Posicion posIni=new Posicion(2,2);
 		optimus.setPosicion(posIni);
-		Posicion posFin=new Posicion(2,5);
+		Posicion posFin=new Posicion(2,3);
 		
 		optimus.mover(posFin);
 	
@@ -131,7 +131,7 @@ public class OptimusHumaboideTest {
 		Posicion pos1=new Posicion(2,2);
 		optimus.setPosicion(pos1);
 		Algoformer megatron=new MegatronAlterno();
-		Posicion pos2=new Posicion(4,4);
+		Posicion pos2=new Posicion(2,4);
 		megatron.setPosicion(pos2);
 		
 		megatron.atacar(optimus);

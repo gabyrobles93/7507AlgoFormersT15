@@ -34,7 +34,7 @@ public class BumblebeeHumanoideTest {
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
-	public void test02BumblebeeHumanoideNoPuedeAtacarDecepticons(){
+	public void test02BumblebeeHumanoideNoPuedeAtacarAutobots(){
 		
 		Algoformer bumblebee=new BumblebeeHumanoide();
 		Posicion pos1=new Posicion(3,3);
@@ -48,7 +48,7 @@ public class BumblebeeHumanoideTest {
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03BumblebeeHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
 
 		Algoformer bumblebee=new BumblebeeHumanoide();
 		Posicion pos1=new Posicion(2,0);
@@ -106,7 +106,7 @@ public class BumblebeeHumanoideTest {
 		bonecrusher.atacar(bumblebee);
 		
 		//como Bumblebee tiene vida 350 y Bonecrusher 30 de ataque le deben quedar 320
-		Assert.assertTrue(bumblebee.getVida()==500);
+		Assert.assertTrue(bumblebee.getVida()==320);
 	}
 
 	@Test
@@ -137,7 +137,7 @@ public class BumblebeeHumanoideTest {
 		bonecrusher.atacar(bumblebee);
 		
 		//como Bumblebee tiene vida 350 y Bonecrusher 30 de ataque le deben quedar 320
-		Assert.assertTrue(bumblebee.getVida()==500);
+		Assert.assertTrue(bumblebee.getVida()==320);
 	}
 
 }

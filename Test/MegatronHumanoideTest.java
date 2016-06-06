@@ -48,13 +48,13 @@ public class MegatronHumanoideTest{
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03MegatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
 
 		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos1=new Posicion(2,0);
 		megatron.setPosicion(pos1);
 		Algoformer optimus=new OptimusHumanoide();
-		Posicion pos2=new Posicion(15,15);
+		Posicion pos2=new Posicion(6,0);
 		optimus.setPosicion(pos2);
 		
 		megatron.atacar(optimus);

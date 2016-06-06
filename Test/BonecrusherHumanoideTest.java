@@ -8,6 +8,7 @@ import Modelo.BonecrusherHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.MegatronHumanoide;
 import Modelo.OptimusHumanoide;
 import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
@@ -39,22 +40,22 @@ public class BonecrusherHumanoideTest {
 		Algoformer bonecrusher=new BonecrusherHumanoide();
 		Posicion pos1=new Posicion(3,3);
 		bonecrusher.setPosicion(pos1);
-		Algoformer optimus=new OptimusHumanoide();
+		Algoformer megatron=new MegatronHumanoide();
 		Posicion pos2=new Posicion(3,7);
-		optimus.setPosicion(pos2);
+		megatron.setPosicion(pos2);
 		
-		bonecrusher.atacar(optimus);
+		bonecrusher.atacar(megatron);
 		
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03BonecrusherHumanoideNoPuedeAtacarAutobotFueraDeRango(){
 
 		Algoformer bonecrusher=new BonecrusherHumanoide();
 		Posicion pos1=new Posicion(2,0);
 		bonecrusher.setPosicion(pos1);
 		Algoformer bumblebee=new BumblebeeHumanoide();
-		Posicion pos2=new Posicion(15,15);
+		Posicion pos2=new Posicion(6,0);
 		bumblebee.setPosicion(pos2);
 		
 		bonecrusher.atacar(bumblebee);

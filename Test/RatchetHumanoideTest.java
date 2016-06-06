@@ -33,7 +33,7 @@ public class RatchetHumanoideTest {
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
-	public void test02RatchetHumanoideNoPuedeAtacarDecepticons(){
+	public void test02RatchetHumanoideNoPuedeAtacarAutobots(){
 		
 		Algoformer ratchet=new RatchetHumanoide();
 		Posicion pos1=new Posicion(3,3);
@@ -47,13 +47,13 @@ public class RatchetHumanoideTest {
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MeatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+	public void test03RatchetHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
 
 		Algoformer ratchet=new RatchetHumanoide();
 		Posicion pos1=new Posicion(2,0);
 		ratchet.setPosicion(pos1);
 		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos2=new Posicion(2,2);
+		Posicion pos2=new Posicion(4,6);
 		frenzy.setPosicion(pos2);
 		
 		ratchet.atacar(frenzy);
