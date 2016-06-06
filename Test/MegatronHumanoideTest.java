@@ -57,9 +57,6 @@ public class MegatronHumanoideTest{
 		optimus.setPosicion(pos2);
 		
 		megatron.atacar(optimus);
-		
-		//como optimus tiene vida 500 y megatron 10 de ataque le deben quedar 490
-		Assert.assertTrue(optimus.getVida()==490);
 	}
 	
 	@Test
@@ -107,7 +104,7 @@ public class MegatronHumanoideTest{
 		optimus.atacar(megatron);
 		
 		//como megatron tiene vida 550 y optimus 50 de ataque le deben quedar 500
-		Assert.assertTrue(optimus.getVida()==500);
+		Assert.assertTrue(megatron.getVida()==500);
 	}
 
 	
