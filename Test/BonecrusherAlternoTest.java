@@ -55,7 +55,6 @@ public class BonecrusherAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Autobots autobots = new Autobots();
 		Decepticons decepticons = new Decepticons();
 		
 		Algoformer bonecrusher = new BonecrusherAlterno();
@@ -78,14 +77,20 @@ public class BonecrusherAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		
 		Algoformer bonecrusher=new BonecrusherAlterno();
+		bonecrusher.setEquipo(decepticons);
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(bonecrusher, pos1);
-		Algoformer megatron=new OptimusHumanoide();
-		Posicion pos2=new Posicion(6,0);
-		tab.ubicarMovil(megatron, pos2);
 		
-		bonecrusher.atacar(megatron);
+		Algoformer optimus=new OptimusHumanoide();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(6,0);
+		tab.ubicarMovil(optimus, pos2);
+		
+		bonecrusher.atacar(optimus);
 		
 	}
 	
@@ -100,6 +105,7 @@ public class BonecrusherAlternoTest {
 		
 	@Test
 	public void test05BonecrusherAlternoSeMueve(){
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Algoformer bone = new BonecrusherAlterno();
