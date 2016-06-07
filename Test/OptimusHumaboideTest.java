@@ -88,7 +88,7 @@ public class OptimusHumaboideTest {
 		Algoformer optimus = new OptimusHumanoide();
 		Posicion posIni=new Posicion(2,2);
 		optimus.setPosicion(posIni);
-		Posicion posFin=new Posicion(4,3);
+		Posicion posFin=new Posicion(5,2);
 		
 		optimus.mover(posFin);
 	

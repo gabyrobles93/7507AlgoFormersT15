@@ -53,7 +53,7 @@ public class RatchetHumanoideTest {
 		Posicion pos1=new Posicion(2,0);
 		ratchet.setPosicion(pos1);
 		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos2=new Posicion(4,6);
+		Posicion pos2=new Posicion(5,3);
 		frenzy.setPosicion(pos2);
 		
 		ratchet.atacar(frenzy);

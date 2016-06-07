@@ -73,7 +73,7 @@ public class BonecrusherAlternoTest {
 		Algoformer bone = new BonecrusherAlterno();
 		Posicion posIni=new Posicion(1,4);
 		bone.setPosicion(posIni);
-		Posicion posFin=new Posicion(8,5);
+		Posicion posFin=new Posicion(9,4);
 		
 		bone.mover(posFin);
 	
@@ -86,7 +86,7 @@ public class BonecrusherAlternoTest {
 		Algoformer bone = new BonecrusherAlterno();
 		Posicion posIni=new Posicion(1,4);
 		bone.setPosicion(posIni);
-		Posicion posFin=new Posicion(8,6);
+		Posicion posFin=new Posicion(10,4);
 		
 		bone.mover(posFin);
 	

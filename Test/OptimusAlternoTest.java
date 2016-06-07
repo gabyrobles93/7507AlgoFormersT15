@@ -74,7 +74,7 @@ public class OptimusAlternoTest {
 		Algoformer optimus = new OptimusAlterno();
 		Posicion posIni=new Posicion(2,2);
 		optimus.setPosicion(posIni);
-		Posicion posFin=new Posicion(5,4);
+		Posicion posFin=new Posicion(2,7);
 		
 		optimus.mover(posFin);
 	
@@ -87,7 +87,7 @@ public class OptimusAlternoTest {
 		Algoformer optimus = new OptimusAlterno();
 		Posicion posIni=new Posicion(2,2);
 		optimus.setPosicion(posIni);
-		Posicion posFin=new Posicion(6,6);
+		Posicion posFin=new Posicion(5,5);
 		
 		optimus.mover(posFin);
 	
@@ -99,7 +99,7 @@ public class OptimusAlternoTest {
 		Posicion pos1=new Posicion(2,2);
 		optimus.setPosicion(pos1);
 		Algoformer megatron=new MegatronHumanoide();
-		Posicion pos2=new Posicion(4,4);
+		Posicion pos2=new Posicion(2,5);
 		megatron.setPosicion(pos2);
 		
 		megatron.atacar(optimus);

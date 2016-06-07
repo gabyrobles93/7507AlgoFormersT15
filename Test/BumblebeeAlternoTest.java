@@ -74,7 +74,7 @@ public class BumblebeeAlternoTest {
 		Algoformer bumble = new BumblebeeAlterno();
 		Posicion posIni=new Posicion(1,4);
 		bumble.setPosicion(posIni);
-		Posicion posFin=new Posicion(3,7);
+		Posicion posFin=new Posicion(6,4);
 		
 		bumble.mover(posFin);
 	
@@ -114,12 +114,12 @@ public class BumblebeeAlternoTest {
 		Posicion pos1=new Posicion(3,3);
 		bumblebee.setPosicion(pos1);
 		Algoformer bonecrusher=new BonecrusherAlterno();
-		Posicion pos2=new Posicion(3,4);
+		Posicion pos2=new Posicion(3,6);
 		bonecrusher.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		bumblebee.atacar(bonecrusher);
 		
-		//como Bonecrusher tiene vida 200 y Bumblebee 20 de ataque le deben quedar 160
+		//como Bonecrusher tiene vida 200 y Bumblebee 20 de ataque le deben quedar 180
 		Assert.assertTrue(bonecrusher.getVida()==180);
 		
 	}

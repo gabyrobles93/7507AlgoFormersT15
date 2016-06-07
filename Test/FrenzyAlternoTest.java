@@ -22,13 +22,13 @@ public class FrenzyAlternoTest {
 			Posicion pos1=new Posicion(3,3);
 			frenzy.setPosicion(pos1);
 			Algoformer ratchet=new RatchetHumanoide();
-			Posicion pos2=new Posicion(8,3);
+			Posicion pos2=new Posicion(5,3);
 			ratchet.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 			
 			frenzy.atacar(ratchet);
 			
-			//como Ratchet tiene vida 150 y Frenzy 10 de ataque le deben quedar 140
-			Assert.assertTrue(ratchet.getVida()==140);
+			//como Ratchet tiene vida 150 y Frenzy 25 de ataque le deben quedar 125
+			Assert.assertTrue(ratchet.getVida()==125);
 			
 		}
 		
@@ -39,7 +39,7 @@ public class FrenzyAlternoTest {
 			Posicion pos1=new Posicion(3,3);
 			frenzy.setPosicion(pos1);
 			Algoformer bone=new BonecrusherHumanoide();
-			Posicion pos2=new Posicion(3,8);
+			Posicion pos2=new Posicion(3,4);
 			bone.setPosicion(pos2);
 			
 			frenzy.atacar(bone);
@@ -53,7 +53,7 @@ public class FrenzyAlternoTest {
 			Posicion pos1=new Posicion(2,0);
 			frenzy.setPosicion(pos1);
 			Algoformer ratchet=new RatchetHumanoide();
-			Posicion pos2=new Posicion(2,9);
+			Posicion pos2=new Posicion(2,3);
 			ratchet.setPosicion(pos2);
 			
 			frenzy.atacar(ratchet);
@@ -73,7 +73,7 @@ public class FrenzyAlternoTest {
 			Algoformer frenzy = new FrenzyAlterno();
 			Posicion posIni=new Posicion(1,4);
 			frenzy.setPosicion(posIni);
-			Posicion posFin=new Posicion(2,5);
+			Posicion posFin=new Posicion(1,10);
 			
 			frenzy.mover(posFin);
 		
@@ -86,7 +86,7 @@ public class FrenzyAlternoTest {
 			Algoformer frenzy = new FrenzyAlterno();
 			Posicion posIni=new Posicion(1,4);
 			frenzy.setPosicion(posIni);
-			Posicion posFin=new Posicion(2,6);
+			Posicion posFin=new Posicion(5,8);
 			
 			frenzy.mover(posFin);
 		
@@ -113,13 +113,13 @@ public class FrenzyAlternoTest {
 			Posicion pos1=new Posicion(3,3);
 			frenzy.setPosicion(pos1);
 			Algoformer ratchet=new RatchetAlterno();
-			Posicion pos2=new Posicion(5,6);
+			Posicion pos2=new Posicion(5,3);
 			ratchet.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 			
 			frenzy.atacar(ratchet);
 			
-			//como Ratchet tiene vida 150 y Frenzy 10 de ataque le deben quedar 140
-			Assert.assertTrue(ratchet.getVida()==140);
+			//como Ratchet tiene vida 150 y Frenzy 25 de ataque le deben quedar 125
+			Assert.assertTrue(ratchet.getVida()==125);
 			
 		}
 		

@@ -22,13 +22,13 @@ public class MegatronAlternoTest {
 		Posicion pos1=new Posicion(3,3);
 		megatron.setPosicion(pos1);
 		Algoformer optimus=new OptimusHumanoide();
-		Posicion pos2=new Posicion(3,6);
+		Posicion pos2=new Posicion(3,5);
 		optimus.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		megatron.atacar(optimus);
 		
-		//como optimus tiene vida 500 y megatron 10 de ataque le deben quedar 490
-		Assert.assertTrue(optimus.getVida()==490);
+		//como optimus tiene vida 500 y megatron 55 de ataque le deben quedar 445
+		Assert.assertTrue(optimus.getVida()==445);
 		
 	}
 	
@@ -73,7 +73,7 @@ public class MegatronAlternoTest {
 		Algoformer mega = new MegatronAlterno();
 		Posicion posIni=new Posicion(1,4);
 		mega.setPosicion(posIni);
-		Posicion posFin=new Posicion(1,5);
+		Posicion posFin=new Posicion(9,4);
 		
 		mega.mover(posFin);
 	
@@ -86,7 +86,7 @@ public class MegatronAlternoTest {
 		Algoformer mega = new MegatronAlterno();
 		Posicion posIni=new Posicion(1,4);
 		mega.setPosicion(posIni);
-		Posicion posFin=new Posicion(1,6);
+		Posicion posFin=new Posicion(10,4);
 		
 		mega.mover(posFin);
 	
@@ -113,13 +113,13 @@ public class MegatronAlternoTest {
 		Posicion pos1=new Posicion(3,3);
 		megatron.setPosicion(pos1);
 		Algoformer optimus=new OptimusAlterno();
-		Posicion pos2=new Posicion(3,6);
+		Posicion pos2=new Posicion(3,5);
 		optimus.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		megatron.atacar(optimus);
 		
-		//como optimus tiene vida 500 y megatron 10 de ataque le deben quedar 490
-		Assert.assertTrue(optimus.getVida()==490);
+		//como optimus tiene vida 500 y megatron 55 de ataque le deben quedar 445
+		Assert.assertTrue(optimus.getVida()==445);
 		
 	}
 	

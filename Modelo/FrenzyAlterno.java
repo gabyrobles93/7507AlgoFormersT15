@@ -9,17 +9,19 @@ public class FrenzyAlterno extends Frenzy {
 		velocidad=6;
 		
 	}
-	public FrenzyAlterno(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+	public FrenzyAlterno(Posicion unaPos, int unaVida) {
 		miPosicion=unaPos;
 		vida=unaVida;
-		ataque=unAtaque;
-		velocidad=unaVelocidad;
-		alcance=unAlcance;
+		ataque=25;
+		velocidad=6;
+		alcance=2;
 		
 	}
+	
+
 	@Override
 	public Algoformer cambiarModo() {
-	return new FrenzyHumanoide(miPosicion,vida,ataque,velocidad,alcance);
+	return new FrenzyHumanoide(miPosicion,vida);
 	}
 
 
