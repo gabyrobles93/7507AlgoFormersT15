@@ -3,8 +3,8 @@ package Modelo;
 import java.util.Random;
 
 public class Juego {
-	public Equipo autobots;//se cambio la visibilidad por problemas en pruebas.
-	public Equipo decepticons;//idem.igual no se si estaria mal.
+	public Autobots autobots;//se cambio la visibilidad por problemas en pruebas.
+	public Decepticons decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
 	private Tablero	tablero;
 	
@@ -61,12 +61,12 @@ public class Juego {
 		tablero.ubicarMovil(((Decepticons) decepticons).getFrenzy(), posFrenzy);
 		
 	}
-	public Equipo getAutobots(){
+	public Autobots getAutobots(){
 		
 		return autobots;
 	}
 	
-	public Equipo getDecepticons(){
+	public Decepticons getDecepticons(){
 		
 		return decepticons;
 	}
@@ -138,7 +138,7 @@ public class Juego {
 		}
 	}
 	
-	public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
+	/*public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
 		
 		//Deben ser de diferentes equipos
 		if(!(decepticons.existeAlgoformer(atacante)^decepticons.existeAlgoformer(enemigo))){

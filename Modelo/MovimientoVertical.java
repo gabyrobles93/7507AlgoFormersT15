@@ -1,24 +1,40 @@
 package Modelo;
 
 public class MovimientoVertical extends Movimiento {
-
-	@Override
-protected MovimientoVertical identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas) {
-		
-		if(diferenciaEntreFilas<0 )return new MovimientoNorte();
-		else return new MovimientoSur();
-
+	
+	
+	
+	public MovimientoVertical(movil unMovil){
+		movil=unMovil;
 	}
 
 	@Override
-	public boolean caminoLibre(movil unMovil, Tablero unTablero, int distanciaFila, int distanciaColumna) {
+	public MovimientoVertical identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas) {
 		
-		boolean caminoInterrumpido;
+		distancia=Math.abs(diferenciaEntreFilas);
 		
-		for(int i=1;i<=Math.abs(distanciaColumna);i++){
-			 caminoInterrumpido=unTablero.getCasillero(unMovil.getFila(),unMovil.getColumna()-i).estaOcupado();
-			 if(caminoInterrumpido==true) return !caminoInterrumpido;
-		 }
-		return true;
+		if(diferenciaEntreFilas<0 )return new MovimientoNorte(movil,distancia);
+		else return new MovimientoSur(movil,distancia);
+
+	}
+
+
+
+	@Override
+	public int getSignoDireccionX() {
+		
+		return 0;
+	}
+
+	@Override
+	public int getSignoDireccionY() {
+		
+		return 0;
+	}
+
+	@Override
+	public void Avanzar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

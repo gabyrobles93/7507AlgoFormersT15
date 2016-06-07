@@ -2,12 +2,22 @@ package Modelo;
 
 public class MovimientoNorOeste extends MovimientoDiagonal {
 
-	@Override
-	protected int getSignoFila(){
-		
+	public MovimientoNorOeste(movil unMovil,int unaDistancia) {
+		super(unMovil);
+		distancia=unaDistancia;
 	}
 	@Override
-	protected int getSignoColumna(){
+	public int getSignoDireccionX(){
+		return -1;
+	}
+	@Override
+	public int getSignoDireccionY(){
+		return -1;
+	}
+	@Override
+	public void Avanzar() {
+		Posicion posAux=new Posicion(movil.getPosicion().getFila()-1,movil.getPosicion().getColumna()-1);
+		movil.cambiarPosicion(posAux);
 		
 	}
 }

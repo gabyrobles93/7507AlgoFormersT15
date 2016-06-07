@@ -2,14 +2,42 @@ package Modelo;
 
 public class MovimientoDiagonal extends Movimiento {
 
-protected MovimientoDiagonal identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas) {
+	public MovimientoDiagonal(movil unMovil){
+		movil=unMovil;
+	}	
+	
+	
+public MovimientoDiagonal identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas) {
 		
-		if(diferenciaEntreColumnas<0&&diferenciaEntreFilas<0 )return new MovimientoNorOeste();
-		else if(diferenciaEntreColumnas>0&&diferenciaEntreFilas>0 )return new MovimientoSurEste();
-		else if(diferenciaEntreColumnas<0&&diferenciaEntreFilas>0 )return new MovimientoNorEste();
-		else if(diferenciaEntreColumnas>0&&diferenciaEntreFilas<0 )return new MovimientoSurOeste();
-		return null;//nunca llega hasta aca
+	
+	distancia= Math.abs(diferenciaEntreFilas);//da lo mismo cualq, son iguales.
+										
+	
+		if(diferenciaEntreColumnas<0&&diferenciaEntreFilas<0 )return new MovimientoNorOeste(movil,distancia);
+		else if(diferenciaEntreColumnas>0&&diferenciaEntreFilas>0 )return new MovimientoSurEste(movil,distancia);
+		else if(diferenciaEntreColumnas<0&&diferenciaEntreFilas>0 )return new MovimientoNorEste(movil,distancia);
+		return new MovimientoSurOeste(movil,distancia);
+		
 
 	}
+
+@Override
+public int getSignoDireccionX() {
+	// TODO Auto-generated method stub----->sobrecargados en las hijas
+	return 0;
+}
+
+@Override
+public int getSignoDireccionY() {
+	// TODO Auto-generated method stub---->sobrecargados en las hijas
+	return 0;
+}
+
+
+@Override
+public void Avanzar() {
+	// TODO Auto-generated method stub
+	
+}
 
 }

@@ -29,7 +29,7 @@ public void ubicarMovil(movil unMovil,Posicion pos)throws ErrorCasillerOcupado {
 		throw new ErrorCasillerOcupado();
 	}
 	matriz[pos.getFila()][pos.getColumna()].setMovilOcupa(unMovil);
-	unMovil.mover(pos);
+	unMovil.cambiarPosicion(pos);
 	
 }
 
@@ -178,17 +178,7 @@ public Tablero getArea(Posicion posicionCentral,int distancia)throws RuntimeExce
 	return subTablero;
 }
 
-public boolean ataquePosible(atacante unAtacante,movil victima){
-	
-	int alcance=unAtacante.getDistanciaDeAtaque(victima);
-	
-	
-	
-	return unAtacante.alcancePosible(alcance);
-	
-	
-	
-}
+
 
 @Override
 public boolean equals(Object obj) {

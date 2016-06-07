@@ -2,12 +2,19 @@ package Modelo;
 
 public class MovimientoNorte extends MovimientoVertical {
 
-	@Override
-	protected int getSignoFila(){
-		
+
+	public MovimientoNorte(movil unMovil, int unaDistancia) {
+		super(unMovil);
+		distancia=unaDistancia;
 	}
 	@Override
-	protected int getSignoColumna(){
+	public int getSignoDireccionY(){
+		return -1;
+	}
+	@Override
+	public void Avanzar() {
+		Posicion posAux=new Posicion(movil.getPosicion().getFila()-1,movil.getPosicion().getColumna());
+		movil.cambiarPosicion(posAux);
 		
 	}
 }

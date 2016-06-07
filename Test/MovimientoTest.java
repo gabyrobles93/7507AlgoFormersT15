@@ -20,7 +20,7 @@ public class MovimientoTest {
 		
 		Algoformer mega= new MegatronAlterno();
 		
-		mega.mover(pos);
+		mega.cambiarPosicion(pos);
 		
 		Posicion pos2=new Posicion(3,4);
 		
@@ -33,7 +33,8 @@ public class MovimientoTest {
 		Algoformer mega=new MegatronAlterno();
 		Posicion pos=new Posicion(1,1);
 		
-		mega.mover(pos);
+		mega.cambiarPosicion(pos);
+		
 		Posicion pos2=new Posicion(3,3);
 		
 		

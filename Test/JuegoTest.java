@@ -31,14 +31,7 @@ public class JuegoTest {
 	}
 	
 
-	@Test
-	public void test03elJuegoComienzaSinGanadores() {
-		
-		Juego juego = new Juego();
-		
-		Assert.assertFalse(juego.getGanador() == juego.getDecepticons());
-		Assert.assertFalse(juego.getGanador() == juego.getAutobots());
-	}
+
 	
 	@Test
 	public void test04elJuegoPuedeSetearElPrimerTurno() {
@@ -90,24 +83,30 @@ public class JuegoTest {
 public void test08ubicarMovilLoPoneDondeDebe()
 {
 	Juego juego=new Juego();
+	Posicion pos1=new Posicion(47,47);
+	Posicion pos2=new Posicion(49,47);
+	Posicion pos3=new Posicion(47,49);
+	Posicion pos4=new Posicion(2,2);
+	Posicion pos5=new Posicion(0,2);
+	Posicion pos6=new Posicion(2,0);
 	
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().getFila()==47);
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().getColumna()==47);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().equals(pos1));
 	
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().getFila()==49);
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().getColumna()==47);
 	
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().getFila()==47);
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().getColumna()==49);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().equals(pos2));
+
 	
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().getFila()==2);
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().getColumna()==2);
+
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().equals(pos3));
 	
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().getFila()==0);
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().getColumna()==2);
+
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().equals(pos4));
 	
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().getFila()==2);
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().getColumna()==0);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().equals(pos5));
+	
+	
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().equals(pos6));
+
 
 	}
 	

@@ -43,9 +43,9 @@ public class AlgoformerTest {
 		
 		Tablero subtablero=juego.getTablero().getArea(posArranque, 1);
 	
-		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("optimus")));
-		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("bumblebee")));
-		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getAlgoformer("ratchet")));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getOptimus()));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getBumblebee()));
+		Assert.assertTrue(subtablero.existeMovil(juego.getAutobots().getRatchet()));
 		
 	}
 	@Test
@@ -55,9 +55,9 @@ public class AlgoformerTest {
 		Posicion posArranque=new Posicion(48,48);
 	
 		
-		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("megatron")));
-		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("frenzy")));
-		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getAlgoformer("bonecrusher")));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getMegatron()));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getFrenzy()));
+		Assert.assertTrue(juego.getTablero().getArea(posArranque, 1).existeMovil(juego.getDecepticons().getBonecrusher()));
 	}
 
 	

@@ -11,7 +11,7 @@ public class Ataque {
 
 	public void validar(Algoformer victima, Algoformer atacante) {
 		
-		if(fueraDeRango(victima.getPosicion(), atacante.getPosicion())) {
+		if(fueraDeRango(victima, atacante)) {
 			
 			ErrorDistanciaDeAtaqueInsuficiente error = new ErrorDistanciaDeAtaqueInsuficiente(); 
 			throw error;
@@ -20,11 +20,10 @@ public class Ataque {
 		/* SE DEBE VALIDAR DE NO ESTAR ATACANDO A UN MIEMBRO DE TU MISMO EQUIPO::: COMOOO????? */
 	}
 
-	private boolean fueraDeRango(Posicion posicion, Posicion posicion2) {
+	private boolean fueraDeRango(Algoformer victima, Algoformer atacante) {
 		
-		/* LOGICA NECESARIA PARA DETECTAR QUE ESTA FUERA DE RANGO */
-		
-		return false;
+	Tablero subTab=tablero.getArea(atacante.getPosicion(), atacante.getDistanciaDeAtaque());
+	return !subTab.existeMovil(victima);
 	}
 
 }

@@ -18,9 +18,17 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 			
 	}
 	public void mover(Posicion pos){
+		Movimiento mov	=Movimiento.crearMovimiento(this, pos);//valida todo
+		
+		for(int i=0;i<mov.getDistancia();i++){
+			mov.Avanzar();
+			//mov.aplicarEfectos();//?
+		}
+		
+	}
+	public void cambiarPosicion(Posicion pos){//metodo que usa movimiento
 		miPosicion=pos;
 	}
-	
 
 
 
