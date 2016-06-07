@@ -46,9 +46,9 @@ public class Juego {
 		Posicion posRatchet=new Posicion(0,2);
 		Posicion posBumblebee=new Posicion(2,0);
 		
-		tablero.ubicarMovil(autobots.getOptimus(), posOptimus);
-		tablero.ubicarMovil(autobots.getRatchet(), posRatchet);
-		tablero.ubicarMovil(autobots.getBumblebee(), posBumblebee);
+		tablero.ubicarMovil(((Autobots) autobots).getOptimus(), posOptimus);
+		tablero.ubicarMovil(((Autobots) autobots).getRatchet(), posRatchet);
+		tablero.ubicarMovil(((Autobots) autobots).getBumblebee(), posBumblebee);
 	}
 	private void ubicarDecepticons() {
 		
@@ -56,9 +56,9 @@ public class Juego {
 		Posicion posBonecrusher=new Posicion(49,47);
 		Posicion posFrenzy=new Posicion(47,49);
 
-		tablero.ubicarMovil(decepticons.getAlgoformer("megatron"), posMegatron);
-		tablero.ubicarMovil(decepticons.getAlgoformer("bonecrusher"), posBonecrusher);
-		tablero.ubicarMovil(decepticons.getAlgoformer("frenzy"), posFrenzy);
+		tablero.ubicarMovil(((Decepticons) decepticons).getMegatron(), posMegatron);
+		tablero.ubicarMovil(((Decepticons) decepticons).getBonecrusher(), posBonecrusher);
+		tablero.ubicarMovil(((Decepticons) decepticons).getFrenzy(), posFrenzy);
 		
 	}
 	public Equipo getAutobots(){
@@ -113,7 +113,7 @@ public class Juego {
 		cambiarTurno();
 		
 	}
-	
+/*	
 	public Equipo getGanador(){
 		
 		if((autobots.getVidaTotal()==0)||(decepticons.getTieneChispaSuprema())||(autobots.cantidadMiembrosVivos==0)){
@@ -124,7 +124,7 @@ public class Juego {
 		}
 		return null;
 	}
-	
+	*/
 	public Tablero getTablero() {
 		
 		return tablero;

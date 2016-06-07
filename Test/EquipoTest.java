@@ -11,6 +11,8 @@ import Modelo.Juego;
 import Modelo.Megatron;
 import Modelo.Optimus;
 import Modelo.Ratchet;
+import Modelo.Autobots;
+import Modelo.Decepticons;
 
 public class EquipoTest {
 
@@ -84,9 +86,9 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus") instanceof Optimus);
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee") instanceof Bumblebee);
-		Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet") instanceof Ratchet);
+		Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus() instanceof Optimus);
+		Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee() instanceof Bumblebee);
+		Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet() instanceof Ratchet);
 		
 	}
 	
@@ -96,9 +98,9 @@ public class EquipoTest {
 		
 		Juego juego = new Juego();
 		
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron") instanceof Megatron);
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher") instanceof Bonecrusher);
-		Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy") instanceof Frenzy);
+		Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron() instanceof Megatron);
+		Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher() instanceof Bonecrusher);
+		Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy() instanceof Frenzy);
 		
 	}
 }
