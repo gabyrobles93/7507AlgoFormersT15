@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Ataque;
 import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
@@ -23,6 +24,7 @@ public class BonecrusherAlternoTest {
 		
 		Tablero tab= new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(bonecrusher,pos1);
@@ -42,6 +44,7 @@ public class BonecrusherAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(bonecrusher, pos1);
@@ -58,6 +61,7 @@ public class BonecrusherAlternoTest {
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(2,0);
 		tab.ubicarMovil(bonecrusher, pos1);
@@ -110,6 +114,7 @@ public class BonecrusherAlternoTest {
 	public void test08BonecrusherAlternoEsAtacadoPorEnemigoHumanoide(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(bonecrusher, pos1);
@@ -127,6 +132,7 @@ public class BonecrusherAlternoTest {
 	public void test09BonecrusherAlternoAtacaEnemigoAlterno(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(bonecrusher, pos1);;
@@ -145,6 +151,7 @@ public class BonecrusherAlternoTest {
 	public void test10BonecrusherAlternoEsAtacadoPorEnemigoAlterno(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		Algoformer bonecrusher=new BonecrusherAlterno();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(bonecrusher, pos1);
