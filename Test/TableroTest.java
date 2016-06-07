@@ -3,6 +3,7 @@ package Test;
 import org.junit.Assert;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.Megatron;
 
 import org.junit.Test;
 
@@ -47,14 +48,20 @@ public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros()
 	tablero1.ubicarMovil(megatron, unaPos);
 	tablero1.ubicarMovil(optimus, otraPos);
 	Tablero subTablero=tablero1.getArea(unaPos, 2);
+	
 	Assert.assertTrue(subTablero.existeMovil(megatron));
 	Assert.assertFalse(subTablero.existeMovil(optimus));
 }
-@Test(expected=ErrorAreaFueraDeRangoPosible.class)
-public void test88getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
+@Test
+public void test88getAreaReferenciaHastaDondePuede(){
 	Tablero tablero1=new Tablero();
 	Posicion pos=new Posicion(3,3);
-	tablero1.getArea(pos, 4);
+	Megatron mega=new MegatronHumanoide();
+	tablero1.ubicarMovil(mega, pos);
+	Tablero subtab=tablero1.getArea(pos, 4);
+	
+	Assert.assertTrue(tablero1.existeMovil(mega));
+	Assert.assertTrue(subtab.existeMovil(mega));
 
 	}
 
@@ -66,21 +73,8 @@ public void test88getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
 
 
 
-	@Test(expected=ErrorAreaFueraDeRangoPosible.class)
-	public void test89getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
-		Tablero tablero1=new Tablero();
-		Posicion pos=new Posicion(3,3);
-		tablero1.getArea(pos, 4);
-		
-	}
-	
-	@Test(expected=ErrorAreaFueraDeRangoPosible.class)
-	public void test90getAreaArrojaExcepcionSiNoEstaContenidaEnElTablero(){
-		Tablero tablero1=new Tablero();
-		Posicion pos=new Posicion(48,49);
-		tablero1.getArea(pos, 2);
-	
-	}
+
+
 	
 	
 }

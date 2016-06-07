@@ -63,18 +63,32 @@ public void setCasillero(Casillero casillero,Posicion pos){
 
 
 public Tablero getArea(Posicion posicionCentral,int distancia)throws RuntimeException{
-	if(distancia<0||posicionCentral.getColumna()<distancia||posicionCentral.getFila()<distancia||
-			posicionCentral.getFila()+distancia>CantidadCasilleros
-			||posicionCentral.getColumna()+distancia>CantidadCasilleros){
+	if(distancia<0){
 		throw new ErrorAreaFueraDeRangoPosible();
+	}
+	int distanciaX=distancia;
+	int	distanciaY=distancia;
+	if(posicionCentral.getColumna()<distancia){
+		distanciaX=posicionCentral.getColumna();
+	}
+	
+	if(posicionCentral.getFila()<distancia){
+		distanciaY=posicionCentral.getFila();
+	}
+	if(posicionCentral.getFila()+distancia>CantidadCasilleros){
+		distanciaY=CantidadCasilleros-posicionCentral.getFila();
+	}
+	
+	if(posicionCentral.getColumna()+distancia>CantidadCasilleros){
+		distanciaX=CantidadCasilleros -posicionCentral.getColumna();
 	}
 		
 	Tablero subTablero=new Tablero(2*distancia+1);
 	
-	for(int i=0;i<=2*distancia;i++){
-		for(int j=0;j<=2*distancia;j++){
+	for(int i=0;i<=2*distanciaY;i++){
+		for(int j=0;j<=2*distanciaX;j++){
 			Posicion posicionActual=new Posicion(i,j);
-		subTablero.setCasillero(this.matriz[posicionCentral.getFila()-distancia+i][posicionCentral.getColumna()-distancia+j],posicionActual);
+		subTablero.setCasillero(this.matriz[posicionCentral.getFila()-distanciaY+i][posicionCentral.getColumna()-distanciaX+j],posicionActual);
 		}
 	}
 	return subTablero;
