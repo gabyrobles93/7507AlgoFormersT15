@@ -9,17 +9,17 @@ public class OptimusAlterno extends Optimus {
 		velocidad=5;
 		
 	}
-	public OptimusAlterno(Posicion unaPos, int unaVida, int unAtaque, int unaVelocidad, int unAlcance) {
+	public OptimusAlterno(Posicion unaPos, int unaVida) {
 		miPosicion=unaPos;
 		vida=unaVida;
-		ataque=unAtaque;
-		velocidad=unaVelocidad;
-		alcance=unAlcance;
+		ataque=15;
+		velocidad=5;
+		alcance=4;
 		
 	}
 	@Override
 	public Algoformer cambiarModo() {
-	return new OptimusHumanoide(miPosicion,vida,ataque,velocidad,alcance);
+	return new OptimusHumanoide(miPosicion,vida);
 	}
 
 

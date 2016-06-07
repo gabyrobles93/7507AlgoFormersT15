@@ -87,7 +87,7 @@ public class FrenzyHumanoideTest {
 		Algoformer frenzy = new FrenzyHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		frenzy.setPosicion(posIni);
-		Posicion posFin=new Posicion(2,6);
+		Posicion posFin=new Posicion(3,6);
 		
 		frenzy.mover(posFin);
 	
@@ -114,7 +114,7 @@ public class FrenzyHumanoideTest {
 		Posicion pos1=new Posicion(3,3);
 		frenzy.setPosicion(pos1);
 		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos2=new Posicion(5,6);
+		Posicion pos2=new Posicion(3,6);
 		ratchet.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		frenzy.atacar(ratchet);

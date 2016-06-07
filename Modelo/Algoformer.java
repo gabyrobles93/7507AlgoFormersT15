@@ -82,4 +82,32 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + alcance;
+		result = prime * result + ataque;
+		result = prime * result + velocidad;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Algoformer other = (Algoformer) obj;
+		if (alcance != other.alcance)
+			return false;
+		if (ataque != other.ataque)
+			return false;
+		if (velocidad != other.velocidad)
+			return false;
+		return true;
+	}
+
 }
