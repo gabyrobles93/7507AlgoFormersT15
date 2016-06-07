@@ -2,6 +2,7 @@ package Modelo;
 
 public class Ataque {
 
+	private Tablero tablero;
 	public void hacer(Algoformer victima, int ataque) {
 	
 		victima.atacate(ataque);

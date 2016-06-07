@@ -5,7 +5,22 @@ public abstract class Movimiento {
 	
 	private static Tablero Tablero;
 	public abstract Movimiento identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas);
-	public abstract boolean caminoLibre(movil unMovil,Tablero unTablero,Posicion posDestino);
+	public abstract int getSignoDireccionX();
+	public abstract int getSignoDireccionY();
+	public boolean caminoLibre(movil unMovil, Tablero unTablero,Posicion posDestino) {
+	//PATRON TEMPLATE--- getSignoDireccion() se redefine en movOeste y movEste para modificar la direccion de la iteracion;
+		boolean caminoInterrumpido;
+		
+		for(int i=1;i<=this.getDistancia();i++){
+		Posicion posAux=
+				new Posicion(unMovil.getPosicion().getFila()+getSignoDireccionX()*i,unMovil.getPosicion().getColumna()+getSignoDireccionY()*i);
+			 
+	
+		caminoInterrumpido=unTablero.getCasillero(posAux).estaOcupado();
+			 if(caminoInterrumpido==true) return !caminoInterrumpido;
+		 }
+		return true;
+	}
 	
 	public static Movimiento crearMovimiento(movil unMovil, Posicion pos2) {
 		

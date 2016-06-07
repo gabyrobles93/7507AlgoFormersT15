@@ -8,6 +8,7 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 	protected int velocidad;
 	protected int alcance;
 	protected Efecto efecto;
+	protected Equipo miEquipo;
 	
 	public abstract Algoformer cambiarModo();
 	

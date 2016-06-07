@@ -3,7 +3,7 @@ package Modelo;
 public class MovimientoOeste extends MovimientoHorizontal {
 
 	@Override
-	protected int getSignoDireccion(){
+	public int getSignoDireccionX(){
 		return 1;
 	}
 

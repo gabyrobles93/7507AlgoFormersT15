@@ -7,7 +7,7 @@ public class Juego {
 	public Equipo decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
 	private Tablero	tablero;
-
+	
 	private Equipo turnoDelEquipo;
 
 	public void setAutobots(){
@@ -25,7 +25,9 @@ public class Juego {
 	}
 	public void setTablero(){
 		
-		tablero= new Tablero();
+	tablero= new Tablero();
+	
+	Movimiento.setTablero(tablero);
 	}
 
 	public Juego(){
