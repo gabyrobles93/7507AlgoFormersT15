@@ -41,7 +41,7 @@ public class BonecrusherHumanoideTest {
 		Posicion pos1=new Posicion(3,3);
 		bonecrusher.setPosicion(pos1);
 		Algoformer megatron=new MegatronHumanoide();
-		Posicion pos2=new Posicion(3,7);
+		Posicion pos2=new Posicion(3,5);
 		megatron.setPosicion(pos2);
 		
 		bonecrusher.atacar(megatron);
