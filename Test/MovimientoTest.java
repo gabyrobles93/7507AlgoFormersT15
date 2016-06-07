@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
-import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.MegatronAlterno;
@@ -19,24 +18,27 @@ public class MovimientoTest {
 	
 	@Test(expected=ErrorCasillerosNoConectadosPorLineaRecta.class)
 	public void test01CrearMovimientoApartirDeDosPosicionesNoConectadasPorLineaRectaTiraExcep(){
+		
 		Posicion pos=new Posicion(1,1);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		
 		Algoformer mega= new MegatronAlterno();
-		
-		mega.cambiarPosicion(pos);
-		
 		Posicion pos2=new Posicion(3,4);
-		
-		Movimiento mov=Movimiento.crearMovimiento(mega,pos2);
+		tab.ubicarMovil(mega, pos);
+
+		mega.mover(pos2);
 	}
 	
 	@Test
 	public void test02CreoMovimientoVerificoDistancia(){
-		
+
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		Algoformer mega=new MegatronAlterno();
 		Posicion pos=new Posicion(1,1);
 		
-		mega.cambiarPosicion(pos);
+		tab.ubicarMovil(mega, pos);
 		
 		Posicion pos2=new Posicion(3,3);
 		

@@ -6,8 +6,6 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherHumanoide;
-import Modelo.BumblebeeHumanoide;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;

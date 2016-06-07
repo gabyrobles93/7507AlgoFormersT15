@@ -1,6 +1,6 @@
 package Modelo;
 
-import java.util.Arrays;
+
 
 public  class Tablero{
 protected  Casillero matriz[][];
@@ -41,7 +41,6 @@ public void ubicarMovil(movil unMovil,Posicion pos)throws ErrorCasillerOcupado {
 }
 
 public boolean existeMovil(movil unMovil) {
-	boolean encontrado=false;
 	for(int i=0;i<CantidadCasilleros;i++){
 		for(int j=0;j<CantidadCasilleros;j++){
 	

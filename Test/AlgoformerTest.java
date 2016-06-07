@@ -6,13 +6,8 @@ import org.junit.Test;
 import Modelo.Algoformer;
 
 import Modelo.BumblebeeHumanoide;
-import Modelo.Casillero;
 import Modelo.Juego;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
 import Modelo.Tablero;
-import Modelo.movil;
-import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 
 

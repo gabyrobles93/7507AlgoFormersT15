@@ -6,21 +6,18 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherHumanoide;
-import Modelo.BumblebeeAlterno;
+
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
-import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Movimiento;
 import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
-import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
 import Modelo.Tablero;
 

@@ -3,15 +3,7 @@ package Test;
 import org.junit.Assert;
 import org.junit.Test;
 
-
-import Modelo.Algoformer;
-
-import Modelo.ErrorAreaFueraDeRangoPosible;
-import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
-import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
-
 import Modelo.Juego;
-import Modelo.MegatronHumanoide;
 import Modelo.Posicion;
 import Modelo.Tablero;
 
