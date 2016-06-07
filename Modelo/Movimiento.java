@@ -4,17 +4,17 @@ public abstract class Movimiento {
 
 	protected movil movil;
 	protected int distancia;
-	private static Tablero Tablero;
+	private static Tablero unTablero;
 	public abstract Movimiento identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas);
 	public abstract int getSignoDireccionX();
 	public abstract int getSignoDireccionY();
-	public boolean caminoLibre(movil unMovil, Tablero unTablero,Posicion posDestino) {
+	public boolean caminoLibre(movil unMovil, Posicion posDestino) {
 	//PATRON TEMPLATE--- getSignoDireccion() se redefine en cada mov para modificar la direccion de la iteracion;
 		boolean caminoInterrumpido;
 		
 		for(int i=1;i<=this.getDistancia();i++){
 		Posicion posAux=
-				new Posicion(unMovil.getPosicion().getFila()+getSignoDireccionX()*i,unMovil.getPosicion().getColumna()+getSignoDireccionY()*i);
+				new Posicion(unMovil.getPosicion().getFila()+getSignoDireccionY()*i,unMovil.getPosicion().getColumna()+getSignoDireccionX()*i);
 			 
 	
 		caminoInterrumpido=unTablero.getCasillero(posAux).estaOcupado();
@@ -30,7 +30,7 @@ public abstract class Movimiento {
 		
 		Movimiento mov;
 		
-		if((distanciaFila==0&&distanciaColumna==0)||distanciaFila<0||distanciaColumna<0){
+		if((distanciaFila==0&&distanciaColumna==0)){
 			throw new ErrorNoHayMovimiento();
 		}
 		
@@ -41,7 +41,7 @@ public abstract class Movimiento {
 		}else if(distanciaColumna==0){//misma col, mov vertical
 			mov=  new MovimientoVertical(unMovil);
 			
-		}else if(distanciaFila==distanciaColumna){// mov diagonal
+		}else if(Math.abs(distanciaFila)==Math.abs(distanciaColumna)){// mov diagonal
 			
 			mov= new MovimientoDiagonal(unMovil);
 		
@@ -51,6 +51,9 @@ public abstract class Movimiento {
 		
 		mov= mov.identificarDireccion(distanciaFila, distanciaColumna);
 		mov.validarDistancia();
+		if(!mov.caminoLibre(unMovil, pos2)){
+			throw new ErrorCasillerOcupado();
+		}
 		return mov;
 	}
 	private void validarDistancia() {
@@ -64,7 +67,7 @@ public abstract class Movimiento {
 		return distancia;
 	}
 	public static void setTablero(Tablero tab) {
-		Tablero=tab;
+		unTablero=tab;
 		
 	}
 	public abstract void Avanzar();

@@ -15,7 +15,7 @@ public MovimientoDiagonal identificarDireccion(int diferenciaEntreFilas,int dife
 	
 		if(diferenciaEntreColumnas<0&&diferenciaEntreFilas<0 )return new MovimientoNorOeste(movil,distancia);
 		else if(diferenciaEntreColumnas>0&&diferenciaEntreFilas>0 )return new MovimientoSurEste(movil,distancia);
-		else if(diferenciaEntreColumnas<0&&diferenciaEntreFilas>0 )return new MovimientoNorEste(movil,distancia);
+		else if(diferenciaEntreColumnas>0&&diferenciaEntreFilas<0 )return new MovimientoNorEste(movil,distancia);
 		return new MovimientoSurOeste(movil,distancia);
 		
 

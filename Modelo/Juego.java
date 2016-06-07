@@ -130,13 +130,7 @@ public class Juego {
 		return tablero;
 	}
 
-	public void moverAlgoformer(Algoformer unAlgoformer,Posicion posicionDestino){
-		
-		try{ tablero.moverMovil(unAlgoformer, posicionDestino);
-		}catch(RuntimeException e){
-			throw e;
-		}
-	}
+
 	
 	/*public void atacar(Algoformer atacante,Algoformer enemigo)throws RuntimeException{
 		

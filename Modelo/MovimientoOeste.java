@@ -9,7 +9,7 @@ public class MovimientoOeste extends MovimientoHorizontal {
 
 	@Override
 	public int getSignoDireccionX(){
-		return 1;
+		return -1;
 	}
 	@Override
 	public void Avanzar() {
