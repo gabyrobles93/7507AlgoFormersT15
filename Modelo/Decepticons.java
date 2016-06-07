@@ -2,6 +2,13 @@ package Modelo;
 
 
 public class Decepticons extends Equipo {
+	
+	//Constructor utilizado solo para Testing
+	public Decepticons(){
+		
+	}
+	
+	
 	public Decepticons(Megatron megatron,Bonecrusher bonecrusher,Frenzy frenzy){
 		algof1=megatron;
 		algof2=bonecrusher;

@@ -34,9 +34,9 @@ public class Ataque {
 	}
 
 	private boolean fueraDeRango(Algoformer victima, Algoformer atacante) {
-		
-	Tablero subTab=tablero.getArea(atacante.getPosicion(), atacante.getDistanciaDeAtaque());
-	return !subTab.existeMovil(victima);
+	
+		Tablero subTab=tablero.getArea(atacante.getPosicion(), atacante.getDistanciaDeAtaque());
+		return !subTab.existeMovil(victima);
 	}
 
 }

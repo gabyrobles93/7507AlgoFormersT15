@@ -3,6 +3,7 @@ package Modelo;
 public class RatchetAlterno extends Ratchet {
 
 	public RatchetAlterno(){
+		super();
 		vida=150;
 		ataque=35;
 		alcance=2;
@@ -10,6 +11,7 @@ public class RatchetAlterno extends Ratchet {
 		
 	}
 	public RatchetAlterno(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=35;

@@ -3,6 +3,7 @@ package Modelo;
 public class RatchetHumanoide extends Ratchet {
 
 	public RatchetHumanoide(){
+		super();
 		vida=150;
 		ataque=5;
 		alcance=5;
@@ -10,6 +11,7 @@ public class RatchetHumanoide extends Ratchet {
 		
 	}
 	public RatchetHumanoide(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=5;

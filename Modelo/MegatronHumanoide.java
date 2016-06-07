@@ -3,6 +3,7 @@ package Modelo;
 public class MegatronHumanoide extends Megatron {
 	
 	public MegatronHumanoide(){
+		super();
 		vida=550;
 		ataque=10;
 		alcance=3;
@@ -10,6 +11,7 @@ public class MegatronHumanoide extends Megatron {
 	}
 
 	public MegatronHumanoide(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion= unaPos;
 		vida=unaVida;
 		ataque=10;

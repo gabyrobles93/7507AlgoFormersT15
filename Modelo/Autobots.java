@@ -3,6 +3,11 @@ package Modelo;
 
 public class Autobots extends Equipo {
 
+	//Constructor utilizado para Testing
+	public Autobots(){
+		
+	}
+	
 	public Autobots(Optimus optimus,Bumblebee bumblebee,Ratchet ratchet){
 		algof1=optimus;
 		algof2=bumblebee;

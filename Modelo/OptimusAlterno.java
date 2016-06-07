@@ -3,6 +3,7 @@ package Modelo;
 public class OptimusAlterno extends Optimus {
 
 	public OptimusAlterno(){
+		super();
 		vida=500;
 		ataque=15;
 		alcance=4;
@@ -10,6 +11,7 @@ public class OptimusAlterno extends Optimus {
 		
 	}
 	public OptimusAlterno(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=15;

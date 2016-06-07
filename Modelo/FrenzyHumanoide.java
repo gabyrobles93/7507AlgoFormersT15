@@ -3,6 +3,7 @@ package Modelo;
 public class FrenzyHumanoide extends Frenzy {
 
 	public FrenzyHumanoide(){
+		super();
 		vida=400;
 		ataque=10;
 		alcance=5;
@@ -10,6 +11,7 @@ public class FrenzyHumanoide extends Frenzy {
 		
 	}
 	public FrenzyHumanoide(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=10;

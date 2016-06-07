@@ -3,6 +3,7 @@ package Modelo;
 public class BumblebeeAlterno extends Bumblebee {
 
 	public BumblebeeAlterno(){
+		super();
 		vida=350;
 		ataque=20;
 		alcance=3;
@@ -10,6 +11,7 @@ public class BumblebeeAlterno extends Bumblebee {
 		
 	}
 	public BumblebeeAlterno(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=20;

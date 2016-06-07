@@ -3,6 +3,7 @@ package Modelo;
 public class BonecrusherHumanoide extends Bonecrusher {
 
 	public BonecrusherHumanoide(){
+		super();
 		vida=200;
 		ataque=30;
 		alcance=3;
@@ -10,6 +11,7 @@ public class BonecrusherHumanoide extends Bonecrusher {
 		
 	}
 	public BonecrusherHumanoide(Posicion unaPos, int unaVida) {
+		super();
 		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=30;

@@ -12,6 +12,16 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 	
 	public abstract Algoformer cambiarModo();
 	
+	public Algoformer(){
+		
+		efecto = new Efecto();
+		efecto.afectaataque = 0;
+		efecto.afectavelocidad = 0;
+		efecto.afectavida = 0;
+		efecto.esperaturnos = 0;
+		
+	}
+	
 	public Posicion getPosicion(){
 	
 		return miPosicion;

@@ -4,6 +4,7 @@ public class MegatronAlterno extends Megatron {
 	
 	
 	public MegatronAlterno(){
+		super();
 		vida=550;
 		ataque=55;
 		alcance=2;
@@ -11,7 +12,8 @@ public class MegatronAlterno extends Megatron {
 		
 	}
 	public MegatronAlterno(Posicion unaPos, int unaVida) {
-	miPosicion=unaPos;
+		super();
+		miPosicion=unaPos;
 		vida=unaVida;
 		ataque=55;
 		velocidad=8;
