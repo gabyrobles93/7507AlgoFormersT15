@@ -71,7 +71,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoSurOeste(){
+	public void test04CreoMovimientoYAvanzoUnCasilleroEnElCaminoSurOeste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -95,7 +95,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorEste(){
+	public void test05CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorEste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -119,7 +119,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorOeste(){
+	public void test06CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorOeste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -143,7 +143,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoSur(){
+	public void test07CreoMovimientoYAvanzoUnCasilleroEnElCaminoSur(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -167,7 +167,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorte(){
+	public void test08CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorte(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -191,7 +191,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoEste(){
+	public void test09CreoMovimientoYAvanzoUnCasilleroEnElCaminoEste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -215,7 +215,7 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoOeste(){
+	public void test10CreoMovimientoYAvanzoUnCasilleroEnElCaminoOeste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
@@ -239,7 +239,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
-	public void test04ValidarAlcance(){
+	public void test11ValidarAlcance(){
 		
 		
 		Posicion pos=new Posicion(1,1);
@@ -257,7 +257,7 @@ public class MovimientoTest {
 		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoDiagonalNoreste(){
+	public void test12CaminoInterrumpidoMovimientoDiagonalNoreste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -278,7 +278,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoDiagonalNorOeste(){
+	public void test13CaminoInterrumpidoMovimientoDiagonalNorOeste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -299,7 +299,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoDiagonalSurEste(){
+	public void test14CaminoInterrumpidoMovimientoDiagonalSurEste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -320,7 +320,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoDiagonalSurOeste(){
+	public void test15CaminoInterrumpidoMovimientoDiagonalSurOeste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -341,7 +341,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoVerticalSur(){
+	public void test16CaminoInterrumpidoMovimientoVerticalSur(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -364,7 +364,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoVerticalNorte(){
+	public void test17CaminoInterrumpidoMovimientoVerticalNorte(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(3,1);
@@ -387,7 +387,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoHorizontalEste(){
+	public void test18CaminoInterrumpidoMovimientoHorizontalEste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -408,7 +408,7 @@ public class MovimientoTest {
 		
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
-	public void test05CaminoInterrumpidoMovimientoHorizontalOeste(){
+	public void test19CaminoInterrumpidoMovimientoHorizontalOeste(){
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,3);
