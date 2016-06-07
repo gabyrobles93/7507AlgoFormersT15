@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.MegatronAlterno;
@@ -428,4 +429,5 @@ public class MovimientoTest {
 		Movimiento.crearMovimiento(mega, pos3); //mega2 esta en el medio
 		
 	}
+
 }

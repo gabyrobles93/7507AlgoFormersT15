@@ -14,6 +14,7 @@ public Tablero(){
 		}
 	}
 }
+
 public Tablero(int cantidadCasilleros){
 	matriz=new Casillero[cantidadCasilleros][cantidadCasilleros];
 	for(int i=0;i<cantidadCasilleros;i++){

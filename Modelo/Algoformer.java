@@ -17,11 +17,15 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		return miPosicion;
 			
 	}
+	
 	public void mover(Posicion pos){
-		Posicion posicionInicial=miPosicion;
+		
+		Posicion posicionInicial = miPosicion;
+		
 		try{
 				
-				Movimiento mov	=Movimiento.crearMovimiento(this, pos);//valida todo
+				Movimiento mov = Movimiento.crearMovimiento(this, pos);//valida todo
+				
 				for(int i=0;i<mov.getDistancia();i++){
 					mov.Avanzar();
 					mov.aplicarEfectos();//?
@@ -35,6 +39,7 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		
 		
 	}
+	
 	public void cambiarPosicion(Posicion pos){//metodo que usa movimiento
 		miPosicion=pos;
 	}
@@ -67,10 +72,10 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 			ataque.validar(victima, this);
 		}
 		catch(ErrorDistanciaDeAtaqueInsuficiente err){
-			
+			throw err;
 		}
 		catch(ErrorNoSePuedeAtacarIntegranteDeEquipo err){
-	
+			throw err;
 		}
 		
 		ataque.hacer(victima, this.getAtaque());
