@@ -4,7 +4,7 @@ public abstract class Movimiento {
 
 	protected movil movil;
 	protected int distancia;
-	private static Tablero unTablero;
+	protected static Tablero unTablero;
 	public abstract Movimiento identificarDireccion(int diferenciaEntreFilas,int diferenciaEntreColumnas);
 	public abstract int getSignoDireccionX();
 	public abstract int getSignoDireccionY();
@@ -24,6 +24,8 @@ public abstract class Movimiento {
 	}
 	
 	public static Movimiento crearMovimiento(movil unMovil, Posicion pos2) {
+		if(unTablero==null){throw new ErrorTableroIndefinidoEnClaseMovimiento();}
+		
 		
 	int	distanciaFila=pos2.getFila()-unMovil.getPosicion().getFila();
 	int distanciaColumna=pos2.getColumna()-unMovil.getPosicion().getColumna();
@@ -71,4 +73,8 @@ public abstract class Movimiento {
 		
 	}
 	public abstract void Avanzar();
+	public void aplicarEfectos() {
+		// TODO Auto-generated method stub
+		
+	}
 }

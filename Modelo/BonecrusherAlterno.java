@@ -8,6 +8,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 		alcance=3;
 		velocidad=8;
 		
+		
 	}
 	public BonecrusherAlterno(Posicion unaPos, int unaVida) {
 		miPosicion=unaPos;

@@ -14,7 +14,7 @@ public class MovimientoOeste extends MovimientoHorizontal {
 	@Override
 	public void Avanzar() {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila(),movil.getPosicion().getColumna()-1);
-		movil.cambiarPosicion(posAux);
+		unTablero.ubicarMovil(movil,posAux);
 		
 	}
 }

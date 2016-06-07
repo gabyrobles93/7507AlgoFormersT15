@@ -47,11 +47,179 @@ public class MovimientoTest {
 		
 	}
 	@Test
-	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCamino(){
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoSurEste(){
 		
 		Posicion pos=new Posicion(1,1);
 		
 		Posicion pos2=new Posicion(2,2);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoSurOeste(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(2,0);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorEste(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(0,2);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorOeste(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(0,0);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoSur(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(2,1);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoNorte(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(1,0);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoEste(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(1,2);
+		
+		Tablero tab= new Tablero();
+		
+		Movimiento.setTablero(tab);
+		
+		Algoformer mega=new MegatronAlterno();
+		
+		tab.ubicarMovil(mega, pos);
+		
+		Movimiento mov=Movimiento.crearMovimiento(mega, pos2);
+		
+		mov.Avanzar();
+		
+		Assert.assertTrue(mega.getPosicion().equals(pos2));
+		
+		
+		
+	}
+	@Test
+	public void test03CreoMovimientoYAvanzoUnCasilleroEnElCaminoOeste(){
+		
+		Posicion pos=new Posicion(1,1);
+		
+		Posicion pos2=new Posicion(0,1);
 		
 		Tablero tab= new Tablero();
 		

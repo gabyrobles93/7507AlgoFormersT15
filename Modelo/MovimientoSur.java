@@ -16,7 +16,7 @@ public class MovimientoSur extends MovimientoVertical {
 	@Override
 	public void Avanzar() {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila()+1,movil.getPosicion().getColumna());
-		movil.cambiarPosicion(posAux);
+		unTablero.ubicarMovil(movil,posAux);
 		
 	}
 }

@@ -16,7 +16,7 @@ public class MovimientoSurOeste extends MovimientoDiagonal {
 	@Override
 	public void Avanzar() {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila()+1,movil.getPosicion().getColumna()-1);
-		movil.cambiarPosicion(posAux);
+		unTablero.ubicarMovil(movil,posAux);
 		
 	}
 }
