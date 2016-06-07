@@ -89,7 +89,7 @@ public class BonecrusherAlternoTest {
 		
 		bone.mover(posFin);
 	
-		Assert.assertTrue(bone.getPosicion()==posFin);
+		Assert.assertTrue(bone.getPosicion().equals(posFin));
 	
 	}
 	
