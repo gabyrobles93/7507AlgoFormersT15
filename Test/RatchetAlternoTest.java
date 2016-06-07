@@ -4,60 +4,94 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Ataque;
+import Modelo.Autobots;
+import Modelo.BumblebeeHumanoide;
+import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
+import Modelo.MegatronAlterno;
+import Modelo.MegatronHumanoide;
+import Modelo.Movimiento;
+import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
+import Modelo.Tablero;
 
 public class RatchetAlternoTest {
 	
 	
 	@Test
 	public void test01RatchetAlternoAtacaEnemigoHumanoide(){
-		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos1=new Posicion(3,3);
-		ratchet.setPosicion(pos1);
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos2=new Posicion(5,3);
-		frenzy.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
-		ratchet.atacar(frenzy);
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		
-		//como Frenzy tiene vida 400 y Ratchet 35 de ataque le deben quedar 365
-		Assert.assertTrue(frenzy.getVida()==365);
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(ratchet,pos1);
 		
+		Algoformer megatron=new MegatronHumanoide();
+		megatron.setEquipo(decepticons);
+		Posicion pos2=new Posicion(3,5);
+		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		ratchet.atacar(megatron);
+		
+		Assert.assertTrue(megatron.getVida()==515);
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02RatchetAlternoNoPuedeAtacarAutobots(){
 		
-		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos1=new Posicion(3,3);
-		ratchet.setPosicion(pos1);
-		Algoformer optimus=new OptimusHumanoide();
-		Posicion pos2=new Posicion(3,4);
-		optimus.setPosicion(pos2);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Autobots autobots = new Autobots();
 		
-		ratchet.atacar(optimus);
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);	
+		Posicion pos1 = new Posicion(3,3);
+		tab.ubicarMovil(ratchet, pos1);
+		
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		bumblebee.setEquipo(autobots);
+		Posicion pos2=new Posicion(3,5);
+		tab.ubicarMovil(bumblebee, pos2);
+		
+		ratchet.atacar(bumblebee);
 		
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03RatchetAlternoNoPuedeAtacarDecepticonFueraDeRango(){
 
-		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos1=new Posicion(2,0);
-		ratchet.setPosicion(pos1);
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos2=new Posicion(2,6);
-		frenzy.setPosicion(pos2);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
 		
-		ratchet.atacar(frenzy);
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);
+		Posicion pos1 = new Posicion(2,0);
+		tab.ubicarMovil(ratchet, pos1);
+		
+		Algoformer megatron=new MegatronHumanoide();
+		megatron.setEquipo(decepticons);
+		Posicion pos2=new Posicion(5,0);
+		tab.ubicarMovil(megatron, pos2);
+		
+		ratchet.atacar(megatron);	
 		
 	}
 	
@@ -72,23 +106,29 @@ public class RatchetAlternoTest {
 		
 	@Test
 	public void test06RatchetAlternoSeMueve(){
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		Algoformer ratchet = new RatchetAlterno();
-		Posicion posIni=new Posicion(2,2);
-		ratchet.setPosicion(posIni);
-		Posicion posFin=new Posicion(2,10);
+		Posicion posIni=new Posicion(1,4);
+		tab.ubicarMovil(ratchet,posIni);
+		Posicion posFin=new Posicion(9,4);
 		
 		ratchet.mover(posFin);
 	
-		Assert.assertTrue(ratchet.getPosicion()==posFin);
+		Assert.assertTrue(ratchet.getPosicion().equals(posFin));
 	
 	}
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07RatchetAlternoTieneLimiteDeVelocidad(){
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		Algoformer ratchet = new RatchetAlterno();
-		Posicion posIni=new Posicion(2,4);
-		ratchet.setPosicion(posIni);
-		Posicion posFin=new Posicion(12,4);
+		Posicion posIni=new Posicion(1,4);
+		tab.ubicarMovil(ratchet,posIni);
+		Posicion posFin=new Posicion(10,4);
 		
 		ratchet.mover(posFin);
 	
@@ -96,49 +136,79 @@ public class RatchetAlternoTest {
 	
 	@Test
 	public void test08RatchetAlternoEsAtacadoPorEnemigoHumanoide(){
-		Algoformer ratchet=new RatchetAlterno();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
-		ratchet.setPosicion(pos1);
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos2=new Posicion(4,4);
-		frenzy.setPosicion(pos2);
+		tab.ubicarMovil(ratchet, pos1);
+
+
+		Algoformer megatron = new MegatronHumanoide();
+		megatron.setEquipo(decepticons);
+		Posicion pos2=new Posicion(2,3);
+		tab.ubicarMovil(megatron, pos2);	
 		
-		frenzy.atacar(ratchet);
-		
-		//como Ratchet tiene vida 150 y Frenzy 10 de ataque le deben quedar 140
+		megatron.atacar(ratchet);
+		//como Frenzy tiene vida 400 y Ratchet 5 de ataque le deben quedar 395
 		Assert.assertTrue(ratchet.getVida()==140);
 	}
 
 
 	@Test
 	public void test09RatchetAlternoAtacaEnemigoAlterno(){
-		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos1=new Posicion(3,3);
-		ratchet.setPosicion(pos1);
-		Algoformer frenzy=new FrenzyAlterno();
-		Posicion pos2=new Posicion(5,3);
-		frenzy.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
-		ratchet.atacar(frenzy);
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		
-		//como Frenzy tiene vida 400 y Ratchet 35 de ataque le deben quedar 365
-		Assert.assertTrue(frenzy.getVida()==365);
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);
+		Posicion pos1=new Posicion(3,4);
+		tab.ubicarMovil(ratchet, pos1);
+		
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
+		Posicion pos2=new Posicion(3,6);
+		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		ratchet.atacar(megatron);
+		
+		Assert.assertTrue(megatron.getVida()==515);	
 		
 	}
 	
 	@Test
 	public void test08RatchetAlternoEsAtacadoPorEnemigoAlterno(){
-		Algoformer ratchet=new RatchetAlterno();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		
+		Algoformer ratchet = new RatchetAlterno();
+		ratchet.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
-		ratchet.setPosicion(pos1);
-		Algoformer frenzy=new FrenzyAlterno();
-		Posicion pos2=new Posicion(2,4);
-		frenzy.setPosicion(pos2);
+		tab.ubicarMovil(ratchet, pos1);
 		
-		frenzy.atacar(ratchet);
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
+		Posicion pos2=new Posicion(4,2);
+		tab.ubicarMovil(megatron, pos2);
 		
-		//como Ratchet tiene vida 150 y Frenzy 25 de ataque le deben quedar 125
-		Assert.assertTrue(ratchet.getVida()==125);
+		
+		megatron.atacar(ratchet);
+		
+		Assert.assertTrue(ratchet.getVida()==95);
 	}
 
 }
