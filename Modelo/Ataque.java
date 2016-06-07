@@ -22,7 +22,15 @@ public class Ataque {
 			throw error;
 		}
 		
-		/* SE DEBE VALIDAR DE NO ESTAR ATACANDO A UN MIEMBRO DE TU MISMO EQUIPO::: COMOOO????? */
+		if(atacaCompaniero(victima, atacante))  {
+			ErrorNoSePuedeAtacarIntegranteDeEquipo error = new ErrorNoSePuedeAtacarIntegranteDeEquipo();
+			throw error;
+		}
+	}
+
+	private boolean atacaCompaniero(Algoformer victima, Algoformer atacante) {
+		
+		return atacante.comparteEquipoCon(victima);
 	}
 
 	private boolean fueraDeRango(Algoformer victima, Algoformer atacante) {

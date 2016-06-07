@@ -45,10 +45,10 @@ public class BonecrusherAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Algoformer bonecrusher=new BonecrusherAlterno();
-		Posicion pos1=new Posicion(3,3);
+		Algoformer bonecrusher = new BonecrusherAlterno();
+		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(bonecrusher, pos1);
-		Algoformer megatron=new MegatronHumanoide();
+		Algoformer megatron = new MegatronHumanoide();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(megatron, pos2);
 		
