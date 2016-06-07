@@ -4,30 +4,46 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Ataque;
+import Modelo.Autobots;
 import Modelo.BonecrusherHumanoide;
+import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.FrenzyAlterno;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
+import Modelo.Movimiento;
 import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
+import Modelo.RatchetHumanoide;
+import Modelo.Tablero;
 
 public class MegatronAlternoTest {
 
 	@Test
 	public void test01MegatronAlternoAtacaEnemigoHumanoide(){
-		Algoformer megatron=new MegatronAlterno();
-		Posicion pos1=new Posicion(3,3);
-		megatron.setPosicion(pos1);
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(megatron,pos1);
+		
 		Algoformer optimus=new OptimusHumanoide();
+		optimus.setEquipo(autobots);
 		Posicion pos2=new Posicion(3,5);
-		optimus.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
+		tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		megatron.atacar(optimus);
 		
-		//como optimus tiene vida 500 y megatron 55 de ataque le deben quedar 445
 		Assert.assertTrue(optimus.getVida()==445);
 		
 	}
@@ -35,26 +51,43 @@ public class MegatronAlternoTest {
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02MegatronAlternoNoPuedeAtacarDecepticons(){
 		
-		Algoformer megatron=new MegatronAlterno();
-		Posicion pos1=new Posicion(3,3);
-		megatron.setPosicion(pos1);
-		Algoformer bone=new BonecrusherHumanoide();
-		Posicion pos2=new Posicion(3,5);
-		bone.setPosicion(pos2);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Decepticons decepticons = new Decepticons();
 		
-		megatron.atacar(bone);
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);	
+		Posicion pos1 = new Posicion(3,3);
+		tab.ubicarMovil(megatron, pos1);
+		
+		Algoformer bonecrusher = new RatchetHumanoide();
+		bonecrusher.setEquipo(decepticons);
+		Posicion pos2=new Posicion(3,5);
+		tab.ubicarMovil(bonecrusher, pos2);
+		
+		megatron.atacar(bonecrusher);
 		
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03MegatronAlternoNoPuedeAtacarAutobotFueraDeRango(){
 
-		Algoformer megatron=new MegatronAlterno();
-		Posicion pos1=new Posicion(2,0);
-		megatron.setPosicion(pos1);
-		Algoformer optimus=new OptimusHumanoide();
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
+		Posicion pos1 = new Posicion(2,0);
+		tab.ubicarMovil(megatron, pos1);
+		
+		Algoformer optimus=new MegatronHumanoide();
+		optimus.setEquipo(autobots);
 		Posicion pos2=new Posicion(6,0);
-		optimus.setPosicion(pos2);
+		tab.ubicarMovil(optimus, pos2);
 		
 		megatron.atacar(optimus);
 	}
@@ -70,71 +103,108 @@ public class MegatronAlternoTest {
 		
 	@Test
 	public void test06MegatronAlternoSeMueve(){
-		Algoformer mega = new MegatronAlterno();
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Algoformer megatron = new MegatronAlterno();
 		Posicion posIni=new Posicion(1,4);
-		mega.setPosicion(posIni);
+		tab.ubicarMovil(megatron,posIni);
 		Posicion posFin=new Posicion(9,4);
 		
-		mega.mover(posFin);
+		megatron.mover(posFin);
 	
-		Assert.assertTrue(mega.getPosicion()==posFin);
+		Assert.assertTrue(megatron.getPosicion().equals(posFin));
 	
 	}
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07MegatronAlternoTieneLimiteDeVelocidad(){
-		Algoformer mega = new MegatronAlterno();
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Algoformer megatron = new MegatronAlterno();
 		Posicion posIni=new Posicion(1,4);
-		mega.setPosicion(posIni);
+		tab.ubicarMovil(megatron,posIni);
 		Posicion posFin=new Posicion(10,4);
 		
-		mega.mover(posFin);
+		megatron.mover(posFin);
 	
 	}
 	
 	@Test
 	public void test08MegatronAlternoEsAtacadoPorEnemigoHumanoide(){
-		Algoformer megatron=new MegatronAlterno();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
 		Posicion pos1=new Posicion(2,2);
-		megatron.setPosicion(pos1);
-		Algoformer optimus=new OptimusHumanoide();
-		Posicion pos2=new Posicion(2,4);
-		optimus.setPosicion(pos2);
+		tab.ubicarMovil(megatron, pos1);
+
+
+		
+		Algoformer optimus = new OptimusHumanoide();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(2,3);
+		tab.ubicarMovil(optimus, pos2);	
 		
 		optimus.atacar(megatron);
-		
-		//como megatron tiene vida 550 y optimus 50 de ataque le deben quedar 500
+		//como Frenzy tiene vida 400 y Ratchet 5 de ataque le deben quedar 395
 		Assert.assertTrue(megatron.getVida()==500);
 	}
 	
 	@Test
 	public void test09MegatronAlternoAtacaEnemigoAlterno(){
-		Algoformer megatron=new MegatronAlterno();
-		Posicion pos1=new Posicion(3,3);
-		megatron.setPosicion(pos1);
-		Algoformer optimus=new OptimusAlterno();
-		Posicion pos2=new Posicion(3,5);
-		optimus.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(decepticons);
+		Posicion pos1=new Posicion(3,4);
+		tab.ubicarMovil(megatron, pos1);
+		
+		Algoformer optimus = new OptimusAlterno();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(3,6);
+		tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		megatron.atacar(optimus);
 		
-		//como optimus tiene vida 500 y megatron 55 de ataque le deben quedar 445
 		Assert.assertTrue(optimus.getVida()==445);
 		
 	}
 	
 	@Test
 	public void test10MegatronAlternoEsAtacadoPorEnemigoAlterno(){
-		Algoformer megatron=new MegatronAlterno();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		
+		Algoformer megatron = new MegatronAlterno();
+		megatron.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
-		megatron.setPosicion(pos1);
-		Algoformer optimus=new OptimusAlterno();
-		Posicion pos2=new Posicion(4,4);
-		optimus.setPosicion(pos2);
+		tab.ubicarMovil(megatron, pos1);
+		
+		Algoformer optimus = new OptimusAlterno();
+		optimus.setEquipo(decepticons);
+		Posicion pos2=new Posicion(4,2);
+		tab.ubicarMovil(optimus, pos2);
+		
 		
 		optimus.atacar(megatron);
 		
-		//como megatron tiene vida 550 y optimus 15 de ataque le deben quedar 535
 		Assert.assertTrue(megatron.getVida()==535);
 	}
 }

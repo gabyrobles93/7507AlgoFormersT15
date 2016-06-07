@@ -13,7 +13,9 @@ import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
+import Modelo.MegatronHumanoide;
 import Modelo.Movimiento;
+import Modelo.OptimusAlterno;
 import Modelo.OptimusHumanoide;
 import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
@@ -51,28 +53,46 @@ public class FrenzyHumanoideTest {
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02FrenzyHumanoideNoPuedeAtacarDecepticons(){
 		
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos1=new Posicion(3,3);
-		frenzy.setPosicion(pos1);
-		Algoformer bone=new BonecrusherHumanoide();
-		Posicion pos2=new Posicion(3,8);
-		bone.setPosicion(pos2);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Decepticons decepticons = new Decepticons();
 		
-		frenzy.atacar(bone);
+		Algoformer frenzy = new FrenzyHumanoide();
+		frenzy.setEquipo(decepticons);	
+		Posicion pos1 = new Posicion(3,3);
+		tab.ubicarMovil(frenzy, pos1);
+		
+		Algoformer bonecrusher = new RatchetHumanoide();
+		bonecrusher.setEquipo(decepticons);
+		Posicion pos2=new Posicion(3,5);
+		tab.ubicarMovil(bonecrusher, pos2);
+		
+		frenzy.atacar(bonecrusher);
 		
 	}
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03FrenzyHumanoideNoPuedeAtacarAutobotFueraDeRango(){
 
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos1=new Posicion(2,0);
-		frenzy.setPosicion(pos1);
-		Algoformer ratchet=new RatchetHumanoide();
-		Posicion pos2=new Posicion(2,9);
-		ratchet.setPosicion(pos2);
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
 		
-		frenzy.atacar(ratchet);
+		Algoformer frenzy=new FrenzyHumanoide();
+		frenzy.setEquipo(decepticons);
+		Posicion pos1 = new Posicion(2,0);
+		tab.ubicarMovil(frenzy, pos1);
+		
+		Algoformer optimus=new MegatronHumanoide();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(6,0);
+		tab.ubicarMovil(optimus, pos2);
+		
+		frenzy.atacar(optimus);
+		
 	}
 	
 	@Test
@@ -86,23 +106,29 @@ public class FrenzyHumanoideTest {
 		
 	@Test
 	public void test06FrenzyHumanoideSeMueve(){
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		Algoformer frenzy = new FrenzyHumanoide();
 		Posicion posIni=new Posicion(1,4);
-		frenzy.setPosicion(posIni);
-		Posicion posFin=new Posicion(2,5);
+		tab.ubicarMovil(frenzy,posIni);
+		Posicion posFin=new Posicion(3,4);
 		
 		frenzy.mover(posFin);
 	
-		Assert.assertTrue(frenzy.getPosicion()==posFin);
+		Assert.assertTrue(frenzy.getPosicion().equals(posFin));
 	
 	}
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07FrenzyHumanoideTieneLimiteDeVelocidad(){
+		
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
 		Algoformer frenzy = new FrenzyHumanoide();
 		Posicion posIni=new Posicion(1,4);
-		frenzy.setPosicion(posIni);
-		Posicion posFin=new Posicion(3,6);
+		tab.ubicarMovil(frenzy,posIni);
+		Posicion posFin=new Posicion(9,4);
 		
 		frenzy.mover(posFin);
 	
@@ -110,47 +136,78 @@ public class FrenzyHumanoideTest {
 	
 	@Test
 	public void test08FrenzyHumanoideEsAtacadoPorEnemigoHumanoide(){
-		Algoformer frenzy=new FrenzyHumanoide();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+
+		Algoformer frenzy = new FrenzyHumanoide();
+		frenzy.setEquipo(decepticons);
 		Posicion pos1=new Posicion(2,2);
-		frenzy.setPosicion(pos1);
-		Algoformer ratchet=new RatchetHumanoide();
-		Posicion pos2=new Posicion(2,4);
-		ratchet.setPosicion(pos2);
+		tab.ubicarMovil(frenzy, pos1);
+
+
 		
-		ratchet.atacar(frenzy);
+		Algoformer optimus=new OptimusHumanoide();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(2,3);
+		tab.ubicarMovil(optimus, pos2);	
 		
+		optimus.atacar(frenzy);
 		//como Frenzy tiene vida 400 y Ratchet 5 de ataque le deben quedar 395
-		Assert.assertTrue(frenzy.getVida()==395);
+		Assert.assertTrue(frenzy.getVida()==350);
 	}
 	
 	@Test
 	public void test09FrenzyHumanoideAtacaEnemigoAlterno(){
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos1=new Posicion(3,3);
-		frenzy.setPosicion(pos1);
-		Algoformer ratchet=new RatchetAlterno();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		Algoformer frenzy = new FrenzyHumanoide();
+		frenzy.setEquipo(decepticons);
+		Posicion pos1=new Posicion(3,4);
+		tab.ubicarMovil(frenzy, pos1);
+		
+		Algoformer optimus = new OptimusAlterno();
+		optimus.setEquipo(autobots);
 		Posicion pos2=new Posicion(3,6);
-		ratchet.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
+		tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
-		frenzy.atacar(ratchet);
+		frenzy.atacar(optimus);
 		
-		//como Ratchet tiene vida 150 y Frenzy 10 de ataque le deben quedar 140
-		Assert.assertTrue(ratchet.getVida()==140);
+		Assert.assertTrue(optimus.getVida()==490);
 		
 	}
 	
 	@Test
 	public void test10FrenzyHumanoideEsAtacadoPorEnemigoAlterno(){
-		Algoformer frenzy=new FrenzyHumanoide();
+		
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		
+		Algoformer frenzy = new FrenzyHumanoide();
+		frenzy.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
-		frenzy.setPosicion(pos1);
-		Algoformer ratchet=new RatchetAlterno();
-		Posicion pos2=new Posicion(2,4);
-		ratchet.setPosicion(pos2);
+		tab.ubicarMovil(frenzy, pos1);
 		
-		ratchet.atacar(frenzy);
+		Algoformer optimus=new OptimusAlterno();
+		optimus.setEquipo(decepticons);
+		Posicion pos2=new Posicion(4,2);
+		tab.ubicarMovil(optimus, pos2);
 		
-		//como Frenzy tiene vida 400 y Ratchet 35 de ataque le deben quedar 365
-		Assert.assertTrue(frenzy.getVida()==365);
+		
+		optimus.atacar(frenzy);
+		
+		Assert.assertTrue(frenzy.getVida()==385);
 	}
 }
