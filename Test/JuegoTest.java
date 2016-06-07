@@ -15,6 +15,9 @@ import Modelo.MegatronHumanoide;
 import Modelo.Posicion;
 import Modelo.Tablero;
 
+import Modelo.Autobots;
+import Modelo.Decepticons;
+
 
 public class JuegoTest {
 
@@ -77,8 +80,9 @@ public class JuegoTest {
 	public void test07elJuegoTieneUnTablero() {
 		
 		Juego juego = new Juego();
+		Tablero tab=new Tablero();
 		
-		Assert.assertTrue(juego.getTablero().equals( new Tablero()));	
+		Assert.assertTrue(juego.getTablero().equals( tab));	
 	}
 	
 
@@ -87,23 +91,23 @@ public void test08ubicarMovilLoPoneDondeDebe()
 {
 	Juego juego=new Juego();
 	
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().getFila()==47);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("megatron").getPosicion().getColumna()==47);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().getFila()==47);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().getColumna()==47);
 	
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().getFila()==49);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("bonecrusher").getPosicion().getColumna()==47);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().getFila()==49);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().getColumna()==47);
 	
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().getFila()==47);
-	Assert.assertTrue(juego.getDecepticons().getAlgoformer("frenzy").getPosicion().getColumna()==49);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().getFila()==47);
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().getColumna()==49);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().getFila()==2);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("optimus").getPosicion().getColumna()==2);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().getFila()==2);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().getColumna()==2);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().getFila()==0);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("ratchet").getPosicion().getColumna()==2);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().getFila()==0);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().getColumna()==2);
 	
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().getFila()==2);
-	Assert.assertTrue(juego.getAutobots().getAlgoformer("bumblebee").getPosicion().getColumna()==0);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().getFila()==2);
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().getColumna()==0);
 
 	}
 	

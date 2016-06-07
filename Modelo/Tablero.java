@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.Arrays;
+
 public  class Tablero{
 protected  Casillero matriz[][];
 private int CantidadCasilleros=50;
@@ -186,6 +188,17 @@ public boolean ataquePosible(atacante unAtacante,movil victima){
 	
 	
 	
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	return true;
 }
 
 

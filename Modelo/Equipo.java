@@ -34,4 +34,14 @@ public abstract class  Equipo {
 		return cantidadMiembrosVivos;
 	}
 
+	public boolean existeAlgoformer(Algoformer algo) {
+		if(algo.equals(algof1))
+			return true;
+		if(algo.equals(algof2))
+			return true;
+		if(algo.equals(algof3))
+			return true;
+		return false;
+	}
+
 }
