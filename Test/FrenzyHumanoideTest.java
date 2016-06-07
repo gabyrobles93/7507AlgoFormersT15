@@ -4,14 +4,20 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Ataque;
+import Modelo.Autobots;
 import Modelo.BonecrusherHumanoide;
+import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
+import Modelo.Movimiento;
+import Modelo.OptimusHumanoide;
 import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
+import Modelo.Tablero;
 import Modelo.Posicion;
 
 public class FrenzyHumanoideTest {
@@ -19,17 +25,26 @@ public class FrenzyHumanoideTest {
 	
 	@Test
 	public void test01FrenzyHumanoideAtacaEnemigoHumanoide(){
-		Algoformer frenzy=new FrenzyHumanoide();
-		Posicion pos1=new Posicion(3,3);
-		frenzy.setPosicion(pos1);
-		Algoformer ratchet=new RatchetHumanoide();
-		Posicion pos2=new Posicion(8,3);
-		ratchet.setPosicion(pos2);//Coloco enemigo a maxima distancia alcanzada
 		
-		frenzy.atacar(ratchet);
+		Tablero tab=new Tablero();
+		Autobots autobots = new Autobots();
+		Decepticons decepticons = new Decepticons();
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
 		
-		//como Ratchet tiene vida 150 y Frenzy 10 de ataque le deben quedar 140
-		Assert.assertTrue(ratchet.getVida()==140);
+		Algoformer frenzy = new FrenzyHumanoide();
+		frenzy.setEquipo(decepticons);
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(frenzy,pos1);
+		
+		Algoformer optimus=new OptimusHumanoide();
+		optimus.setEquipo(autobots);
+		Posicion pos2=new Posicion(3,5);
+		tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
+		
+		frenzy.atacar(optimus);
+		
+		Assert.assertTrue(optimus.getVida()==490);
 		
 	}
 	

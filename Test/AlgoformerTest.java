@@ -23,12 +23,8 @@ public class AlgoformerTest {
 		
 		Algoformer algoformer = new BumblebeeHumanoide();
 		Posicion unaPos=new Posicion(1,5);
-		
-		
-		
-		algoformer.mover(unaPos);
-	
-		
+				
+		algoformer.setPosicion(unaPos);
 		
 		Assert.assertTrue(algoformer.getPosicion()==unaPos);
 
