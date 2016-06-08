@@ -5,12 +5,10 @@ public class Casillero {
 	public Superficie superficie;
 	
 	public Casillero(){
-	movilOcupa=null;
-
-	}
-	public movil getMovilOcupa() {
-	
 		superficie = new SuperficieRocosa(); // Por default la superficie es rocosa
+		movilOcupa=null;
+	}
+	public movil getMovilOcupa() {	
 		return  movilOcupa;
 	}
 	public void setMovilOcupa(movil unmovil) {
