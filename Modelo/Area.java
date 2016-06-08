@@ -41,15 +41,15 @@ public abstract class Area{
 	}
 	
 	public int getFilaFinal(){
-		return filainicial;
+		return filafinal;
 	}
 	
 	public int getColumnaInicial(){
-		return filainicial;
+		return columnainicial;
 	}
 	
 	public int getColumnaFinal(){
-		return filainicial;
+		return columnafinal;
 	}
 	
 	public Casillero[][] getMatriz(){
@@ -58,5 +58,13 @@ public abstract class Area{
 
 	public Casillero getCasillero(int i, int j) {
 		return matriz[i][j];
+	}
+	
+	public int getCantidadFilas() {
+		return cantidadfilas;
+	}
+	
+	public int getCantidadColumnas() {
+		return cantidadcolumnas;
 	}
 }

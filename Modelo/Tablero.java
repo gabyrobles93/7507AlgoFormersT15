@@ -106,12 +106,15 @@ public boolean equals(Object obj) {
 }
 
 public void setAreaDeSuperficie(Area arearocosa) {
+
+	
+	
 	
 	int i,j,x,z;
 	
 	for(x=0, i=arearocosa.getFilaInicial(); i<arearocosa.getFilaFinal();i++,x++){
 		
-		for(z=0, j=arearocosa.getColumnaInicial(); i<arearocosa.getColumnaFinal();j++,z++){
+		for(z=0, j=arearocosa.getColumnaInicial(); j<arearocosa.getColumnaFinal();j++,z++){
 			
 			this.setCasillero(i, j, arearocosa.getMatriz()[x][z]);
 		}

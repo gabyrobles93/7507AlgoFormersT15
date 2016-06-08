@@ -43,6 +43,20 @@ public class SuperficieTest {
 	}
 	
 	@Test
+	public void testClave_2(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Posicion pos = new Posicion(18,18);
+			
+			tab.setAreaDeSuperficie(areapantanosa);
+			
+			Assert.assertTrue(tab.getCasillero(pos).getSuperficie() instanceof SuperficiePantanosa);
+	}
+	
+	
+	@Test
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
@@ -271,7 +285,7 @@ public class SuperficieTest {
 	}
 	
 	// FIN PRIMER PUNTO DE TESTS //
-	
+	/*
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test13algoformerHumanoideNoPuedePasarPorPantano(){
 		
@@ -285,8 +299,10 @@ public class SuperficieTest {
 			tab.ubicarMovil(optimus, posinicial);
 			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
+			Assert.assertTrue(frenzy.getPosicion().equals(posfinal));
+			
 			optimus.mover(posfinal);
 	}
-	
+	*/
 
 }
