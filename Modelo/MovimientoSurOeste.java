@@ -1,6 +1,5 @@
 package Modelo;
 
-import Test.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 
 public class MovimientoSurOeste extends MovimientoDiagonal {
 	public MovimientoSurOeste(movil unMovil,int unaDistancia) {

@@ -1,6 +1,5 @@
 package Modelo;
 
-import Test.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 
 public class MovimientoSurEste extends MovimientoDiagonal {
 

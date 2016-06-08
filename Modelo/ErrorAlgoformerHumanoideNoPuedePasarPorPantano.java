@@ -1,4 +1,4 @@
-package Test;
+package Modelo;
 
 public class ErrorAlgoformerHumanoideNoPuedePasarPorPantano extends RuntimeException {
 

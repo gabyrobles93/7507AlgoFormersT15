@@ -6,12 +6,14 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.Area;
+import Modelo.AreaEspinosa;
 import Modelo.AreaPantanosa;
 import Modelo.AreaRocosa;
 import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
 import Modelo.BumblebeeHumanoide;
+import Modelo.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;

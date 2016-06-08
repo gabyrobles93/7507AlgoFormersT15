@@ -1,4 +1,4 @@
-package Test;
+package Modelo;
 
 import Modelo.Area;
 import Modelo.Casillero;
