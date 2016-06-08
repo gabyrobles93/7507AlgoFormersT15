@@ -17,6 +17,7 @@ public class MovimientoNorEste extends MovimientoDiagonal {
 	@Override
 	public void Avanzar() {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila()-1,movil.getPosicion().getColumna()+1);
+		unTablero.getCasillero(posAux).getSuperficie().afectarAlgoformer((afectable)movil);
 		unTablero.ubicarMovil(movil,posAux);
 		
 	}

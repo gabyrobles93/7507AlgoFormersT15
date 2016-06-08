@@ -74,9 +74,6 @@ public abstract class Movimiento {
 		
 	}
 	public abstract void Avanzar();
-	public void aplicarEfectos() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

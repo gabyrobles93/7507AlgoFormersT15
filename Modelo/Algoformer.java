@@ -37,7 +37,6 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 				
 				for(int i=0;i<mov.getDistancia();i++){
 					mov.Avanzar();
-					mov.aplicarEfectos();//?
 				}
 				
 		}catch(RuntimeException e){
