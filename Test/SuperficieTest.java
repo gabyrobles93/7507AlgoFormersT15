@@ -16,13 +16,13 @@ public class SuperficieTest {
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(5,5);			// Area de superficie rocosa de 5 x 5 casilleros
+			Area arearocosa = new AreaRocosa(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);;
 			Algoformer optimus = new OptimusHumanoide();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(15,17);
 			
-			tab.setAreaDeSuperficie(arearocosa, posinicial); //Tomando como centro la posincial, setea un area de 5x5 de superficie rocosa en torno a ese punto.
+			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(optimus, posinicial);
 			

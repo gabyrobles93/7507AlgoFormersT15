@@ -23,7 +23,9 @@ public class Casillero {
 		return superficie;
 	}
 
-	
+	public void setSuperficie(Superficie nuevasuperficie){
+		superficie = nuevasuperficie;
+	}
 	
 
 }

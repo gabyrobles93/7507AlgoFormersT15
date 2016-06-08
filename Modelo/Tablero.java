@@ -1,6 +1,6 @@
 package Modelo;
 
-
+import Test.Area;
 
 public  class Tablero{
 protected  Casillero matriz[][];
@@ -104,6 +104,12 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	return true;
+}
+
+public void setAreaDeSuperficie(Area arearocosa) {
+	
+
+	
 }
 
 
