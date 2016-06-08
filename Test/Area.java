@@ -51,4 +51,8 @@ public abstract class Area extends Tablero{
 	public int getColumnaFinal(){
 		return filainicial;
 	}
+	
+	public Casillero[][] getMatriz(){
+		return matriz;
+	}
 }
