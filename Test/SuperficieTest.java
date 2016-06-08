@@ -390,4 +390,53 @@ public class SuperficieTest {
 	
 	// FIN SEGUNDO PUNTO DE TESTS //
 
+	// TERCER TEST //
+	
+	// FIN TERCER TEST //
+	
+	// CUARTO TEST //
+
+	@Test
+	public void test19ratchetAlternoVoladorPuedePasarPorPantano(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer ratchet = new RatchetAlterno();
+			Posicion posinicial = new Posicion(22,22);
+			Posicion posfinal = new Posicion(20,20);
+			
+			tab.ubicarMovil(ratchet, posinicial);
+			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			ratchet.mover(posfinal);
+			
+			Assert.assertTrue(ratchet.getPosicion().equals(posfinal));		
+	}
+	
+	@Test
+	public void test20megatronAlternoVoladorPuedePasarPorPantano(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer megatron = new MegatronAlterno();
+			Posicion posinicial = new Posicion(22,22);
+			Posicion posfinal = new Posicion(19,19);
+			
+			tab.ubicarMovil(megatron, posinicial);
+			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			megatron.mover(posfinal);
+			
+			Assert.assertTrue(megatron.getPosicion().equals(posfinal));		
+	}
+	
+	// FIN CUARTO TEST //
+	
+	// INICIO QUINTO TEST //
+	
+	
 }
