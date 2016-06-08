@@ -55,7 +55,8 @@ public class SuperficieTest {
 			Assert.assertTrue(tab.getCasillero(pos).getSuperficie() instanceof SuperficiePantanosa);
 	}
 	
-	
+	// INICIO PRIMER TEST //
+
 	@Test
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
@@ -286,6 +287,7 @@ public class SuperficieTest {
 	
 	// FIN PRIMER PUNTO DE TESTS //
 	
+	// INICIO SEGUNDO TEST //
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test13optimusHumanoideNoPuedePasarPorPantano(){
 		
@@ -536,5 +538,11 @@ public class SuperficieTest {
 	// HACER LAS MISMAS PRUEBAS PARA LOS DECEPTICONS QUE SEAN TERRESTRES //
 	
 	// FIN QUINTO TEST //
+	
+	// HACER SEXTO TEST //
+	
+	// FIN SEXTO TEST //
+	
+	
 	
 }
