@@ -1,6 +1,6 @@
 package Modelo;
 
-public abstract class Algoformer implements movil,atacable,atacante  {
+public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 	
 	protected int vida;
 	protected Posicion miPosicion;
@@ -16,10 +16,25 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 		
 		efecto = new Efecto();
 		efecto.afectaataque = 0;
-		efecto.afectavelocidad = 0;
-		efecto.afectavida = 0;
+		efecto.estaenpantano = false;
 		efecto.esperaturnos = 0;
 		
+	}
+	
+	public void afectarPorEspinas(){
+		vida = (int) (vida - (0.05 * vida)); //Espinas restan el 5% de la vida
+	}
+	
+	public void afectarPorPantano(){
+		efecto.estaenpantano = true;
+	}
+	
+	public void afectarPorNebulosaDeAndromeda(){
+		efecto.esperaturnos = 3;
+	}
+	
+	public void afectarPorTormentaPsionica(){
+		efecto.afectaataque = 0.4;
 	}
 	
 	public Posicion getPosicion(){
@@ -94,11 +109,11 @@ public abstract class Algoformer implements movil,atacable,atacante  {
 
 	private int getAtaque() {
 		
-		return ataque - ataque * this.getEfectoAtaque();
+		return (int)(ataque - ataque * this.getEfectoAtaque());
 		
 	}
 
-	private int getEfectoAtaque() {
+	private double getEfectoAtaque() {
 		
 		return this.efecto.afectaataque;
 	}
