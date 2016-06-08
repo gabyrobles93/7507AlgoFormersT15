@@ -34,11 +34,11 @@ public class BumblebeeHumanoide extends Bumblebee {
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
-		efecto.esperaturnos = 0;	// Unidad terrestre, no es afectada por esto.
+		// Unidad terrestre, no es afectada por esto.
 	}
 	@Override
 	public void afectarPorTormentaPsionica(double coeficiente) {
-		efecto.afectaataque = 0; // Unidad terrestre, no es afectada por esto.
+		// Unidad terrestre, no es afectada por esto.
 		
 	}
 	@Override
@@ -47,7 +47,7 @@ public class BumblebeeHumanoide extends Bumblebee {
 	}
 	@Override
 	public void afectarPorSuperficieNubosa(float coeficiente) {
-		efecto.afectavelocidad = 0;	// La superficie nubosa no afecta la velocidad
+		// Unidad terrestre, no es afectada por esto.
 	}
 	
 }

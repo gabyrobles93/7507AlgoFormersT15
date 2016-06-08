@@ -24,5 +24,30 @@ public class RatchetAlterno extends Ratchet {
 	return new RatchetHumanoide(miPosicion,vida);
 	}
 
+	// UNIDAD AEREA //
+	@Override
+	public void afectarPorEspinas(double danioporespinas) {
+		// Unidad aerea no es afectada por esto
+	}
+	@Override
+	public void afectarPorPantano(double coeficiente) {
+		// Unidad aerea no es afectada por esto
+	}
+	@Override
+	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
+		efecto.esperaturnos = cantidadturnos;	
+	}
+	@Override
+	public void afectarPorTormentaPsionica(double coeficiente) {
+		efecto.afectaataque = coeficiente; 		
+	}
+	@Override
+	public void afectarPorSuperficieRocosa(float coeficiente) {
+		// Unidad aerea no es afectada por esto
+	}
+	@Override
+	public void afectarPorSuperficieNubosa(float coeficiente) {
+		efecto.afectavelocidad = coeficiente;
+	}
 
 }

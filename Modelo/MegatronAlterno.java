@@ -33,7 +33,7 @@ public class MegatronAlterno extends Megatron {
 	}
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = 0;	// Unidad aerea, no puede pasar por pantanos.
+		// Unidad aerea no es afectada por pantano
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
@@ -42,15 +42,14 @@ public class MegatronAlterno extends Megatron {
 	@Override
 	public void afectarPorTormentaPsionica(double coeficiente) {
 		efecto.afectaataque = coeficiente; 
-		
 	}
 	@Override
 	public void afectarPorSuperficieRocosa(float coeficiente) {
-		efecto.afectavelocidad = coeficiente;	// Superficie rocosa no afecta la velocidad
+		// Unidad aerea no es afectada por superficie rocosa
 	}
 	@Override
 	public void afectarPorSuperficieNubosa(float coeficiente) {
-		efecto.afectavelocidad = coeficiente;	// La superficie nubosa no afecta la velocidad
+		efecto.afectavelocidad = coeficiente;
 	}
 	
 }

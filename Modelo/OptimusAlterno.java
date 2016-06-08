@@ -48,7 +48,7 @@ public class OptimusAlterno extends Optimus {
 	}
 	@Override
 	public void afectarPorSuperficieNubosa(float coeficiente) {
-			// Unidad terrestre, no es afectada por esto.
+		// Unidad terrestre, no es afectada por esto.
 	}
 
 }
