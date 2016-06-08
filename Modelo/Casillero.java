@@ -2,6 +2,8 @@ package Modelo;
 
 public class Casillero {
 	private movil movilOcupa;
+	public SuperficieTierra tierra;
+	public SuperficieCielo cielo;
 	
 	public Casillero(){
 	movilOcupa=null;
@@ -9,6 +11,8 @@ public class Casillero {
 	}
 	public movil getMovilOcupa() {
 	
+		tierra = new SuperficieRocosa();
+		cielo = new SuperficieNubosa();
 		return  movilOcupa;
 	}
 	public void setMovilOcupa(movil unmovil) {

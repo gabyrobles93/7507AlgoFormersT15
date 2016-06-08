@@ -24,11 +24,12 @@ public abstract class Movimiento {
 	}
 	
 	public static Movimiento crearMovimiento(movil unMovil, Posicion pos2) {
+		
 		if(unTablero==null){throw new ErrorTableroIndefinidoEnClaseMovimiento();}
 		
 		
-	int	distanciaFila=pos2.getFila()-unMovil.getPosicion().getFila();
-	int distanciaColumna=pos2.getColumna()-unMovil.getPosicion().getColumna();
+		int	distanciaFila=pos2.getFila()-unMovil.getPosicion().getFila();
+		int distanciaColumna=pos2.getColumna()-unMovil.getPosicion().getColumna();
 		
 		Movimiento mov;
 		
@@ -77,4 +78,5 @@ public abstract class Movimiento {
 		// TODO Auto-generated method stub
 		
 	}
+	
 }

@@ -67,7 +67,7 @@ public class JuegoTest {
 		Juego juego = new Juego();
 		Tablero tab=new Tablero();
 		
-		Assert.assertTrue(juego.getTablero().equals( tab));	
+		Assert.assertTrue(juego.getTablero().equals(tab));	
 	}
 	
 

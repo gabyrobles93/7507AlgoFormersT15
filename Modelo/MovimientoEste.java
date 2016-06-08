@@ -17,6 +17,7 @@ public class MovimientoEste extends MovimientoHorizontal {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila(),movil.getPosicion().getColumna()+1);
 		unTablero.ubicarMovil(movil,posAux);
 		
+		
 	}
 
 
