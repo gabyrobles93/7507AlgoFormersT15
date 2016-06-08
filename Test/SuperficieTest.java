@@ -1,9 +1,13 @@
 package Test;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Area;
+import Modelo.AreaPantanosa;
+import Modelo.AreaRocosa;
 import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
@@ -18,11 +22,26 @@ import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
+import Modelo.SuperficiePantanosa;
+import Modelo.SuperficieRocosa;
 import Modelo.Tablero;
 
 
 public class SuperficieTest {
 
+	@Test
+	public void testClave(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			
+			
+			tab.setAreaDeSuperficie(areapantanosa);
+			
+			Assert.assertTrue(areapantanosa.getCasillero(3,4).getSuperficie() instanceof SuperficiePantanosa);
+	}
+	
 	@Test
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
@@ -250,4 +269,24 @@ public class SuperficieTest {
 			
 			Assert.assertTrue(frenzy.getPosicion().equals(posfinal));
 	}
+	
+	// FIN PRIMER PUNTO DE TESTS //
+	
+	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
+	public void test13algoformerHumanoideNoPuedePasarPorPantano(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer optimus = new OptimusHumanoide();
+			Posicion posinicial = new Posicion(15,14);
+			Posicion posfinal = new Posicion(15,16);
+			
+			tab.ubicarMovil(optimus, posinicial);
+			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			optimus.mover(posfinal);
+	}
+	
+
 }

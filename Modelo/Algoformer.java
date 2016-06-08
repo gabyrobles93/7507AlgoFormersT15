@@ -153,5 +153,9 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 	private Object getEquipo() {
 		return miEquipo;
 	}
+	
+	public Efecto getEfecto(){
+		return efecto;
+	}
 
 }

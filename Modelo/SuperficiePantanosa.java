@@ -2,7 +2,7 @@ package Modelo;
 
 public class SuperficiePantanosa extends SuperficieTierra{
 
-	SuperficiePantanosa(){
+	public SuperficiePantanosa(){
 		super();
 		factorvelocidad = 0.5;
 	}

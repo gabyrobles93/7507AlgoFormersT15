@@ -1,5 +1,7 @@
 package Modelo;
 
+import Test.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
+
 public class MovimientoEste extends MovimientoHorizontal {
 
 	
@@ -17,7 +19,11 @@ public class MovimientoEste extends MovimientoHorizontal {
 		
 		Posicion posAux=new Posicion(movil.getPosicion().getFila(),movil.getPosicion().getColumna()+1);
 		unTablero.getCasillero(posAux).getSuperficie().afectarAlgoformer((afectable)movil);
-		unTablero.ubicarMovil(movil,posAux);	
+		if(((afectable)movil).getEfecto().afectavelocidad == 999){
+			ErrorAlgoformerHumanoideNoPuedePasarPorPantano err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
+			throw err;
+		}
+		unTablero.ubicarMovil(movil,posAux);
 	}
 
 

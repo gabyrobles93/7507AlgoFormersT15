@@ -8,4 +8,5 @@ public interface afectable {
 	public void afectarPorTormentaPsionica(double coeficiente);
 	public void afectarPorSuperficieRocosa(float coeficiente);
 	public void afectarPorSuperficieNubosa(float coeficiente);
+	public Efecto getEfecto();
 }

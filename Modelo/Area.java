@@ -1,9 +1,8 @@
-package Test;
+package Modelo;
 
 import Modelo.Casillero;
-import Modelo.Tablero;
 
-public abstract class Area extends Tablero{
+public abstract class Area{
 
 	protected  Casillero matriz[][];
 	protected int filainicial;
@@ -15,6 +14,7 @@ public abstract class Area extends Tablero{
 	protected int cantidadcolumnas;
 	
 	public Area(){
+		
 		matriz = null;
 		filainicial = 0;
 		filafinal = 0;
@@ -54,5 +54,9 @@ public abstract class Area extends Tablero{
 	
 	public Casillero[][] getMatriz(){
 		return matriz;
+	}
+
+	public Casillero getCasillero(int i, int j) {
+		return matriz[i][j];
 	}
 }

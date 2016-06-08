@@ -1,6 +1,5 @@
 package Modelo;
 
-import Test.Area;
 
 public  class Tablero{
 protected  Casillero matriz[][];
