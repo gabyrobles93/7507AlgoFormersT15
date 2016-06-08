@@ -438,5 +438,103 @@ public class SuperficieTest {
 	
 	// INICIO QUINTO TEST //
 	
+	@Test
+	public void test21optimusHumanoideEsDaniadoPorEspinas(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer optimus = new OptimusHumanoide();
+			Posicion posinicial = new Posicion(15,14);
+			Posicion posfinal = new Posicion(15,16);
+			
+			tab.ubicarMovil(optimus, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			optimus.mover(posfinal);
+			
+			Assert.assertTrue(optimus.getVida() == 452);		
+	}
+	
+	@Test
+	public void test22optimusAlternoEsDaniadoPorEspinas(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer optimus = new OptimusAlterno();
+			Posicion posinicial = new Posicion(15,14);
+			Posicion posfinal = new Posicion(15,16);
+			
+			tab.ubicarMovil(optimus, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			optimus.mover(posfinal);
+			
+			Assert.assertTrue(optimus.getVida() == 452);		
+	}
+	
+	@Test
+	public void test23bumblebeeHumanoideEsDaniadoPorEspinas(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer bumblebee = new BumblebeeHumanoide();
+			Posicion posinicial = new Posicion(15,21);
+			Posicion posfinal = new Posicion(15,19);
+			
+			tab.ubicarMovil(bumblebee, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			bumblebee.mover(posfinal);
+			
+			Assert.assertTrue(bumblebee.getVida() == 317);		
+	}
+	
+	@Test
+	public void test24bumblebeeAlternoEsDaniadoPorEspinas(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer bumblebee = new BumblebeeAlterno();
+			Posicion posinicial = new Posicion(15,21);
+			Posicion posfinal = new Posicion(15,16);
+			
+			tab.ubicarMovil(bumblebee, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			bumblebee.mover(posfinal);
+			
+			Assert.assertTrue(bumblebee.getVida() == 273);		
+	}
+	
+	@Test
+	public void test23ratchetHumanoideEsDaniadoPorEspinas(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer ratchet = new RatchetHumanoide();
+			Posicion posinicial = new Posicion(15,21);
+			Posicion posfinal = new Posicion(15,20);
+			
+			tab.ubicarMovil(ratchet, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			ratchet.mover(posfinal);
+			
+			Assert.assertTrue(ratchet.getVida() == 143);		
+	}
+	
+	// HACER LAS MISMAS PRUEBAS PARA LOS DECEPTICONS QUE SEAN TERRESTRES //
+	
+	// FIN QUINTO TEST //
 	
 }
