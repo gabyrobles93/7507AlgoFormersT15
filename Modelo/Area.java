@@ -29,8 +29,8 @@ public abstract class Area{
 		columnainicial = columnainicialarea;
 		columnafinal = columnafinalarea;
 		
-		cantidadfilas = filafinalarea - filainicialarea;
-		cantidadcolumnas = columnafinalarea - columnainicialarea;
+		cantidadfilas = filafinalarea - filainicialarea + 1;
+		cantidadcolumnas = columnafinalarea - columnainicialarea + 1;
 		
 		matriz = new Casillero[cantidadfilas][cantidadcolumnas];
 

@@ -105,21 +105,29 @@ public boolean equals(Object obj) {
 	return true;
 }
 
-public void setAreaDeSuperficie(Area arearocosa) {
+public void setAreaDeSuperficie(Area areasup) {
 
+	int fil_tablero, fil_area, col_tablero, col_area;
 	
+	for(fil_tablero = areasup.getFilaInicial(), fil_area = 0; fil_tablero <= areasup.getFilaFinal(); fil_tablero++, fil_area++){
+		
+		for(col_tablero = areasup.getColumnaInicial(), col_area = 0; col_tablero<= areasup.getColumnaFinal(); col_tablero++, col_area++){
+			
+			this.setCasillero(fil_tablero, col_tablero, areasup.getCasillero(fil_area, col_area));
+		}
+	}
 	
-	
+	/*
 	int i,j,x,z;
 	
-	for(x=0, i=arearocosa.getFilaInicial(); i<arearocosa.getFilaFinal();i++,x++){
+	for(x=0, i=arearocosa.getFilaInicial(); i<=arearocosa.getFilaFinal()-1;i++,x++){
 		
-		for(z=0, j=arearocosa.getColumnaInicial(); j<arearocosa.getColumnaFinal();j++,z++){
+		for(z=0, j=arearocosa.getColumnaInicial(); j<=arearocosa.getColumnaFinal()-1;j++,z++){
 			
 			this.setCasillero(i, j, arearocosa.getMatriz()[x][z]);
 		}
 	}
-	
+	*/
 }
 
 /*De uso exclusivamente interno*/

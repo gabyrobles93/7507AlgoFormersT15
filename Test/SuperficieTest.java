@@ -48,7 +48,7 @@ public class SuperficieTest {
 			Tablero tab = new Tablero();
 			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
-			Posicion pos = new Posicion(18,18);
+			Posicion pos = new Posicion(20,15);
 			
 			tab.setAreaDeSuperficie(areapantanosa);
 			
@@ -250,7 +250,7 @@ public class SuperficieTest {
 	public void test11frenzyHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(44,50,30,35);			// Es un area de 12 x 4
+			Area arearocosa = new AreaRocosa(44,49,30,35);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Algoformer frenzy = new FrenzyHumanoide();
 			Posicion posinicial = new Posicion(49,31);
@@ -269,7 +269,7 @@ public class SuperficieTest {
 	public void test12frenzyAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(44,50,30,35);			// Es un area de 12 x 4
+			Area arearocosa = new AreaRocosa(44,49,30,49);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Algoformer frenzy = new FrenzyAlterno();
 			Posicion posinicial = new Posicion(49,31);
@@ -285,9 +285,9 @@ public class SuperficieTest {
 	}
 	
 	// FIN PRIMER PUNTO DE TESTS //
-	/*
+	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
-	public void test13algoformerHumanoideNoPuedePasarPorPantano(){
+	public void test13optimusHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
 			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
@@ -299,10 +299,27 @@ public class SuperficieTest {
 			tab.ubicarMovil(optimus, posinicial);
 			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
-			Assert.assertTrue(frenzy.getPosicion().equals(posfinal));
 			
 			optimus.mover(posfinal);
 	}
-	*/
+	
+	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
+	public void test14bumblebeeHumanoideNoPuedePasarPorPantano(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer bumblebee = new BumblebeeHumanoide();
+			Posicion posinicial = new Posicion(21,15);
+			Posicion posfinal = new Posicion(20,15);
+			
+			tab.ubicarMovil(bumblebee, posinicial);
+			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			bumblebee.mover(posfinal);
+	}
+	
+	
 
 }
