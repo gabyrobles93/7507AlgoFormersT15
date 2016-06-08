@@ -3,12 +3,12 @@ package Modelo;
 public class Efecto {
 
 	double afectaataque;
-	Boolean estaenpantano;
+	double afectavelocidad;
 	int esperaturnos;
 	
 	public Efecto(){
 		afectaataque = 0;
-		estaenpantano = false;
+		afectavelocidad = 0;
 		esperaturnos = 0;
 	}
 	

@@ -24,4 +24,6 @@ public class OptimusHumanoide extends Optimus {
 		return new OptimusAlterno(miPosicion,vida);
 	}
 
+	
+	
 }

@@ -16,25 +16,9 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 		
 		efecto = new Efecto();
 		efecto.afectaataque = 0;
-		efecto.estaenpantano = false;
+		efecto.afectavelocidad = 0;
 		efecto.esperaturnos = 0;
 		
-	}
-	
-	public void afectarPorEspinas(){
-		vida = (int) (vida - (0.05 * vida)); //Espinas restan el 5% de la vida
-	}
-	
-	public void afectarPorPantano(){
-		efecto.estaenpantano = true;
-	}
-	
-	public void afectarPorNebulosaDeAndromeda(){
-		efecto.esperaturnos = 3;
-	}
-	
-	public void afectarPorTormentaPsionica(){
-		efecto.afectaataque = 0.4;
 	}
 	
 	public Posicion getPosicion(){
