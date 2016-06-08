@@ -20,12 +20,15 @@ public class SuperficieTest {
 			Movimiento.setTablero(tab);;
 			Algoformer optimus = new OptimusHumanoide();
 			Posicion posinicial = new Posicion(15,15);
+			Posicion posfinal = new Posicion(15,17);
 			
-			arearocosa.setSuperficieRocosa();
-			
-			
+			tab.setAreaDeSuperficie(arearocosa, posinicial); //Tomando como centro la posincial, setea un area de 5x5 de superficie rocosa en torno a ese punto.
 			
 			tab.ubicarMovil(optimus, posinicial);
+			
+			optimus.mover(posfinal);
+			
+			Assert.assertTrue(optimus.getPosicion().equals(posfinal));
 	}
 	
 }
