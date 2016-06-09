@@ -24,6 +24,7 @@ import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 import Modelo.RatchetAlterno;
 import Modelo.RatchetHumanoide;
+import Modelo.Superficie;
 import Modelo.SuperficiePantanosa;
 import Modelo.SuperficieRocosa;
 import Modelo.Tablero;
@@ -40,8 +41,8 @@ public class SuperficieTest {
 			
 			
 			tab.setAreaDeSuperficie(areapantanosa);
-			
-			Assert.assertTrue(areapantanosa.getCasillero(3,4).getSuperficie() instanceof SuperficiePantanosa);
+			Superficie sup=new SuperficiePantanosa();
+			Assert.assertTrue(areapantanosa.getCasillero(3,4).getSuperficie().equals(sup));
 	}
 	
 	@Test
@@ -53,8 +54,8 @@ public class SuperficieTest {
 			Posicion pos = new Posicion(20,15);
 			
 			tab.setAreaDeSuperficie(areapantanosa);
-			
-			Assert.assertTrue(tab.getCasillero(pos).getSuperficie() instanceof SuperficiePantanosa);
+			Superficie sup=new SuperficiePantanosa();
+			Assert.assertTrue(tab.getCasillero(pos).getSuperficie().equals(sup));
 	}
 	
 	// INICIO PRIMER TEST //
