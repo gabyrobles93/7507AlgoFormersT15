@@ -8,7 +8,7 @@ public class BumblebeeHumanoide extends Bumblebee {
 		ataque=40;
 		alcance=1;
 		velocidad=2;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	public BumblebeeHumanoide(Posicion unaPos, int unaVida) {
 		super();
@@ -17,7 +17,7 @@ public class BumblebeeHumanoide extends Bumblebee {
 		ataque=40;
 		velocidad=2;
 		alcance=1;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	@Override
 	public Algoformer cambiarModo() {

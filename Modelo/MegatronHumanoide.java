@@ -8,6 +8,7 @@ public class MegatronHumanoide extends Megatron {
 		ataque=10;
 		alcance=3;
 		velocidad=1;
+		efecto.velocidadAfectada=velocidad;
 	}
 
 	public MegatronHumanoide(Posicion unaPos, int unaVida) {
@@ -16,6 +17,7 @@ public class MegatronHumanoide extends Megatron {
 		vida=unaVida;
 		ataque=10;
 		velocidad=1;
+		efecto.velocidadAfectada=velocidad;
 		alcance=3;
 		
 	}

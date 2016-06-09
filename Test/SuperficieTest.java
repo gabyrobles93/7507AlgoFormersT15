@@ -14,6 +14,7 @@ import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
 import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
+import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;
@@ -395,8 +396,33 @@ public class SuperficieTest {
 	
 	// FIN SEGUNDO PUNTO DE TESTS //
 
-	
 	// TERCER TEST //
+	//EN MODOO ALTERNO LAS UNIDADES TERRESTRES TARDAN EL DOBLE EN ATRAVESAR UN PANTANO//
+	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
+	public void test15BumblebeeAlternoPasaPorPantanoPeroTardaElDoble(){
+		
+			Tablero tab = new Tablero();
+			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer algof = new BumblebeeAlterno();
+			Posicion posinicial = new Posicion(15,15);
+			Posicion posfinal = new Posicion(17,17);
+			
+			tab.ubicarMovil(algof, posinicial);
+			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			//Bumblebee alterno tiene velocidad 5; En pantano solo se puede mover dos casilleros
+			
+			algof.mover(posfinal);
+			Assert.assertFalse(tab.getCasillero(posinicial).estaOcupado());
+			Assert.assertTrue(tab.getCasillero(posfinal).estaOcupado());
+			Assert.assertTrue(algof.getPosicion().equals(posfinal));
+			
+			algof.mover(posinicial);//vuelvo a donde estaba para intentear ir mas lejos;
+			
+			Posicion posicionInalcanzable=new Posicion(19,19);
+			
+			algof.mover(posicionInalcanzable);
+	}
 	
 	// FIN TERCER TEST //
 	
@@ -628,7 +654,7 @@ public class SuperficieTest {
 			
 			Assert.assertTrue(algoformer.getVida() == vidaDespuesDeEspinas);		
 	}
-	// HACER LAS MISMAS PRUEBAS PARA LOS DECEPTICONS QUE SEAN TERRESTRES //
+
 	
 	// FIN QUINTO TEST //
 	

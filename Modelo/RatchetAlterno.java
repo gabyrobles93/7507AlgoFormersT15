@@ -8,6 +8,7 @@ public class RatchetAlterno extends Ratchet {
 		ataque=35;
 		alcance=2;
 		velocidad=8;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	public RatchetAlterno(Posicion unaPos, int unaVida) {
@@ -17,6 +18,7 @@ public class RatchetAlterno extends Ratchet {
 		ataque=35;
 		velocidad=8;
 		alcance=2;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	@Override

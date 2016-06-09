@@ -8,6 +8,7 @@ public class OptimusAlterno extends Optimus {
 		ataque=15;
 		alcance=4;
 		velocidad=5;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	public OptimusAlterno(Posicion unaPos, int unaVida) {
@@ -17,7 +18,7 @@ public class OptimusAlterno extends Optimus {
 		ataque=15;
 		velocidad=5;
 		alcance=4;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	@Override
 	public Algoformer cambiarModo() {
@@ -31,7 +32,7 @@ public class OptimusAlterno extends Optimus {
 	}
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = coeficiente;	// Con 999 representamos que no puede pasar por pantano
+		efecto.velocidadAfectada = velocidad-(int)coeficiente*velocidad;		// Con 999 representamos que no puede pasar por pantano
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {

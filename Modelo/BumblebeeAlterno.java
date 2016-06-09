@@ -8,7 +8,7 @@ public class BumblebeeAlterno extends Bumblebee {
 		ataque=20;
 		alcance=3;
 		velocidad=5;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	public BumblebeeAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -17,6 +17,7 @@ public class BumblebeeAlterno extends Bumblebee {
 		ataque=20;
 		velocidad=5;
 		alcance=3;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	@Override
@@ -30,7 +31,7 @@ public class BumblebeeAlterno extends Bumblebee {
 	}
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = coeficiente;	// Con 999 representamos que no puede pasar por pantano
+		efecto.velocidadAfectada = efecto.velocidadAfectada - 1;	// Con 999 representamos que no puede pasar por pantano
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {

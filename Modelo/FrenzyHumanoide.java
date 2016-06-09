@@ -8,6 +8,8 @@ public class FrenzyHumanoide extends Frenzy {
 		ataque=10;
 		alcance=5;
 		velocidad=2;
+		efecto.velocidadAfectada=velocidad;
+		
 		
 	}
 	public FrenzyHumanoide(Posicion unaPos, int unaVida) {
@@ -17,6 +19,7 @@ public class FrenzyHumanoide extends Frenzy {
 		ataque=10;
 		velocidad=2;
 		alcance=5;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	@Override

@@ -18,7 +18,7 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 		efecto.afectaataque = 0;
 		efecto.afectavelocidad = 0;
 		efecto.esperaturnos = 0;
-		
+	
 	}
 	
 	public Posicion getPosicion(){
@@ -37,7 +37,13 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 				
 				for(int i=0;i<mov.getDistancia();i++){
 					mov.Avanzar();
+					if(distanciaPosible(mov.getDistancia())==false){
+						efecto.velocidadAfectada=velocidad;
+						throw new ErrorVelocidadDelMovilInsuficiente();
+					}
+					
 				}
+				efecto.velocidadAfectada=velocidad;
 				
 		}catch(RuntimeException e){
 			cambiarPosicion(posicionInicial);//lo pongo donde estaba
@@ -48,6 +54,8 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 		
 	}
 	
+
+
 	public void cambiarPosicion(Posicion pos){//metodo que usa movimiento
 		miPosicion=pos;
 	}
@@ -57,7 +65,7 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 
 	public boolean distanciaPosible(int distancia) {
 		
-		return (distancia<=velocidad);
+		return (distancia<=efecto.velocidadAfectada);
 		
 	}
 	

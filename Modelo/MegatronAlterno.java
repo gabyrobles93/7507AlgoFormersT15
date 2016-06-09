@@ -9,7 +9,7 @@ public class MegatronAlterno extends Megatron {
 		ataque=55;
 		alcance=2;
 		velocidad=8;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	public MegatronAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -18,6 +18,7 @@ public class MegatronAlterno extends Megatron {
 		ataque=55;
 		velocidad=8;
 		alcance=2;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 

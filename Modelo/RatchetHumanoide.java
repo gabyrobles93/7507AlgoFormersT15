@@ -8,6 +8,7 @@ public class RatchetHumanoide extends Ratchet {
 		ataque=5;
 		alcance=5;
 		velocidad=1;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	public RatchetHumanoide(Posicion unaPos, int unaVida) {
@@ -17,6 +18,7 @@ public class RatchetHumanoide extends Ratchet {
 		ataque=5;
 		velocidad=1;
 		alcance=5;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	@Override

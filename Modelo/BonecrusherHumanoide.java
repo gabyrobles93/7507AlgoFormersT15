@@ -8,7 +8,7 @@ public class BonecrusherHumanoide extends Bonecrusher {
 		ataque=30;
 		alcance=3;
 		velocidad=1;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 	public BonecrusherHumanoide(Posicion unaPos, int unaVida) {
 		super();
@@ -17,7 +17,7 @@ public class BonecrusherHumanoide extends Bonecrusher {
 		ataque=30;
 		velocidad=1;
 		alcance=3;
-		
+		efecto.velocidadAfectada=velocidad;
 	}
 
 	@Override

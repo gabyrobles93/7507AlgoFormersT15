@@ -8,6 +8,7 @@ public class OptimusHumanoide extends Optimus {
 		ataque=50;
 		alcance=2;
 		velocidad=2;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	public OptimusHumanoide(Posicion unaPos, int unaVida) {
@@ -17,6 +18,7 @@ public class OptimusHumanoide extends Optimus {
 		ataque=50;
 		velocidad=2;
 		alcance=2;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	@Override

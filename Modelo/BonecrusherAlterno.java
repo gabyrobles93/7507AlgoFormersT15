@@ -8,7 +8,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 		ataque=30;
 		alcance=3;
 		velocidad=8;
-		
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 	public BonecrusherAlterno(Posicion unaPos, int unaVida) {
@@ -18,6 +18,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 		ataque=30;
 		velocidad=8;
 		alcance=3;
+		efecto.velocidadAfectada=velocidad;
 		
 	}
 
@@ -35,7 +36,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 	}
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = coeficiente;	
+		efecto.velocidadAfectada = velocidad-(int)coeficiente*velocidad;		
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {

@@ -4,6 +4,7 @@ public class Efecto {
 
 	double afectaataque;
 	double afectavelocidad;
+	int velocidadAfectada;
 	int esperaturnos;
 	
 	public Efecto(){
