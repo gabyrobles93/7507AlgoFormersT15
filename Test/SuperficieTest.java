@@ -7,6 +7,7 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Area;
 import Modelo.AreaEspinosa;
+import Modelo.AreaNubosa;
 import Modelo.AreaPantanosa;
 import Modelo.AreaRocosa;
 import Modelo.BonecrusherAlterno;
@@ -423,7 +424,7 @@ public class SuperficieTest {
 			
 			algof.mover(posicionInalcanzable);
 	}
-	
+	//HACER PARA EL RESTO DE LOS ALGOFORMERS MODO ALTERNO TERRESTRES
 	// FIN TERCER TEST //
 	
 	// CUARTO TEST //
@@ -657,10 +658,86 @@ public class SuperficieTest {
 
 	
 	// FIN QUINTO TEST //
+
+
 	
 	// HACER SEXTO TEST //
 	
+	@Test
+	public void test23MegatronAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer algoformer = new MegatronAlterno();
+			Posicion posinicial = new Posicion(15,21);
+			Posicion posfinal = new Posicion(15,20);
+			int vidaDespuesDeEspinas = algoformer.getVida();
+			tab.ubicarMovil(algoformer, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			algoformer.mover(posfinal);
+			
+			Assert.assertTrue(algoformer.getVida() == vidaDespuesDeEspinas);		
+	}
+	
+	@Test
+	public void test23RatchetAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
+		
+			Tablero tab = new Tablero();
+			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer algoformer = new RatchetAlterno();
+			Posicion posinicial = new Posicion(15,21);
+			Posicion posfinal = new Posicion(15,20);
+			int vidaDespuesDeEspinas = algoformer.getVida();
+			tab.ubicarMovil(algoformer, posinicial);
+			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			algoformer.mover(posfinal);
+			
+			Assert.assertTrue(algoformer.getVida() == vidaDespuesDeEspinas);		
+	}
 	// FIN SEXTO TEST //
+	//INICIO SEPTIMO TEST//
+	@Test
+	public void test23RatchetAlternoAtraviesaNubesSinProblema(){
+		
+			Tablero tab = new Tablero();
+			Area areanubosa = new AreaNubosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer algoformer = new RatchetAlterno();
+			Posicion posinicial = new Posicion(15,15);
+			Posicion posfinal = new Posicion(17,17);
+			int vidaDespuesDeEspinas = algoformer.getVida();
+			tab.ubicarMovil(algoformer, posinicial);
+			tab.setAreaDeSuperficie(areanubosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			algoformer.mover(posfinal);
+			
+			Assert.assertTrue(algoformer.getPosicion().equals(posfinal));		
+	}
+	@Test
+	public void test23MegatronAlternoAtraviesaNubesSinProblema(){
+		
+			Tablero tab = new Tablero();
+			Area areanubosa = new AreaNubosa(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Algoformer algoformer = new MegatronAlterno();
+			Posicion posinicial = new Posicion(15,15);
+			Posicion posfinal = new Posicion(17,17);
+			int vidaDespuesDeEspinas = algoformer.getVida();
+			tab.ubicarMovil(algoformer, posinicial);
+			tab.setAreaDeSuperficie(areanubosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			
+			algoformer.mover(posfinal);
+			
+			Assert.assertTrue(algoformer.getPosicion().equals(posfinal));		
+	}
 	
 	
 	
