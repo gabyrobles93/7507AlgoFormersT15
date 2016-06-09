@@ -24,7 +24,9 @@ public class MegatronHumanoide extends Megatron {
 
 	@Override
 	public Algoformer cambiarModo() {
-		return new MegatronAlterno(miPosicion,vida);
+		Algoformer mega =new MegatronAlterno(miPosicion,vida,efecto.afectaataque);
+		miEquipo.algof1=mega;
+		return mega;
 	}
 
 	

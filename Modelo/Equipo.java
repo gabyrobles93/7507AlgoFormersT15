@@ -16,6 +16,8 @@ public abstract class  Equipo {
 	
 	
 	public void jugarTurno(){
+		
+		
 	}
 	
 	public int getVidaTotal(){

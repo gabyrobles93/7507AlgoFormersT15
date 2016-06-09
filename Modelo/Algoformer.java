@@ -98,7 +98,7 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 		
 	}
 
-	private int getAtaque() {
+	public int getAtaque() {//lo hago publico para test
 		
 		return (int)(ataque - ataque * this.getEfectoAtaque());
 		

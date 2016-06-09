@@ -36,7 +36,7 @@ public class Juego {
 		setDecepticons();
 		ubicarDecepticons();
 		ubicarAutobots();
-		
+		turnoDelEquipo=this.getDecepticons();
 		
 	}
 	

@@ -7,17 +7,24 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Area;
 import Modelo.AreaEspinosa;
+import Modelo.AreaNebulosa;
 import Modelo.AreaNubosa;
 import Modelo.AreaPantanosa;
 import Modelo.AreaRocosa;
+import Modelo.AreaTormentaPsionica;
+import Modelo.Ataque;
+import Modelo.Autobots;
 import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
 import Modelo.BumblebeeHumanoide;
+import Modelo.Decepticons;
+import Modelo.Equipo;
 import Modelo.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
+import Modelo.Juego;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Movimiento;
@@ -711,7 +718,7 @@ public class SuperficieTest {
 			Algoformer algoformer = new RatchetAlterno();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
-			int vidaDespuesDeEspinas = algoformer.getVida();
+			
 			tab.ubicarMovil(algoformer, posinicial);
 			tab.setAreaDeSuperficie(areanubosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
@@ -729,7 +736,7 @@ public class SuperficieTest {
 			Algoformer algoformer = new MegatronAlterno();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
-			int vidaDespuesDeEspinas = algoformer.getVida();
+			
 			tab.ubicarMovil(algoformer, posinicial);
 			tab.setAreaDeSuperficie(areanubosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
@@ -740,5 +747,101 @@ public class SuperficieTest {
 	}
 	
 	
+	//FIN SEPTIMO TEST
+	//INICIO OCTAVO TEST
+	@Test
+	public void test8MegatronAlternoQuedaAtrapado3TurnosEnNebulosaDeAndromeda(){
+		
+			Juego juego=new Juego();
+		
+			
+			Area areanebulosa = new AreaNebulosa(46,49,46,49);			// Pongo una tormenta donde nace
+			
+		
+			juego.getTablero().setAreaDeSuperficie(areanebulosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
+			
+			Algoformer mega=juego.getDecepticons().getMegatron();
+			mega=juego.getDecepticons().getMegatron().cambiarModo();//Lo Paso a alterno
+			
+			
+			
+			Posicion pos =new Posicion(46,46);
+			
+			mega.mover(pos);
+			
+			
+			Assert.assertTrue(mega.getEfecto().esperaturnos==3);
+			
+			juego.jugarTurno();
+			
+			
+			Assert.assertTrue(mega.getEfecto().esperaturnos==2);
+			
+			juego.jugarTurno();juego.jugarTurno();
+			Assert.assertTrue(mega.getEfecto().esperaturnos==1);
+			juego.jugarTurno();juego.jugarTurno();
+			
+			Assert.assertTrue(mega.getEfecto().esperaturnos==0);
+			
+			//faltaria validar en juego que esperaturnos sea 0 para poder actuar sobre este algoformer;
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//FIN OCTAVO TEST
+	
+	
+	
+	//INICIO NOVENO TEST
+	@Test
+	public void test23MegatronAlternoReduceSuAtaqueAlPasarPorTormentaPsionica(){
+		
+			Equipo autobots=new Decepticons();
+			
+			Tablero tab = new Tablero();
+			Area area = new AreaTormentaPsionica(15,20,15,20);			// Es un area de 12 x 4
+			Movimiento.setTablero(tab);
+			Ataque.setTablero(tab);
+			Algoformer algoformer = new MegatronAlterno();
+			Algoformer optimus = new OptimusAlterno();
+			algoformer.setEquipo(autobots);
+			Posicion posinicial = new Posicion(15,15);
+			Posicion posfinal = new Posicion(16,16);
+			Posicion posfinal2 =new Posicion(17,17); 
+			Posicion posAux=new Posicion(18,18);
+			tab.ubicarMovil(algoformer, posinicial);
+			tab.ubicarMovil(optimus, posfinal);
+			tab.setAreaDeSuperficie(area); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+	
+			int vidaInicial = optimus.getVida();
+			
+			algoformer.atacar(optimus);
+			Assert.assertTrue(optimus.getVida()==vidaInicial-55);	
+			
+			vidaInicial = optimus.getVida();
+			optimus.mover(posfinal2);
+			algoformer.mover(posfinal);
+			algoformer.atacar(optimus);
+			Assert.assertTrue(optimus.getVida()==vidaInicial-algoformer.getAtaque());	//Megatron ataca 55 normalmente
+			
+			vidaInicial=optimus.getVida();
+			optimus.mover(posAux);
+			algoformer.mover(posfinal2);
+			algoformer.atacar(optimus);//GetAtaque devuelve el ataque menos el efecto, en el caso q lo haya.
+			Assert.assertTrue(optimus.getVida()==vidaInicial-algoformer.getAtaque());	
+			
+	}
+	
+	
+	
+	
+	
+	//FIN NOVENO TEST//Decimo test incluido en noveno
 }

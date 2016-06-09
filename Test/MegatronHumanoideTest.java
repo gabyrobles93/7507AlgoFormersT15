@@ -95,7 +95,7 @@ public class MegatronHumanoideTest{
 		
 		Algoformer mega_hum=new MegatronHumanoide();
 		Algoformer mega_alt=new MegatronAlterno();
-		
+		mega_hum.setEquipo(new Decepticons());
 		Assert.assertTrue(mega_alt.equals(mega_hum.cambiarModo()));
 	}
 		

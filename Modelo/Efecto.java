@@ -5,7 +5,7 @@ public class Efecto {
 	double afectaataque;
 	double afectavelocidad;
 	int velocidadAfectada;
-	int esperaturnos;
+	public int esperaturnos;
 	
 	public Efecto(){
 		afectaataque = 0;

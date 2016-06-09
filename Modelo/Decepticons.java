@@ -7,7 +7,12 @@ public class Decepticons extends Equipo {
 	public Decepticons(){
 		
 	}
-	
+	@Override
+	public void jugarTurno(){
+		if(algof1.efecto.esperaturnos!=0)
+			algof1.efecto.esperaturnos-=1;
+		
+	}
 	
 	public Decepticons(Megatron megatron,Bonecrusher bonecrusher,Frenzy frenzy){
 		algof1=megatron;

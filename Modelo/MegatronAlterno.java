@@ -11,11 +11,11 @@ public class MegatronAlterno extends Megatron {
 		velocidad=8;
 		efecto.velocidadAfectada=velocidad;
 	}
-	public MegatronAlterno(Posicion unaPos, int unaVida) {
+	public MegatronAlterno(Posicion unaPos, int unaVida, double afectaAtaque) {
 		super();
 		miPosicion=unaPos;
 		vida=unaVida;
-		ataque=55;
+		ataque=55 - (int)(afectaAtaque*55);
 		velocidad=8;
 		alcance=2;
 		efecto.velocidadAfectada=velocidad;
@@ -43,6 +43,7 @@ public class MegatronAlterno extends Megatron {
 	@Override
 	public void afectarPorTormentaPsionica(double coeficiente) {
 		efecto.afectaataque = coeficiente; 
+	
 	}
 	@Override
 	public void afectarPorSuperficieRocosa(float coeficiente) {

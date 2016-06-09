@@ -113,7 +113,7 @@ public void setAreaDeSuperficie(Area areasup) {
 		
 		for(col_tablero = areasup.getColumnaInicial(), col_area = 0; col_tablero<= areasup.getColumnaFinal(); col_tablero++, col_area++){
 			
-			this.setCasillero(fil_tablero, col_tablero, areasup.getCasillero(fil_area, col_area));
+			this.getCasillero(new Posicion(fil_tablero,col_tablero)).setSuperficie(areasup.getCasillero(fil_area, col_area).getSuperficie());
 		}
 	}
 	
