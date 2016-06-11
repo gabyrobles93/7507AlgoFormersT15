@@ -104,33 +104,6 @@ public boolean equals(Object obj) {
 		return false;
 	return true;
 }
-/*
-public void setAreaDeSuperficie(Area areasup) {
-
-	int fil_tablero, fil_area, col_tablero, col_area;
-	
-	for(fil_tablero = areasup.getFilaInicial(), fil_area = 0; fil_tablero <= areasup.getFilaFinal(); fil_tablero++, fil_area++){
-		
-		for(col_tablero = areasup.getColumnaInicial(), col_area = 0; col_tablero<= areasup.getColumnaFinal(); col_tablero++, col_area++){
-			
-			this.getCasillero(new Posicion(fil_tablero,col_tablero)).setSuperficie(areasup.getCasillero(fil_area, col_area).getSuperficie());
-
-		//	this.getCasillero(new Posicion(fil_tablero,col_tablero)).setSuperficie(areasup.getSuperFice());delegar en superficie
-		}
-	}
-	*/
-	/*
-	int i,j,x,z;
-	
-	for(x=0, i=arearocosa.getFilaInicial(); i<=arearocosa.getFilaFinal()-1;i++,x++){
-		
-		for(z=0, j=arearocosa.getColumnaInicial(); j<=arearocosa.getColumnaFinal()-1;j++,z++){
-			
-			this.setCasillero(i, j, arearocosa.getMatriz()[x][z]);
-		}
-	}
-	
-}*/
 
 /*De uso exclusivamente interno*/
 private void setCasillero(int fila, int columna, Casillero casillero){
@@ -143,5 +116,4 @@ public void setSuperficieEnCasillero(Posicion pos, Superficie superficie) {
 	
 }
 
-/*Esta SubArea No deberia poder modificar los casilleros del original no?*/
 }
