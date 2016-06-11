@@ -4,18 +4,14 @@ import Modelo.Casillero;
 
 public abstract class Area{
 
-	protected  Casillero matriz[][];
 	protected int filainicial;
 	protected int filafinal;
 	protected int columnainicial;
 	protected int columnafinal;
 	
-	protected int cantidadfilas;
-	protected int cantidadcolumnas;
-	
+
 	public Area(){
 		
-		matriz = null;
 		filainicial = 0;
 		filafinal = 0;
 		columnainicial = 0;
@@ -29,42 +25,61 @@ public abstract class Area{
 		columnainicial = columnainicialarea;
 		columnafinal = columnafinalarea;
 		
-		cantidadfilas = filafinalarea - filainicialarea + 1;
-		cantidadcolumnas = columnafinalarea - columnainicialarea + 1;
+	
+
+	}
+
+	private void setArea(Tablero tablero, Superficie superficie){
 		
-		matriz = new Casillero[cantidadfilas][cantidadcolumnas];
-
+		int i,j;
+		
+		for(i=filainicial; i<=filafinal; i++){
+			
+			for(j=columnainicial; j<=columnafinal; j++){
+				
+				Posicion pos = new Posicion(i,j);
+				tablero.setSuperficieEnCasillero(pos, superficie);
+				
+			}
+		}
+		
+		
 	}
 	
-	public int getFilaInicial(){
-		return filainicial;
+	public void setAreaRocosa(Tablero tablero){
+	
+		Superficie superficie = new SuperficieRocosa();
+		setArea(tablero, superficie);
 	}
 	
-	public int getFilaFinal(){
-		return filafinal;
+	public void setAreaPantanosa(Tablero tablero){
+		
+		Superficie superficie = new SuperficiePantanosa();
+		setArea(tablero, superficie);
 	}
 	
-	public int getColumnaInicial(){
-		return columnainicial;
+	public void setAreaEspinosa(Tablero tablero){
+		
+		Superficie superficie = new SuperficieEspinosa();
+		setArea(tablero, superficie);
 	}
 	
-	public int getColumnaFinal(){
-		return columnafinal;
+	public void setAreaNubosa(Tablero tablero){
+		
+		Superficie superficie = new SuperficieNubosa();
+		setArea(tablero, superficie);
 	}
 	
-	public Casillero[][] getMatriz(){
-		return matriz;
-	}
-
-	public Casillero getCasillero(int i, int j) {
-		return matriz[i][j];
+	public void setAreaNebulosaDeAndromeda(Tablero tablero){
+		
+		Superficie superficie = new SuperficieNebulosaDeAndromeda();
+		setArea(tablero, superficie);
 	}
 	
-	public int getCantidadFilas() {
-		return cantidadfilas;
+	public void setAreaTormentaPsionica(Tablero tablero){
+		
+		Superficie superficie = new SuperficieTormentaPsionica();
+		setArea(tablero, superficie);
 	}
 	
-	public int getCantidadColumnas() {
-		return cantidadcolumnas;
-	}
 }

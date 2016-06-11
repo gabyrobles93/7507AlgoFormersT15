@@ -2,13 +2,15 @@ package Modelo;
 
 public class Casillero {
 	private movil movilOcupa;
-	private Superficie superficie;
+	private Superficie superficietierra;
+	private Superficie superficiecielo;
 	
 	
 	public Casillero(){
 
 	movilOcupa=null;
-	superficie = new SuperficieRocosa();
+	superficietierra = new SuperficieRocosa();
+	superficiecielo = new SuperficieNubosa();
 	
 	}
 	

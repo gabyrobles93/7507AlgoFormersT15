@@ -104,7 +104,7 @@ public boolean equals(Object obj) {
 		return false;
 	return true;
 }
-
+/*
 public void setAreaDeSuperficie(Area areasup) {
 
 	int fil_tablero, fil_area, col_tablero, col_area;
@@ -118,7 +118,7 @@ public void setAreaDeSuperficie(Area areasup) {
 		//	this.getCasillero(new Posicion(fil_tablero,col_tablero)).setSuperficie(areasup.getSuperFice());delegar en superficie
 		}
 	}
-	
+	*/
 	/*
 	int i,j,x,z;
 	
@@ -129,12 +129,18 @@ public void setAreaDeSuperficie(Area areasup) {
 			this.setCasillero(i, j, arearocosa.getMatriz()[x][z]);
 		}
 	}
-	*/
-}
+	
+}*/
 
 /*De uso exclusivamente interno*/
 private void setCasillero(int fila, int columna, Casillero casillero){
 	matriz[fila][columna] = casillero;
+}
+
+public void setSuperficieEnCasillero(Posicion pos, Superficie superficie) {
+	
+	matriz[pos.getFila()][pos.getColumna()].setSuperficie(superficie);
+	
 }
 
 /*Esta SubArea No deberia poder modificar los casilleros del original no?*/
