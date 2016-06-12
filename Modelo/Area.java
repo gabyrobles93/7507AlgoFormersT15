@@ -1,6 +1,5 @@
 package Modelo;
 
-import Modelo.Casillero;
 
 public abstract class Area{
 
@@ -29,7 +28,7 @@ public abstract class Area{
 
 	}
 
-	private void setArea(Tablero tablero, Superficie superficie){
+	private void setAreaTierra(Tablero tablero, Superficie superficie){
 		
 		int i,j;
 		
@@ -38,7 +37,24 @@ public abstract class Area{
 			for(j=columnainicial; j<=columnafinal; j++){
 				
 				Posicion pos = new Posicion(i,j);
-				tablero.setSuperficieEnCasillero(pos, superficie);
+				tablero.setSuperficieTierraEnCasillero(pos, superficie);
+				
+			}
+		}
+		
+		
+	}
+	
+	private void setAreaCielo(Tablero tablero, Superficie superficie){
+		
+		int i,j;
+		
+		for(i=filainicial; i<=filafinal; i++){
+			
+			for(j=columnainicial; j<=columnafinal; j++){
+				
+				Posicion pos = new Posicion(i,j);
+				tablero.setSuperficieCieloEnCasillero(pos, superficie);
 				
 			}
 		}
@@ -49,37 +65,37 @@ public abstract class Area{
 	public void setAreaRocosa(Tablero tablero){
 	
 		Superficie superficie = new SuperficieRocosa();
-		setArea(tablero, superficie);
+		setAreaTierra(tablero, superficie);
 	}
 	
 	public void setAreaPantanosa(Tablero tablero){
 		
 		Superficie superficie = new SuperficiePantanosa();
-		setArea(tablero, superficie);
+		setAreaTierra(tablero, superficie);
 	}
 	
 	public void setAreaEspinosa(Tablero tablero){
 		
 		Superficie superficie = new SuperficieEspinosa();
-		setArea(tablero, superficie);
+		setAreaTierra(tablero, superficie);
 	}
 	
 	public void setAreaNubosa(Tablero tablero){
 		
 		Superficie superficie = new SuperficieNubosa();
-		setArea(tablero, superficie);
+		setAreaCielo(tablero, superficie);
 	}
 	
 	public void setAreaNebulosaDeAndromeda(Tablero tablero){
 		
 		Superficie superficie = new SuperficieNebulosaDeAndromeda();
-		setArea(tablero, superficie);
+		setAreaCielo(tablero, superficie);
 	}
 	
 	public void setAreaTormentaPsionica(Tablero tablero){
 		
 		Superficie superficie = new SuperficieTormentaPsionica();
-		setArea(tablero, superficie);
+		setAreaCielo(tablero, superficie);
 	}
 	
 }

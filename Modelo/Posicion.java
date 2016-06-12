@@ -1,9 +1,10 @@
 package Modelo;
 
 public class Posicion {
+
 private int Fila;
 private int Columna;
-
+private static Tablero tablero;
 
 public Posicion(int fila, int columna) {
 	Fila=fila;
@@ -33,6 +34,10 @@ public boolean equals(Object obj) {
 	if (Fila != other.Fila)
 		return false;
 	return true;
+}
+public void afectar(Algoformer algoformer) {
+	
+	tablero.afectar(algoformer);
 }
 
 }

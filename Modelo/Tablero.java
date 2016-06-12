@@ -105,15 +105,18 @@ public boolean equals(Object obj) {
 	return true;
 }
 
-/*De uso exclusivamente interno*/
-private void setCasillero(int fila, int columna, Casillero casillero){
-	matriz[fila][columna] = casillero;
+
+public void setSuperficieTierraEnCasillero(Posicion pos, Superficie superficie) {	
+	matriz[pos.getFila()][pos.getColumna()].setSuperficieTierra(superficie);	
 }
 
-public void setSuperficieEnCasillero(Posicion pos, Superficie superficie) {
+public void setSuperficieCieloEnCasillero(Posicion pos, Superficie superficie) {	
+	matriz[pos.getFila()][pos.getColumna()].setSuperficieCielo(superficie);	
+}
+
+public void afectar(Algoformer algoformer) {
 	
-	matriz[pos.getFila()][pos.getColumna()].setSuperficie(superficie);
-	
+	this.getCasillero(algoformer.getPosicion()).afectar((afectable)algoformer);
 }
 
 }

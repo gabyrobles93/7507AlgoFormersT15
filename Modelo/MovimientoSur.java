@@ -17,7 +17,7 @@ public class MovimientoSur extends MovimientoVertical {
 	@Override
 	public void Avanzar() {
 		Posicion posAux=new Posicion(movil.getPosicion().getFila()+1,movil.getPosicion().getColumna());
-		unTablero.getCasillero(posAux).getSuperficie().afectarAlgoformer((afectable)movil);
+	//	unTablero.getCasillero(posAux).getSuperficie().afectarAlgoformer((afectable)movil);
 		if(((afectable)movil).getEfecto().afectavelocidad == 999){
 			ErrorAlgoformerHumanoideNoPuedePasarPorPantano err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;

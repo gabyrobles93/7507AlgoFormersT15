@@ -26,14 +26,18 @@ public class Casillero {
 		return (movilOcupa!=null);
 	}
 
-	public void setSuperficie(Superficie nuevasuperficie){
-		superficie = nuevasuperficie;
-	}
-	public Superficie getSuperficie(){
-		return superficie;
+	public void setSuperficieTierra(Superficie nuevasuperficie){
+		superficietierra = nuevasuperficie;
 	}
 	
+	public void setSuperficieCielo(Superficie nuevasuperficie){
+		superficiecielo = nuevasuperficie;
+	}
 
+	public void afectar(afectable algoformer) {
+		superficietierra.afectarAlgoformer(algoformer);
+		superficiecielo.afectarAlgoformer(algoformer);
+	}
 }
 
 

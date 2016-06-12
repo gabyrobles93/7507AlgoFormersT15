@@ -41,7 +41,7 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 						efecto.velocidadAfectada=velocidad;
 						throw new ErrorVelocidadDelMovilInsuficiente();
 					}
-					
+					miPosicion.afectar(this);
 				}
 				efecto.velocidadAfectada=velocidad;
 				
