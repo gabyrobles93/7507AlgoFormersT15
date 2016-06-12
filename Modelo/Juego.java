@@ -55,7 +55,7 @@ public class Juego {
 		Posicion posMegatron=new Posicion(47,47);
 		Posicion posBonecrusher=new Posicion(49,47);
 		Posicion posFrenzy=new Posicion(47,49);
-
+		//UBICAR MOVILES--->DESECOTICONS,POSICIONES
 		tablero.ubicarMovil(((Decepticons) decepticons).getMegatron(), posMegatron);
 		tablero.ubicarMovil(((Decepticons) decepticons).getBonecrusher(), posBonecrusher);
 		tablero.ubicarMovil(((Decepticons) decepticons).getFrenzy(), posFrenzy);
@@ -95,21 +95,21 @@ public class Juego {
 	}
 	
 	public void cambiarTurno(){
-		if(getEjecutorDeTurnoActual()==autobots){
+		if(turnoDelEquipo==autobots){//CAMBIAR POR EL ATRIBUTO
 			setProximoTurno(decepticons);
 		}
 		else{
 			setProximoTurno(autobots);
 		}
 	}
-
+//Getter exclusiamente usado para test
 	public Equipo getEjecutorDeTurnoActual(){
 		
 		return turnoDelEquipo;
 	}
-	
+
 	public  void jugarTurno(){
-		getEjecutorDeTurnoActual().jugarTurno();
+		turnoDelEquipo.jugarTurno();//CAMBIAR POR EL ATRIBUTOS
 		cambiarTurno();
 		
 	}
