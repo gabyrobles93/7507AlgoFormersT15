@@ -106,6 +106,8 @@ public class FrenzyAlternoTest {
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
+
 			Algoformer frenzy = new FrenzyAlterno();
 			Posicion posIni=new Posicion(1,4);
 			tab.ubicarMovil(frenzy,posIni);

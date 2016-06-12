@@ -107,6 +107,8 @@ public class BumblebeeAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer bumblebee = new BumblebeeAlterno();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(bumblebee,posIni);
@@ -123,6 +125,7 @@ public class BumblebeeAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+
 		Algoformer bumblebee = new BumblebeeAlterno();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(bumblebee,posIni);

@@ -104,6 +104,8 @@ public class MegatronHumanoideTest{
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer megatron = new MegatronHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(megatron,posIni);

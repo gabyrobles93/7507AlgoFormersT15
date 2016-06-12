@@ -104,6 +104,8 @@ public class OptimusAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer optimus = new OptimusAlterno();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(optimus,posIni);

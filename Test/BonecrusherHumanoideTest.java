@@ -105,6 +105,8 @@ public class BonecrusherHumanoideTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer bone = new BonecrusherHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(bone,posIni);

@@ -107,6 +107,8 @@ public class OptimusHumaboideTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer optimus = new OptimusHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(optimus,posIni);

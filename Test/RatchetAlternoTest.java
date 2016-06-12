@@ -109,6 +109,8 @@ public class RatchetAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer ratchet = new RatchetAlterno();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(ratchet,posIni);

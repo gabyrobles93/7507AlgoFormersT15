@@ -8,7 +8,6 @@ import Modelo.Ataque;
 import Modelo.Autobots;
 import Modelo.BumblebeeHumanoide;
 import Modelo.Decepticons;
-import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Movimiento;
@@ -18,8 +17,6 @@ import Modelo.Tablero;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.FrenzyAlterno;
-import Modelo.OptimusHumanoide;
 import Modelo.Posicion;
 
 public class RatchetHumanoideTest {
@@ -108,6 +105,8 @@ public class RatchetHumanoideTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+
 		Algoformer ratchet = new RatchetHumanoide();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(ratchet,posIni);
