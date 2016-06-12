@@ -38,6 +38,16 @@ public class Casillero {
 		superficietierra.afectarAlgoformer(algoformer);
 		superficiecielo.afectarAlgoformer(algoformer);
 	}
+	
+	/*TEST USED ONLY*/
+	public Superficie getSuperficieTierra() {
+		return superficietierra;
+	}
+	
+	/*TEST USED ONLY*/
+	public Superficie getSuperficieCielo() {
+		return superficiecielo;
+	}
 }
 
 

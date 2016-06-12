@@ -1,7 +1,7 @@
 package Modelo;
 
 
-public abstract class Area{
+public class Area{
 
 	protected int filainicial;
 	protected int filafinal;

@@ -6,12 +6,6 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.Area;
-import Modelo.AreaEspinosa;
-import Modelo.AreaNebulosa;
-import Modelo.AreaNubosa;
-import Modelo.AreaPantanosa;
-import Modelo.AreaRocosa;
-import Modelo.AreaTormentaPsionica;
 import Modelo.Ataque;
 import Modelo.Autobots;
 import Modelo.BonecrusherAlterno;
@@ -36,6 +30,7 @@ import Modelo.RatchetHumanoide;
 import Modelo.Superficie;
 import Modelo.SuperficiePantanosa;
 import Modelo.SuperficieRocosa;
+import Modelo.SuperficieTierra;
 import Modelo.Tablero;
 
 
@@ -45,26 +40,14 @@ public class SuperficieTest {
 	public void testClave(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			
+			Superficie suppantanosa = new SuperficiePantanosa();
 			
-			tab.setAreaDeSuperficie(areapantanosa);
-			Superficie sup=new SuperficiePantanosa();
-			Assert.assertTrue(areapantanosa.getCasillero(3,4).getSuperficie().equals(sup));
-	}
-	
-	@Test
-	public void testClave_2(){
-		
-			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
-			Movimiento.setTablero(tab);
-			Posicion pos = new Posicion(20,15);
-			
-			tab.setAreaDeSuperficie(areapantanosa);
-			Superficie sup=new SuperficiePantanosa();
-			Assert.assertTrue(tab.getCasillero(pos).getSuperficie().equals(sup));
+			area.setAreaPantanosa(tab);
+
+			Assert.assertTrue(tab.getCasillero(17,17).getSuperficieTierra().equals(suppantanosa));
 	}
 	
 	// INICIO PRIMER TEST //

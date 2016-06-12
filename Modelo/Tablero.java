@@ -52,6 +52,12 @@ public boolean existeMovil(movil unMovil) {
 public Casillero getCasillero(Posicion pos) {
 	return matriz[pos.getFila()][pos.getColumna()];//metodo usado en tests;
 }
+
+/* Test-Used Only */
+public Casillero getCasillero(int fila, int columna) {
+	return matriz[fila][columna];//metodo usado en tests;
+}
+
 public void setCasillero(Casillero casillero,Posicion pos){
 	matriz[pos.getFila()][pos.getColumna()]=casillero;
 }
