@@ -36,7 +36,8 @@ public class MegatronHumanoide extends Megatron {
 	}
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = 999;	// Con 999 representamos que no puede pasar por pantano
+		RuntimeException err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
+		throw err;
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {

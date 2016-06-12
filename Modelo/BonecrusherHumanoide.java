@@ -30,8 +30,9 @@ public class BonecrusherHumanoide extends Bonecrusher {
 		vida = vida - (int)(danioporespinas * vida);
 	}
 	@Override
-	public void afectarPorPantano(double coeficiente) {
-		efecto.afectavelocidad = 999;	// Con 999 representamos que no puede pasar por pantano
+	public void afectarPorPantano(double coeficiente){
+		RuntimeException err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
+		throw err;
 	}
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {

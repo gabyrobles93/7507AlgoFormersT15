@@ -56,13 +56,14 @@ public class SuperficieTest {
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(13,17,13,17);			// Es un area de 5 x 5
+			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer optimus = new OptimusHumanoide();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(15,17);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(optimus, posinicial);
 			
@@ -70,18 +71,20 @@ public class SuperficieTest {
 			
 			Assert.assertTrue(optimus.getPosicion().equals(posfinal));
 	}
-	
+
+
 	@Test
 	public void test02optimusAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(13,17,13,17);			// Es un area de 5 x 5
+			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer optimus = new OptimusAlterno();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(15,19);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(optimus, posinicial);
 			
@@ -94,13 +97,14 @@ public class SuperficieTest {
 	public void test03bumblebeeHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(23,27,23,27);			// Es un area de 5 x 5
+			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bumblebee = new BumblebeeHumanoide();
 			Posicion posinicial = new Posicion(25,25);
 			Posicion posfinal = new Posicion(27,25);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(bumblebee, posinicial);
 			
@@ -113,13 +117,14 @@ public class SuperficieTest {
 	public void test04bumblebeeAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(23,27,23,27);			// Es un area de 5 x 5
+			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bumblebee = new BumblebeeAlterno();
 			Posicion posinicial = new Posicion(25,25);
 			Posicion posfinal = new Posicion(30,25);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(bumblebee, posinicial);
 			
@@ -132,13 +137,14 @@ public class SuperficieTest {
 	public void test05ratchetHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(33,37,33,37);			// Es un area de 5 x 5
+			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer ratchet = new RatchetHumanoide();
 			Posicion posinicial = new Posicion(35,35);
 			Posicion posfinal = new Posicion(35,36);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(ratchet, posinicial);
 			
@@ -151,13 +157,14 @@ public class SuperficieTest {
 	public void test06ratchetAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(33,37,33,37);			// Es un area de 5 x 5
+			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer ratchet = new RatchetAlterno();
 			Posicion posinicial = new Posicion(35,35);
 			Posicion posfinal = new Posicion(35,43);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(ratchet, posinicial);
 			
@@ -170,13 +177,14 @@ public class SuperficieTest {
 	public void test07megatronHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(2,8,2,8);			// Es un area de 7 x 7
+			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer megatron = new MegatronHumanoide();
 			Posicion posinicial = new Posicion(5,5);
 			Posicion posfinal = new Posicion(5,6);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(megatron, posinicial);
 			
@@ -189,13 +197,14 @@ public class SuperficieTest {
 	public void test08megatronAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(2,8,2,8);			// Es un area de 7 x 7
+			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer megatron = new MegatronAlterno();
 			Posicion posinicial = new Posicion(5,5);
 			Posicion posfinal = new Posicion(5,13);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(megatron, posinicial);
 			
@@ -208,13 +217,14 @@ public class SuperficieTest {
 	public void test09bonecrusherHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(14,25,14,17);			// Es un area de 12 x 4
+			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bonecrusher = new BonecrusherHumanoide();
 			Posicion posinicial = new Posicion(16,15);
 			Posicion posfinal = new Posicion(17,15);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(bonecrusher, posinicial);
 			
@@ -227,13 +237,14 @@ public class SuperficieTest {
 	public void test10bonecrusherAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(14,25,14,17);			// Es un area de 12 x 4
+			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bonecrusher = new BonecrusherAlterno();
 			Posicion posinicial = new Posicion(16,15);
 			Posicion posfinal = new Posicion(24,15);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(bonecrusher, posinicial);
 			
@@ -246,13 +257,14 @@ public class SuperficieTest {
 	public void test11frenzyHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(44,49,30,35);			// Es un area de 12 x 4
+			Area area = new Area(44,49,30,35);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer frenzy = new FrenzyHumanoide();
 			Posicion posinicial = new Posicion(49,31);
 			Posicion posfinal = new Posicion(49,33);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(frenzy, posinicial);
 			
@@ -265,13 +277,14 @@ public class SuperficieTest {
 	public void test12frenzyAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		
 			Tablero tab = new Tablero();
-			Area arearocosa = new AreaRocosa(44,49,30,49);			// Es un area de 12 x 4
+			Area area = new Area(44,49,30,49);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer frenzy = new FrenzyAlterno();
 			Posicion posinicial = new Posicion(49,31);
 			Posicion posfinal = new Posicion(49,37);
 			
-			tab.setAreaDeSuperficie(arearocosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaRocosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 			
 			tab.ubicarMovil(frenzy, posinicial);
 			
@@ -287,14 +300,15 @@ public class SuperficieTest {
 	public void test13optimusHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer optimus = new OptimusHumanoide();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
 			tab.ubicarMovil(optimus, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
 	
 			
 			optimus.mover(posfinal);
@@ -304,15 +318,15 @@ public class SuperficieTest {
 	public void test14bumblebeeHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bumblebee = new BumblebeeHumanoide();
 			Posicion posinicial = new Posicion(21,15);
 			Posicion posfinal = new Posicion(20,15);
 			
 			tab.ubicarMovil(bumblebee, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.	
 			
 			bumblebee.mover(posfinal);
 	}
@@ -321,14 +335,15 @@ public class SuperficieTest {
 	public void test15ratchetHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer ratchet = new RatchetHumanoide();
 			Posicion posinicial = new Posicion(17,21);
 			Posicion posfinal = new Posicion(17,20);
 			
 			tab.ubicarMovil(ratchet, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.	
 	
 			
 			ratchet.mover(posfinal);
@@ -338,15 +353,15 @@ public class SuperficieTest {
 	public void test16megatronHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer megatron = new MegatronHumanoide();
 			Posicion posinicial = new Posicion(14,19);
 			Posicion posfinal = new Posicion(15,19);
 			
 			tab.ubicarMovil(megatron, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.	
 			
 			megatron.mover(posfinal);
 	}
@@ -355,15 +370,15 @@ public class SuperficieTest {
 	public void test17bonecrusherHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bonecrusher = new BonecrusherHumanoide();
 			Posicion posinicial = new Posicion(14,14);
 			Posicion posfinal = new Posicion(15,15);
 			
 			tab.ubicarMovil(bonecrusher, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.		
 			
 			bonecrusher.mover(posfinal);
 	}
@@ -372,15 +387,15 @@ public class SuperficieTest {
 	public void test18frenzyHumanoideNoPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer frenzy = new FrenzyHumanoide();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(20,20);
 			
 			tab.ubicarMovil(frenzy, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.			
 			
 			frenzy.mover(posfinal);
 	}
@@ -393,14 +408,15 @@ public class SuperficieTest {
 	public void test15BumblebeeAlternoPasaPorPantanoPeroTardaElDoble(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer algof = new BumblebeeAlterno();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
 			
 			tab.ubicarMovil(algof, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.			
 			//Bumblebee alterno tiene velocidad 5; En pantano solo se puede mover dos casilleros
 			
 			algof.mover(posfinal);
@@ -423,16 +439,16 @@ public class SuperficieTest {
 	public void test19ratchetAlternoVoladorPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer ratchet = new RatchetAlterno();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(20,20);
 			
 			tab.ubicarMovil(ratchet, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
-			
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.			
+
 			ratchet.mover(posfinal);
 			
 			Assert.assertTrue(ratchet.getPosicion().equals(posfinal));		
@@ -442,15 +458,15 @@ public class SuperficieTest {
 	public void test20megatronAlternoVoladorPuedePasarPorPantano(){
 		
 			Tablero tab = new Tablero();
-			Area areapantanosa = new AreaPantanosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer megatron = new MegatronAlterno();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(19,19);
 			
 			tab.ubicarMovil(megatron, posinicial);
-			tab.setAreaDeSuperficie(areapantanosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.			
 			
 			megatron.mover(posfinal);
 			
@@ -465,15 +481,15 @@ public class SuperficieTest {
 	public void test21optimusHumanoideEsDaniadoPorEspinas(){
 		
 			Tablero tab = new Tablero();
-			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer optimus = new OptimusHumanoide();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
 			tab.ubicarMovil(optimus, posinicial);
-			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaEspinosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.				
 			
 			optimus.mover(posfinal);
 			
@@ -484,15 +500,15 @@ public class SuperficieTest {
 	public void test22optimusAlternoEsDaniadoPorEspinas(){
 		
 			Tablero tab = new Tablero();
-			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer optimus = new OptimusAlterno();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
 			tab.ubicarMovil(optimus, posinicial);
-			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaEspinosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.				
 			
 			optimus.mover(posfinal);
 			
@@ -503,15 +519,15 @@ public class SuperficieTest {
 	public void test23bumblebeeHumanoideEsDaniadoPorEspinas(){
 		
 			Tablero tab = new Tablero();
-			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bumblebee = new BumblebeeHumanoide();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,19);
 			
 			tab.ubicarMovil(bumblebee, posinicial);
-			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaEspinosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.					
 			
 			bumblebee.mover(posfinal);
 			
@@ -522,15 +538,15 @@ public class SuperficieTest {
 	public void test24bumblebeeAlternoEsDaniadoPorEspinas(){
 		
 			Tablero tab = new Tablero();
-			Area areaespinosa = new AreaEspinosa(15,20,15,20);			// Es un area de 12 x 4
+			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
 			Algoformer bumblebee = new BumblebeeAlterno();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,16);
 			
 			tab.ubicarMovil(bumblebee, posinicial);
-			tab.setAreaDeSuperficie(areaespinosa); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.
-	
+			area.setAreaEspinosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.						
 			
 			bumblebee.mover(posfinal);
 			

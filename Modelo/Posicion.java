@@ -39,5 +39,8 @@ public void afectar(Algoformer algoformer) {
 	
 	tablero.afectar(algoformer);
 }
+public static void setTablero(Tablero tab) {
+	tablero = tab;
+}
 
 }
