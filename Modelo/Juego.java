@@ -46,20 +46,15 @@ public class Juego {
 		Posicion posRatchet=new Posicion(0,2);
 		Posicion posBumblebee=new Posicion(2,0);
 		
-		tablero.ubicarMovil(((Autobots) autobots).getOptimus(), posOptimus);
-		tablero.ubicarMovil(((Autobots) autobots).getRatchet(), posRatchet);
-		tablero.ubicarMovil(((Autobots) autobots).getBumblebee(), posBumblebee);
+		autobots.ubicarMoviles(tablero,posOptimus,posBumblebee,posRatchet);
 	}
 	private void ubicarDecepticons() {
 		
 		Posicion posMegatron=new Posicion(47,47);
 		Posicion posBonecrusher=new Posicion(49,47);
 		Posicion posFrenzy=new Posicion(47,49);
-		//UBICAR MOVILES--->DESECOTICONS,POSICIONES
-		tablero.ubicarMovil(((Decepticons) decepticons).getMegatron(), posMegatron);
-		tablero.ubicarMovil(((Decepticons) decepticons).getBonecrusher(), posBonecrusher);
-		tablero.ubicarMovil(((Decepticons) decepticons).getFrenzy(), posFrenzy);
 		
+		decepticons.ubicarMoviles(tablero, posMegatron, posBonecrusher, posFrenzy);
 	}
 	public Autobots getAutobots(){
 		
@@ -95,7 +90,7 @@ public class Juego {
 	}
 	
 	public void cambiarTurno(){
-		if(turnoDelEquipo==autobots){//CAMBIAR POR EL ATRIBUTO
+		if(turnoDelEquipo==autobots){
 			setProximoTurno(decepticons);
 		}
 		else{

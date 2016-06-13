@@ -45,5 +45,12 @@ public abstract class  Equipo {
 			return true;
 		return false;
 	}
+	
+	public void ubicarMoviles(Tablero tablero, Posicion posAlgof1, Posicion posAlgof2, Posicion posAlgof3) {
+		
+		tablero.ubicarMovil(algof1, posAlgof1);
+		tablero.ubicarMovil(algof2, posAlgof2);
+		tablero.ubicarMovil(algof3, posAlgof3);
+	}
 
 }
