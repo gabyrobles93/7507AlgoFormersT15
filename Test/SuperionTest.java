@@ -208,6 +208,6 @@ public class SuperionTest {
 		megatron.atacar(superion);
 		
 		Assert.assertTrue(superion.getVida()==945);
+
 	}*/
-	
 }

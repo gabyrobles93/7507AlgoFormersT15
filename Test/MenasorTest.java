@@ -6,9 +6,12 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
+import Modelo.BonecrusherHumanoide;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.FrenzyHumanoide;
+import Modelo.MegatronHumanoide;
 import Modelo.Menasor;
 import Modelo.Movimiento;
 import Modelo.OptimusAlterno;
@@ -18,32 +21,35 @@ import Modelo.Tablero;
 
 public class MenasorTest {
 
-	/*
-	 @Test
+
+	@Test
 	public void test01MenasorAtacaEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer menasor = new Menasor();
-		menasor.setEquipo(decepticons);
-		Posicion pos1  =new Posicion(3,3);
-		tab.ubicarMovil(menasor,pos1);
-		
+		Algoformer megatron=new MegatronHumanoide();
+		Posicion pos1=new Posicion(3,3);
+		tab.ubicarMovil(megatron,pos1);
+		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Posicion pos2=new Posicion(5,3);
+		tab.ubicarMovil(bonecrusher,pos2);
+		Algoformer frenzy=new FrenzyHumanoide();
+		Posicion pos3=new Posicion(6,3);
+		tab.ubicarMovil(frenzy,pos3);
+		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+
 		Algoformer optimus=new OptimusHumanoide();
-		optimus.setEquipo(autobots);
-		Posicion pos2=new Posicion(3,5);
-		tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
+		Posicion pos4=new Posicion(3,5);
+		tab.ubicarMovil(optimus,pos4);//Coloco enemigo a maxima distancia alcanzada
 		
 		menasor.atacar(optimus);
 		
 		Assert.assertTrue(optimus.getVida()==385);
 		
 	}
-	 */
+
 	
 	/*
 	 @Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
