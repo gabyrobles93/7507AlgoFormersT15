@@ -129,8 +129,8 @@ public class MenasorTest {
 	
 	}
 	
-	/*
-	 @Test
+	
+/*	 @Test
 	public void test08MenasorEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
@@ -156,9 +156,9 @@ public class MenasorTest {
 	
 		Assert.assertTrue(menasor.getVida()==1100);
 	} 
-	 */
+*/
 	
-	/*
+
 	 @Test
 	public void test09MenasorAtacaEnemigoAlterno(){
 		
@@ -187,7 +187,7 @@ public class MenasorTest {
 		
 	}
 	
-	 */
+	
 	
 	/*
 	 @Test
