@@ -26,18 +26,14 @@ public class BumblebeeAlternoTest {
 	public void test01BumblebeeAlternoAtacaEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		Algoformer bumblebee = new BumblebeeAlterno();
-		/*bumblebee.setEquipo(autobots);*/
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(bumblebee,pos1);
 		
 		Algoformer bonecrusher=new BonecrusherHumanoide();
-	/*	bonecrusher.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(bonecrusher,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -54,15 +50,12 @@ public class BumblebeeAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Decepticons autobots = new Decepticons();
 		
 		Algoformer bumblebee = new BumblebeeAlterno();
-	/*	bumblebee.setEquipo(autobots);	*/
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(bumblebee, pos1);
 		
 		Algoformer ratchet = new RatchetHumanoide();
-	/*	ratchet.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(ratchet, pos2);
 		
@@ -76,16 +69,12 @@ public class BumblebeeAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		
 		Algoformer bumblebee=new BumblebeeAlterno();
-	/*	bumblebee.setEquipo(autobots);*/
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(bumblebee, pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(6,0);
 		tab.ubicarMovil(megatron, pos2);
 		
@@ -139,20 +128,16 @@ public class BumblebeeAlternoTest {
 	public void test08BumblebeeAlternoEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
 		Algoformer bumblebee = new BumblebeeAlterno();
-	/*	bumblebee.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(bumblebee, pos1);
 
 
 		
 		Algoformer megatron=new MegatronHumanoide();
-	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos2);	
 		
@@ -166,18 +151,14 @@ public class BumblebeeAlternoTest {
 	public void test09BumblebeeAlternoAtacaEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		Algoformer bumblebee = new BumblebeeAlterno();
-	/*	bumblebee.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(bumblebee, pos1);
 		
 		Algoformer megatron=new MegatronAlterno();
-	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -191,19 +172,15 @@ public class BumblebeeAlternoTest {
 	public void test10BumblebeeAlternoEsAtacadoPorEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		
 		Algoformer bumblebee=new BumblebeeAlterno();
-	/*	bumblebee.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(bumblebee, pos1);
 		
 		Algoformer megatron=new MegatronAlterno();
-	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(megatron, pos2);
 		
