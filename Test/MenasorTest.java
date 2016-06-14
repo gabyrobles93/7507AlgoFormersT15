@@ -114,7 +114,7 @@ public class MenasorTest {
 	
 
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
-	public void test07MenasorTieneLimiteDeVelocidad(){
+	public void test04MenasorTieneLimiteDeVelocidad(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -136,7 +136,7 @@ public class MenasorTest {
 	
 	
 /*	 @Test
-	public void test08MenasorEsAtacadoPorEnemigoHumanoide(){
+	public void test05MenasorEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -165,7 +165,7 @@ public class MenasorTest {
 	
 
 	 @Test
-	public void test09MenasorAtacaEnemigoAlterno(){
+	public void test06MenasorAtacaEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -196,7 +196,7 @@ public class MenasorTest {
 	
 	/*
 	 @Test
-	public void test10MenasorEsAtacadoPorEnemigoAlterno(){
+	public void test07MenasorEsAtacadoPorEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -227,7 +227,7 @@ public class MenasorTest {
 	 
 		
 	 @Test
-	public void test10MenasorPuedeFormarsePorDecepticonsHumanoides(){
+	public void test08MenasorPuedeFormarsePorDecepticonsHumanoides(){
 		
 	Tablero tab=new Tablero();
 		
@@ -247,7 +247,7 @@ public class MenasorTest {
 	 
 
 	 @Test
-	public void test10MenasorPuedeFormarsePorDecepticonsAlternos(){
+	public void test09MenasorPuedeFormarsePorDecepticonsAlternos(){
 		
 	Tablero tab=new Tablero();
 		
@@ -288,8 +288,8 @@ public class MenasorTest {
 	 }
 	 
 	 
-	 /* @Test
-	public void test10MenasorNaceEnCualquierPosicionDeSusFormadores(){
+	 @Test
+	public void test11MenasorNaceEnPosicionElegidaDeSusFormadores(){
 		
 	Tablero tab=new Tablero();
 		
@@ -304,12 +304,12 @@ public class MenasorTest {
 	tab.ubicarMovil(frenzy,pos3);
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 	 
-	Assert.assertTrue(menasor.getVida()==1150);
+	Assert.assertTrue(menasor.getPosicion()==pos1);
 	
-	 }*/
+	 }
 	 
-	/* @Test(expected=ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
-	public void test10MenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
+	/*@Test(expected=ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
+	public void test12MenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
 		
 	Tablero tab=new Tablero();
 		
@@ -322,16 +322,17 @@ public class MenasorTest {
 	Algoformer frenzy=new FrenzyHumanoide();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
-	Posicion otraPosicion=new Posicion();
+	Posicion otraPosicion=new Posicion(4,4);
 	
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,otraPosicion);
 	 
 	 }*/
 	 
 	/* @Test
-	public void test10MenasorSeSepara(){
-	Algoformer megatron=new MegatronHumanoide();
-		
+	public void test13MenasorSeSepara(){
+	Tablero tab=new Tablero()
+		 
+	Algoformer megatron=new MegatronHumanoide();	
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
 	Algoformer bonecrusher=new BonecrusherAlterno();
@@ -344,13 +345,17 @@ public class MenasorTest {
 		
 	menasor.separar();//FALTA CREAR
 	
-	//VERFICAR QUE LA VIDA DE CADA WACHIN SEA LA DEL MENASOR DIVIDIDO 3
+	//VERFICO QUE LA VIDA DE CADA WACHIN SEA LA DEL MENASOR DIVIDIDO 3
+	Assert.assertTrue(megatron.getVida()==round(1000/3));
+	Assert.assertTrue(bonecrusher.getVida()==round(1000/3));
+	Assert.assertTrue(frenzy.getVida()==round(1000/3));
 	}*/
 	 
-/* @Test(expected=ErrorVidaMenasorInsuficienteParaSepararse.class)
-	public void test10MenasorConVidaInsuficeinteNoPuedeSeperarse(){
+	/*@Test(expected=ErrorVidaMenasorInsuficienteParaSepararse.class)
+	public void test14MenasorConVidaInsuficeinteNoPuedeSeperarse(){
+	Tablero tab=new Tablero()
+
 	Algoformer megatron=new MegatronHumanoide();
-	
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
 	Algoformer bonecrusher=new BonecrusherAlterno();
@@ -366,7 +371,7 @@ public class MenasorTest {
 	}*/
 	 
 	 /*@Test
-	public void test10MenasorPuedeAgarrarChispaSuprema(){
+	public void test15MenasorPuedeAgarrarChispaSuprema(){
 //ESTO QUIZAS VA EN CHISPASUPREMA TEST SOLO TIRO LA IDEA
 	*/	
 }

@@ -334,9 +334,9 @@ public class SuperionTest {
 		superion.separar();//FALTA CREAR
 
 		//VERFICO QUE LA VIDA DE CADA WACHIN SEA LA DEL Superion DIVIDIDO 3
-		Assert.assertTrue(optimus.getVida()==round(1100/3));
-		Assert.assertTrue(bumblebee.getVida()==round(1100/3));
-		Assert.assertTrue(ratchet.getVida()==round(1100/3));
+		Assert.assertTrue(optimus.getVida()==round(1000/3));
+		Assert.assertTrue(bumblebee.getVida()==round(1000/3));
+		Assert.assertTrue(ratchet.getVida()==round(1000/3));
 
 		}*/
 		 
