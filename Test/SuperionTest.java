@@ -25,8 +25,6 @@ public class SuperionTest {
 	public void test01SuperionAtacaEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
@@ -39,9 +37,6 @@ public class SuperionTest {
 		Algoformer ratchet = new RatchetHumanoide();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
-		
-		
-		
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
@@ -54,26 +49,31 @@ public class SuperionTest {
 	}
 
 	
-	/*@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
+	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03SuperionNoPuedeAtacarDecepticonFueraDeRango(){
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
-		
-		Algoformer superion = new Superion();
-		Posicion pos1 = new Posicion(2,0);
-		tab.ubicarMovil(superion, pos1);
+	
+		Algoformer optimus = new OptimusHumanoide();
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		Posicion pos2  =new Posicion(3,6);
+		tab.ubicarMovil(bumblebee,pos2);
+		Algoformer ratchet = new RatchetHumanoide();
+		Posicion pos3  =new Posicion(5,3);
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-		Posicion pos2=new Posicion(6,0);
-		tab.ubicarMovil(megatron, pos2);
+		Posicion pos4=new Posicion(6,3);
+		tab.ubicarMovil(megatron, pos4);
 		
 		superion.atacar(megatron);	
 	}
-	*/
+	
 	
 	/*	@Test
 	public void test06SuperionSeMueve(){
