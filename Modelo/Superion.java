@@ -3,49 +3,43 @@ package Modelo;
 public class Superion extends Algoformer{
 
 	public Superion(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet,Posicion posSuperion) {
-		
+		ataque=100;
+		alcance=2;
+		velocidad=3;
+		vida=optimus.getVida()+bumblebee.getVida()+ratchet.getVida();
+		efecto.velocidadAfectada=velocidad;
+		setEquipo();
+		miPosicion=posSuperion;
 	}
 
+	private void  setEquipo(){
+		miEquipo=new Autobots();
+	}
+	
 	@Override
-	public void afectarPorEspinas(double coeficiente) {
-		// TODO Auto-generated method stub
-		
+	public void afectarPorEspinas(double danioporespinas) {
+		vida = vida - (int)(danioporespinas * vida);
 	}
-
 	@Override
 	public void afectarPorPantano(double coeficiente) {
-		// TODO Auto-generated method stub
-		
+		efecto.velocidadAfectada = velocidad-(int)coeficiente*velocidad;		// Con 999 representamos que no puede pasar por pantano
 	}
-
 	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
-		// TODO Auto-generated method stub
-		
+		// Unidad terrestre, no es afectada por esto.
 	}
-
 	@Override
 	public void afectarPorTormentaPsionica(double coeficiente) {
-		// TODO Auto-generated method stub
+		// Unidad terrestre, no es afectada por esto.
 		
 	}
-
 	@Override
 	public void afectarPorSuperficieRocosa(float coeficiente) {
-		// TODO Auto-generated method stub
-		
+		efecto.afectavelocidad = 0;	// Superficie rocosa no afecta la velocidad
 	}
-
 	@Override
 	public void afectarPorSuperficieNubosa(float coeficiente) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Algoformer cambiarModo() {
-		// TODO Auto-generated method stub
-		return null;
+		// Unidad terrestre, no es afectada por esto.
 	}
 
 }

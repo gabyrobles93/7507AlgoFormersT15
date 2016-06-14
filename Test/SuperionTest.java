@@ -21,7 +21,7 @@ import Modelo.Tablero;
 
 public class SuperionTest {
 
-	/*@Test
+	@Test
 	public void test01SuperionAtacaEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
@@ -34,26 +34,25 @@ public class SuperionTest {
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
 		Algoformer bumblebee = new BumblebeeHumanoide();
-		Posicion pos2  =new Posicion(3,5);
+		Posicion pos2  =new Posicion(3,6);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();
 		Posicion pos3  =new Posicion(5,3);
-		tab.ubicarMovil(optimus,pos3);
+		tab.ubicarMovil(ratchet,pos3);
 		
-		superion.setEquipo(autobots);
+		
 		
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
 		Posicion pos4=new Posicion(3,5);
-		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
+		tab.ubicarMovil(megatron,pos4);//Coloco enemigo a maxima distancia alcanzada
 		
 		superion.atacar(megatron);
 		
 		Assert.assertTrue(megatron.getVida()==450);
 	}
-*/
+
 	
 	/*@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03SuperionNoPuedeAtacarDecepticonFueraDeRango(){
@@ -65,12 +64,10 @@ public class SuperionTest {
 		Decepticons decepticons = new Decepticons();
 		
 		Algoformer superion = new Superion();
-		superion.setEquipo(autobots);
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(superion, pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
 		Posicion pos2=new Posicion(6,0);
 		tab.ubicarMovil(megatron, pos2);
 		
@@ -124,14 +121,12 @@ public class SuperionTest {
 		Ataque.setTablero(tab);
 
 		Algoformer superion = new Superion();
-		superion.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(superion, pos1);
 
 
 		
 		Algoformer megatron = new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos2);	
 		
@@ -151,12 +146,10 @@ public class SuperionTest {
 		Ataque.setTablero(tab);
 		
 		Algoformer superion = new Superion();
-		superion.setEquipo(autobots);
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(superion, pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		megatron.setEquipo(decepticons);
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -176,12 +169,10 @@ public class SuperionTest {
 		
 		
 		Algoformer superion = new Superion();
-		superion.setEquipo(autobots);
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(superion, pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		megatron.setEquipo(decepticons);
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(megatron, pos2);
 		
