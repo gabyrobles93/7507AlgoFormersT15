@@ -26,18 +26,14 @@ public class MegatronHumanoideTest{
 	public void test01MegatronHumanoideAtacaEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		Algoformer megatron = new MegatronHumanoide();
-		/*megatron.setEquipo(decepticons);*/
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
 		
 		Algoformer optimus=new OptimusHumanoide();
-		/*optimus.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -53,15 +49,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Decepticons decepticons = new Decepticons();
 		
 		Algoformer megatron = new MegatronHumanoide();
-		/*megatron.setEquipo(decepticons);	*/
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(megatron, pos1);
 		
 		Algoformer bonecrusher = new BonecrusherHumanoide();
-		/*bonecrusher.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(bonecrusher, pos2);
 		
@@ -75,16 +68,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		
 		Algoformer megatron = new MegatronHumanoide();
-		/*megatron.setEquipo(decepticons);*/
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(megatron, pos1);
 		
 		Algoformer optimus=new OptimusHumanoide();
-		/*optimus.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(6,0);
 		tab.ubicarMovil(optimus, pos2);
 		
@@ -96,7 +85,6 @@ public class MegatronHumanoideTest{
 		
 		Algoformer mega_hum=new MegatronHumanoide();
 		Algoformer mega_alt=new MegatronAlterno();
-		/*mega_hum.setEquipo(new Decepticons());*/
 		Assert.assertTrue(mega_alt.equals(mega_hum.cambiarModo()));
 	}
 		
@@ -136,20 +124,16 @@ public class MegatronHumanoideTest{
 	public void test08MegatronHumanoideEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
 		Algoformer megatron = new MegatronHumanoide();
-		/*megatron.setEquipo(decepticons);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);
 
 
 		
 		Algoformer optimus = new OptimusHumanoide();
-		/*optimus.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(optimus, pos2);	
 		
@@ -163,18 +147,14 @@ public class MegatronHumanoideTest{
 	public void test09MegatronHumanoideAtacaEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		Algoformer megatron = new MegatronHumanoide();
-	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(megatron, pos1);
 		
 		Algoformer optimus = new OptimusAlterno();
-	/*	optimus.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -188,19 +168,15 @@ public class MegatronHumanoideTest{
 	public void test10MegatronHumanoideEsAtacadoPorEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		
 		Algoformer megatron = new MegatronHumanoide();
-	/*	megatron.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);
 		
 		Algoformer optimus = new OptimusAlterno();
-	/*	optimus.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(optimus, pos2);
 		
