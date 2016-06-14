@@ -236,7 +236,7 @@ public class SuperionTest {
 		Assert.assertTrue(superion.getVida()==1000);
 		}
 		 
-/*
+
 		 @Test
 		public void test10SuperionPuedeFormarsePorAutobotsAlternos(){
 			
@@ -255,7 +255,7 @@ public class SuperionTest {
 		 
 		Assert.assertTrue(superion.getVida()==1000);
 		}
-		*/ 
+		
 	/*	
 		 @Test
 		public void test10SuperionPuedeFormarsePorDecepticonsEnDiferentesModos(){
