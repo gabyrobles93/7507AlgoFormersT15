@@ -219,4 +219,64 @@ public class MenasorTest {
 		Assert.assertTrue(menasor.getVida()==1135);
 	}
 	 */
+	 
+		
+	 @Test
+	public void test10MenasorPuedeFormarsePorDecepticonsHumanoides(){
+		
+	Tablero tab=new Tablero();
+		
+	Algoformer megatron=new MegatronHumanoide();
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherHumanoide();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	 
+	Assert.assertTrue(menasor.getVida()==1150);
+	}
+	 
+		/*
+	 @Test
+	public void test10MenasorPuedeFormarsePorDecepticonsAlternos(){
+		
+	Tablero tab=new Tablero();
+		
+	Algoformer megatron=new MegatronAlterno();
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyAlterno();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	 
+	Assert.assertTrue(menasor.getVida()==1150);
+	}*/
+	 
+		/*
+	 @Test
+	public void test10MenasorPuedeFormarsePorDecepticonsEnDiferentesModos(){
+		
+	Tablero tab=new Tablero();
+		
+	Algoformer megatron=new MegatronHumanoide();
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	 
+	Assert.assertTrue(menasor.getVida()==1150);
+	}*/
 }
