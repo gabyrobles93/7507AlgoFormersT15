@@ -79,7 +79,7 @@ public class MenasorTest {
 	
 	
 	
-	/*
+	
 	 @Test
 	public void test06MenasorSeMueve(){
 		
@@ -105,7 +105,7 @@ public class MenasorTest {
 	
 	}
 	
-	 */
+	
 	
 	/*
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
