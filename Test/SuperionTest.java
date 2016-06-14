@@ -12,6 +12,7 @@ import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.ErrorVidaSuperionInsuficienteParaSepararse;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;
@@ -256,9 +257,9 @@ public class SuperionTest {
 		Assert.assertTrue(superion.getVida()==1000);
 		}
 		
-	/*	
+		
 		 @Test
-		public void test10SuperionPuedeFormarsePorDecepticonsEnDiferentesModos(){
+		public void test10SuperionPuedeFormarsePorAutobotsEnDiferentesModos(){
 			
 		Tablero tab=new Tablero();
 			
@@ -276,7 +277,7 @@ public class SuperionTest {
 		Assert.assertTrue(superion.getVida()==1000);
 		
 		 }
-		 */
+	
 		 
 		 /* @Test
 		public void test10SuperionNaceEnCualquierPosicionDeSusFormadores(){
