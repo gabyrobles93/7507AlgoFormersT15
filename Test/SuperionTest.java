@@ -101,21 +101,29 @@ public class SuperionTest {
 	}
 
 	
-	/*
+
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07SuperionTieneLimiteDeVelocidad(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer superion = new Superion();
-		Posicion posIni=new Posicion(1,4);
-		tab.ubicarMovil(superion,posIni);
-		Posicion posFin=new Posicion(5,4);
+
+		Algoformer optimus = new OptimusHumanoide();
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		Posicion pos2  =new Posicion(6,3);
+		tab.ubicarMovil(bumblebee,pos2);
+		Algoformer ratchet = new RatchetHumanoide();
+		Posicion pos3  =new Posicion(5,3);
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+		Posicion posFin=new Posicion(3,7);
 		
 		superion.mover(posFin);
 	
 	} 
-	 */
+
 	
 	/*
 	@Test
