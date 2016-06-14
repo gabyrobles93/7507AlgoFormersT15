@@ -107,7 +107,7 @@ public class MenasorTest {
 	
 	
 	
-	/*
+
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07MenasorTieneLimiteDeVelocidad(){
 		
@@ -128,7 +128,7 @@ public class MenasorTest {
 		menasor.mover(posFin);
 	
 	}
-	 */
+	
 	/*
 	 @Test
 	public void test08MenasorEsAtacadoPorEnemigoHumanoide(){
