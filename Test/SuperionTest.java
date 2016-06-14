@@ -124,72 +124,85 @@ public class SuperionTest {
 	
 	} 
 
-	
-	/*
+/*
 	@Test
 	public void test08SuperionEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
-		Algoformer superion = new Superion();
-		Posicion pos1=new Posicion(2,2);
-		tab.ubicarMovil(superion, pos1);
+		Algoformer optimus = new OptimusHumanoide();
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		Posicion pos2  =new Posicion(6,3);
+		tab.ubicarMovil(bumblebee,pos2);
+		Algoformer ratchet = new RatchetHumanoide();
+		Posicion pos3  =new Posicion(5,3);
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 
 
 		
 		Algoformer megatron = new MegatronHumanoide();
-		Posicion pos2=new Posicion(2,3);
-		tab.ubicarMovil(megatron, pos2);	
+		Posicion pos4=new Posicion(2,3);
+		tab.ubicarMovil(megatron, pos4);	
 		
 		megatron.atacar(superion);
 		
 		Assert.assertTrue(superion.getVida()==990);
 	}
-	*/
+*/	
 	
-	/*@Test
+	@Test
 	public void test09SuperionAtacaEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer superion = new Superion();
-		Posicion pos1=new Posicion(3,4);
-		tab.ubicarMovil(superion, pos1);
+		Algoformer optimus = new OptimusHumanoide();
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		Posicion pos2  =new Posicion(6,3);
+		tab.ubicarMovil(bumblebee,pos2);
+		Algoformer ratchet = new RatchetHumanoide();
+		Posicion pos3  =new Posicion(5,3);
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		Posicion pos2=new Posicion(3,6);
-		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
+		Posicion pos4=new Posicion(3,5);
+		tab.ubicarMovil(megatron, pos4);//Coloco enemigo a maxima distancia alcanzada
 		
 		superion.atacar(megatron);
 		
 		Assert.assertTrue(megatron.getVida()==450);	
-	}*/
+	}
 	
 	/*@Test
 	public void test10SuperionEsAtacadoPorEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
-		Autobots autobots = new Autobots();
-		Decepticons decepticons = new Decepticons();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		
-		Algoformer superion = new Superion();
-		Posicion pos1=new Posicion(2,2);
-		tab.ubicarMovil(superion, pos1);
+		Algoformer optimus = new OptimusHumanoide();
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		Algoformer bumblebee = new BumblebeeHumanoide();
+		Posicion pos2  =new Posicion(6,3);
+		tab.ubicarMovil(bumblebee,pos2);
+		Algoformer ratchet = new RatchetHumanoide();
+		Posicion pos3  =new Posicion(5,3);
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		Posicion pos2=new Posicion(4,2);
-		tab.ubicarMovil(megatron, pos2);
+		Posicion pos4=new Posicion(3,5);
+		tab.ubicarMovil(megatron, pos4);
 		
 		
 		megatron.atacar(superion);
