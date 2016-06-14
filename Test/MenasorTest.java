@@ -6,11 +6,14 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
+import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
+import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Menasor;
 import Modelo.Movimiento;
@@ -240,7 +243,7 @@ public class MenasorTest {
 	Assert.assertTrue(menasor.getVida()==1150);
 	}
 	 
-		/*
+
 	 @Test
 	public void test10MenasorPuedeFormarsePorDecepticonsAlternos(){
 		
@@ -258,7 +261,8 @@ public class MenasorTest {
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 	 
 	Assert.assertTrue(menasor.getVida()==1150);
-	}*/
+	
+	}
 	 
 		/*
 	 @Test
