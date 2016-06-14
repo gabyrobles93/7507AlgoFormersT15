@@ -10,7 +10,9 @@ import Modelo.BonecrusherAlterno;
 import Modelo.BonecrusherHumanoide;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.ErrorVidaMenasorInsuficienteParaSepararse;
 import Modelo.FrenzyAlterno;
 import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;
@@ -264,7 +266,7 @@ public class MenasorTest {
 	
 	}
 	 
-		/*
+	
 	 @Test
 	public void test10MenasorPuedeFormarsePorDecepticonsEnDiferentesModos(){
 		
@@ -282,5 +284,89 @@ public class MenasorTest {
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 	 
 	Assert.assertTrue(menasor.getVida()==1150);
+	
+	 }
+	 
+	 
+	 /* @Test
+	public void test10MenasorNaceEnCualquierPosicionDeSusFormadores(){
+		
+	Tablero tab=new Tablero();
+		
+	Algoformer megatron=new MegatronHumanoide();
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	 
+	Assert.assertTrue(menasor.getVida()==1150);
+	
+	 }*/
+	 
+	/* @Test(expected=ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
+	public void test10MenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
+		
+	Tablero tab=new Tablero();
+		
+	Algoformer megatron=new MegatronHumanoide();
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Posicion otraPosicion=new Posicion();
+	
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,otraPosicion);
+	 
+	 }*/
+	 
+	/* @Test
+	public void test10MenasorSeSepara(){
+	Algoformer megatron=new MegatronHumanoide();
+		
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+		
+	menasor.separar();//FALTA CREAR
+	
+	//VERFICAR QUE LA VIDA DE CADA WACHIN SEA LA DEL MENASOR DIVIDIDO 3
 	}*/
+	 
+/* @Test(expected=ErrorVidaMenasorInsuficienteParaSepararse.class)
+	public void test10MenasorConVidaInsuficeinteNoPuedeSeperarse(){
+	Algoformer megatron=new MegatronHumanoide();
+	
+	Posicion pos1=new Posicion(3,3);
+	tab.ubicarMovil(megatron,pos1);
+	Algoformer bonecrusher=new BonecrusherAlterno();
+	Posicion pos2=new Posicion(5,3);
+	tab.ubicarMovil(bonecrusher,pos2);
+	Algoformer frenzy=new FrenzyHumanoide();
+	Posicion pos3=new Posicion(6,3);
+	tab.ubicarMovil(frenzy,pos3);
+	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	menasor.setVida(2);
+
+	menasor.separar();//FALTA CREAR
+	}*/
+	 
+	 /*@Test
+	public void test10MenasorPuedeAgarrarChispaSuprema(){
+//ESTO QUIZAS VA EN CHISPASUPREMA TEST SOLO TIRO LA IDEA
+	*/	
 }
