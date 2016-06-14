@@ -58,7 +58,7 @@ public class MenasorTest {
 	
 
 	 @Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03MenasorNoPuedeAtacarAutobotFueraDeRango(){
+	public void test02MenasorNoPuedeAtacarAutobotFueraDeRango(){
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -86,7 +86,7 @@ public class MenasorTest {
 	
 	
 	 @Test
-	public void test06MenasorSeMueve(){
+	public void test03MenasorSeMueve(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

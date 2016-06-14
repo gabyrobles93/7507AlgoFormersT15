@@ -5,16 +5,12 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.Ataque;
-import Modelo.BonecrusherAlterno;
-import Modelo.BonecrusherHumanoide;
 import Modelo.BumblebeeAlterno;
 import Modelo.BumblebeeHumanoide;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.ErrorVidaSuperionInsuficienteParaSepararse;
-import Modelo.FrenzyAlterno;
-import Modelo.FrenzyHumanoide;
 import Modelo.MegatronAlterno;
 import Modelo.MegatronHumanoide;
 import Modelo.Movimiento;
@@ -57,7 +53,7 @@ public class SuperionTest {
 
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
-	public void test03SuperionNoPuedeAtacarDecepticonFueraDeRango(){
+	public void test02SuperionNoPuedeAtacarDecepticonFueraDeRango(){
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -83,7 +79,7 @@ public class SuperionTest {
 	
 	
 	@Test
-	public void test06SuperionSeMueve(){
+	public void test03SuperionSeMueve(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -110,7 +106,7 @@ public class SuperionTest {
 	
 
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
-	public void test07SuperionTieneLimiteDeVelocidad(){
+	public void test04SuperionTieneLimiteDeVelocidad(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -133,7 +129,7 @@ public class SuperionTest {
 
 /*
 	@Test
-	public void test08SuperionEsAtacadoPorEnemigoHumanoide(){
+	public void test05SuperionEsAtacadoPorEnemigoHumanoide(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -163,7 +159,7 @@ public class SuperionTest {
 */	
 	
 	@Test
-	public void test09SuperionAtacaEnemigoAlterno(){
+	public void test06SuperionAtacaEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -190,7 +186,7 @@ public class SuperionTest {
 	}
 	
 	/*@Test
-	public void test10SuperionEsAtacadoPorEnemigoAlterno(){
+	public void test07SuperionEsAtacadoPorEnemigoAlterno(){
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -219,7 +215,7 @@ public class SuperionTest {
 	}*/
 	
 	 @Test
-		public void test10SuperionPuedeFormarsePorAutobotsHumanoides(){
+		public void test08SuperionPuedeFormarsePorAutobotsHumanoides(){
 			
 		Tablero tab=new Tablero();
 			
@@ -239,7 +235,7 @@ public class SuperionTest {
 		 
 
 		 @Test
-		public void test10SuperionPuedeFormarsePorAutobotsAlternos(){
+		public void test09SuperionPuedeFormarsePorAutobotsAlternos(){
 			
 		Tablero tab=new Tablero();
 			
@@ -279,8 +275,8 @@ public class SuperionTest {
 		 }
 	
 		 
-		 /* @Test
-		public void test10SuperionNaceEnCualquierPosicionDeSusFormadores(){
+		 @Test
+		public void test11SuperionNaceEnPosicionElegidaDeSusFormadores(){
 			
 		Tablero tab=new Tablero();
 			
@@ -295,12 +291,13 @@ public class SuperionTest {
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		 
-		Assert.assertTrue(superion.getVida()==1000);
+		//Verifico que este en la posicion que se encontraba optimus
+		Assert.assertTrue(superion.getPosicion()==pos1);
 		
-		 }*/
+		 }
 		 
 		/*@Test(expected=ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
-		public void test10SuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
+		public void test12SuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
 			
 		Tablero tab=new Tablero();
 			
@@ -313,14 +310,14 @@ public class SuperionTest {
 		Algoformer ratchet = new RatchetHumanoide();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
-		Posicion otraPosicion=new Posicion();
+		Posicion otraPosicion=new Posicion(4,4);
 		
 		Algoformer Superion = new Superion(optimus,bumblebee,ratchet,otraPosicion);
 		 
 		 }*/
 		 
 		/* @Test
-		public void test10SuperionSeSepara(){
+		public void test13SuperionSeSepara(){
 		Tablero tab=new Tablero();
 			
 		Algoformer optimus = new OptimusHumanoide();
@@ -335,12 +332,16 @@ public class SuperionTest {
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 			
 		superion.separar();//FALTA CREAR
-		
-		//VERFICAR QUE LA VIDA DE CADA WACHIN SEA LA DEL Superion DIVIDIDO 3
+
+		//VERFICO QUE LA VIDA DE CADA WACHIN SEA LA DEL Superion DIVIDIDO 3
+		Assert.assertTrue(optimus.getVida()==round(1100/3));
+		Assert.assertTrue(bumblebee.getVida()==round(1100/3));
+		Assert.assertTrue(ratchet.getVida()==round(1100/3));
+
 		}*/
 		 
-	/* @Test(expected=ErrorVidaSuperionInsuficienteParaSepararse.class)
-		public void test10SuperionConVidaInsuficeinteNoPuedeSeperarse(){
+	  /*  @Test(expected=ErrorVidaSuperionInsuficienteParaSepararse.class)
+		public void test14SuperionConVidaInsuficeinteNoPuedeSeperarse(){
 		Tablero tab=new Tablero();
 			
 		Algoformer optimus = new OptimusHumanoide();
@@ -359,7 +360,7 @@ public class SuperionTest {
 		}*/
 		 
 		 /*@Test
-		public void test10SuperionPuedeAgarrarChispaSuprema(){
+		public void test15SuperionPuedeAgarrarChispaSuprema(){
 	//ESTO QUIZAS VA EN CHISPASUPREMA TEST SOLO TIRO LA IDEA
 		*/	
 }
