@@ -9,7 +9,7 @@ public class RatchetHumanoide extends Ratchet {
 		alcance=5;
 		velocidad=1;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
 	public RatchetHumanoide(Posicion unaPos, int unaVida) {
 		super();
@@ -19,8 +19,13 @@ public class RatchetHumanoide extends Ratchet {
 		velocidad=1;
 		alcance=5;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
+	
+	private void setEquipo(){
+		miEquipo=new Autobots();
+	}
+	
 	@Override
 	public Algoformer cambiarModo() {
 		return new RatchetAlterno(miPosicion,vida);

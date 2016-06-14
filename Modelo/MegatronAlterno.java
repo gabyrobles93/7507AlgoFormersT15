@@ -10,6 +10,7 @@ public class MegatronAlterno extends Megatron {
 		alcance=2;
 		velocidad=8;
 		efecto.velocidadAfectada=velocidad;
+		setEquipo();
 	}
 	public MegatronAlterno(Posicion unaPos, int unaVida, double afectaAtaque) {
 		super();
@@ -19,7 +20,11 @@ public class MegatronAlterno extends Megatron {
 		velocidad=8;
 		alcance=2;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
+	}
+	
+	private void setEquipo(){
+		miEquipo=new Decepticons();
 	}
 
 	@Override

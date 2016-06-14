@@ -12,15 +12,18 @@ public class Autobots extends Equipo {
 		algof1=optimus;
 		algof2=bumblebee;
 		algof3=ratchet;
-		algof1.setEquipo(this);
+		/*algof1.setEquipo(this);
 		algof2.setEquipo(this);
-		algof3.setEquipo(this);
+		algof3.setEquipo(this);*/
 		
 		
 		
 		vida=algof1.getVida()+algof2.getVida()+algof3.getVida();
 		cantidadMiembrosVivos=3;
 	}
+	
+	
+	
 	
 	public Optimus getOptimus(){
 		return (Optimus) algof1;
@@ -37,6 +40,18 @@ public class Autobots extends Equipo {
 	}
 
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Autobots))
+			return false;
+
+		return true;
+	}
+	
 	
 }
 

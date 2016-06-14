@@ -31,12 +31,12 @@ public class RatchetHumanoideTest {
 		Ataque.setTablero(tab);
 		
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);
+		/*ratchet.setEquipo(autobots);*/
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(ratchet,pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
+		/*megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -55,12 +55,12 @@ public class RatchetHumanoideTest {
 		Autobots autobots = new Autobots();
 		
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);	
+	/*	ratchet.setEquipo(autobots);	*/
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(ratchet, pos1);
 		
 		Algoformer bumblebee = new BumblebeeHumanoide();
-		bumblebee.setEquipo(autobots);
+	/*	bumblebee.setEquipo(autobots);*/
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(bumblebee, pos2);
 		
@@ -78,12 +78,12 @@ public class RatchetHumanoideTest {
 		Decepticons decepticons = new Decepticons();
 		
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);
+	/*	ratchet.setEquipo(autobots);*/
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(ratchet, pos1);
 		
 		Algoformer megatron=new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
+	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(8,0);
 		tab.ubicarMovil(megatron, pos2);
 		
@@ -142,13 +142,13 @@ public class RatchetHumanoideTest {
 		Ataque.setTablero(tab);
 
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);
+	/*	ratchet.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(ratchet, pos1);
 
 
 		Algoformer megatron = new MegatronHumanoide();
-		megatron.setEquipo(decepticons);
+	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos2);	
 		
@@ -168,12 +168,12 @@ public class RatchetHumanoideTest {
 		Ataque.setTablero(tab);
 		
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);
+	/*	ratchet.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(ratchet, pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		megatron.setEquipo(decepticons);
+	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -194,12 +194,12 @@ public class RatchetHumanoideTest {
 		
 		
 		Algoformer ratchet = new RatchetHumanoide();
-		ratchet.setEquipo(autobots);
+	/*	ratchet.setEquipo(autobots);*/
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(ratchet, pos1);
 		
 		Algoformer megatron = new MegatronAlterno();
-		megatron.setEquipo(decepticons);
+	/*	megatron.setEquipo(decepticons);*/
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(megatron, pos2);
 		

@@ -19,9 +19,9 @@ public class Decepticons extends Equipo {
 		algof2=bonecrusher;
 		algof3=frenzy;
 		
-		algof1.setEquipo(this);
+		/*algof1.setEquipo(this);
 		algof2.setEquipo(this);
-		algof3.setEquipo(this);
+		algof3.setEquipo(this);*/
 		
 		vida=megatron.getVida()+bonecrusher.getVida()+frenzy.getVida();
 		cantidadMiembrosVivos=3;
@@ -42,4 +42,15 @@ public class Decepticons extends Equipo {
 		return (Frenzy) algof3;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Decepticons))
+			return false;
+
+		return true;
+	}
 }

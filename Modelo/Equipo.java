@@ -53,4 +53,10 @@ public abstract class  Equipo {
 		tablero.ubicarMovil(algof3, posAlgof3);
 	}
 
+
+
+
+
+	
+
 }

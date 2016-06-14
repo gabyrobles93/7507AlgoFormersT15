@@ -826,7 +826,7 @@ public class SuperficieTest {
 			
 			Algoformer algoformer = new MegatronAlterno();
 			Algoformer optimus = new OptimusAlterno();
-			algoformer.setEquipo(autobots);
+			/*algoformer.setEquipo(autobots);*/
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(16,16);
 			Posicion posfinal2 =new Posicion(17,17); 

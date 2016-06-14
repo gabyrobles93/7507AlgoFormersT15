@@ -9,7 +9,7 @@ public class OptimusAlterno extends Optimus {
 		alcance=4;
 		velocidad=5;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
 	public OptimusAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -19,7 +19,13 @@ public class OptimusAlterno extends Optimus {
 		velocidad=5;
 		alcance=4;
 		efecto.velocidadAfectada=velocidad;
+		setEquipo();
 	}
+	
+	private void setEquipo(){
+		miEquipo=new Autobots();
+	}
+	
 	@Override
 	public Algoformer cambiarModo() {
 	return new OptimusHumanoide(miPosicion,vida);

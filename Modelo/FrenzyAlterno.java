@@ -9,7 +9,7 @@ public class FrenzyAlterno extends Frenzy {
 		alcance=2;
 		velocidad=6;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
 	public FrenzyAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -19,7 +19,11 @@ public class FrenzyAlterno extends Frenzy {
 		velocidad=6;
 		alcance=2;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
+	}
+	
+	private void setEquipo(){
+		miEquipo=new Decepticons();
 	}
 	
 

@@ -9,7 +9,7 @@ public class FrenzyHumanoide extends Frenzy {
 		alcance=5;
 		velocidad=2;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 		
 	}
 	public FrenzyHumanoide(Posicion unaPos, int unaVida) {
@@ -20,8 +20,13 @@ public class FrenzyHumanoide extends Frenzy {
 		velocidad=2;
 		alcance=5;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
+	
+	private void setEquipo(){
+		miEquipo=new Decepticons();
+	}
+	
 	@Override
 	public Algoformer cambiarModo() {
 		return new FrenzyAlterno(miPosicion,vida);

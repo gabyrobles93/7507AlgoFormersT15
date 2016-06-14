@@ -9,6 +9,7 @@ public class MegatronHumanoide extends Megatron {
 		alcance=3;
 		velocidad=1;
 		efecto.velocidadAfectada=velocidad;
+		setEquipo();
 	}
 
 	public MegatronHumanoide(Posicion unaPos, int unaVida) {
@@ -19,7 +20,11 @@ public class MegatronHumanoide extends Megatron {
 		velocidad=1;
 		efecto.velocidadAfectada=velocidad;
 		alcance=3;
-		
+		setEquipo();
+	}
+	
+	private void setEquipo(){
+		miEquipo=new Decepticons();
 	}
 
 	@Override

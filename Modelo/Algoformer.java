@@ -148,14 +148,17 @@ public abstract class Algoformer implements movil,atacable,atacante,afectable  {
 		return true;
 	}
 
-	public void setEquipo(Equipo unEquipo) {
+/*	public void setEquipo(Equipo unEquipo) {
 		miEquipo=unEquipo;
 		
-	}
+	}*/
+	
+
+	
 //ESTO LO TIENE QUE HACER EQUIPO
 	public boolean comparteEquipoCon(Algoformer otroalgoformer) {
 		
-		return (this.getEquipo() == otroalgoformer.getEquipo());
+		return (this.getEquipo().equals( otroalgoformer.getEquipo()));
 	}
 
 	private Object getEquipo() {

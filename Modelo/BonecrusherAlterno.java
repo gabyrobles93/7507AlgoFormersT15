@@ -9,7 +9,7 @@ public class BonecrusherAlterno extends Bonecrusher {
 		alcance=3;
 		velocidad=8;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
 	public BonecrusherAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -19,7 +19,11 @@ public class BonecrusherAlterno extends Bonecrusher {
 		velocidad=8;
 		alcance=3;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
+	}
+	
+	private void setEquipo(){
+		miEquipo=new Decepticons();
 	}
 
 		

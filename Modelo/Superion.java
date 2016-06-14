@@ -2,6 +2,10 @@ package Modelo;
 
 public class Superion extends Algoformer{
 
+	public Superion(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet,Posicion posSuperion) {
+		
+	}
+
 	@Override
 	public void afectarPorEspinas(double coeficiente) {
 		// TODO Auto-generated method stub

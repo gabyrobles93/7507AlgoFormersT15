@@ -6,7 +6,7 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-
+import Modelo.BonecrusherHumanoide;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
@@ -33,12 +33,12 @@ public class FrenzyAlternoTest {
 			Ataque.setTablero(tab);
 			
 			Algoformer frenzy = new FrenzyAlterno();
-			frenzy.setEquipo(decepticons);
+			/*frenzy.setEquipo(decepticons);*/
 			Posicion pos1  =new Posicion(3,3);
 			tab.ubicarMovil(frenzy,pos1);
 			
 			Algoformer optimus=new OptimusHumanoide();
-			optimus.setEquipo(autobots);
+			/*optimus.setEquipo(autobots);*/
 			Posicion pos2=new Posicion(3,5);
 			tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
 			
@@ -57,12 +57,12 @@ public class FrenzyAlternoTest {
 			Decepticons decepticons = new Decepticons();
 			
 			Algoformer frenzy = new FrenzyAlterno();
-			frenzy.setEquipo(decepticons);	
+		/*	frenzy.setEquipo(decepticons);	*/
 			Posicion pos1 = new Posicion(3,3);
 			tab.ubicarMovil(frenzy, pos1);
 			
-			Algoformer bonecrusher = new RatchetHumanoide();
-			bonecrusher.setEquipo(decepticons);
+			Algoformer bonecrusher = new BonecrusherHumanoide();
+		/*	bonecrusher.setEquipo(decepticons);*/
 			Posicion pos2=new Posicion(3,5);
 			tab.ubicarMovil(bonecrusher, pos2);
 			
@@ -80,12 +80,12 @@ public class FrenzyAlternoTest {
 			Decepticons decepticons = new Decepticons();
 			
 			Algoformer frenzy=new FrenzyAlterno();
-			frenzy.setEquipo(decepticons);
+		/*	frenzy.setEquipo(decepticons);*/
 			Posicion pos1 = new Posicion(2,0);
 			tab.ubicarMovil(frenzy, pos1);
 			
 			Algoformer optimus=new MegatronHumanoide();
-			optimus.setEquipo(autobots);
+		/*	optimus.setEquipo(autobots);*/
 			Posicion pos2=new Posicion(6,0);
 			tab.ubicarMovil(optimus, pos2);
 			
@@ -143,14 +143,14 @@ public class FrenzyAlternoTest {
 			Ataque.setTablero(tab);
 
 			Algoformer frenzy = new FrenzyAlterno();
-			frenzy.setEquipo(decepticons);
+		/*	frenzy.setEquipo(decepticons);*/
 			Posicion pos1=new Posicion(2,2);
 			tab.ubicarMovil(frenzy, pos1);
 
 
 			
 			Algoformer optimus=new OptimusHumanoide();
-			optimus.setEquipo(autobots);
+		/*	optimus.setEquipo(autobots);*/
 			Posicion pos2=new Posicion(2,3);
 			tab.ubicarMovil(optimus, pos2);	
 			
@@ -169,12 +169,12 @@ public class FrenzyAlternoTest {
 			Ataque.setTablero(tab);
 			
 			Algoformer frenzy = new FrenzyAlterno();
-			frenzy.setEquipo(decepticons);
+		/*	frenzy.setEquipo(decepticons);*/
 			Posicion pos1=new Posicion(3,4);
 			tab.ubicarMovil(frenzy, pos1);
 			
 			Algoformer optimus = new OptimusAlterno();
-			optimus.setEquipo(autobots);
+		/*	optimus.setEquipo(autobots);*/
 			Posicion pos2=new Posicion(3,6);
 			tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 			
@@ -195,12 +195,12 @@ public class FrenzyAlternoTest {
 			
 			
 			Algoformer frenzy = new FrenzyAlterno();
-			frenzy.setEquipo(autobots);
+		/*	frenzy.setEquipo(autobots);*/
 			Posicion pos1=new Posicion(2,2);
 			tab.ubicarMovil(frenzy, pos1);
 			
 			Algoformer optimus=new OptimusAlterno();
-			optimus.setEquipo(decepticons);
+		/*	optimus.setEquipo(decepticons);*/
 			Posicion pos2=new Posicion(4,2);
 			tab.ubicarMovil(optimus, pos2);
 			

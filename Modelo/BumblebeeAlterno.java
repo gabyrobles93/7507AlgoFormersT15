@@ -9,6 +9,7 @@ public class BumblebeeAlterno extends Bumblebee {
 		alcance=3;
 		velocidad=5;
 		efecto.velocidadAfectada=velocidad;
+		setEquipo();
 	}
 	public BumblebeeAlterno(Posicion unaPos, int unaVida) {
 		super();
@@ -18,8 +19,13 @@ public class BumblebeeAlterno extends Bumblebee {
 		velocidad=5;
 		alcance=3;
 		efecto.velocidadAfectada=velocidad;
-		
+		setEquipo();
 	}
+	
+	private void setEquipo(){
+		miEquipo=new Autobots();
+	}
+	
 	@Override
 	public Algoformer cambiarModo() {
 	return new BumblebeeHumanoide(miPosicion,vida);
