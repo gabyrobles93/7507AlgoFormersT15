@@ -6,34 +6,38 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherHumanoide;
+import Modelo.Bonecrusher;
+
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+import Modelo.Megatron;
+
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
+
 import Modelo.Posicion;
-import Modelo.RatchetHumanoide;
+
 import Modelo.Tablero;
 
 public class MegatronAlternoTest {
 
 	@Test
 	public void test01MegatronAlternoAtacaEnemigoHumanoide(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
 		
-		Algoformer optimus=new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus= Optimus.getOptimus();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -45,16 +49,17 @@ public class MegatronAlternoTest {
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02MegatronAlternoNoPuedeAtacarDecepticons(){
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(megatron, pos1);
 		
-		Algoformer bonecrusher = new BonecrusherHumanoide();
+		Algoformer bonecrusher =  Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(bonecrusher, pos2);
 		
@@ -64,16 +69,17 @@ public class MegatronAlternoTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03MegatronAlternoNoPuedeAtacarAutobotFueraDeRango(){
-
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(megatron, pos1);
 		
-		Algoformer optimus=new OptimusHumanoide();
+		Algoformer optimus= Optimus.getOptimus();
 		Posicion pos2=new Posicion(6,0);
 		tab.ubicarMovil(optimus, pos2);
 		
@@ -82,21 +88,42 @@ public class MegatronAlternoTest {
 	
 	@Test
 	public void test04CambioMegatronAModoAlterno(){
+		Megatron.ResetearInstancia();
 		
-		Algoformer mega_hum=new MegatronHumanoide();
-		Algoformer mega_alt=new MegatronAlterno();
 		
-		Assert.assertTrue(mega_hum.equals(mega_alt.cambiarModo()));
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		
+		
+		//nace en modo alterno
+		Posicion posIni=new Posicion(1,4);
+		tab.ubicarMovil( Megatron.getMegatron(), posIni);
+		
+	
+		Assert.assertTrue( Megatron.getMegatron().getDistanciaDeAtaque()==2);
+		
+		Megatron mega1=Megatron.getMegatron();
+		
+		Megatron.getMegatron().cambiarModo();
+		
+		
+		
+		Assert.assertTrue(Megatron.getMegatron().getDistanciaDeAtaque()==3);//en modo humanoide alcance==3
+		// si al cambiar modo me guardan una referencia me podrian hacer trampa
+		
 	}
 		
 	@Test
 	public void test06MegatronAlternoSeMueve(){
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(megatron,posIni);
 		Posicion posFin=new Posicion(9,4);
@@ -110,9 +137,10 @@ public class MegatronAlternoTest {
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07MegatronAlternoTieneLimiteDeVelocidad(){
 		
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(megatron,posIni);
 		Posicion posFin=new Posicion(10,4);
@@ -123,18 +151,19 @@ public class MegatronAlternoTest {
 	
 	@Test
 	public void test08MegatronAlternoEsAtacadoPorEnemigoHumanoide(){
-		
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);
 
 
-		
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(optimus, pos2);	
 		
@@ -145,16 +174,18 @@ public class MegatronAlternoTest {
 	
 	@Test
 	public void test09MegatronAlternoAtacaEnemigoAlterno(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(megatron, pos1);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -166,17 +197,19 @@ public class MegatronAlternoTest {
 	
 	@Test
 	public void test10MegatronAlternoEsAtacadoPorEnemigoAlterno(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(optimus, pos2);
 		

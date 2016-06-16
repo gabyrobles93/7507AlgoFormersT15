@@ -6,35 +6,42 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherHumanoide;
+import Modelo.Bonecrusher;
+
+import Modelo.Bumblebee;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.FrenzyAlterno;
-import Modelo.FrenzyHumanoide;
-import Modelo.MegatronHumanoide;
+import Modelo.Frenzy;
+
+import Modelo.Megatron;
+
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
+
 import Modelo.Posicion;
-import Modelo.RatchetHumanoide;
+
 import Modelo.Tablero;
 
 public class FrenzyAlternoTest {
 		
 		@Test
 		public void test01FrenzyAlternoAtacaEnemigoHumanoide(){
-
+			Frenzy.ResetearInstancia();
+			Optimus.ResetearInstancia();
+			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1  =new Posicion(3,3);
 			tab.ubicarMovil(frenzy,pos1);
+
+			Optimus.getOptimus().cambiarModo();
 			
-			Algoformer optimus=new OptimusHumanoide();
+			Algoformer optimus= Optimus.getOptimus();
 			Posicion pos2=new Posicion(3,5);
 			tab.ubicarMovil(optimus,pos2);//Coloco enemigo a maxima distancia alcanzada
 			
@@ -51,11 +58,11 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1 = new Posicion(3,3);
 			tab.ubicarMovil(frenzy, pos1);
 			
-			Algoformer bonecrusher = new BonecrusherHumanoide();
+			Algoformer bonecrusher = Bonecrusher.getBonecrusher();
 			Posicion pos2=new Posicion(3,5);
 			tab.ubicarMovil(bonecrusher, pos2);
 			
@@ -70,11 +77,11 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
-			Algoformer frenzy=new FrenzyAlterno();
+			Algoformer frenzy=Frenzy.getFrenzy();
 			Posicion pos1 = new Posicion(2,0);
 			tab.ubicarMovil(frenzy, pos1);
 			
-			Algoformer optimus=new MegatronHumanoide();
+			Algoformer optimus=Megatron.getMegatron();
 			Posicion pos2=new Posicion(6,0);
 			tab.ubicarMovil(optimus, pos2);
 			
@@ -84,10 +91,32 @@ public class FrenzyAlternoTest {
 		@Test
 		public void test04CambioFrenzyAModoAlterno(){
 			
-			Algoformer frenzy_hum=new FrenzyHumanoide();
-			Algoformer frenzy_alt=new FrenzyAlterno();
 			
-			Assert.assertTrue(frenzy_hum.equals(frenzy_alt.cambiarModo()));
+			Tablero tab=new Tablero();
+			Movimiento.setTablero(tab);
+			Posicion.setTablero(tab);
+			
+			Frenzy.ResetearInstancia();
+			
+			//nace en modo alterno
+			Posicion posIni=new Posicion(1,4);
+			tab.ubicarMovil( Frenzy.getFrenzy(), posIni);
+			
+		
+			Assert.assertTrue(Frenzy.getFrenzy().getDistanciaDeAtaque()==2);
+			
+			Frenzy bone1=Frenzy.getFrenzy();
+			
+			Frenzy.getFrenzy().cambiarModo();
+			
+			
+			
+			Assert.assertTrue(Frenzy.getFrenzy().getDistanciaDeAtaque()==5);//en modo humanoide alcance==3
+			
+			Frenzy.getFrenzy().cambiarModo();
+			Assert.assertTrue(Frenzy.getFrenzy().getDistanciaDeAtaque()==2);
+			
+			// si al cambiar modo me guardan una referencia me podrian hacer trampa
 		}
 			
 		@Test
@@ -97,7 +126,7 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion posIni=new Posicion(1,4);
 			tab.ubicarMovil(frenzy,posIni);
 			Posicion posFin=new Posicion(6,4);
@@ -113,7 +142,7 @@ public class FrenzyAlternoTest {
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion posIni=new Posicion(1,4);
 			tab.ubicarMovil(frenzy,posIni);
 			Posicion posFin=new Posicion(9,4);
@@ -124,18 +153,20 @@ public class FrenzyAlternoTest {
 		
 		@Test
 		public void test08FrenzyAlternoEsAtacadoPorEnemigoHumanoide(){
+			Frenzy.ResetearInstancia();
+			Optimus.ResetearInstancia();
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(2,2);
 			tab.ubicarMovil(frenzy, pos1);
 
 
-			
-			Algoformer optimus=new OptimusHumanoide();
+			Optimus.getOptimus().cambiarModo();
+			Algoformer optimus=Optimus.getOptimus();
 			Posicion pos2=new Posicion(2,3);
 			tab.ubicarMovil(optimus, pos2);	
 			
@@ -151,11 +182,11 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(3,4);
 			tab.ubicarMovil(frenzy, pos1);
 			
-			Algoformer optimus = new OptimusAlterno();
+			Algoformer optimus = Optimus.getOptimus();
 			Posicion pos2=new Posicion(3,6);
 			tab.ubicarMovil(optimus, pos2);//Coloco enemigo a maxima distancia alcanzada
 			
@@ -173,11 +204,11 @@ public class FrenzyAlternoTest {
 			Ataque.setTablero(tab);
 			
 			
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(2,2);
 			tab.ubicarMovil(frenzy, pos1);
 			
-			Algoformer optimus=new OptimusAlterno();
+			Algoformer optimus=Optimus.getOptimus();
 			Posicion pos2=new Posicion(4,2);
 			tab.ubicarMovil(optimus, pos2);
 			

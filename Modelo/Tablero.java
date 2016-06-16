@@ -26,11 +26,17 @@ public Tablero(int cantidadCasilleros){
 
 public void ubicarMovil(movil unMovil,Posicion pos)throws ErrorCasillerOcupado {
 	
-	Posicion posicionInicial=unMovil.getPosicion();
+	
 	
 	if(matriz[pos.getFila()][pos.getColumna()].estaOcupado()==true){
 		throw new ErrorCasillerOcupado();
 	}
+	if(unMovil.getPosicion()==null){
+		unMovil.cambiarPosicion(pos);
+		matriz[pos.getFila()][pos.getColumna()].setMovilOcupa(unMovil);
+		return;
+	}
+	Posicion posicionInicial=unMovil.getPosicion();
 	if(posicionInicial!=null){
 	matriz[posicionInicial.getFila()][posicionInicial.getColumna()].setMovilOcupa(null);
 	}

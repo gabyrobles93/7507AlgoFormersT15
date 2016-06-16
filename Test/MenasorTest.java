@@ -6,21 +6,21 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherAlterno;
-import Modelo.BonecrusherHumanoide;
+import Modelo.Bonecrusher;
+
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.ErrorVidaMenasorInsuficienteParaSepararse;
-import Modelo.FrenzyAlterno;
-import Modelo.FrenzyHumanoide;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+import Modelo.Frenzy;
+
+import Modelo.Megatron;
+
 import Modelo.Menasor;
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
+
 import Modelo.Posicion;
 import Modelo.Tablero;
 
@@ -29,23 +29,29 @@ public class MenasorTest {
 
 	@Test
 	public void test01MenasorAtacaEnemigoHumanoide(){
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Bonecrusher.getBonecrusher().cambiarModo();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Frenzy.getFrenzy().cambiarModo();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
-
-		Algoformer optimus=new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus=Optimus.getOptimus();
 		Posicion pos4=new Posicion(3,5);
 		tab.ubicarMovil(optimus,pos4);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -59,23 +65,29 @@ public class MenasorTest {
 
 	 @Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test02MenasorNoPuedeAtacarAutobotFueraDeRango(){
-
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Bonecrusher.getBonecrusher().cambiarModo();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Frenzy.getFrenzy().cambiarModo();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
-		
-		Algoformer optimus=new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus= Optimus.getOptimus();
 		Posicion pos4=new Posicion(3,6);
 		tab.ubicarMovil(optimus, pos4);
 		
@@ -87,18 +99,23 @@ public class MenasorTest {
 	
 	 @Test
 	public void test03MenasorSeMueve(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Bonecrusher.getBonecrusher().cambiarModo();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Frenzy.getFrenzy().cambiarModo();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
@@ -115,16 +132,22 @@ public class MenasorTest {
 
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test04MenasorTieneLimiteDeVelocidad(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Bonecrusher.getBonecrusher().cambiarModo();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Frenzy.getFrenzy().cambiarModo();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
@@ -166,23 +189,29 @@ public class MenasorTest {
 
 	 @Test
 	public void test06MenasorAtacaEnemigoAlterno(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Bonecrusher.getBonecrusher().cambiarModo();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Frenzy.getFrenzy().cambiarModo();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos4=new Posicion(3,5);
 		tab.ubicarMovil(optimus, pos4);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -228,16 +257,20 @@ public class MenasorTest {
 		
 	 @Test
 	public void test08MenasorPuedeFormarsePorDecepticonsHumanoides(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 	Tablero tab=new Tablero();
-		
-	Algoformer megatron=new MegatronHumanoide();
+	Megatron.getMegatron().cambiarModo();
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherHumanoide();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Frenzy.getFrenzy().cambiarModo();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
@@ -248,16 +281,19 @@ public class MenasorTest {
 
 	 @Test
 	public void test09MenasorPuedeFormarsePorDecepticonsAlternos(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 	Tablero tab=new Tablero();
 		
-	Algoformer megatron=new MegatronAlterno();
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyAlterno();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
@@ -269,16 +305,20 @@ public class MenasorTest {
 	
 	 @Test
 	public void test10MenasorPuedeFormarsePorDecepticonsEnDiferentesModos(){
-		
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 	Tablero tab=new Tablero();
-		
-	Algoformer megatron=new MegatronHumanoide();
+	Megatron.getMegatron().cambiarModo();
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Frenzy.getFrenzy().cambiarModo();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
@@ -290,16 +330,21 @@ public class MenasorTest {
 	 
 	 @Test
 	public void test11MenasorNaceEnPosicionElegidaDeSusFormadores(){
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 
 		
 	Tablero tab=new Tablero();
-		
-	Algoformer megatron=new MegatronHumanoide();
+	Megatron.getMegatron().cambiarModo();
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Frenzy.getFrenzy().cambiarModo();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);

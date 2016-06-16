@@ -11,17 +11,13 @@ public class Juego {
 	private Equipo turnoDelEquipo;
 
 	public void setAutobots(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
-		autobots= new Autobots(optimus,bumblebee,ratchet);
+		
+		autobots= new Autobots(Optimus.getOptimus(),Bumblebee.getBumblebee(),Ratchet.getRatchet());
 	}
 	public void setDecepticons(){
 		
-		Megatron megatron=new MegatronHumanoide();
-		Bonecrusher bonecrusher=new BonecrusherHumanoide();
-		Frenzy frenzy=new FrenzyHumanoide();
-		decepticons= new Decepticons(megatron,bonecrusher,frenzy);
+	
+		decepticons= new Decepticons(Megatron.getMegatron(),Bonecrusher.getBonecrusher(),Frenzy.getFrenzy());
 	}
 	public void setTablero(){
 		

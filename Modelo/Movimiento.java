@@ -27,6 +27,7 @@ public abstract class Movimiento {
 		
 		if(unTablero==null){throw new ErrorTableroIndefinidoEnClaseMovimiento();}
 		
+		if(pos2==null){throw new PosicionInicialNula();}
 		
 		int	distanciaFila=pos2.getFila()-unMovil.getPosicion().getFila();
 		int distanciaColumna=pos2.getColumna()-unMovil.getPosicion().getColumna();

@@ -42,4 +42,10 @@ public class Superion extends Algoformer{
 		// Unidad terrestre, no es afectada por esto.
 	}
 
+	@Override
+	public void cambiarModo() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

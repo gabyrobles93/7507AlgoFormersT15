@@ -8,25 +8,25 @@ import Modelo.Algoformer;
 import Modelo.Area;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BonecrusherAlterno;
-import Modelo.BonecrusherHumanoide;
-import Modelo.BumblebeeAlterno;
-import Modelo.BumblebeeHumanoide;
+import Modelo.Bonecrusher;
+
+import Modelo.Bumblebee;
+
 import Modelo.Decepticons;
 import Modelo.Equipo;
 import Modelo.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.FrenzyAlterno;
-import Modelo.FrenzyHumanoide;
+import Modelo.Frenzy;
+
 import Modelo.Juego;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+import Modelo.Megatron;
+
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
+
 import Modelo.Posicion;
-import Modelo.RatchetAlterno;
-import Modelo.RatchetHumanoide;
+import Modelo.Ratchet;
+
 import Modelo.Superficie;
 import Modelo.SuperficiePantanosa;
 import Modelo.SuperficieRocosa;
@@ -54,12 +54,13 @@ public class SuperficieTest {
 
 	@Test
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
-		
+		Optimus.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer optimus = new OptimusHumanoide();
+			Optimus.getOptimus().cambiarModo();
+			Algoformer optimus =  Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(15,17);
 			
@@ -75,12 +76,12 @@ public class SuperficieTest {
 
 	@Test
 	public void test02optimusAlternoTransitaSinProblemasPorSuperficieRocosa(){
-		
+		Optimus.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer optimus = new OptimusAlterno();
+			Algoformer optimus = Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(15,19);
 			
@@ -95,12 +96,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test03bumblebeeHumanoideTransitaSinProblemasPorSuperficieRocosa(){
-		
+		Bumblebee.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bumblebee = new BumblebeeHumanoide();
+			Bumblebee.getBumblebee().cambiarModo();
+			Algoformer bumblebee = Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(25,25);
 			Posicion posfinal = new Posicion(27,25);
 			
@@ -115,12 +117,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test04bumblebeeAlternoTransitaSinProblemasPorSuperficieRocosa(){
+		Bumblebee.ResetearInstancia();
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bumblebee = new BumblebeeAlterno();
+			Algoformer bumblebee = Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(25,25);
 			Posicion posfinal = new Posicion(30,25);
 			
@@ -135,12 +138,15 @@ public class SuperficieTest {
 	
 	@Test
 	public void test05ratchetHumanoideTransitaSinProblemasPorSuperficieRocosa(){
+		Ratchet.ResetearInstancia();
+		
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer ratchet = new RatchetHumanoide();
+			Ratchet.getRatchet().cambiarModo();
+			Algoformer ratchet =  Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(35,35);
 			Posicion posfinal = new Posicion(35,36);
 			
@@ -155,12 +161,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test06ratchetAlternoTransitaSinProblemasPorSuperficieRocosa(){
+		Ratchet.ResetearInstancia();
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer ratchet = new RatchetAlterno();
+			Algoformer ratchet = Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(35,35);
 			Posicion posfinal = new Posicion(35,43);
 			
@@ -175,12 +182,15 @@ public class SuperficieTest {
 	
 	@Test
 	public void test07megatronHumanoideTransitaSinProblemasPorSuperficieRocosa(){
+		Megatron.ResetearInstancia();
+		
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer megatron = new MegatronHumanoide();
+			Megatron.getMegatron().cambiarModo();
+			Algoformer megatron = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(5,5);
 			Posicion posfinal = new Posicion(5,6);
 			
@@ -195,12 +205,14 @@ public class SuperficieTest {
 	
 	@Test
 	public void test08megatronAlternoTransitaSinProblemasPorSuperficieRocosa(){
+		Megatron.ResetearInstancia();
+		
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer megatron = new MegatronAlterno();
+			Algoformer megatron = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(5,5);
 			Posicion posfinal = new Posicion(5,13);
 			
@@ -216,11 +228,15 @@ public class SuperficieTest {
 	@Test
 	public void test09bonecrusherHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		
+		Bonecrusher.ResetearInstancia();
+		
+		
 			Tablero tab = new Tablero();
 			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bonecrusher = new BonecrusherHumanoide();
+			Bonecrusher.getBonecrusher().cambiarModo();
+			Algoformer bonecrusher = Bonecrusher.getBonecrusher();
 			Posicion posinicial = new Posicion(16,15);
 			Posicion posfinal = new Posicion(17,15);
 			
@@ -235,12 +251,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test10bonecrusherAlternoTransitaSinProblemasPorSuperficieRocosa(){
+		Bonecrusher.ResetearInstancia();
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bonecrusher = new BonecrusherAlterno();
+			Algoformer bonecrusher = Bonecrusher.getBonecrusher();
 			Posicion posinicial = new Posicion(16,15);
 			Posicion posfinal = new Posicion(24,15);
 			
@@ -255,12 +272,14 @@ public class SuperficieTest {
 	
 	@Test
 	public void test11frenzyHumanoideTransitaSinProblemasPorSuperficieRocosa(){
+		Frenzy.ResetearInstancia();
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(44,49,30,35);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer frenzy = new FrenzyHumanoide();
+			Frenzy.getFrenzy().cambiarModo();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion posinicial = new Posicion(49,31);
 			Posicion posfinal = new Posicion(49,33);
 			
@@ -275,12 +294,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test12frenzyAlternoTransitaSinProblemasPorSuperficieRocosa(){
+			Frenzy.ResetearInstancia();
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(44,49,30,49);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer frenzy = new FrenzyAlterno();
+			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion posinicial = new Posicion(49,31);
 			Posicion posfinal = new Posicion(49,37);
 			
@@ -298,12 +318,13 @@ public class SuperficieTest {
 	// INICIO SEGUNDO TEST //
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test13optimusHumanoideNoPuedePasarPorPantano(){
-		
+		Optimus.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer optimus = new OptimusHumanoide();
+			 Optimus.getOptimus().cambiarModo();
+			Algoformer optimus = Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
@@ -316,12 +337,13 @@ public class SuperficieTest {
 	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test14bumblebeeHumanoideNoPuedePasarPorPantano(){
-		
+		Bumblebee.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bumblebee = new BumblebeeHumanoide();
+			Bumblebee.getBumblebee().cambiarModo();
+			Algoformer bumblebee =Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(21,15);
 			Posicion posfinal = new Posicion(20,15);
 			
@@ -333,12 +355,13 @@ public class SuperficieTest {
 	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test15ratchetHumanoideNoPuedePasarPorPantano(){
-		
+		Ratchet.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer ratchet = new RatchetHumanoide();
+			Ratchet.getRatchet().cambiarModo();
+			Algoformer ratchet = Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(17,21);
 			Posicion posfinal = new Posicion(17,20);
 			
@@ -351,12 +374,13 @@ public class SuperficieTest {
 	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test16megatronHumanoideNoPuedePasarPorPantano(){
-		
+		Megatron.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer megatron = new MegatronHumanoide();
+			Megatron.getMegatron().cambiarModo();
+			Algoformer megatron = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(14,19);
 			Posicion posfinal = new Posicion(15,19);
 			
@@ -368,12 +392,13 @@ public class SuperficieTest {
 	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test17bonecrusherHumanoideNoPuedePasarPorPantano(){
-		
+		Bonecrusher.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bonecrusher = new BonecrusherHumanoide();
+			Bonecrusher.getBonecrusher().cambiarModo();
+			Algoformer bonecrusher = Bonecrusher.getBonecrusher();
 			Posicion posinicial = new Posicion(14,14);
 			Posicion posfinal = new Posicion(15,15);
 			
@@ -385,12 +410,13 @@ public class SuperficieTest {
 
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test18frenzyHumanoideNoPuedePasarPorPantano(){
-		
+		Frenzy.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer frenzy = new FrenzyHumanoide();
+			 Frenzy.getFrenzy().cambiarModo();
+			Algoformer frenzy =  Frenzy.getFrenzy();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(20,20);
 			
@@ -406,12 +432,12 @@ public class SuperficieTest {
 	//EN MODOO ALTERNO LAS UNIDADES TERRESTRES TARDAN EL DOBLE EN ATRAVESAR UN PANTANO//
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test15BumblebeeAlternoPasaPorPantanoPeroTardaElDoble(){
-		
+		Bumblebee.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer algof = new BumblebeeAlterno();
+			Algoformer algof = Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
 			
@@ -437,12 +463,12 @@ public class SuperficieTest {
 
 	@Test
 	public void test19ratchetAlternoVoladorPuedePasarPorPantano(){
-		
+		Ratchet.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer ratchet = new RatchetAlterno();
+			Algoformer ratchet = Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(20,20);
 			
@@ -456,12 +482,12 @@ public class SuperficieTest {
 	
 	@Test
 	public void test20megatronAlternoVoladorPuedePasarPorPantano(){
-		
+		Megatron.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer megatron = new MegatronAlterno();
+			Algoformer megatron = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(22,22);
 			Posicion posfinal = new Posicion(19,19);
 			
@@ -479,12 +505,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test21optimusHumanoideEsDaniadoPorEspinas(){
-		
+		Optimus.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer optimus = new OptimusHumanoide();
+			Optimus.getOptimus().cambiarModo();
+			Algoformer optimus =  Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
@@ -498,12 +525,12 @@ public class SuperficieTest {
 	
 	@Test
 	public void test22optimusAlternoEsDaniadoPorEspinas(){
-		
+		Optimus.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer optimus = new OptimusAlterno();
+			Algoformer optimus = Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,14);
 			Posicion posfinal = new Posicion(15,16);
 			
@@ -517,12 +544,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test23bumblebeeHumanoideEsDaniadoPorEspinas(){
-		
+		Bumblebee.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bumblebee = new BumblebeeHumanoide();
+			Bumblebee.getBumblebee().cambiarModo();
+			Algoformer bumblebee =  Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,19);
 			
@@ -536,12 +564,12 @@ public class SuperficieTest {
 	
 	@Test
 	public void test24bumblebeeAlternoEsDaniadoPorEspinas(){
-		
+		Bumblebee.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer bumblebee = new BumblebeeAlterno();
+			Algoformer bumblebee = Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,16);
 			
@@ -555,12 +583,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test25ratchetHumanoideEsDaniadoPorEspinas(){
-		
+		Ratchet.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer ratchet = new RatchetHumanoide();
+			 Ratchet.getRatchet().cambiarModo();
+			Algoformer ratchet =  Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			
@@ -573,12 +602,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test26MegatronHumanoideEsDaniadoPorEspinas(){
-		
+		Megatron.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-			Algoformer algoformer = new MegatronHumanoide();
+			Megatron.getMegatron().cambiarModo();
+			Algoformer algoformer = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			
@@ -594,13 +624,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test27BonecrusherHumanoideEsDaniadoPorEspinas(){
-		
+		Bonecrusher.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-
-			Algoformer algoformer = new BonecrusherHumanoide();
+			Bonecrusher.getBonecrusher().cambiarModo();
+			Algoformer algoformer = Bonecrusher.getBonecrusher();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida()-(int)(algoformer.getVida()*0.05);
@@ -615,13 +645,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test28BonecrusherAlternoEsDaniadoPorEspinas(){
-		
+		Bonecrusher.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new BonecrusherAlterno();
+			Algoformer algoformer = Bonecrusher.getBonecrusher();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida()-(int)(algoformer.getVida()*0.05);
@@ -635,13 +665,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test29FrenzyHumanoideEsDaniadoPorEspinas(){
-		
+		Frenzy.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
-
-			Algoformer algoformer = new FrenzyHumanoide();
+			Frenzy.getFrenzy().cambiarModo();
+			Algoformer algoformer =Frenzy.getFrenzy();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida()-(int)(algoformer.getVida()*0.05);
@@ -656,13 +686,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test30FrenzyAlternoEsDaniadoPorEspinas(){
-		
+		Frenzy.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new FrenzyAlterno();
+			Algoformer algoformer = Frenzy.getFrenzy();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida()-(int)(algoformer.getVida()*0.05);
@@ -684,13 +714,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test31MegatronAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
-		
+		Megatron.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new MegatronAlterno();
+			Algoformer algoformer = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida();
@@ -705,13 +735,13 @@ public class SuperficieTest {
 	
 	@Test
 	public void test32RatchetAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
-		
+		Ratchet.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new RatchetAlterno();
+			Algoformer algoformer = Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(15,21);
 			Posicion posfinal = new Posicion(15,20);
 			int vidaDespuesDeEspinas = algoformer.getVida();
@@ -728,13 +758,13 @@ public class SuperficieTest {
 	//INICIO SEPTIMO TEST//
 	@Test
 	public void test33RatchetAlternoAtraviesaNubesSinProblema(){
-		
+		Ratchet.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new RatchetAlterno();
+			Algoformer algoformer = Ratchet.getRatchet();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
 			
@@ -747,13 +777,13 @@ public class SuperficieTest {
 	}
 	@Test
 	public void test34MegatronAlternoAtraviesaNubesSinProblema(){
-		
+		Megatron.ResetearInstancia();
 			Tablero tab = new Tablero();
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
-			Algoformer algoformer = new MegatronAlterno();
+			Algoformer algoformer = Megatron.getMegatron();
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(17,17);
 			
@@ -770,7 +800,7 @@ public class SuperficieTest {
 	//INICIO OCTAVO TEST
 	@Test
 	public void test35MegatronAlternoQuedaAtrapado3TurnosEnNebulosaDeAndromeda(){
-		
+		Megatron.ResetearInstancia();
 			Juego juego = new Juego();
 			Area area = new Area(46,49,46,49);			// Pongo una tormenta donde nace
 			Posicion.setTablero(juego.getTablero());
@@ -778,7 +808,7 @@ public class SuperficieTest {
 			area.setAreaNebulosaDeAndromeda(juego.getTablero());
 			
 			Algoformer mega = juego.getDecepticons().getMegatron();
-			mega = juego.getDecepticons().getMegatron().cambiarModo();//Lo Paso a alterno
+			juego.getDecepticons().getMegatron().cambiarModo();//Lo Paso a alterno
 			
 			Posicion pos = new Posicion(46,46);
 			
@@ -815,7 +845,7 @@ public class SuperficieTest {
 	//INICIO NOVENO TEST
 	@Test
 	public void test36MegatronAlternoReduceSuAtaqueAlPasarPorTormentaPsionica(){
-		
+		Megatron.ResetearInstancia();
 			Equipo autobots=new Decepticons();
 			
 			Tablero tab = new Tablero();
@@ -824,8 +854,8 @@ public class SuperficieTest {
 			Ataque.setTablero(tab);
 			Posicion.setTablero(tab);
 			
-			Algoformer algoformer = new MegatronAlterno();
-			Algoformer optimus = new OptimusAlterno();
+			Algoformer algoformer = Megatron.getMegatron();
+			Algoformer optimus = Optimus.getOptimus();
 			/*algoformer.setEquipo(autobots);*/
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(16,16);

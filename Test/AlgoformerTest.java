@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Algoformer;
+import Modelo.Bumblebee;
 
-import Modelo.BumblebeeHumanoide;
 import Modelo.Juego;
 import Modelo.Tablero;
 import Modelo.Posicion;
@@ -16,7 +16,7 @@ public class AlgoformerTest {
 	@Test
 	public void test01unAlgoformerTieneUnaPosicion() {
 		
-		Algoformer algoformer = new BumblebeeHumanoide();
+		Algoformer algoformer = Bumblebee.getBumblebee();
 		Posicion unaPos=new Posicion(1,5);
 				
 		algoformer.setPosicion(unaPos);

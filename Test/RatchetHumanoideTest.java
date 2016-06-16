@@ -6,40 +6,43 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BumblebeeHumanoide;
+import Modelo.Bumblebee;
+
 import Modelo.Decepticons;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+
 import Modelo.Movimiento;
-import Modelo.RatchetAlterno;
-import Modelo.RatchetHumanoide;
+
 import Modelo.Tablero;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
+import Modelo.Megatron;
 import Modelo.Posicion;
+import Modelo.Ratchet;
 
 public class RatchetHumanoideTest {
 
 	@Test
 	public void test01RatchetHumanoideAtacaEnemigoHumanoide(){
+		Ratchet.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(ratchet,pos1);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		ratchet.atacar(megatron);
+			
 		
-		Assert.assertTrue(megatron.getVida()==545);
-		
+
 	}
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
@@ -48,12 +51,12 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(ratchet, pos1);
-		
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		 Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(bumblebee, pos2);
 		
@@ -67,12 +70,12 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(ratchet, pos1);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos2=new Posicion(8,0);
 		tab.ubicarMovil(megatron, pos2);
 		
@@ -82,11 +85,29 @@ public class RatchetHumanoideTest {
 	
 	@Test
 	public void test04CambioRatchetAModoAlterno(){
+		Ratchet.ResetearInstancia();
 		
-		Algoformer ratchet_hum=new RatchetHumanoide();
-		Algoformer ratchet_alt=new RatchetAlterno();
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		Ratchet.getRatchet().cambiarModo();
 		
-		Assert.assertTrue(ratchet_alt.equals(ratchet_hum.cambiarModo()));
+		
+		//nace en modo alterno
+		Posicion posIni=new Posicion(1,4);
+		tab.ubicarMovil( Ratchet.getRatchet(), posIni);
+		
+	
+		Assert.assertTrue( Ratchet.getRatchet().getDistanciaDeAtaque()==5);
+		
+		Ratchet mega1=Ratchet.getRatchet();
+		
+		Ratchet.getRatchet().cambiarModo();
+		
+		
+		
+		Assert.assertTrue(Ratchet.getRatchet().getDistanciaDeAtaque()==2);//en modo humanoide alcance==3
+		// si al cambiar modo me guardan una referencia me podrian hacer trampa
 	}
 		
 	@Test
@@ -95,8 +116,8 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(ratchet,posIni);
 		Posicion posFin=new Posicion(2,4);
@@ -109,10 +130,12 @@ public class RatchetHumanoideTest {
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07RatchetHumanoideTieneLimiteDeVelocidad(){
+		Ratchet.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(ratchet,posIni);
 		Posicion posFin=new Posicion(3,4);
@@ -127,13 +150,13 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-
-		Algoformer ratchet = new RatchetHumanoide();
+		 Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(ratchet, pos1);
 
-
-		Algoformer megatron = new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos2);	
 		
@@ -145,16 +168,19 @@ public class RatchetHumanoideTest {
 
 	@Test
 	public void test09RatchetHumanoideAtacaEnemigoAlterno(){
+		Ratchet.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(ratchet, pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -170,13 +196,13 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		 Ratchet.getRatchet().cambiarModo();
 		
-		
-		Algoformer ratchet = new RatchetHumanoide();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(ratchet, pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(megatron, pos2);
 		

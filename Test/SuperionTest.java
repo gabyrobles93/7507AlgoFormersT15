@@ -5,44 +5,51 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.Ataque;
-import Modelo.BumblebeeAlterno;
-import Modelo.BumblebeeHumanoide;
+import Modelo.Bumblebee;
+
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.ErrorVidaSuperionInsuficienteParaSepararse;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+import Modelo.Megatron;
+
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
+
 import Modelo.Superion;
 import Modelo.Posicion;
-import Modelo.RatchetAlterno;
-import Modelo.RatchetHumanoide;
+import Modelo.Ratchet;
+
 import Modelo.Tablero;
 
 public class SuperionTest {
 
 	@Test
 	public void test01SuperionAtacaEnemigoHumanoide(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+		 Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(3,6);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron= Megatron.getMegatron();
 		Posicion pos4=new Posicion(3,5);
 		tab.ubicarMovil(megatron,pos4);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -54,23 +61,29 @@ public class SuperionTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test02SuperionNoPuedeAtacarDecepticonFueraDeRango(){
-
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+		 Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-	
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(3,6);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos4=new Posicion(6,3);
 		tab.ubicarMovil(megatron, pos4);
 		
@@ -80,18 +93,23 @@ public class SuperionTest {
 	
 	@Test
 	public void test03SuperionSeMueve(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -107,17 +125,22 @@ public class SuperionTest {
 
 	 @Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test04SuperionTieneLimiteDeVelocidad(){
-		
+		 Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -130,15 +153,19 @@ public class SuperionTest {
 /*
 	@Test
 	public void test05SuperionEsAtacadoPorEnemigoHumanoide(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-
-		Algoformer optimus = new OptimusHumanoide();
+Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();
@@ -160,23 +187,29 @@ public class SuperionTest {
 	
 	@Test
 	public void test06SuperionAtacaEnemigoAlterno(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+		 Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos4=new Posicion(3,5);
 		tab.ubicarMovil(megatron, pos4);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -187,15 +220,19 @@ public class SuperionTest {
 	
 	/*@Test
 	public void test07SuperionEsAtacadoPorEnemigoAlterno(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();
@@ -216,16 +253,28 @@ public class SuperionTest {
 	
 	 @Test
 		public void test08SuperionPuedeFormarsePorAutobotsHumanoides(){
-			
+		 Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+	
+		 
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+		
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
+		
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -236,16 +285,19 @@ public class SuperionTest {
 
 		 @Test
 		public void test09SuperionPuedeFormarsePorAutobotsAlternos(){
-			
+			 Ratchet.ResetearInstancia();
+			 Optimus.ResetearInstancia();
+			 Bumblebee.ResetearInstancia();	
+			 
 		Tablero tab=new Tablero();
 			
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeAlterno();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetAlterno();
+		Algoformer ratchet =Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -257,15 +309,24 @@ public class SuperionTest {
 		 @Test
 		public void test10SuperionPuedeFormarsePorAutobotsEnDiferentesModos(){
 			
+			 Ratchet.ResetearInstancia();
+			 Optimus.ResetearInstancia();
+			 Bumblebee.ResetearInstancia();
+			 
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+		
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeAlterno();
+		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -277,16 +338,26 @@ public class SuperionTest {
 		 
 		 @Test
 		public void test11SuperionNaceEnPosicionElegidaDeSusFormadores(){
-			
+			 Ratchet.ResetearInstancia();
+			 Optimus.ResetearInstancia();
+			 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+		
+		Optimus.getOptimus().cambiarModo();	
+		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
+		
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
@@ -298,13 +369,16 @@ public class SuperionTest {
 		 
 		/*@Test(expected=ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
 		public void test12SuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
-			
+			Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+			Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();
@@ -318,12 +392,16 @@ public class SuperionTest {
 		 
 		/* @Test
 		public void test13SuperionSeSepara(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();	
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();
@@ -342,12 +420,16 @@ public class SuperionTest {
 		 
 	  /*  @Test(expected=ErrorVidaSuperionInsuficienteParaSepararse.class)
 		public void test14SuperionConVidaInsuficeinteNoPuedeSeperarse(){
+		Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
-			
-		Algoformer optimus = new OptimusHumanoide();
+			Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
 		Algoformer ratchet = new RatchetHumanoide();

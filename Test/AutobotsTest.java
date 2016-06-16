@@ -5,23 +5,20 @@ import org.junit.Test;
 
 import Modelo.Autobots;
 import Modelo.Bumblebee;
-import Modelo.BumblebeeAlterno;
-import Modelo.BumblebeeHumanoide;
+
 import Modelo.Optimus;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+
 import Modelo.Ratchet;
-import Modelo.RatchetAlterno;
-import Modelo.RatchetHumanoide;
+
 
 
 public class AutobotsTest {
 	
 	@Test
 	public void test01ObtenerOptimusHumanoide(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -31,9 +28,9 @@ public class AutobotsTest {
 	
 	@Test
 	public void test02ObtenerOptimusAlterno(){
-		Optimus optimus=new OptimusAlterno();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -43,9 +40,9 @@ public class AutobotsTest {
 	
 	@Test
 	public void test03ObtenerBumblebeeHumanoide(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -56,9 +53,9 @@ public class AutobotsTest {
 	
 	@Test
 	public void test04ObtenerBumblebeeAlterno(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeAlterno();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -68,9 +65,9 @@ public class AutobotsTest {
 	
 	@Test
 	public void test05ObtenerRatchetHumanoide(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -80,9 +77,9 @@ public class AutobotsTest {
 	
 	@Test
 	public void test06ObtenerRatchetAlterno(){
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetAlterno();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee=Bumblebee.getBumblebee();
+		Ratchet ratchet=Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		
@@ -93,9 +90,9 @@ public class AutobotsTest {
 	@Test
 	public void test07AutobotsComienzaConVidaTotalIgualASumatoriaDeVidasDeIntegrantes() {
 		
-		Optimus optimus=new OptimusHumanoide();
-		Bumblebee bumblebee=new BumblebeeHumanoide();
-		Ratchet ratchet=new RatchetHumanoide();
+		Optimus optimus=Optimus.getOptimus();
+		Bumblebee bumblebee= Bumblebee.getBumblebee();
+		Ratchet ratchet= Ratchet.getRatchet();
 
 		Autobots autobots=new Autobots(optimus,bumblebee,ratchet);
 		

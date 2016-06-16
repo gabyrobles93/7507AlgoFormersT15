@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import Modelo.Algoformer;
 import Modelo.ErrorAreaFueraDeRangoPosible;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
-import Modelo.OptimusHumanoide;
+
+import Modelo.Optimus;
+
 import Modelo.Posicion;
 import Modelo.Tablero;
 
@@ -23,7 +23,7 @@ public class TableroTest {
 	public void test01AgregoAlgoformerAtableroYloBusco() {
 		
 		Tablero tablero1=new Tablero();
-		Algoformer megatron=new MegatronAlterno();
+		Algoformer megatron= Megatron.getMegatron();
 		Posicion unaPos=new Posicion(1,2);
 		tablero1.ubicarMovil(megatron,unaPos);
 		
@@ -41,8 +41,10 @@ public class TableroTest {
 @Test
 public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
 	Tablero tablero1 =new Tablero();
-	Algoformer megatron=new MegatronHumanoide();
-	Algoformer optimus=new OptimusHumanoide();
+	Megatron.getMegatron().cambiarModo();
+	Algoformer megatron= Megatron.getMegatron();
+	Optimus.getOptimus().cambiarModo();
+	Algoformer optimus=Optimus.getOptimus();
 	Posicion unaPos=new Posicion(2,2);
 	Posicion otraPos=new Posicion(5,5);
 	tablero1.ubicarMovil(megatron, unaPos);
@@ -56,7 +58,8 @@ public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros()
 public void test88getAreaReferenciaHastaDondePuede(){
 	Tablero tablero1=new Tablero();
 	Posicion pos=new Posicion(3,3);
-	Megatron mega=new MegatronHumanoide();
+	Megatron.getMegatron().cambiarModo();
+	Megatron mega=Megatron.getMegatron();
 	tablero1.ubicarMovil(mega, pos);
 	Tablero subtab=tablero1.getArea(pos, 4);
 	

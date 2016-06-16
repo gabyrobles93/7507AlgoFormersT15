@@ -44,6 +44,13 @@ public class Menasor extends Algoformer{
 	public void afectarPorSuperficieNubosa(float coeficiente) {
 		// Unidad terrestre, no es afectada por esto.
 	}
+
+
+	@Override
+	public void cambiarModo() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 

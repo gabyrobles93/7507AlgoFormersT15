@@ -7,8 +7,10 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.MegatronAlterno;
+import Modelo.Megatron;
+
 import Modelo.Movimiento;
+import Modelo.Optimus;
 import Modelo.Posicion;
 import Modelo.Tablero;
 import Modelo.ErrorCasillerOcupado;
@@ -23,7 +25,7 @@ public class MovimientoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega= new MegatronAlterno();
+		Algoformer mega= Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,4);
 		tab.ubicarMovil(mega, pos);
 
@@ -35,7 +37,7 @@ public class MovimientoTest {
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		Posicion pos=new Posicion(1,1);
 		
 		tab.ubicarMovil(mega, pos);
@@ -60,7 +62,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -84,7 +86,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -108,7 +110,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -132,7 +134,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -156,7 +158,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -180,7 +182,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -204,7 +206,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -228,7 +230,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -253,7 +255,7 @@ public class MovimientoTest {
 		
 		Movimiento.setTablero(tab);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos);
 		
@@ -261,6 +263,8 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test12CaminoInterrumpidoMovimientoDiagonalNoreste(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -269,11 +273,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(0,4);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -282,6 +286,8 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test13CaminoInterrumpidoMovimientoDiagonalNorOeste(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -290,11 +296,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(0,0);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -303,6 +309,9 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test14CaminoInterrumpidoMovimientoDiagonalSurEste(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -311,11 +320,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(3,3);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -324,6 +333,8 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test15CaminoInterrumpidoMovimientoDiagonalSurOeste(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(2,2);
@@ -332,11 +343,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(4,0);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -345,6 +356,8 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test16CaminoInterrumpidoMovimientoVerticalSur(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -353,11 +366,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(3,1);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -368,6 +381,9 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test17CaminoInterrumpidoMovimientoVerticalNorte(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(3,1);
@@ -376,11 +392,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(1,1);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -391,6 +407,9 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test18CaminoInterrumpidoMovimientoHorizontalEste(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,1);
@@ -399,11 +418,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(1,3);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		
@@ -412,6 +431,8 @@ public class MovimientoTest {
 	}
 	@Test(expected=ErrorCasillerOcupado.class)
 	public void test19CaminoInterrumpidoMovimientoHorizontalOeste(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion pos1=new Posicion(1,3);
@@ -420,11 +441,11 @@ public class MovimientoTest {
 		
 		Posicion pos3=new Posicion(1,1);
 		
-		Algoformer mega=new MegatronAlterno();
+		Algoformer mega=Megatron.getMegatron();
 		
 		tab.ubicarMovil(mega, pos1);
 		
-		Algoformer mega2=new MegatronAlterno();
+		Algoformer mega2=Optimus.getOptimus();
 		
 		tab.ubicarMovil(mega2, pos2);
 		

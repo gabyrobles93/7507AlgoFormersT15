@@ -4,25 +4,24 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import Modelo.Bonecrusher;
-import Modelo.BonecrusherAlterno;
-import Modelo.BonecrusherHumanoide;
+
 import Modelo.Decepticons;
 import Modelo.Frenzy;
-import Modelo.FrenzyAlterno;
-import Modelo.FrenzyHumanoide;
+
 import Modelo.Megatron;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+
 
 
 
 public class DecepticonsTest {
 	
+
+	
 	@Test
-	public void test01ObtenerMegatronHumanoide(){
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyHumanoide();
+	public void test02ObtenerMegatron(){
+		Megatron mega=Megatron.getMegatron();
+		Bonecrusher bone=Bonecrusher.getBonecrusher();
+		Frenzy freny=Frenzy.getFrenzy();
 
 		Decepticons decepticons=new Decepticons(mega,bone,freny);
 		
@@ -30,23 +29,13 @@ public class DecepticonsTest {
 		
 	}
 	
-	@Test
-	public void test02ObtenerMegatronAlterno(){
-		Megatron mega=new MegatronAlterno();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyHumanoide();
 
-		Decepticons decepticons=new Decepticons(mega,bone,freny);
-		
-		Assert.assertTrue(mega==decepticons.getMegatron());
-		
-	}
 	
 	@Test
-	public void test03ObtenerBonecrusherHumanoide(){
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyHumanoide();
+	public void test04ObtenerBonecrusher(){
+		Megatron mega=Megatron.getMegatron();
+		Bonecrusher bone= Bonecrusher.getBonecrusher();
+		Frenzy freny=Frenzy.getFrenzy();
 
 		Decepticons decepticons=new Decepticons(mega,bone,freny);
 		
@@ -55,22 +44,10 @@ public class DecepticonsTest {
 	}
 	
 	@Test
-	public void test04ObtenerBonecrusherAlterno(){
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherAlterno();
-		Frenzy freny=new FrenzyHumanoide();
-
-		Decepticons decepticons=new Decepticons(mega,bone,freny);
-		
-		Assert.assertTrue(bone==decepticons.getBonecrusher());
-		
-	}
-	
-	@Test
-	public void test05ObtenerFrenzyHumanoide(){
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyHumanoide();
+	public void test05ObtenerFrenzy(){
+		Megatron mega=Megatron.getMegatron();
+		Bonecrusher bone=Bonecrusher.getBonecrusher();
+		Frenzy freny=Frenzy.getFrenzy();
 
 		Decepticons decepticons=new Decepticons(mega,bone,freny);
 		
@@ -78,24 +55,14 @@ public class DecepticonsTest {
 		
 	}
 	
-	@Test
-	public void test06ObtenerFrenzyAlterno(){
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyAlterno();
 
-		Decepticons decepticons=new Decepticons(mega,bone,freny);
-		
-		Assert.assertTrue(freny==decepticons.getFrenzy());
-		
-	}
 	
 	@Test
 	public void test07DecepticonsComienzaConVidaTotalIgualASumatoriaDeVidasDeIntegrantes() {
 		
-		Megatron mega=new MegatronHumanoide();
-		Bonecrusher bone=new BonecrusherHumanoide();
-		Frenzy freny=new FrenzyHumanoide();
+		Megatron mega=Megatron.getMegatron();
+		Bonecrusher bone=Bonecrusher.getBonecrusher();
+		Frenzy freny=Frenzy.getFrenzy();
 
 		Decepticons decepticons=new Decepticons(mega,bone,freny);
 		

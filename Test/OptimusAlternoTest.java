@@ -6,34 +6,35 @@ import org.junit.Test;
 import Modelo.Algoformer;
 import Modelo.Ataque;
 import Modelo.Autobots;
-import Modelo.BumblebeeHumanoide;
+import Modelo.Bumblebee;
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
-import Modelo.MegatronAlterno;
-import Modelo.MegatronHumanoide;
+import Modelo.Megatron;
 import Modelo.Movimiento;
-import Modelo.OptimusAlterno;
-import Modelo.OptimusHumanoide;
+import Modelo.Optimus;
 import Modelo.Posicion;
-import Modelo.RatchetHumanoide;
+
 import Modelo.Tablero;
 
 public class OptimusAlternoTest {
 	
 	@Test
 	public void test01OptimusAlternoAtacaEnemigoHumanoide(){
+
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
-		
-		Algoformer megatron=new MegatronHumanoide();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -49,11 +50,11 @@ public class OptimusAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(optimus, pos1);
-		
-		Algoformer bumblebee = new BumblebeeHumanoide();
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion pos2=new Posicion(3,5);
 		tab.ubicarMovil(bumblebee, pos2);
 		
@@ -68,11 +69,11 @@ public class OptimusAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(optimus, pos1);
 		
-		Algoformer megatron=new MegatronHumanoide();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos2=new Posicion(6,0);
 		tab.ubicarMovil(megatron, pos2);
 		
@@ -81,11 +82,30 @@ public class OptimusAlternoTest {
 	
 	@Test
 	public void test04CambioOptimusAModoAlterno(){
+		Optimus.ResetearInstancia();
 		
-		Algoformer optimus_alt=new OptimusAlterno();
-		Algoformer optimus_hum=new OptimusHumanoide();
 		
-		Assert.assertTrue(optimus_hum.equals(optimus_alt.cambiarModo()));
+		Tablero tab=new Tablero();
+		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		Optimus.getOptimus().cambiarModo();
+		Optimus.ResetearInstancia();
+		
+		
+		Posicion posIni=new Posicion(1,4);
+		tab.ubicarMovil( Optimus.getOptimus(), posIni);
+		
+	
+		Assert.assertTrue( Optimus.getOptimus().getDistanciaDeAtaque()==4);
+		
+		Optimus mega1=Optimus.getOptimus();
+		
+		Optimus.getOptimus().cambiarModo();
+		
+		
+		
+		Assert.assertTrue(Optimus.getOptimus().getDistanciaDeAtaque()==2);//en modo humanoide alcance==3
+		// si al cambiar modo me guardan una referencia me podrian hacer trampa
 	}
 		
 	@Test
@@ -95,7 +115,7 @@ public class OptimusAlternoTest {
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(optimus,posIni);
 		Posicion posFin=new Posicion(6,4);
@@ -111,7 +131,7 @@ public class OptimusAlternoTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(optimus,posIni);
 		Posicion posFin=new Posicion(7,4);
@@ -122,16 +142,19 @@ public class OptimusAlternoTest {
 	
 	@Test
 	public void test08OptimusAlternoEsAtacadoPorEnemigoHumanoide(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(optimus, pos1);
-
-		Algoformer megatron = new MegatronHumanoide();
+		
+		 Megatron.getMegatron().cambiarModo();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos2=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos2);	
 		
@@ -147,11 +170,11 @@ public class OptimusAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(optimus, pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,6);
 		tab.ubicarMovil(megatron, pos2);//Coloco enemigo a maxima distancia alcanzada
 		
@@ -162,17 +185,19 @@ public class OptimusAlternoTest {
 	
 	@Test
 	public void test10OptimusAlternoEsAtacadoPorEnemigoAlterno(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
 		
-		Algoformer optimus = new OptimusAlterno();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(optimus, pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos2=new Posicion(4,2);
 		tab.ubicarMovil(megatron, pos2);
 		
