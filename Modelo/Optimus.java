@@ -138,5 +138,16 @@ public  class Optimus extends Algoformer {
 		INSTANCE=new Optimus().new OptimusAlterno();//metodo para independizar tests
 		
 	}
+	public void ExtirparDesdeSuperion(Superion superion) {
+		INSTANCE.vida=superion.vidaAlSeparar();
+		INSTANCE.miPosicion=posicionAlDesarmarSuperion(superion.getPosicion());
+		
+		miPosicion.setMovilOcupa(this);
+	}
+	private Posicion posicionAlDesarmarSuperion(Posicion posicion) {
+		// se regenera en la posicion del superion, no chequeo nada pq se que es valida
+				return posicion;
+			
+	}
 
 }

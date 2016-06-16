@@ -116,11 +116,7 @@ public  class Algoformer implements movil,atacable,atacante,afectable  {
 		return alcance;
 	}
 
-	//Setter de Posicion creado para utilizar en test
-	public void setPosicion(Posicion unaPosicion) {
-		miPosicion=unaPosicion;
-		
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -204,6 +200,11 @@ public  class Algoformer implements movil,atacable,atacante,afectable  {
 	@Override
 	public void afectarPorSuperficieNubosa(float coeficiente) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void borrarDeTablero() {//solo la deberian poder usar Superion/Menasor
+		miPosicion.LiberarPosicion();
 		
 	}
 

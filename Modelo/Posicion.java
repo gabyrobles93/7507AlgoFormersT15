@@ -7,6 +7,9 @@ private int Columna;
 private static Tablero tablero;
 
 public Posicion(int fila, int columna) {
+	if(fila<0&&fila>49&&columna>49&&columna<0){
+		throw new ErrorPosicionInvalida();
+	}
 	Fila=fila;
 	Columna=columna;
 	
@@ -41,6 +44,14 @@ public void afectar(Algoformer algoformer) {
 }
 public static void setTablero(Tablero tab) {
 	tablero = tab;
+}
+public void LiberarPosicion() {
+	tablero.LiberarCasillero(this);
+	
+}
+public void setMovilOcupa(movil superion) {
+	tablero.ubicarMovil(superion, this);
+	
 }
 
 }

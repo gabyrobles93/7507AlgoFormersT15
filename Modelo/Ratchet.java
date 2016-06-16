@@ -138,5 +138,21 @@ public  class Ratchet extends Algoformer {
 		INSTANCE=new Ratchet().new RatchetAlterno();//metodo para independizar tests
 		
 	}
+	public void ExtirparDesdeSuperion(Superion superion) {//solo deberia ser visible por superion
+		INSTANCE.vida=superion.vidaAlSeparar();
+		INSTANCE.miPosicion=posicionAlDesarmarSuperion(superion.getPosicion());
+		miPosicion.setMovilOcupa(this);
+	}
+	private Posicion posicionAlDesarmarSuperion(Posicion posicion) {
+		// se regenera 2 casilleros a la izq del superion, sinopuede uno a la derecha
+		Posicion posAux;
+		try{
+			posAux=new Posicion(posicion.getFila(),posicion.getColumna()-2);
+		}catch(ErrorPosicionInvalida e){
+			posAux=new Posicion(posicion.getFila(),posicion.getColumna()+1);
+		}
+		
+		return posAux;
+	}
 
 }

@@ -19,7 +19,7 @@ public class AlgoformerTest {
 		Algoformer algoformer = Bumblebee.getBumblebee();
 		Posicion unaPos=new Posicion(1,5);
 				
-		algoformer.setPosicion(unaPos);
+		algoformer.cambiarPosicion(unaPos);
 		
 		Assert.assertTrue(algoformer.getPosicion()==unaPos);
 

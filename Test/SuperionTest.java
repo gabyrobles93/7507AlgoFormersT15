@@ -34,6 +34,8 @@ public class SuperionTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -150,32 +152,42 @@ public class SuperionTest {
 	
 	} 
 
-/*
+
 	@Test
 	public void test05SuperionEsAtacadoPorEnemigoHumanoide(){
+		
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-Optimus.getOptimus().cambiarModo();
+		Posicion.setTablero(tab);
+		
+		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
+		
 		Bumblebee.getBumblebee().cambiarModo();
 		Algoformer bumblebee = Bumblebee.getBumblebee();
+		
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
-
-
 		
-		Algoformer megatron = new MegatronHumanoide();
+
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron =Megatron.getMegatron();
 		Posicion pos4=new Posicion(2,3);
 		tab.ubicarMovil(megatron, pos4);	
 		
@@ -183,7 +195,7 @@ Optimus.getOptimus().cambiarModo();
 		
 		Assert.assertTrue(superion.getVida()==990);
 	}
-*/	
+
 	
 	@Test
 	public void test06SuperionAtacaEnemigoAlterno(){
@@ -367,7 +379,7 @@ Optimus.getOptimus().cambiarModo();
 		
 		 }
 		 
-		/*@Test(expected=ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
+	@Test(expected=ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
 		public void test12SuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
 			Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
@@ -381,49 +393,60 @@ Optimus.getOptimus().cambiarModo();
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Algoformer ratchet =Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Posicion otraPosicion=new Posicion(4,4);
 		
 		Algoformer Superion = new Superion(optimus,bumblebee,ratchet,otraPosicion);
 		 
-		 }*/
+		 }
 		 
-		/* @Test
+		@Test
 		public void test13SuperionSeSepara(){
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
+		Movimiento.setTablero(tab);
+		Ataque.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();	
 		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
 		Bumblebee.getBumblebee().cambiarModo();
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
-		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+		Superion superion = new Superion(optimus,bumblebee,ratchet,pos1);
 			
 		superion.separar();//FALTA CREAR
 
 		//VERFICO QUE LA VIDA DE CADA WACHIN SEA LA DEL Superion DIVIDIDO 3
-		Assert.assertTrue(optimus.getVida()==round(1000/3));
-		Assert.assertTrue(bumblebee.getVida()==round(1000/3));
-		Assert.assertTrue(ratchet.getVida()==round(1000/3));
+		Assert.assertTrue(optimus.getVida()==Math.round(1000/3));
+		Assert.assertTrue(bumblebee.getVida()==Math.round(1000/3));
+		Assert.assertTrue(ratchet.getVida()==Math.round(1000/3));
 
-		}*/
+		}
 		 
-	  /*  @Test(expected=ErrorVidaSuperionInsuficienteParaSepararse.class)
+	 @Test(expected=ErrorVidaSuperionInsuficienteParaSepararse.class)
 		public void test14SuperionConVidaInsuficeinteNoPuedeSeperarse(){
+		
+		
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
+		 Posicion.setTablero(tab);
+		
+		
 			Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -432,14 +455,14 @@ Optimus.getOptimus().cambiarModo();
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Algoformer ratchet =Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
-		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+		Superion superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		superion.setVida(2);
 
 		superion.separar();//FALTA CREAR
-		}*/
+		}
 		 
 		 /*@Test
 		public void test15SuperionPuedeAgarrarChispaSuprema(){

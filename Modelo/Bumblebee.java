@@ -139,4 +139,22 @@ public  class Bumblebee extends Algoformer {
 		INSTANCE=new Bumblebee().new BumblebeeAlterno();//metodo para independizar tests
 		
 	}
+	public void ExtirparDesdeSuperion(Superion superion) {//solo deberia ser visible por superion
+		INSTANCE.vida=superion.vidaAlSeparar();
+		INSTANCE.miPosicion=posicionAlDesarmarSuperion(superion.getPosicion());
+		miPosicion.setMovilOcupa(this);
+	}
+	private Posicion posicionAlDesarmarSuperion(Posicion posicion) {
+		// se regenera 2 casilleros a la der del superion, si no puede, se reg uno a la izq del superion
+				Posicion posAux;
+				try{
+					posAux=new Posicion(posicion.getFila(),posicion.getColumna()+2);
+				}catch(ErrorPosicionInvalida e){
+					posAux=new Posicion(posicion.getFila(),posicion.getColumna()-1);
+				}
+				
+				return posAux;
+			}
+
+	
 }

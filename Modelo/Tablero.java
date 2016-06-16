@@ -131,4 +131,9 @@ public void afectar(Algoformer algoformer) {
 	this.getCasillero(algoformer.getPosicion()).afectar((afectable)algoformer);
 }
 
+public void LiberarCasillero(Posicion posicion) {
+	matriz[posicion.getFila()][posicion.getColumna()].setMovilOcupa(null);
+	
+}
+
 }

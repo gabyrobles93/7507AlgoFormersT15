@@ -9,7 +9,22 @@ public class Superion extends Algoformer{
 		vida=optimus.getVida()+bumblebee.getVida()+ratchet.getVida();
 		efecto.velocidadAfectada=velocidad;
 		setEquipo();
+		
+		actualizarPosiciones(optimus,bumblebee,ratchet,posSuperion);
+	}
+
+	private void actualizarPosiciones(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet,
+			Posicion posSuperion) {
+		if(posSuperion!=optimus.getPosicion()&&posSuperion!=bumblebee.getPosicion()&&posSuperion!=ratchet.getPosicion()){
+			throw new ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores();
+		}
+		
+		optimus.borrarDeTablero();
+		bumblebee.borrarDeTablero();
+		ratchet.borrarDeTablero();
+		posSuperion.setMovilOcupa(this);
 		miPosicion=posSuperion;
+		
 	}
 
 	private void  setEquipo(){
@@ -45,6 +60,24 @@ public class Superion extends Algoformer{
 	@Override
 	public void cambiarModo() {
 		// TODO Auto-generated method stub
+		
+	}
+	public void separar(){
+		this.borrarDeTablero();
+		Ratchet.getRatchet().ExtirparDesdeSuperion(this);
+		Bumblebee.getBumblebee().ExtirparDesdeSuperion(this);
+		Optimus.getOptimus().ExtirparDesdeSuperion(this);
+	}
+
+	public int vidaAlSeparar() {
+		if(vida<3){
+			throw new ErrorVidaSuperionInsuficienteParaSepararse();
+		}
+		return Math.round(vida/3); 
+	}
+
+	public void setVida(int i) {//metodo usado en test
+		vida=i;
 		
 	}
 
