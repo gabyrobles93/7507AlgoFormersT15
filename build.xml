@@ -53,7 +53,7 @@
 	</target>
 
 	<target name="compilar.aplicacion" depends="setup, resolve">
-		<javac srcdir="7507AlgoFormersT15/Modelo" destdir="${build}" includeantruntime="false" debug="yes" target="1.8">
+		<javac srcdir="Modelo" destdir="${build}" includeantruntime="false" debug="yes" target="1.8">
 		</javac>
 	</target>
 
@@ -64,7 +64,7 @@
 	</target>
 
     <target name="compilar.tests.sin.instrumentar" depends="compilar.aplicacion">
-        <javac srcdir="7507AlgoFormersT15/Test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+        <javac srcdir="Test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
             <classpath refid="classpath" />
         </javac>
     </target>
