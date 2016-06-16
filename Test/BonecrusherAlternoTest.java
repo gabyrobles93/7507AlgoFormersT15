@@ -28,6 +28,7 @@ public class BonecrusherAlternoTest {
 	public void test01BonecrusherAlternoAtacaEnemigoHumanoide(){
 		Bonecrusher.ResetearInstancia();
 		Bumblebee.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -51,6 +52,7 @@ public class BonecrusherAlternoTest {
 	public void test02BonecrusherAlternoNoPuedeAtacarDecepticons(){
 		Bonecrusher.ResetearInstancia();
 		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -97,7 +99,7 @@ public class BonecrusherAlternoTest {
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 		
-		Bonecrusher.ResetearInstancia();
+		
 		
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
@@ -141,6 +143,7 @@ public class BonecrusherAlternoTest {
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test06BonecrusherAlternoTieneLimiteDeVelocidad(){
 		Bonecrusher.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Algoformer bone = Bonecrusher.getBonecrusher();
@@ -156,6 +159,7 @@ public class BonecrusherAlternoTest {
 	public void test07BonecrusherAlternoEsAtacadoPorEnemigoHumanoide(){
 		Bonecrusher.ResetearInstancia();
 		Bumblebee.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);

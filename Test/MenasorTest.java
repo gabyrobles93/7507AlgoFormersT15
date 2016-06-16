@@ -10,6 +10,7 @@ import Modelo.Bonecrusher;
 
 import Modelo.Decepticons;
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorDistanciaExcesivaParaFormarMenasor;
 import Modelo.ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.ErrorVidaMenasorInsuficienteParaSepararse;
@@ -37,6 +38,8 @@ public class MenasorTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
@@ -73,6 +76,8 @@ public class MenasorTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
@@ -138,6 +143,8 @@ public class MenasorTest {
 		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
@@ -204,6 +211,8 @@ public class MenasorTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
@@ -277,6 +286,8 @@ public class MenasorTest {
 		 Bonecrusher.ResetearInstancia();
 		 
 	Tablero tab=new Tablero();
+	Posicion.setTablero(tab);
+	
 	Megatron.getMegatron().cambiarModo();
 	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
@@ -301,7 +312,8 @@ public class MenasorTest {
 		 Bonecrusher.ResetearInstancia();
 		 
 	Tablero tab=new Tablero();
-		
+	Posicion.setTablero(tab);
+	
 	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
@@ -317,6 +329,30 @@ public class MenasorTest {
 	
 	}
 	 
+	 @Test(expected=ErrorDistanciaExcesivaParaFormarMenasor.class)
+		public void test09MenasorNoPuedeFormarseSiLos3AlgoformersNoEstanIncluidosEnCuadradoDe7x7(){
+			 Megatron.ResetearInstancia();
+			 Frenzy.ResetearInstancia();
+			 Bonecrusher.ResetearInstancia();
+			 
+		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
+			
+		Algoformer megatron=Megatron.getMegatron();
+		Posicion pos1=new Posicion(3,3);
+		tab.ubicarMovil(megatron,pos1);
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
+		Posicion pos2=new Posicion(5,3);
+		tab.ubicarMovil(bonecrusher,pos2);
+		Algoformer frenzy=Frenzy.getFrenzy();
+		Posicion pos3=new Posicion(10,3);//la distancia de a pares debe ser menor a 7
+		tab.ubicarMovil(frenzy,pos3);
+		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+		 
+		
+		
+		}
+		 
 	
 	 @Test
 	public void test10MenasorPuedeFormarsePorDecepticonsEnDiferentesModos(){
@@ -325,6 +361,7 @@ public class MenasorTest {
 		 Bonecrusher.ResetearInstancia();
 		 
 	Tablero tab=new Tablero();
+	Posicion.setTablero(tab);
 	Megatron.getMegatron().cambiarModo();
 	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
@@ -351,6 +388,7 @@ public class MenasorTest {
 		 
 		
 	Tablero tab=new Tablero();
+	Posicion.setTablero(tab);
 	Megatron.getMegatron().cambiarModo();
 	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
@@ -440,7 +478,7 @@ public class MenasorTest {
 	Menasor menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 	menasor.setVida(2);
 
-	menasor.separar();//FALTA CREAR
+	menasor.separar();
 	}
 	 
 	 /*@Test

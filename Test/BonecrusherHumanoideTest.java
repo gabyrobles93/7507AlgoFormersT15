@@ -157,6 +157,7 @@ public class BonecrusherHumanoideTest {
 	public void test08BonecrusherHumanoideEsAtacadoPorEnemigoHumanoide(){
 		Bonecrusher.ResetearInstancia();
 		Bumblebee.ResetearInstancia();
+		
 		Bonecrusher.getBonecrusher().cambiarModo();
 		Bumblebee.getBumblebee().cambiarModo();
 		Tablero tab=new Tablero();
@@ -182,6 +183,8 @@ public class BonecrusherHumanoideTest {
 	@Test
 	public void test09BonecrusherHumanoideAtacaEnemigoAlterno(){
 		Bonecrusher.ResetearInstancia();
+		Bumblebee.ResetearInstancia();
+		
 		Bonecrusher.getBonecrusher().cambiarModo();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

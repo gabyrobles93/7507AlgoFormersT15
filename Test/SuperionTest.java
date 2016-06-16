@@ -8,6 +8,7 @@ import Modelo.Ataque;
 import Modelo.Bumblebee;
 
 import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorDistanciaExcesivaParaFormarSuperion;
 import Modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.ErrorVidaSuperionInsuficienteParaSepararse;
@@ -71,6 +72,8 @@ public class SuperionTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -99,6 +102,7 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
@@ -133,6 +137,8 @@ public class SuperionTest {
 		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -207,6 +213,8 @@ public class SuperionTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -230,7 +238,7 @@ public class SuperionTest {
 		Assert.assertTrue(megatron.getVida()==450);	
 	}
 	
-	/*@Test
+	@Test
 	public void test07SuperionEsAtacadoPorEnemigoAlterno(){
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
@@ -239,6 +247,8 @@ public class SuperionTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -247,12 +257,13 @@ public class SuperionTest {
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos2  =new Posicion(6,3);
 		tab.ubicarMovil(bumblebee,pos2);
-		Algoformer ratchet = new RatchetHumanoide();
+		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos3  =new Posicion(5,3);
 		tab.ubicarMovil(ratchet,pos3);
 		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
 		
-		Algoformer megatron = new MegatronAlterno();
+		Megatron.getMegatron().cambiarModo();
+		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos4=new Posicion(3,5);
 		tab.ubicarMovil(megatron, pos4);
 		
@@ -261,8 +272,70 @@ public class SuperionTest {
 		
 		Assert.assertTrue(superion.getVida()==945);
 
-	}*/
+	}
 	
+	 @Test(expected=ErrorDistanciaExcesivaParaFormarSuperion.class)
+		public void test08SuperionNoPuedeFormarsePorAutobotsQueNoSeEncuentrenEnUnCuadradoDe7x7(){
+		 Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+	
+		 
+		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
+		
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
+		
+		Posicion pos1  =new Posicion(3,3);
+		tab.ubicarMovil(optimus,pos1);
+		
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
+		
+		Posicion pos2  =new Posicion(4,3);
+		tab.ubicarMovil(bumblebee,pos2);
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
+		Posicion pos3  =new Posicion(10,3);//la distancia de a pares debe ser menor a 7
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+		 
+		Assert.assertTrue(superion.getVida()==1000);
+		}
+	 @Test(expected=ErrorDistanciaExcesivaParaFormarSuperion.class)
+		public void test08SuperionNoPuedeFormarsePorAutobotsQueNoSeEncuentrenEnUnCuadradoDe7x7b(){
+		 Ratchet.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 Bumblebee.ResetearInstancia();
+	
+		 
+		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
+		
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
+		
+		Posicion pos1  =new Posicion(1,1);
+		tab.ubicarMovil(optimus,pos1);
+		
+		Bumblebee.getBumblebee().cambiarModo();
+		Algoformer bumblebee = Bumblebee.getBumblebee();
+		
+		Posicion pos2  =new Posicion(0,1);
+		tab.ubicarMovil(bumblebee,pos2);
+		
+		Ratchet.getRatchet().cambiarModo();
+		Algoformer ratchet = Ratchet.getRatchet();
+		
+		Posicion pos3  =new Posicion(7,7);//la distancia de a pares debe ser menor a 5
+		tab.ubicarMovil(ratchet,pos3);
+		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+		 
+		Assert.assertTrue(superion.getVida()==1000);
+		}
 	 @Test
 		public void test08SuperionPuedeFormarsePorAutobotsHumanoides(){
 		 Ratchet.ResetearInstancia();
@@ -271,6 +344,7 @@ public class SuperionTest {
 	
 		 
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
 		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
@@ -302,7 +376,8 @@ public class SuperionTest {
 			 Bumblebee.ResetearInstancia();	
 			 
 		Tablero tab=new Tablero();
-			
+		Posicion.setTablero(tab);	
+		
 		Algoformer optimus =  Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
@@ -326,6 +401,7 @@ public class SuperionTest {
 			 Bumblebee.ResetearInstancia();
 			 
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
 		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
@@ -354,6 +430,7 @@ public class SuperionTest {
 			 Optimus.ResetearInstancia();
 			 Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
 		
 		Optimus.getOptimus().cambiarModo();	
 		Algoformer optimus = Optimus.getOptimus();
@@ -381,10 +458,14 @@ public class SuperionTest {
 		 
 	@Test(expected=ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
 		public void test12SuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
+		
 			Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
+		
 			Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);

@@ -47,6 +47,8 @@ public class RatchetHumanoideTest {
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02RatchetHumanoideNoPuedeAtacarAutobots(){
+		Ratchet.ResetearInstancia();
+		Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -66,7 +68,10 @@ public class RatchetHumanoideTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03RatchetHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
-
+		Ratchet.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -112,6 +117,7 @@ public class RatchetHumanoideTest {
 		
 	@Test
 	public void test06RatchetHumanoideSeMueve(){
+		Ratchet.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -146,6 +152,8 @@ public class RatchetHumanoideTest {
 	
 	@Test
 	public void test08RatchetHumanoideEsAtacadoPorEnemigoHumanoide(){
+		Ratchet.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -192,6 +200,8 @@ public class RatchetHumanoideTest {
 	
 	@Test
 	public void test08RatchetHumanoideEsAtacadoPorEnemigoAlterno(){
+		Ratchet.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

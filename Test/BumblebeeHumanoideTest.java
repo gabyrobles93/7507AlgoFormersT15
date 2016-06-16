@@ -25,6 +25,7 @@ public class BumblebeeHumanoideTest {
 	public void test01BumblebeeHumanoideAtacaEnemigoHumanoide(){
 		Bumblebee.ResetearInstancia();
 		Bonecrusher.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -49,6 +50,7 @@ public class BumblebeeHumanoideTest {
 	public void test02BumblebeeHumanoideNoPuedeAtacarAutobots(){
 		Bumblebee.ResetearInstancia();
 		Ratchet.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);

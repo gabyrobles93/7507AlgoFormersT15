@@ -23,6 +23,9 @@ public class OptimusHumaboideTest {
 
 	@Test
 	public void test01OptimusHumanoideAtacaEnemigoHumanoide(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -44,6 +47,8 @@ public class OptimusHumaboideTest {
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02OptimusHumanoideNoPuedeAtacarAutobots(){
+		Optimus.ResetearInstancia();
+		Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -63,7 +68,9 @@ public class OptimusHumaboideTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03OptimusHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
-
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -110,6 +117,7 @@ public class OptimusHumaboideTest {
 		
 	@Test
 	public void test06OptimusHumanoideSeMueve(){
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -127,6 +135,7 @@ public class OptimusHumaboideTest {
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07OptimusHumanoideTieneLimiteDeVelocidad(){
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

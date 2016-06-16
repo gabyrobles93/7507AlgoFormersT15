@@ -2,7 +2,12 @@ package Modelo;
 
 public class Menasor extends Algoformer{
 
+		private int distanciaDeFormacion=3;
 	public Menasor(Algoformer megatron, Algoformer bonecrusher, Algoformer frenzy,Posicion posMenasor) {
+		if(posicionesValidas(megatron,bonecrusher,frenzy)==false){
+			throw new ErrorDistanciaExcesivaParaFormarMenasor();
+		}
+		
 		ataque=115;
 		alcance=2;
 		velocidad=2;
@@ -10,6 +15,9 @@ public class Menasor extends Algoformer{
 		efecto.velocidadAfectada=velocidad;
 		setEquipo();
 		actualizarPosiciones(megatron,bonecrusher,frenzy,posMenasor);
+	}
+	private boolean posicionesValidas(Algoformer megatron, Algoformer bonecrusher, Algoformer frenzy) {
+		return	megatron.getPosicion().validarDistanciaSuperAlgoformer(bonecrusher,frenzy,distanciaDeFormacion);
 	}
 	private void actualizarPosiciones(Algoformer megatron, Algoformer bonecrusher, Algoformer frenzy,
 			Posicion posMenasor) {

@@ -25,6 +25,8 @@ public class MegatronHumanoideTest{
 	
 	@Test
 	public void test01MegatronHumanoideAtacaEnemigoHumanoide(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -46,6 +48,8 @@ public class MegatronHumanoideTest{
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02MegatronHumanoideNoPuedeAtacarDecepticons(){
+		Megatron.ResetearInstancia();
+		Bonecrusher.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -65,6 +69,8 @@ public class MegatronHumanoideTest{
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03MegatronHumanoideNoPuedeAtacarAutobotFueraDeRango(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -83,6 +89,7 @@ public class MegatronHumanoideTest{
 	
 	@Test
 	public void test04CambioMegatronAModoAlterno(){
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -110,6 +117,7 @@ public class MegatronHumanoideTest{
 		
 	@Test
 	public void test06MegatronHumanoideSeMueve(){
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -196,6 +204,8 @@ public class MegatronHumanoideTest{
 	
 	@Test
 	public void test10MegatronHumanoideEsAtacadoPorEnemigoAlterno(){
+		Megatron.ResetearInstancia();
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

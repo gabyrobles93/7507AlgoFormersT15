@@ -1,6 +1,6 @@
 package Modelo;
 
-public interface afectable {
+public interface afectable extends movil{
 
 	public void afectarPorEspinas(double coeficiente);
 	public void afectarPorPantano(double coeficiente);

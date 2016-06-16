@@ -26,6 +26,8 @@ public class BumblebeeAlternoTest {
 
 	@Test
 	public void test01BumblebeeAlternoAtacaEnemigoHumanoide(){
+		Bumblebee.ResetearInstancia();
+		Bonecrusher.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -48,6 +50,8 @@ public class BumblebeeAlternoTest {
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02BumblebeeAlternoNoPuedeAtacarAutobots(){
+		Bumblebee.ResetearInstancia();
+		Ratchet.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -67,7 +71,9 @@ public class BumblebeeAlternoTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03BumblebeeAlternoNoPuedeAtacarDecepticonFueraDeRango(){
-
+		Bumblebee.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -86,12 +92,12 @@ public class BumblebeeAlternoTest {
 	
 	@Test
 	public void test04CambioBumblebeeAModoAlterno(){
-		
+		Bumblebee.ResetearInstancia();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 		
-		Bumblebee.ResetearInstancia();
+		
 		
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
@@ -112,6 +118,7 @@ public class BumblebeeAlternoTest {
 		
 	@Test
 	public void test06BumblebeeAlternoSeMueve(){
+		Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -130,6 +137,7 @@ public class BumblebeeAlternoTest {
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07BumblebeeAlternoTieneLimiteDeVelocidad(){
+		Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -172,6 +180,8 @@ public class BumblebeeAlternoTest {
 
 	@Test
 	public void test09BumblebeeAlternoAtacaEnemigoAlterno(){
+		Bumblebee.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

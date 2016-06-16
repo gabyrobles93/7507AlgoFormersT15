@@ -76,6 +76,7 @@ public Tablero getArea(Posicion posicionCentral,int distancia)throws RuntimeExce
 	if(distancia<0){
 		throw new ErrorAreaFueraDeRangoPosible();
 	}
+	
 	int distanciaX=distancia;
 	int	distanciaY=distancia;
 	if(posicionCentral.getColumna()<distancia){
@@ -126,9 +127,9 @@ public void setSuperficieCieloEnCasillero(Posicion pos, Superficie superficie) {
 	matriz[pos.getFila()][pos.getColumna()].setSuperficieCielo(superficie);	
 }
 
-public void afectar(Algoformer algoformer) {
+public void afectar(movil algoformer) {
 	
-	this.getCasillero(algoformer.getPosicion()).afectar((afectable)algoformer);
+	this.getCasillero(algoformer.getPosicion()).afectar((afectable) algoformer);
 }
 
 public void LiberarCasillero(Posicion posicion) {

@@ -1,6 +1,6 @@
 package Modelo;
 
-public  class Algoformer implements movil,atacable,atacante,afectable  {
+public abstract  class Algoformer implements movil,atacable,atacante,afectable  {
 	
 	protected int vida;
 	protected Posicion miPosicion;

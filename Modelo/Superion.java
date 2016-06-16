@@ -1,8 +1,13 @@
 package Modelo;
 
 public class Superion extends Algoformer{
+	private int distanciaDeFormacion=3;//se tienen que encontrar en un cuadrado de 5x5 (distancia dos desde el centro)
 
 	public Superion(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet,Posicion posSuperion) {
+		if(posicionesValidas(optimus,bumblebee,ratchet)==false){
+			throw new ErrorDistanciaExcesivaParaFormarSuperion();
+		}
+		
 		ataque=100;
 		alcance=2;
 		velocidad=3;
@@ -11,6 +16,14 @@ public class Superion extends Algoformer{
 		setEquipo();
 		
 		actualizarPosiciones(optimus,bumblebee,ratchet,posSuperion);
+	}
+
+	private boolean posicionesValidas(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet) {
+		
+	return	optimus.getPosicion().validarDistanciaSuperAlgoformer(bumblebee,ratchet,distanciaDeFormacion);
+		
+		
+	
 	}
 
 	private void actualizarPosiciones(Algoformer optimus, Algoformer bumblebee, Algoformer ratchet,

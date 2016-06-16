@@ -45,6 +45,8 @@ public class OptimusAlternoTest {
 	
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02OptimusAlternoNoPuedeAtacarAutobots(){
+		Optimus.ResetearInstancia();
+		Bumblebee.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -64,7 +66,9 @@ public class OptimusAlternoTest {
 	
 	@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 	public void test03OptimusAlternoNoPuedeAtacarDecepticonFueraDeRango(){
-
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -110,6 +114,7 @@ public class OptimusAlternoTest {
 		
 	@Test
 	public void test06OptimusAlternoSeMueve(){
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -128,6 +133,7 @@ public class OptimusAlternoTest {
 	
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07OptimusAlternoTieneLimiteDeVelocidad(){
+		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -165,6 +171,8 @@ public class OptimusAlternoTest {
 	
 	@Test
 	public void test09OptimusAlternoAtacaEnemigoAlterno(){
+		Optimus.ResetearInstancia();
+		Megatron.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);

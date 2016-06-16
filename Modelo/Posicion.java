@@ -38,7 +38,7 @@ public boolean equals(Object obj) {
 		return false;
 	return true;
 }
-public void afectar(Algoformer algoformer) {
+public void afectar(movil algoformer) {
 	
 	tablero.afectar(algoformer);
 }
@@ -52,6 +52,24 @@ public void LiberarPosicion() {
 public void setMovilOcupa(movil superion) {
 	tablero.ubicarMovil(superion, this);
 	
+}
+public boolean validarDistanciaSuperAlgoformer(Algoformer bumblebee, Algoformer ratchet, int distanciaDeFormacion) {
+	int FilaAux,ColumnaAux;
+	for(int i=-distanciaDeFormacion;i<=distanciaDeFormacion;i++){
+		for(int j=-distanciaDeFormacion;j<=distanciaDeFormacion;j++){
+	 FilaAux=(Fila+i<0)?0:Fila+i;		
+	 FilaAux=(Fila+i>49)?49:Fila+i;	//para que no se generen filas nicolumnas invalidas
+	 ColumnaAux=(Columna+j<0)?0:Columna+j;		
+	 ColumnaAux=(Columna+j>49)?49:Columna+j;	
+			
+	Posicion posAux=new Posicion(FilaAux,ColumnaAux);
+	Tablero subtab=tablero.getArea(posAux, distanciaDeFormacion);
+	if(subtab.existeMovil(bumblebee)&&subtab.existeMovil(ratchet)){
+		return true;
+	}
+		}
+	}
+	return false;
 }
 
 }

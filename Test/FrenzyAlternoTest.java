@@ -53,6 +53,8 @@ public class FrenzyAlternoTest {
 		
 		@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 		public void test02FrenzyAlternoNoPuedeAtacarDecepticons(){
+			Frenzy.ResetearInstancia();
+			
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
@@ -72,7 +74,9 @@ public class FrenzyAlternoTest {
 		
 		@Test(expected=ErrorDistanciaDeAtaqueInsuficiente.class)
 		public void test03FrenzyAlternoNoPuedeAtacarAutobotFueraDeRango(){
-
+			Frenzy.ResetearInstancia();
+			Megatron.ResetearInstancia();
+			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
@@ -90,13 +94,15 @@ public class FrenzyAlternoTest {
 		
 		@Test
 		public void test04CambioFrenzyAModoAlterno(){
+			Frenzy.ResetearInstancia();
+			
 			
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 			
-			Frenzy.ResetearInstancia();
+			
 			
 			//nace en modo alterno
 			Posicion posIni=new Posicion(1,4);
@@ -121,6 +127,7 @@ public class FrenzyAlternoTest {
 			
 		@Test
 		public void test06FrenzyAlternoSeMueve(){
+			Frenzy.ResetearInstancia();
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
@@ -139,6 +146,8 @@ public class FrenzyAlternoTest {
 		
 		@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 		public void test07FrenzyAlternoTieneLimiteDeVelocidad(){
+			Frenzy.ResetearInstancia();
+			
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
@@ -177,6 +186,9 @@ public class FrenzyAlternoTest {
 		
 		@Test
 		public void test09FrenzyAlternoAtacaEnemigoAlterno(){
+			Frenzy.ResetearInstancia();
+			Optimus.ResetearInstancia();
+			
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
@@ -198,6 +210,8 @@ public class FrenzyAlternoTest {
 		
 		@Test
 		public void test10FrenzyAlternoEsAtacadoPorEnemigoAlterno(){
+			Frenzy.ResetearInstancia();
+			Optimus.ResetearInstancia();
 			
 			Tablero tab=new Tablero();
 			Movimiento.setTablero(tab);
