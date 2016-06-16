@@ -142,4 +142,23 @@ public  class  Bonecrusher extends Algoformer {
 		INSTANCE=new Bonecrusher().new BonecrusherAlterno();//metodo para independizar tests
 		
 	}
-}
+		public void ExtirparDesdeMenasor(Menasor menasor) {
+			INSTANCE.vida=menasor.vidaAlSeparar();
+			INSTANCE.miPosicion=posicionAlDesarmarMenasor(menasor.getPosicion());
+			miPosicion.setMovilOcupa(this);
+			
+		}
+		private Posicion posicionAlDesarmarMenasor(Posicion posicion) {
+			// se regenera 2 casilleros a la der del menasor, si no puede, se reg uno a la izq del superion
+			Posicion posAux;
+			try{
+				posAux=new Posicion(posicion.getFila(),posicion.getColumna()+2);
+			}catch(ErrorPosicionInvalida e){
+				posAux=new Posicion(posicion.getFila(),posicion.getColumna()-1);
+			}
+			
+			return posAux;
+		}
+
+		}
+

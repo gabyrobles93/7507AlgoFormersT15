@@ -140,5 +140,23 @@ public  class Frenzy extends Algoformer {
 		INSTANCE=new Frenzy().new FrenzyAlterno();//metodo para independizar tests
 		
 	}
+	public void ExtirparDesdeMenasor(Menasor menasor) {
+		INSTANCE.vida=menasor.vidaAlSeparar();
+		INSTANCE.miPosicion=posicionAlDesarmarMenasor(menasor.getPosicion());
+		miPosicion.setMovilOcupa(this);
+		
+	}
+	private Posicion posicionAlDesarmarMenasor(Posicion posicion) {
+		// se regenera 2 casilleros a la izq del menasor, sinopuede uno a la derecha
+				Posicion posAux;
+				try{
+					posAux=new Posicion(posicion.getFila(),posicion.getColumna()-2);
+				}catch(ErrorPosicionInvalida e){
+					posAux=new Posicion(posicion.getFila(),posicion.getColumna()+1);
+				}
+				
+				return posAux;
+			}
+	}
 
-}
+

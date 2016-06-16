@@ -148,5 +148,19 @@ public  class Megatron extends Algoformer {
 			// Unidad terrestre, no es afectada por esto
 		}
 	}
+	public void ExtirparDesdeMenasor(Menasor menasor) {
+		INSTANCE.vida=menasor.vidaAlSeparar();
+		INSTANCE.miPosicion=posicionAlDesarmarMenasor(menasor.getPosicion());
+		miPosicion.setMovilOcupa(this);
+		
+	}
+
+	private Posicion posicionAlDesarmarMenasor(Posicion posicion) {
+		// se regenera en la posicion del menasor, no chequeo nada pq se que es valida
+		return posicion;
+	
+	}
+
+	
 
 }

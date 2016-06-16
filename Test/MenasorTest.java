@@ -158,25 +158,32 @@ public class MenasorTest {
 	}
 	
 	
-/*	 @Test
+	 @Test
 	public void test05MenasorEsAtacadoPorEnemigoHumanoide(){
-		
+		Megatron.ResetearInstancia();
+		Frenzy.ResetearInstancia();
+		Bonecrusher.ResetearInstancia();
+		Optimus.ResetearInstancia();
+		 
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
 
-		Algoformer megatron=new MegatronHumanoide();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 		
-		Algoformer optimus = new OptimusHumanoide();
+		Optimus.getOptimus().cambiarModo();
+		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos4=new Posicion(2,3);
 		tab.ubicarMovil(optimus, pos4);	
 		
@@ -184,7 +191,7 @@ public class MenasorTest {
 	
 		Assert.assertTrue(menasor.getVida()==1100);
 	} 
-*/
+
 	
 
 	 @Test
@@ -223,36 +230,44 @@ public class MenasorTest {
 	
 	
 	
-	/*
+	
 	 @Test
 	public void test07MenasorEsAtacadoPorEnemigoAlterno(){
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 Optimus.ResetearInstancia();
+		 
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
 		
 		
-		Algoformer megatron=new MegatronHumanoide();
+		Algoformer megatron=Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(megatron,pos1);
-		Algoformer bonecrusher=new BonecrusherHumanoide();
+		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos2=new Posicion(5,3);
 		tab.ubicarMovil(bonecrusher,pos2);
-		Algoformer frenzy=new FrenzyHumanoide();
+		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
 		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 		
-		Algoformer optimus = new OptimusAlterno();
-		Posicion pos2=new Posicion(3,2);
-		tab.ubicarMovil(optimus, pos2);
+		Algoformer optimus = Optimus.getOptimus();
+		
+		Posicion pos4=new Posicion(3,2);
+		
+		tab.ubicarMovil(optimus, pos4);
 		
 		
 		optimus.atacar(menasor);
 		
 		Assert.assertTrue(menasor.getVida()==1135);
 	}
-	 */
+	 
 	 
 		
 	 @Test
@@ -353,67 +368,80 @@ public class MenasorTest {
 	
 	 }
 	 
-	/*@Test(expected=ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
+	@Test(expected=ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores.class)
 	public void test12MenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores(){
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
+		 	
 		
 	Tablero tab=new Tablero();
-		
-	Algoformer megatron=new MegatronHumanoide();
+	Posicion.setTablero(tab);
+	Movimiento.setTablero(tab);
+	
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
 	Posicion otraPosicion=new Posicion(4,4);
 	
 	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,otraPosicion);
 	 
-	 }*/
+	 }
 	 
-	/* @Test
+	@Test
 	public void test13MenasorSeSepara(){
-	Tablero tab=new Tablero()
+		 Megatron.ResetearInstancia();
+		 Frenzy.ResetearInstancia();
+		 Bonecrusher.ResetearInstancia();
 		 
-	Algoformer megatron=new MegatronHumanoide();	
+	Tablero tab=new Tablero();
+	Posicion.setTablero(tab);
+	
+		 
+	Algoformer megatron=Megatron.getMegatron();	
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
-	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	Menasor menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 		
 	menasor.separar();//FALTA CREAR
 	
 	//VERFICO QUE LA VIDA DE CADA WACHIN SEA LA DEL MENASOR DIVIDIDO 3
-	Assert.assertTrue(megatron.getVida()==round(1000/3));
-	Assert.assertTrue(bonecrusher.getVida()==round(1000/3));
-	Assert.assertTrue(frenzy.getVida()==round(1000/3));
-	}*/
+	Assert.assertTrue(megatron.getVida()==Math.round(1150/3));
+	Assert.assertTrue(bonecrusher.getVida()==Math.round(1150/3));
+	Assert.assertTrue(frenzy.getVida()==Math.round(1150/3));
+	}
 	 
-	/*@Test(expected=ErrorVidaMenasorInsuficienteParaSepararse.class)
+	@Test(expected=ErrorVidaMenasorInsuficienteParaSepararse.class)
 	public void test14MenasorConVidaInsuficeinteNoPuedeSeperarse(){
-	Tablero tab=new Tablero()
+	Tablero tab=new Tablero();
+	Posicion.setTablero(tab);
 
-	Algoformer megatron=new MegatronHumanoide();
+	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);
 	tab.ubicarMovil(megatron,pos1);
-	Algoformer bonecrusher=new BonecrusherAlterno();
+	Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 	Posicion pos2=new Posicion(5,3);
 	tab.ubicarMovil(bonecrusher,pos2);
-	Algoformer frenzy=new FrenzyHumanoide();
+	Algoformer frenzy=Frenzy.getFrenzy();
 	Posicion pos3=new Posicion(6,3);
 	tab.ubicarMovil(frenzy,pos3);
-	Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+	Menasor menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
 	menasor.setVida(2);
 
 	menasor.separar();//FALTA CREAR
-	}*/
+	}
 	 
 	 /*@Test
 	public void test15MenasorPuedeAgarrarChispaSuprema(){
