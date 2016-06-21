@@ -34,7 +34,7 @@ import Vista.eventos.AtacarEventHandler;
 
 import Vista.eventos.BotonMoverHandler;
 import Vista.eventos.BotonSeleccionarAlgoformerEventHandler;
-import Vista.eventos.MoverEventHandler;
+
 import Modelo.Juego;
 
 
@@ -63,7 +63,7 @@ public class ContenedorPrincipal extends BorderPane {
       	VistaAlgoformer vistaRatchet = new VistaAlgoformer(juego.getAutobots().getRatchet(),PaneCentral);
       	
       	Atacar4.setOnAction(new AtacarEventHandler(vistaRatchet,PaneCentral));
-      	Mover1.setOnAction(new MoverEventHandler(vistaRatchet,PaneCentral));
+      	Mover1.setOnAction(new BotonMoverHandler(vistaRatchet,juego.getAutobots().getRatchet()));
       	
           MenuButton botonRatchet = new MenuButton("Ratchet",null,Atacar4,Mover1 );
           
@@ -76,7 +76,7 @@ public class ContenedorPrincipal extends BorderPane {
       	VistaAlgoformer vistaBumblebee= new VistaAlgoformer(juego.getAutobots().getBumblebee(),PaneCentral);
       	
       	Atacar5.setOnAction(new AtacarEventHandler(vistaBumblebee,PaneCentral));
-      	Mover2.setOnAction(new MoverEventHandler(vistaBumblebee,PaneCentral));
+      	Mover2.setOnAction(new BotonMoverHandler(vistaBumblebee,juego.getAutobots().getBumblebee()));
       	
           MenuButton botonBumblebee = new MenuButton("Bumblebee",null,Atacar5,Mover2 );
           
@@ -89,7 +89,7 @@ public class ContenedorPrincipal extends BorderPane {
       	VistaAlgoformer vistaOptimus = new VistaAlgoformer(juego.getAutobots().getOptimus(),PaneCentral);
       	
       	Atacar6.setOnAction(new AtacarEventHandler(vistaOptimus,PaneCentral));
-      	Mover3.setOnAction(new MoverEventHandler(vistaOptimus,PaneCentral));
+      	Mover3.setOnAction(new BotonMoverHandler(vistaOptimus,juego.getAutobots().getOptimus()));
       	
           MenuButton botonOptimus = new MenuButton("Optimus",null,Atacar6,Mover3 );
           
@@ -112,7 +112,7 @@ public class ContenedorPrincipal extends BorderPane {
     	
     	VistaAlgoformer vistaMegatron = new VistaAlgoformer(juego.getDecepticons().getMegatron(),PaneCentral);
     	Atacar1.setOnAction(new AtacarEventHandler(vistaMegatron,PaneCentral));
-    	Mover4.setOnAction(new MoverEventHandler(vistaMegatron,PaneCentral));
+    	Mover4.setOnAction(new BotonMoverHandler(vistaMegatron,juego.getDecepticons().getMegatron()));
     	
         MenuButton botonMegatron = new MenuButton("Megatron",null,Atacar1,Mover4 );
        
@@ -124,7 +124,7 @@ public class ContenedorPrincipal extends BorderPane {
         
     	VistaAlgoformer vistaBonecrusher = new VistaAlgoformer(juego.getDecepticons().getBonecrusher(),PaneCentral);
     	Atacar2.setOnAction(new AtacarEventHandler(vistaBonecrusher,PaneCentral));
-    	Mover5.setOnAction(new MoverEventHandler(vistaBonecrusher,PaneCentral));
+    	Mover5.setOnAction(new BotonMoverHandler(vistaBonecrusher,juego.getDecepticons().getBonecrusher()));
     	
         MenuButton botonBonecrusher = new MenuButton("Bonecrusher",null,Atacar2 ,Mover5);
         
@@ -136,7 +136,7 @@ public class ContenedorPrincipal extends BorderPane {
         
     	VistaAlgoformer vistaFrenzy = new VistaAlgoformer(juego.getDecepticons().getFrenzy(),PaneCentral);
     	Atacar3.setOnAction(new AtacarEventHandler(vistaFrenzy,PaneCentral));
-    	Mover6.setOnAction(new MoverEventHandler(vistaFrenzy,PaneCentral));
+    	Mover6.setOnAction(new BotonMoverHandler(vistaFrenzy,juego.getDecepticons().getFrenzy()));
     	
         MenuButton botonFrenzy = new MenuButton("Frenzy",null,Atacar3,Mover6 );
         
