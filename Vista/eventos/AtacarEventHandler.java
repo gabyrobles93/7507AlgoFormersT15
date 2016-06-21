@@ -1,7 +1,8 @@
-package Vista;
+package Vista.eventos;
 
 import Modelo.Algoformer;
 import Modelo.Megatron;
+import Vista.VistaAlgoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.TilePane;

@@ -30,9 +30,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import src.modelo.Robot;
-import Vista.eventos.BotonDireccionHandler;
+import Vista.eventos.AtacarEventHandler;
+
 import Vista.eventos.BotonMoverHandler;
 import Vista.eventos.BotonSeleccionarAlgoformerEventHandler;
+import Vista.eventos.MoverEventHandler;
 import Modelo.Juego;
 
 
