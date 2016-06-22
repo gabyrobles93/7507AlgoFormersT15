@@ -208,4 +208,9 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 		
 	}
 
+	public int getVelocidad() {
+		// TODO Auto-generated method stub
+		return velocidad;
+	}
+
 }

@@ -5,13 +5,14 @@ import Modelo.Megatron;
 import Vista.VistaAlgoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 
 public class AtacarEventHandler implements EventHandler<ActionEvent> {
 	private final VistaAlgoformer vista;
-	private final TilePane pane;
+	private final AnchorPane pane;
 
-	public AtacarEventHandler(VistaAlgoformer vistaMegatron, TilePane paneCentral) {
+	public AtacarEventHandler(VistaAlgoformer vistaMegatron, AnchorPane paneCentral) {
 	 this.vista=vistaMegatron;
 	 this.pane=paneCentral;
 	}

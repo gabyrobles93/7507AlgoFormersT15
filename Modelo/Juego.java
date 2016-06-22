@@ -24,6 +24,9 @@ public class Juego {
 	tablero= new Tablero();
 	
 	Movimiento.setTablero(tablero);
+	Posicion.setTablero(tablero);
+	Ataque.setTablero(tablero);
+	
 	}
 
 	public Juego(){
