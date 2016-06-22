@@ -54,7 +54,11 @@ public abstract class  Equipo {
 	}
 
 
-
+	public boolean tieneChispaSuprema(){
+		
+		return algof1.tieneChispaSuprema()|algof2.tieneChispaSuprema()|algof3.tieneChispaSuprema();
+	
+	}
 
 
 	
