@@ -9,6 +9,7 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 	protected int alcance;
 	protected Efecto efecto;
 	protected Equipo miEquipo;
+	protected ChispaSuprema chispa;
 	
 	public  void cambiarModo(){
 		
@@ -116,7 +117,12 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 		return alcance;
 	}
 
-	
+	public boolean tieneChispaSuprema(){
+		
+		if(chispa==null)return false;
+		return true;
+		
+	}
 
 	@Override
 	public int hashCode() {
