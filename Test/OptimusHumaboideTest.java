@@ -28,12 +28,17 @@ public class OptimusHumaboideTest {
 		
 		
 		Tablero tab=new Tablero();
+		Posicion.setTablero(tab);
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
+		Optimus.getOptimus().cambiarModo();//paso a humanoide
 		Algoformer optimus = Optimus.getOptimus();
+		
 		Posicion pos1  =new Posicion(3,3);
 		tab.ubicarMovil(optimus,pos1);
+		
+		Megatron.getMegatron().cambiarModo();
 		
 		Algoformer megatron= Megatron.getMegatron();
 		Posicion pos2=new Posicion(3,5);
@@ -139,6 +144,11 @@ public class OptimusHumaboideTest {
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
+		Posicion.setTablero(tab);
+		Ataque.setTablero(tab);
+		
+		Optimus.getOptimus().cambiarModo();//paso a humanoide
+		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(optimus,posIni);

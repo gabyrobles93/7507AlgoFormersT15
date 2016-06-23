@@ -31,18 +31,19 @@ public void ubicarMovil(movil unMovil,Posicion pos)throws ErrorCasillerOcupado {
 	if(matriz[pos.getFila()][pos.getColumna()].estaOcupado()==true){
 		throw new ErrorCasillerOcupado();
 	}
-	if(unMovil.getPosicion()==null){
+	Posicion posicionInicial=unMovil.getPosicion();
+	if(posicionInicial==null){
 		unMovil.cambiarPosicion(pos);
 		matriz[pos.getFila()][pos.getColumna()].setMovilOcupa(unMovil);
 		return;
 	}
-	Posicion posicionInicial=unMovil.getPosicion();
+	
 	if(posicionInicial!=null){
 	matriz[posicionInicial.getFila()][posicionInicial.getColumna()].setMovilOcupa(null);
-	}
+	
 	matriz[pos.getFila()][pos.getColumna()].setMovilOcupa(unMovil);
 	unMovil.cambiarPosicion(pos);
-	
+	}
 }
 
 public boolean existeMovil(movil unMovil) {

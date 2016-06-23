@@ -46,11 +46,12 @@ public class VistaAlgoformer {
 		//BotonSeleccionarAlgoformerEventHandler handlerSeleccionar= new BotonSeleccionarAlgoformerEventHandler();
 		//algo.setOnAction(handlerSeleccionar);
 		
-		BotonMoverHandler boton=new BotonMoverHandler(vista,algof,contenedor, this);
-		mi2.setOnAction(boton);
+		BotonMoverHandler handlerMover=new BotonMoverHandler(vista,algof,contenedor, this);
+		mi2.setOnAction(handlerMover);
 		
-		BotonAtacarHandler botonA=new BotonAtacarHandler(vista,algof,this);
+		BotonAtacarHandler handlerAtacar=new BotonAtacarHandler(vista,algof,this);
 		
+		mi.setOnAction(handlerAtacar);
 		
 		GridPane.setConstraints(algo, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
 		tablero.getChildren().add(algo);

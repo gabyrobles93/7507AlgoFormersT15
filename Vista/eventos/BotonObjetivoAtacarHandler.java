@@ -2,6 +2,7 @@ package Vista.eventos;
 
 import Modelo.Algoformer;
 import Modelo.Casillero;
+import Modelo.ErrorAlgoformerInexistente;
 import Modelo.Juego;
 import Modelo.Posicion;
 import Vista.VistaAlgoformer;
@@ -26,7 +27,7 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 		this.fila=fila;
 		this.columna=columna;
 		this.algof=algof;
-		
+		this.vista=vista;
 		this.juego=juego;
 	}
 
@@ -39,7 +40,7 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 		try{
 		algof.atacar((Algoformer) casAux.getMovilOcupa());
 		juego.jugarTurno();
-		}catch(RuntimeException e){
+		}catch(ErrorAlgoformerInexistente e){
 			
 			HBox hb=new HBox();
 			Text txt=new Text("Error ataque imposible");
