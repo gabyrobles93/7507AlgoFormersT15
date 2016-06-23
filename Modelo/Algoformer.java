@@ -219,4 +219,10 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 		return velocidad;
 	}
 
+	public boolean estaVivo() {
+		if(vida!=0)
+			return true;
+		return false;
+	}
+
 }

@@ -4,7 +4,7 @@ public class ChispaSuprema {
 	
 	private Posicion posicion;
 	
-	public void ponerEnCentro(){
+	public void ubicarEnCentro(){
 		
 	}
 }

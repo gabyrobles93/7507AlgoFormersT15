@@ -123,9 +123,14 @@ public class Juego {
 		
 		return tablero;
 	}
-public Equipo getGanador() {
-		
-		return ganador;
+
+	public Equipo getGanador() {
+		if(autobots.tieneChispaSuprema()|!(decepticons.tieneMiembrosVivos()))
+			return autobots;
+		if(decepticons.tieneChispaSuprema()|!(autobots.tieneMiembrosVivos()))
+			return decepticons;
+		return null;
+		/*return ganador;*/
 	}
 
 

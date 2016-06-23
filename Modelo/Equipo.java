@@ -59,6 +59,12 @@ public abstract class  Equipo {
 		return algof1.tieneChispaSuprema()|algof2.tieneChispaSuprema()|algof3.tieneChispaSuprema();
 	
 	}
+	
+	public boolean tieneMiembrosVivos(){
+		
+		return algof1.estaVivo()|algof2.estaVivo()|algof3.estaVivo();
+		
+	}
 
 
 	
