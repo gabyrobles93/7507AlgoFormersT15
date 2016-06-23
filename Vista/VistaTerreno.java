@@ -102,7 +102,7 @@ public class VistaTerreno {
 
 		public void dibujarZonaObjetivoMovimiento(Algoformer algof,VistaAlgoformer vista) {
 		
-		contenedor.setModoRango(true);
+		//contenedor.setModoRango(true);
 			
 		int distanciaACubrir=algof.getVelocidad();
 		int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;
@@ -144,7 +144,7 @@ public class VistaTerreno {
 
 
 		public void dibujarZonaObjetivoAtaque(Algoformer algof,VistaAlgoformer vista) {
-			contenedor.setModoRango(true);
+			//contenedor.setModoRango(true);
 			
 			int distanciaACubrir=algof.getDistanciaDeAtaque();
 			int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;

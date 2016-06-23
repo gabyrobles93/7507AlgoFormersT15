@@ -24,8 +24,8 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 	int columna;
 	
 	public BotonObjetivoAtacarHandler(Juego juego, Algoformer algof, int row, int column, VistaAlgoformer vista) {
-		this.fila=fila;
-		this.columna=columna;
+		this.fila=row;
+		this.columna=column;
 		this.algof=algof;
 		this.vista=vista;
 		this.juego=juego;
@@ -33,12 +33,12 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 
 	@Override
 	public void handle(ActionEvent event) {
-		Posicion pos= new Posicion(fila,columna);
+		
 		Casillero casAux;
-		casAux=juego.getTablero().getCasillero(pos);
+		casAux=juego.getTablero().getCasillero(fila, columna);
 		
 		try{
-		algof.atacar((Algoformer) casAux.getMovilOcupa());
+		algof.atacar((Algoformer)(casAux.getMovilOcupa()));
 		juego.jugarTurno();
 		}catch(ErrorAlgoformerInexistente e){
 			

@@ -1,6 +1,8 @@
 package Vista.eventos;
 
 import Modelo.Algoformer;
+import Modelo.ErrorCasillerOcupado;
+import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import Modelo.Juego;
 import Modelo.Posicion;
 import Vista.VistaAlgoformer;
@@ -34,10 +36,10 @@ private final Juego juego;
 		try{
 		algof.mover(pos);
 		juego.jugarTurno();
-		}catch(RuntimeException e){
+		}catch(ErrorCasillerOcupado e){
 			
 			HBox hb=new HBox();
-			Text txt=new Text("Los Casilleros deben estar desocupados y conectados por una linea recta");
+			Text txt=new Text("Los Casilleros deben estar desocupados ");
 			hb.getChildren().add(txt);
 			hb.setAlignment(Pos.CENTER);
 			Scene sc=new Scene(hb,200,200);
@@ -47,6 +49,17 @@ private final Juego juego;
 			st.setFullScreen(false);
 			st.show();
 			
+		}catch(ErrorCasillerosNoConectadosPorLineaRecta e){
+			HBox hb=new HBox();
+			Text txt=new Text("Los Casilleros deben estar en linea recta ");
+			hb.getChildren().add(txt);
+			hb.setAlignment(Pos.CENTER);
+			Scene sc=new Scene(hb,200,200);
+			Stage st = new Stage();
+			st.setTitle("Error");
+			st.setScene(sc);
+			st.setFullScreen(false);
+			st.show();
 		}
 		
 		tab.update();
