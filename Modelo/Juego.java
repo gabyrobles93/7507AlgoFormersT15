@@ -123,6 +123,10 @@ public class Juego {
 		
 		return tablero;
 	}
+public Equipo getGanador() {
+		
+		return ganador;
+	}
 
 
 	

@@ -35,24 +35,28 @@ import Vista.eventos.AtacarEventHandler;
 
 import Vista.eventos.BotonMoverHandler;
 import Vista.eventos.BotonSeleccionarAlgoformerEventHandler;
-
+import Modelo.Algoformer;
+import Modelo.Equipo;
 import Modelo.Juego;
 
 
 public class ContenedorPrincipal extends BorderPane {
-
+	Equipo equipoJugador;
+	Equipo equipoExpectador;
     BarraDeMenu menuBar;
     VistaAlgoformer vistaAlgoformer;
     GridPane PaneCentral;
     VBox contenedorCentral;
     boolean ModoSeleccionar;
+    VistaTerreno vistaTerreno;
 
     public ContenedorPrincipal(Stage stage, Juego juego) {
         this.setMenu(stage);
         this.setCentro(juego);
         this.setConsola();
         this.setBotonera(juego);
-        this.ModoSeleccionar(true);
+        this.setModoSeleccionar(true);
+      
     }
 
     private void setBotonera(Juego juego) {
@@ -90,13 +94,11 @@ public class ContenedorPrincipal extends BorderPane {
         
       
       PaneCentral.setMaxSize(50*14 +7,50*14 +7);
-       
-        VistaTerreno  vistaTerreno= new VistaTerreno(juego,PaneCentral,this);
-        vistaTerreno.dibujar();
-        
       
-        
-        
+       
+        vistaTerreno= new VistaTerreno(juego,PaneCentral,this);
+        vistaTerreno.dibujar();
+       
 
         contenedorCentral = new VBox(PaneCentral);
         contenedorCentral.setAlignment(Pos.CENTER);
@@ -129,8 +131,21 @@ public class ContenedorPrincipal extends BorderPane {
         return menuBar;
     }
 
-	public void ModoSeleccionar(boolean b) {
+	public void setModoSeleccionar(boolean b) {
 		ModoSeleccionar=b;
+		
+	}
+	public boolean modoSeleccionar(){
+		return ModoSeleccionar;
+	}
+
+	public boolean modoRango() {
+		// TODO Auto-generated method stub
+		return vistaTerreno.ModoRango();
+	}
+
+	public void setModoRango(boolean b) {
+		vistaTerreno.setModoRango(b);
 		
 	}
 

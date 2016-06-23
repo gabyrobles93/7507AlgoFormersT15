@@ -19,9 +19,9 @@ public class SalirDeModoRangoOnKeyPressEventHandler implements EventHandler<KeyE
 
 	@Override
 	public void handle(KeyEvent event) {
-		if(event.getCode()==KeyCode.ESCAPE){
-			tablero.dibujar();//Vuelvo todo al principio
-			contenedor.ModoSeleccionar(true);
+		if(event.getCode()==KeyCode.ESCAPE&&tablero.ModoRango()){
+			//Vuelvo todo al principio
+			tablero.setModoRango(false);
 		}
 		
 	}

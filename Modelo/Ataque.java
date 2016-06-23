@@ -16,6 +16,10 @@ public class Ataque {
 
 	public void validar(Algoformer victima, Algoformer atacante) {
 		
+		if(victima==null){
+			throw new ErrorAlgoformerInexistente();
+		}
+		
 		if(fueraDeRango(victima, atacante)) {
 			
 			ErrorDistanciaDeAtaqueInsuficiente error = new ErrorDistanciaDeAtaqueInsuficiente(); 

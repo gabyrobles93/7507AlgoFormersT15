@@ -23,21 +23,23 @@ public class Aplicacion extends Application {
         stage.setTitle("Algoformers");
 
         Juego juego = crearModelo();
-
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
-        Scene escenaJuego = new Scene(contenedorPrincipal, 640, 480);
+        Scene escenaTurnoAutobots = new Scene(contenedorPrincipal, 640, 480);
 
-       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal.getBarraDeMenu());
-        escenaJuego.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
-
-        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaJuego);
+       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal);
+        escenaTurnoAutobots.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
+        
+        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaTurnoAutobots);
         Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 640, 480);
+        
+        stage.setScene(escenaBienvenidos);
+        stage.setFullScreen(false);
 
+     
         // add handler to this:
         // stage.setOnCloseRequest()
 
-        stage.setScene(escenaBienvenidos);
-        stage.setFullScreen(false);
+       
 
         stage.show();
 

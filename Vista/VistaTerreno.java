@@ -1,8 +1,11 @@
 package Vista;
 
 import Modelo.Algoformer;
+import Modelo.Equipo;
 import Modelo.Juego;
 import Modelo.Tablero;
+import Vista.eventos.BotonAtacarHandler;
+import Vista.eventos.BotonObjetivoAtacarHandler;
 import Vista.eventos.BotonObjetivoMovimientoHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,32 +23,47 @@ import javafx.scene.shape.Rectangle;
 public class VistaTerreno {
 	
 	private final GridPane tab;
-	private final Juego juego;
-	
+	private  Equipo equipoJugador;
+	private Juego juego;
 	private final ContenedorPrincipal contenedor;
 	//private Tablero tablero;
+	private boolean ModoRango;
+	private Equipo equipoExpectador;
 	
 
 	public VistaTerreno(Juego juego, GridPane paneCentral,ContenedorPrincipal contenedor) {
 		this.tab=paneCentral;
-		this.juego=juego;
+		//this.equipoJugador=equipoJugador;
 		this.contenedor=contenedor;
+		//this.equipoExpectador=equipoExpectador;
 		//this.tablero=tablero;
+		this.juego=juego;
 	}
 
 
 	 public void dibujar() {
 		 this.clean();
-		 contenedor.ModoSeleccionar(true);
+		 
 	        this.dibujarFormas();
-	        VistaAlgoformer vistaAlgof=new VistaAlgoformer(juego.getAutobots().getOptimus(),tab,"O", contenedor,juego,this);
-	        vistaAlgof.dibujar();
-	       
-	        VistaAlgoformer vistaAlgof2=new VistaAlgoformer(juego.getAutobots().getBumblebee(),tab,"B", contenedor,juego,this);
-	        vistaAlgof2.dibujar();
 	        
-	        VistaAlgoformer vistaAlgof3=new VistaAlgoformer(juego.getAutobots().getRatchet(),tab,"R", contenedor,juego,this);
-	        vistaAlgof3.dibujar();
+	       VistaEquipo vistaEq= VistaEquipo.getVistaEquipo(juego,juego.getEjecutorDeTurnoActual(),tab,contenedor,this);
+	       vistaEq.dibujarBotonesJugador();
+	       
+	       Equipo eqJugador=juego.getEjecutorDeTurnoActual();
+	       Equipo eqExpectador;
+	       if(eqJugador==juego.getAutobots()){
+	    	   eqExpectador=juego.getDecepticons();
+	    	  
+	       }else {
+	    	   eqExpectador=juego.getAutobots();
+	       }
+	       VistaEquipo vistaEqExpectador=VistaEquipo.getVistaEquipo(juego,eqExpectador,tab,contenedor,this);
+	       vistaEqExpectador.dibujarImagenEnemigo();
+	       
+	        /* VistaEquipo vistaEqJug=new VistaEquipo(equipoJugador,tab,contenedor,this);
+	        vistaEqJug.dibujarBotonesJugador();
+	        VistaEquipo vistaEqExp=new VistaEquipo(equipoExpectador,tab,contenedor,this);
+	        vistaEqExp.dibujarBotones*/
 	    }
 
 	    private void dibujarFormas() {
@@ -53,7 +71,7 @@ public class VistaTerreno {
 	    	  
 	    	        for (int column = 0; column < 50; column++) {
 	    	            for (int row = 0 ; row < 50; row++) {
-	    	            	Rectangle rect = new Rectangle(25,25);
+	    	            	Rectangle rect = new Rectangle(10,10);
 	    	            	
 	    	            	//VistaSuperficie vistaSup= new VistaSuperficie(tablero.getCasillero(row, column),rect);
 	    	            	
@@ -83,6 +101,8 @@ public class VistaTerreno {
 
 
 		public void dibujarZonaObjetivoMovimiento(Algoformer algof,VistaAlgoformer vista) {
+		
+		contenedor.setModoRango(true);
 			
 		int distanciaACubrir=algof.getVelocidad();
 		int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;
@@ -94,7 +114,7 @@ public class VistaTerreno {
 			 for (int column=minColumn; column<maxColumn; column++) {
  	            for (int row = minFila ; row<maxFila; row++) {
  	            	
- 	            	BotonObjetivoMovimientoHandler handler = new BotonObjetivoMovimientoHandler(algof,row,column,vista);
+ 	            	BotonObjetivoMovimientoHandler handler = new BotonObjetivoMovimientoHandler(juego,algof,row,column,vista);
  	            	Button botonObjetivoMovimiento = new Button("");
  	            	botonObjetivoMovimiento.setOnAction(handler);
  	       
@@ -102,6 +122,49 @@ public class VistaTerreno {
  	                tab.getChildren().add(botonObjetivoMovimiento);
  	            }
  	        }
+			
+		}
+
+
+		public boolean ModoRango() {
+			// TODO Auto-generated method stub
+			return ModoRango;
+		}
+
+
+		public void setModoRango(boolean b) {
+			ModoRango=b;
+			if(ModoRango==true){
+				
+			}else {
+				dibujar();
+			}
+			
+		}
+
+
+		public void dibujarZonaObjetivoAtaque(Algoformer algof,VistaAlgoformer vista) {
+			contenedor.setModoRango(true);
+			
+			int distanciaACubrir=algof.getDistanciaDeAtaque();
+			int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;
+			int maxColumn = (algof.getPosicion().getColumna()+distanciaACubrir>=50)?49:algof.getPosicion().getColumna()+distanciaACubrir;	
+			
+			int minFila = (algof.getPosicion().getFila()-distanciaACubrir>=0)?algof.getPosicion().getFila()-distanciaACubrir:0;
+			int maxFila = (algof.getPosicion().getFila()+distanciaACubrir>=50)?49:algof.getPosicion().getFila()+distanciaACubrir;	
+			
+				 for (int column=minColumn; column<maxColumn; column++) {
+	 	            for (int row = minFila ; row<maxFila; row++) {
+	 	            	
+	 	            	BotonObjetivoAtacarHandler handler = new BotonObjetivoAtacarHandler(juego,algof,row,column,vista);
+	 	            	Button botonObjetivoAtaque = new Button("");
+	 	            	botonObjetivoAtaque.setOnAction(handler);
+	 	       
+	 	                GridPane.setConstraints(botonObjetivoAtaque, column, row);
+	 	                tab.getChildren().add(botonObjetivoAtaque);
+	 	            }
+	 	        }
+				
 			
 		}
 	
