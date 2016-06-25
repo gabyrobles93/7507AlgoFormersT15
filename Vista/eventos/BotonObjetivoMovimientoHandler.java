@@ -1,8 +1,11 @@
 package Vista.eventos;
 
 import Modelo.Algoformer;
+import Modelo.ErrorAlgoformerHumanoideNoPuedePasarPorPantano;
 import Modelo.ErrorCasillerOcupado;
 import Modelo.ErrorCasillerosNoConectadosPorLineaRecta;
+import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
+import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.Juego;
 import Modelo.Posicion;
 import Vista.VistaAlgoformer;
@@ -35,6 +38,7 @@ private final Juego juego;
 		Posicion pos= new Posicion(fila,columna);
 		try{
 		algof.mover(pos);
+		
 		juego.jugarTurno();
 		}catch(ErrorCasillerOcupado e){
 			
@@ -52,6 +56,28 @@ private final Juego juego;
 		}catch(ErrorCasillerosNoConectadosPorLineaRecta e){
 			HBox hb=new HBox();
 			Text txt=new Text("Los Casilleros deben estar en linea recta ");
+			hb.getChildren().add(txt);
+			hb.setAlignment(Pos.CENTER);
+			Scene sc=new Scene(hb,200,200);
+			Stage st = new Stage();
+			st.setTitle("Error");
+			st.setScene(sc);
+			st.setFullScreen(false);
+			st.show();
+		}catch(ErrorAlgoformerHumanoideNoPuedePasarPorPantano e){
+			HBox hb=new HBox();
+			Text txt=new Text("Oh! te has topado con una superficie pantanosa, no puedes pisarla en modo humanoide");
+			hb.getChildren().add(txt);
+			hb.setAlignment(Pos.CENTER);
+			Scene sc=new Scene(hb,200,200);
+			Stage st = new Stage();
+			st.setTitle("Error");
+			st.setScene(sc);
+			st.setFullScreen(false);
+			st.show();
+		}catch(ErrorVelocidadDelMovilInsuficiente e){
+			HBox hb=new HBox();
+			Text txt=new Text("Distancia de Ataque Insuficiente, atento con el pantano");
 			hb.getChildren().add(txt);
 			hb.setAlignment(Pos.CENTER);
 			Scene sc=new Scene(hb,200,200);

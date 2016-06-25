@@ -3,7 +3,7 @@ package Modelo;
 
 
 public  class Ratchet extends Algoformer {
-	private static Ratchet INSTANCE=new Ratchet().new RatchetAlterno();
+	private static Ratchet INSTANCE=new Ratchet().new RatchetHumanoide();
 	
 	private Ratchet(){
 		
@@ -30,15 +30,20 @@ public  class Ratchet extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 		INSTANCE=new  RatchetHumanoide(miPosicion,vida);
 		miEquipo.algof3=INSTANCE;
+		return INSTANCE;
 		}
 
 		// UNIDAD AEREA //
@@ -90,16 +95,27 @@ public  class Ratchet extends Algoformer {
 			efecto.velocidadAfectada=velocidad;
 			setEquipo();
 		}
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 		
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE =new RatchetAlterno(miPosicion,vida,efecto.afectaataque);
 			
 			miEquipo.algof3=INSTANCE; 
+			return INSTANCE;
 		}
 
 		@Override

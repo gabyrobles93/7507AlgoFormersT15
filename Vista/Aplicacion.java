@@ -16,6 +16,9 @@ public class Aplicacion extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    
+    
+    
 
     @Override
     public void start(final Stage stage) throws Exception {
@@ -23,9 +26,14 @@ public class Aplicacion extends Application {
         stage.setTitle("Algoformers");
 
         Juego juego = crearModelo();
+        
+        
+        
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
+        
         Scene escenaTurnoAutobots = new Scene(contenedorPrincipal, 640, 480);
 
+        
        AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal);
         escenaTurnoAutobots.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
         

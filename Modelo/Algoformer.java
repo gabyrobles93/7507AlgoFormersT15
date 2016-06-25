@@ -11,8 +11,16 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 	protected Equipo miEquipo;
 	protected ChispaSuprema chispa;
 	
-	public  void cambiarModo(){
+	public void capturarChispa(){
 		
+	}
+	
+	public Algoformer getInstance(){
+		return null;
+	}
+	
+	public  Algoformer cambiarModo(){
+		return null;
 	}
 	
 	public Algoformer(){
@@ -42,6 +50,7 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 					mov.Avanzar();
 					if(distanciaPosible(mov.getDistancia())==false){
 						efecto.velocidadAfectada=velocidad;
+						
 						throw new ErrorVelocidadDelMovilInsuficiente();
 					}
 					miPosicion.afectar(this);
@@ -78,9 +87,11 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 	}
 	
 	public void atacate(int danio){
-		if(vida<=danio)vida=0;
-		vida=vida-danio;
-		
+		if(vida<=danio){
+			vida=0;
+			this.borrarDeTablero();
+		}
+		else vida=vida-danio;
 	}
 	
 	public void atacar(Algoformer victima){

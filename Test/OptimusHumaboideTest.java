@@ -35,13 +35,13 @@ public class OptimusHumaboideTest {
 		Optimus.getOptimus().cambiarModo();//paso a humanoide
 		Algoformer optimus = Optimus.getOptimus();
 		
-		Posicion pos1  =new Posicion(3,3);
+		Posicion pos1  =new Posicion(0,1);
 		tab.ubicarMovil(optimus,pos1);
 		
 		Megatron.getMegatron().cambiarModo();
 		
 		Algoformer megatron= Megatron.getMegatron();
-		Posicion pos2=new Posicion(3,5);
+		Posicion pos2=new Posicion(1,1);
 		tab.ubicarMovil(megatron,pos2);//Coloco enemigo a maxima distancia alcanzada
 		
 		optimus.atacar(megatron);
@@ -79,6 +79,7 @@ public class OptimusHumaboideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(2,0);

@@ -17,17 +17,18 @@ public  class Megatron extends Algoformer {
 		
 	}
 	@Override
-	public void cambiarModo() {
-	
+	public Algoformer cambiarModo() {
+	return null;
 	}
 	private class MegatronAlterno extends Megatron {
 		
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE =new MegatronHumanoide(miPosicion,vida,efecto.afectaataque);
 			
 			miEquipo.algof1=INSTANCE;
+			return INSTANCE;
 			
 		}
 		public MegatronAlterno(){
@@ -48,6 +49,11 @@ public  class Megatron extends Algoformer {
 			alcance=2;
 			efecto.velocidadAfectada=velocidad;
 			setEquipo();
+		}
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
 		}
 		
 		private void setEquipo(){
@@ -113,12 +119,23 @@ public  class Megatron extends Algoformer {
 		private void setEquipo(){
 			miEquipo=new Decepticons();
 		}
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE =new MegatronAlterno(miPosicion,vida,efecto.afectaataque);
 			
 			miEquipo.algof1=INSTANCE;
+			return INSTANCE;
 		}
 
 		

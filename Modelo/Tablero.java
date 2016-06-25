@@ -12,6 +12,7 @@ public Tablero(){
 	matriz[i][j]=new Casillero();
 		}
 	}
+	this.fijarSuperficiesIniciales();
 }
 
 public Tablero(int cantidadCasilleros){
@@ -77,7 +78,37 @@ public Tablero getArea(Posicion posicionCentral,int distancia)throws RuntimeExce
 	if(distancia<0){
 		throw new ErrorAreaFueraDeRangoPosible();
 	}
+	int columnaMin=posicionCentral.getColumna()-distancia;
+	int	columnaMax=posicionCentral.getColumna()+distancia;
 	
+	int FilaMin=posicionCentral.getFila()-distancia;
+	int	FilaMax=posicionCentral.getFila()+distancia;
+	
+	if(columnaMin<0){
+		columnaMin=0;
+	}
+	
+	if(FilaMin<0){
+		FilaMin=0;
+	}
+	if(columnaMax>=CantidadCasilleros){
+		columnaMax=CantidadCasilleros-1;
+	}
+	
+	if(FilaMax>=CantidadCasilleros){
+		FilaMax=CantidadCasilleros-1;
+	}
+		Tablero subTablero=new Tablero(2*distancia+1);
+		
+		for(int FilaOriginal=FilaMin,i=0;FilaOriginal<=FilaMax&&i<=2*distancia;FilaOriginal++,i++){
+			for(int ColumnaOriginal=columnaMin,j=0;ColumnaOriginal<=columnaMax&&j<=2*distancia;ColumnaOriginal++,j++){
+				Posicion posicionActual=new Posicion(i,j);
+			subTablero.setCasillero(this.matriz[FilaOriginal][ColumnaOriginal],posicionActual);
+			}
+		}
+		return subTablero;
+	}
+/*	
 	int distanciaX=distancia;
 	int	distanciaY=distancia;
 	if(posicionCentral.getColumna()<distancia){
@@ -104,7 +135,8 @@ public Tablero getArea(Posicion posicionCentral,int distancia)throws RuntimeExce
 		}
 	}
 	return subTablero;
-}
+*/
+
 
 
 
@@ -137,5 +169,53 @@ public void LiberarCasillero(Posicion posicion) {
 	matriz[posicion.getFila()][posicion.getColumna()].setMovilOcupa(null);
 	
 }
+private void fijarSuperficiesIniciales(){
+	Posicion pos1 = new Posicion(10,10);
+	Posicion pos2 = new Posicion(40,40);
+	Posicion pos3 = new Posicion(10,40);
+	Posicion pos4 = new Posicion(40,10);
+	
+	SuperficieNubosa supCielo=new SuperficieNubosa();
+	SuperficieRocosa supRoca=new SuperficieRocosa();
+		this.setearSuperficieCielo(supCielo);
+		this.setearSuperficieTierra(supRoca);
+	
+SuperficieEspinosa supEsp=new SuperficieEspinosa();	
+Tablero subtab=this.getArea(pos1, 2);
+subtab.setearSuperficieTierra(supEsp);
 
+SuperficiePantanosa supPant=new SuperficiePantanosa();
+Tablero subtab2=this.getArea(pos2, 2);
+subtab2.setearSuperficieTierra(supPant);
+this.setearSuperficieTierra(supPant);
+
+SuperficieNebulosaDeAndromeda supNeb=new SuperficieNebulosaDeAndromeda();
+Tablero subtab3=this.getArea(pos3, 2);
+subtab3.setearSuperficieCielo(supNeb);
+
+SuperficieTormentaPsionica supTorm=new SuperficieTormentaPsionica();
+Tablero subtab4=this.getArea(pos4, 2);
+subtab4.setearSuperficieCielo(supTorm);
+
+	
+
+}
+private void setearSuperficieTierra(SuperficieTierra sup){
+	for(int i=0;i<CantidadCasilleros;i++){
+		for(int j=0;j<CantidadCasilleros;j++){
+	
+			matriz[i][j].setSuperficieTierra(sup);
+		}
+	}
+	
+}
+private void setearSuperficieCielo(SuperficieCielo sup){
+	for(int i=0;i<CantidadCasilleros;i++){
+		for(int j=0;j<CantidadCasilleros;j++){
+	
+			matriz[i][j].setSuperficieCielo(sup);
+		}
+	}
+	
+}
 }

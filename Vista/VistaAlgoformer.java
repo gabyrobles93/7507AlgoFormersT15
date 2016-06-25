@@ -5,10 +5,13 @@ import java.util.Iterator;
 import Modelo.Algoformer;
 import Modelo.Juego;
 import Vista.eventos.BotonAtacarHandler;
+import Vista.eventos.BotonCambiarModoHandler;
+import Vista.eventos.BotonCapturarChispaHandler;
 import Vista.eventos.BotonMoverHandler;
 import Vista.eventos.BotonSeleccionarAlgoformerEventHandler;
 import Vista.eventos.BotonVerEstadoHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -19,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import src.modelo.Robot;
 
 public class VistaAlgoformer {
@@ -28,30 +32,53 @@ public class VistaAlgoformer {
 	String nombre;
 	private final ContenedorPrincipal contenedor;
 	private VistaTerreno vista;
+	Stage stage;
 	
-	 public VistaAlgoformer(Algoformer algof, GridPane paneCentral,String nombre,ContenedorPrincipal contenedor,Juego juego,VistaTerreno vista) {
+	 public VistaAlgoformer(Stage stage,Algoformer algof, GridPane paneCentral,String nombre,ContenedorPrincipal contenedor,Juego juego,VistaTerreno vista) {
 	        this.algof = algof;
 	        this.tablero = paneCentral;
 	        this.nombre=nombre;
 	        this.contenedor=contenedor;
 	        this.juego=juego;
 	        this.vista=vista;
+	        this.stage=stage;
 	    }
 	public void dibujar() {
+		if(algof.getVida()==0){
+			return;
+		}
+		if(algof.getEfecto().esperaturnos!=0){
+			dibujarImagen(nombre,Color.GREEN);
+			return;
+		}
 		
 		MenuItem mi=new MenuItem("atacar");
 		MenuItem mi2=new MenuItem("mover");
-		MenuButton algo =new MenuButton(nombre,null,mi,mi2);
+		MenuItem mi3 =new MenuItem("cambiar modo");
+		MenuItem verEstado =new MenuItem("ver estado");
+		MenuItem capturarChispa =new MenuItem("capturar chispa");
+		
+		MenuButton algo =new MenuButton(nombre,null,mi,mi2,mi3,verEstado,capturarChispa);
 		algo.setTextFill(Color.AZURE);
 		//BotonSeleccionarAlgoformerEventHandler handlerSeleccionar= new BotonSeleccionarAlgoformerEventHandler();
 		//algo.setOnAction(handlerSeleccionar);
+		ContenedorJuegoFinalizado contenedorFinal= new ContenedorJuegoFinalizado(stage,juego);
+		Scene escenaFinal =new Scene(contenedorFinal);
+		
+		BotonCapturarChispaHandler handlerCapturarChispa=new BotonCapturarChispaHandler(stage,this.algof,this.vista,escenaFinal);
+		capturarChispa.setOnAction(handlerCapturarChispa);
 		
 		BotonMoverHandler handlerMover=new BotonMoverHandler(vista,algof,contenedor, this);
 		mi2.setOnAction(handlerMover);
 		
 		BotonAtacarHandler handlerAtacar=new BotonAtacarHandler(vista,algof,this);
-		
 		mi.setOnAction(handlerAtacar);
+		
+		BotonCambiarModoHandler handlerCambiarModo= new BotonCambiarModoHandler(vista,algof,this);
+		mi3.setOnAction(handlerCambiarModo);
+		
+		BotonVerEstadoHandler botonHandler=new BotonVerEstadoHandler(algof);
+		verEstado.setOnAction(botonHandler);
 		
 		GridPane.setConstraints(algo, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
 		tablero.getChildren().add(algo);
@@ -70,19 +97,26 @@ public class VistaAlgoformer {
 		// TODO Auto-generated method stub
 		
 	}
-	public void dibujarImagen() {
+	public void dibujarImagen(String string,Color color) {
+		if(algof.getVida()==0){
+			return;
+		}
 		
 		MenuItem verEstado =new MenuItem("ver estado");
 		
 		BotonVerEstadoHandler botonHandler=new BotonVerEstadoHandler(algof);
 		verEstado.setOnAction(botonHandler);
-		MenuButton button = new MenuButton("A",null,verEstado);
+		MenuButton button = new MenuButton(string,null,verEstado);
 		
-		
+		button.setTextFill(color);
 		
 		GridPane.setConstraints(button, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
 		tablero.getChildren().add(button);
 		
+	}
+	public void actualizarAlgof(Algoformer algof2) {
+		// TODO Auto-generated method stub
+		this.algof=algof2;
 	}
 
 

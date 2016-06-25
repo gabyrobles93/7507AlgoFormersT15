@@ -75,6 +75,10 @@ public abstract class Movimiento {
 		
 	}
 	public abstract void Avanzar();
+	public void LimpiarCamino() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

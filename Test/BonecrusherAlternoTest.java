@@ -75,15 +75,19 @@ public class BonecrusherAlternoTest {
 		Optimus.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
+		
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Bonecrusher.getBonecrusher().cambiarModo();
 		
 		Algoformer bonecrusher=Bonecrusher.getBonecrusher();
 		Posicion pos1 = new Posicion(2,0);
 		tab.ubicarMovil(bonecrusher, pos1);
 		
 		Algoformer optimus=Optimus.getOptimus();
-		Posicion pos2=new Posicion(6,0);
+		Posicion pos2=new Posicion(7,0);
 		tab.ubicarMovil(optimus, pos2);
 		
 		bonecrusher.atacar(optimus);

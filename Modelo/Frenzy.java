@@ -3,7 +3,7 @@ package Modelo;
 
 
 public  class Frenzy extends Algoformer {
-	private static Frenzy INSTANCE=new Frenzy().new FrenzyAlterno();
+	private static Frenzy INSTANCE=new Frenzy().new FrenzyHumanoide();
 
 	private Frenzy(){
 		
@@ -30,16 +30,21 @@ public  class Frenzy extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Decepticons();
 		}
 		
 
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 		INSTANCE= new FrenzyHumanoide(miPosicion,vida);
 		miEquipo.algof3=INSTANCE;
+		return INSTANCE;
 		}
 
 
@@ -93,15 +98,25 @@ public  class Frenzy extends Algoformer {
 			efecto.velocidadAfectada=velocidad;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Decepticons();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE= new FrenzyAlterno(miPosicion,vida,efecto.afectaataque);
 			miEquipo.algof3=INSTANCE;
+			return INSTANCE;
 		}
 
 		@Override

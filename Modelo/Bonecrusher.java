@@ -30,7 +30,11 @@ public  class  Bonecrusher extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Decepticons();
 		}
@@ -38,9 +42,10 @@ public  class  Bonecrusher extends Algoformer {
 			
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 		INSTANCE= new BonecrusherHumanoide(miPosicion,vida,efecto.afectaataque);
 		miEquipo.algof2=INSTANCE;
+		return INSTANCE;
 		}
 		
 		
@@ -95,15 +100,26 @@ public  class  Bonecrusher extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 		
 		private void setEquipo(){
 			miEquipo=new Decepticons();
 		}
 
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE= new BonecrusherAlterno(miPosicion,vida,efecto.afectaataque);
 			miEquipo.algof2=INSTANCE;
+			return INSTANCE;
 		}
 
 		@Override

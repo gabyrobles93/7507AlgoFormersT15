@@ -72,6 +72,9 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Optimus.getOptimus().cambiarModo();
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(2,0);

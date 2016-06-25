@@ -3,6 +3,7 @@ package Vista.eventos;
 import Modelo.Algoformer;
 import Modelo.Casillero;
 import Modelo.ErrorAlgoformerInexistente;
+import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.Juego;
 import Modelo.Posicion;
 import Vista.VistaAlgoformer;
@@ -22,13 +23,17 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 	VistaAlgoformer vista;
 	int fila;
 	int columna;
+	Scene escenaFinal;
+	Stage stage;
 	
-	public BotonObjetivoAtacarHandler(Juego juego, Algoformer algof, int row, int column, VistaAlgoformer vista) {
+	public BotonObjetivoAtacarHandler(Juego juego, Algoformer algof, int row, int column, VistaAlgoformer vista,Scene escenaFinal,Stage stage) {
 		this.fila=row;
 		this.columna=column;
 		this.algof=algof;
 		this.vista=vista;
 		this.juego=juego;
+		this.stage=stage;
+		this.escenaFinal=escenaFinal;
 	}
 
 	@Override
@@ -39,11 +44,14 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 		
 		try{
 		algof.atacar((Algoformer)(casAux.getMovilOcupa()));
+		if(juego.getGanador()!=null){
+			stage.setScene(escenaFinal);
+		}
 		juego.jugarTurno();
 		}catch(ErrorAlgoformerInexistente e){
 			
 			HBox hb=new HBox();
-			Text txt=new Text("Error ataque imposible");
+			Text txt=new Text("Error, no hay ninguna victima en ese casillero");
 			hb.getChildren().add(txt);
 			hb.setAlignment(Pos.CENTER);
 			Scene sc=new Scene(hb,200,200);
@@ -53,6 +61,17 @@ public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 			st.setFullScreen(false);
 			st.show();
 			
+		}catch(ErrorNoSePuedeAtacarIntegranteDeEquipo e){
+			HBox hb=new HBox();
+			Text txt=new Text("Error, no puedes atacar otro algoformer de tu mismo equipo");
+			hb.getChildren().add(txt);
+			hb.setAlignment(Pos.CENTER);
+			Scene sc=new Scene(hb,200,200);
+			Stage st = new Stage();
+			st.setTitle("Error");
+			st.setScene(sc);
+			st.setFullScreen(false);
+			st.show();
 		}
 		
 		vista.update();

@@ -7,7 +7,8 @@ public class Juego {
 	public Decepticons decepticons;//idem.igual no se si estaria mal.
 	private Equipo ganador;
 	private Tablero	tablero;
-	
+	public static int distanciaParaCapturarChispa=1;
+	public static ChispaSuprema chispa = new ChispaSuprema();
 	private Equipo turnoDelEquipo;
 
 	public void setAutobots(){
@@ -36,6 +37,7 @@ public class Juego {
 		ubicarDecepticons();
 		ubicarAutobots();
 		turnoDelEquipo=this.getDecepticons();
+		chispa.ubicarEnCentro(tablero);
 		
 	}
 	

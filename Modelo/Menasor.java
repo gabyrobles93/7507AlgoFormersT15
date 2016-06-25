@@ -64,6 +64,16 @@ public class Menasor extends Algoformer{
 		
 	}
 	@Override
+	public void capturarChispa(){
+		ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+		if(aux==null){
+			throw new ErrorDistanciaExcesivaParaCapturarChispa();
+		}else{
+			this.chispa=aux;
+		}
+		
+	}
+	@Override
 	public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
 		// Unidad terrestre, no es afectada por esto.
 	}
@@ -83,8 +93,8 @@ public class Menasor extends Algoformer{
 
 
 	@Override
-	public void cambiarModo() {
-		// TODO Auto-generated method stub
+	public Algoformer cambiarModo() {
+		return null;
 		
 	}
 	

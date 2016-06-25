@@ -71,5 +71,15 @@ public boolean validarDistanciaSuperAlgoformer(Algoformer bumblebee, Algoformer 
 	}
 	return false;
 }
+public ChispaSuprema validarDistanciaChispa() {
+	Tablero subtab=tablero.getArea(this, Juego.distanciaParaCapturarChispa);
+	
+	if(subtab.existeMovil(Juego.chispa)){
+		return Juego.chispa;
+	}else{
+		return null;
+	}
+	
+}
 
 }

@@ -52,7 +52,7 @@ public class ContenedorPrincipal extends BorderPane {
 
     public ContenedorPrincipal(Stage stage, Juego juego) {
         this.setMenu(stage);
-        this.setCentro(juego);
+        this.setCentro(juego,stage);
         this.setConsola();
         this.setBotonera(juego);
         this.setModoSeleccionar(true);
@@ -86,8 +86,10 @@ public class ContenedorPrincipal extends BorderPane {
         this.setTop(menuBar);
     }
 
-    private void setCentro(Juego juego) {
+    private void setCentro(Juego juego,Stage stage) {
 
+    
+    	
         PaneCentral = new GridPane();
         
         PaneCentral.setBorder(new Border(new BorderStroke(Color.BLACK,BorderStrokeStyle.SOLID,null,new BorderWidths(3))));
@@ -96,7 +98,7 @@ public class ContenedorPrincipal extends BorderPane {
       PaneCentral.setMaxSize(50*14 +7,50*14 +7);
       
        
-        vistaTerreno= new VistaTerreno(juego,PaneCentral,this);
+        vistaTerreno= new VistaTerreno(stage,juego,PaneCentral,this);
         vistaTerreno.dibujar();
        
 

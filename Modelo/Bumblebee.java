@@ -30,15 +30,25 @@ public  class Bumblebee extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE= new BumblebeeAlterno(miPosicion,vida,efecto.afectaataque);
 			miEquipo.algof2=INSTANCE;
+			return INSTANCE;
 		}
 
 		@Override
@@ -92,15 +102,20 @@ public  class Bumblebee extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 		INSTANCE=new BumblebeeHumanoide(miPosicion,vida,efecto.afectaataque);
 		miEquipo.algof2=INSTANCE;
+		return INSTANCE;
 		}
 
 		@Override

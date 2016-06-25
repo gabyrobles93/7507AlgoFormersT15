@@ -9,6 +9,7 @@ import Vista.eventos.BotonObjetivoAtacarHandler;
 import Vista.eventos.BotonObjetivoMovimientoHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -19,6 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class VistaTerreno {
 	
@@ -29,24 +31,28 @@ public class VistaTerreno {
 	//private Tablero tablero;
 	private boolean ModoRango;
 	private Equipo equipoExpectador;
+	private Stage stage;
 	
 
-	public VistaTerreno(Juego juego, GridPane paneCentral,ContenedorPrincipal contenedor) {
+	public VistaTerreno(Stage stage,Juego juego, GridPane paneCentral,ContenedorPrincipal contenedor) {
 		this.tab=paneCentral;
 		//this.equipoJugador=equipoJugador;
 		this.contenedor=contenedor;
 		//this.equipoExpectador=equipoExpectador;
 		//this.tablero=tablero;
 		this.juego=juego;
+		this.stage=stage;
 	}
 
 
 	 public void dibujar() {
 		 this.clean();
-		 
+		
 	        this.dibujarFormas();
+	        VistaChispaSuprema vistaChispa=new VistaChispaSuprema(Juego.chispa,tab,this);
+			 vistaChispa.dibujar();
 	        
-	       VistaEquipo vistaEq= VistaEquipo.getVistaEquipo(juego,juego.getEjecutorDeTurnoActual(),tab,contenedor,this);
+	       VistaEquipo vistaEq= VistaEquipo.getVistaEquipo(stage,juego,juego.getEjecutorDeTurnoActual(),tab,contenedor,this);
 	       vistaEq.dibujarBotonesJugador();
 	       
 	       Equipo eqJugador=juego.getEjecutorDeTurnoActual();
@@ -57,7 +63,7 @@ public class VistaTerreno {
 	       }else {
 	    	   eqExpectador=juego.getAutobots();
 	       }
-	       VistaEquipo vistaEqExpectador=VistaEquipo.getVistaEquipo(juego,eqExpectador,tab,contenedor,this);
+	       VistaEquipo vistaEqExpectador=VistaEquipo.getVistaEquipo(stage,juego,eqExpectador,tab,contenedor,this);
 	       vistaEqExpectador.dibujarImagenEnemigo();
 	       
 	        /* VistaEquipo vistaEqJug=new VistaEquipo(equipoJugador,tab,contenedor,this);
@@ -111,8 +117,8 @@ public class VistaTerreno {
 		int minFila = (algof.getPosicion().getFila()-distanciaACubrir>=0)?algof.getPosicion().getFila()-distanciaACubrir:0;
 		int maxFila = (algof.getPosicion().getFila()+distanciaACubrir>=50)?49:algof.getPosicion().getFila()+distanciaACubrir;	
 		
-			 for (int column=minColumn; column<maxColumn; column++) {
- 	            for (int row = minFila ; row<maxFila; row++) {
+			 for (int column=minColumn; column<=maxColumn; column++) {
+ 	            for (int row = minFila ; row<=maxFila; row++) {
  	            	
  	            	BotonObjetivoMovimientoHandler handler = new BotonObjetivoMovimientoHandler(juego,algof,row,column,vista);
  	            	Button botonObjetivoMovimiento = new Button("");
@@ -153,10 +159,12 @@ public class VistaTerreno {
 			int minFila = (algof.getPosicion().getFila()-distanciaACubrir>=0)?algof.getPosicion().getFila()-distanciaACubrir:0;
 			int maxFila = (algof.getPosicion().getFila()+distanciaACubrir>=50)?49:algof.getPosicion().getFila()+distanciaACubrir;	
 			
-				 for (int column=minColumn; column<maxColumn; column++) {
-	 	            for (int row = minFila ; row<maxFila; row++) {
+				 for (int column=minColumn; column<=maxColumn; column++) {
+	 	            for (int row = minFila ; row<=maxFila; row++) {
+	 	            	ContenedorJuegoFinalizado contenedorFinal= new ContenedorJuegoFinalizado(stage,juego);
+	 	       		Scene escenaFinal =new Scene(contenedorFinal);
 	 	            	
-	 	            	BotonObjetivoAtacarHandler handler = new BotonObjetivoAtacarHandler(juego,algof,row,column,vista);
+	 	            	BotonObjetivoAtacarHandler handler = new BotonObjetivoAtacarHandler(juego,algof,row,column,vista,escenaFinal,stage);
 	 	            	Button botonObjetivoAtaque = new Button("");
 	 	            	botonObjetivoAtaque.setOnAction(handler);
 	 	       

@@ -41,7 +41,7 @@ public class ContenedorBienvenidos extends VBox {
         Label etiqueta = new Label();
         etiqueta.setFont(Font.font("Tahoma", FontWeight.BOLD, 18));
 
-        etiqueta.setText("Bienvenidos a la aplicación MVC con JAVA FX de algoritmos y programación III. Haga click en entrar");
+        etiqueta.setText("Bienvenidos Algoformers T15. Haga click en entrar");
         etiqueta.setTextFill(Color.web("#66A7C5"));
 
         BotonEntrarEventHandler botonEntrarHandler = new BotonEntrarEventHandler(stage, proximaEscena);

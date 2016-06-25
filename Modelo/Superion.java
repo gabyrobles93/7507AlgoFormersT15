@@ -69,11 +69,21 @@ public class Superion extends Algoformer{
 	public void afectarPorSuperficieNubosa(float coeficiente) {
 		// Unidad terrestre, no es afectada por esto.
 	}
+	@Override
+	public void capturarChispa(){
+		ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+		if(aux==null){
+			throw new ErrorDistanciaExcesivaParaCapturarChispa();
+		}else{
+			this.chispa=aux;
+		}
+		
+	}
 
 	@Override
-	public void cambiarModo() {
+	public Algoformer cambiarModo() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 	public void separar(){
 		this.borrarDeTablero();

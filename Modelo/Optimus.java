@@ -3,7 +3,7 @@ package Modelo;
 
 
 public  class Optimus extends Algoformer {
-	private static Optimus INSTANCE=new Optimus().new OptimusAlterno();
+	private static Optimus INSTANCE=new Optimus().new OptimusHumanoide();
 	
 	
 	private Optimus(){
@@ -30,15 +30,20 @@ public  class Optimus extends Algoformer {
 			efecto.velocidadAfectada=velocidad;
 			setEquipo();
 		}
-		
+		@Override
+		public void capturarChispa(){
+			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
+			
+		}
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 		INSTANCE= new OptimusHumanoide(miPosicion,vida,efecto.afectaataque);
 		miEquipo.algof1=INSTANCE;
+		return INSTANCE;
 		}
 
 		
@@ -67,6 +72,10 @@ public  class Optimus extends Algoformer {
 		public void afectarPorSuperficieNubosa(float coeficiente) {
 			// Unidad terrestre, no es afectada por esto.
 		}
+		@Override
+		public Algoformer getInstance(){
+			return getOptimus();
+		}
 
 	}
 	private class OptimusHumanoide extends Optimus {
@@ -91,15 +100,26 @@ public  class Optimus extends Algoformer {
 			efecto.afectaataque=afectaataque;
 			setEquipo();
 		}
+		@Override
+		public void capturarChispa(){
+			ChispaSuprema aux=miPosicion.validarDistanciaChispa();
+			if(aux==null){
+				throw new ErrorDistanciaExcesivaParaCapturarChispa();
+			}else{
+				this.chispa=aux;
+			}
+			
+		}
 		
 		private void setEquipo(){
 			miEquipo=new Autobots();
 		}
 		
 		@Override
-		public void cambiarModo() {
+		public Algoformer cambiarModo() {
 			INSTANCE= new OptimusAlterno(miPosicion,vida);
 			miEquipo.algof1=INSTANCE;
+			return INSTANCE;
 		}
 
 		@Override
