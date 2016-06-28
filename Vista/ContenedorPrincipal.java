@@ -20,7 +20,7 @@ public ContenedorPrincipal(Stage stage)throws Exception{
 	mainStage=stage;
 	fxmlTableroLoader=new FXMLLoader(getClass().getResource("TableroRaiz.fxml"));
 	rootTablero=fxmlTableroLoader.load();
-	TableroController controllerTableroRaiz=new TableroController();
+	
 	fxmlTableroLoader.setController(controllerTablero);
 	
 }

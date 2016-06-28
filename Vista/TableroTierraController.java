@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -18,6 +19,7 @@ public class TableroTierraController {
 	Scene proximaescena;
 	
 	@FXML private GridPane tablero_tierra;
+	@FXML private ScrollPane scrollpane;
 
 	
 	@FXML
@@ -225,4 +227,8 @@ public class TableroTierraController {
 				}
 	
 	}
+	public ScrollPane getScrollPane(){
+		return scrollpane;
+	}
+	
 }

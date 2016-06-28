@@ -25,6 +25,7 @@ public class Aplicacion extends Application {
 	private Stage ventanaPrincipal;
 	private TableroController controladorTablero;
 	TableroTierraController controllerTableroTierra;
+	TableroCieloController controllerTableroCielo;
 	
     public static void main(String[] args) {
         launch(args);
@@ -63,21 +64,24 @@ public class Aplicacion extends Application {
 		            FXMLLoader loader = new FXMLLoader();
 		            loader.setLocation(Aplicacion.class.getResource("TableroRaiz.fxml"));
 		           Tablero = (BorderPane) loader.load();
-		           controladorTablero=new TableroController();
-		        	loader.setController(controladorTablero);
+		           
+		           controladorTablero=loader.getController();
+		        	
 		        	
 		        	
 		            // Show the scene containing the root layout.
 		            Scene scene = new Scene(Tablero);
 		            ventanaPrincipal.setScene(scene);
 		            ventanaPrincipal.show();
-		           showVistaTableroTierra();
+		            initVistaTableroCielo();
+		           initVistaTableroTierra();
+		         
 		        } catch (IOException e) {
 		            e.printStackTrace();
 		        }
 		    }
 		
-	 public void showVistaTableroTierra() {
+	 public void initVistaTableroTierra() {
 	        try {
 	            // Load person overview.
 	            FXMLLoader loader2 = new FXMLLoader();
@@ -88,7 +92,7 @@ public class Aplicacion extends Application {
 	           
 	        controllerTableroTierra = loader2.getController();
 	           
-	           
+	    	controladorTablero.setTableroTierraController(controllerTableroTierra);
 	        
 	           Tablero.setCenter(vistaTableroTierra);
 	           controllerTableroTierra.inicializarTableroTierra();
@@ -98,17 +102,18 @@ public class Aplicacion extends Application {
 	            e.printStackTrace();
 	        }
 	    }
-	 public void showVistaTableroCielo() {
+	 public void initVistaTableroCielo() {
 	        try {
 	            // Load person overview.
 	            FXMLLoader loader = new FXMLLoader();
 	            loader.setLocation(Aplicacion.class.getResource("Tablero_Cielo.fxml"));
 	            vistaTableroCielo = (ScrollPane) loader.load();
 	            
-	            TableroCieloController controllerTableroCielo = new TableroCieloController();
+	             controllerTableroCielo = loader.getController();
 		           
-		           loader.setController(controllerTableroCielo);
-		          
+		           
+	             controladorTablero.setTableroCieloController(controllerTableroCielo);
+		        
 		        
 	            // Set person overview into the center of root layout.
 	           controladorTablero.setCenter(vistaTableroCielo);

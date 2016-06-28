@@ -2,6 +2,7 @@ package Vista;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,8 @@ import javafx.stage.Stage;
 public class TableroController {
 	Stage stage;
 	Scene proximaescena;
+	TableroTierraController tabtierra;
+	TableroCieloController tabcielo;
 	
 	@FXML private BorderPane tableroGeneral;
 	@FXML private MenuItem ver_resumen;
@@ -18,11 +21,37 @@ public class TableroController {
 	@FXML private MenuItem ver_cielo;
 	@FXML private MenuItem ayuda;
 	@FXML private MenuItem acerca_de;
+	@FXML private MenuBar barra_de_menu;
 
 
 
+
+	
+	
+	
 public void setCenter(ScrollPane tablero){
 	tableroGeneral.setCenter(tablero);
 }
+public void setTableroTierra(){
+	setCenter(tabtierra.getScrollPane());
+}
+public void setTableroCielo(){
+	setCenter(tabcielo.getScrollPane());
+}
 
+
+
+
+public void setTableroCieloController(TableroCieloController controllerTableroCielo) {
+	// TODO Auto-generated method stub
+	tabcielo=controllerTableroCielo;
+}
+
+
+
+
+public void setTableroTierraController(TableroTierraController controllerTableroTierra) {
+	tabtierra=controllerTableroTierra;
+	
+}
 }

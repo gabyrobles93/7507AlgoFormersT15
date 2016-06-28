@@ -16,8 +16,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Vista">
             <items>
-              <MenuItem fx:id="ver_tierra" mnemonicParsing="false" text="Ver Tierra" />
-                  <MenuItem fx:id="ver_cielo" mnemonicParsing="false" text="Ver Cielo" />
+              <MenuItem fx:id="ver_tierra" mnemonicParsing="false" onAction="#setTableroTierra" text="Ver Tierra" />
+                  <MenuItem fx:id="ver_cielo" mnemonicParsing="false" onAction="#setTableroCielo" text="Ver Cielo" />
             </items>
           </Menu>
           <Menu fx:id="ayuda" mnemonicParsing="false" text="Ayuda">

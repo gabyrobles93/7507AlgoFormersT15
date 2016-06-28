@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -15,6 +16,7 @@ public class TableroCieloController {
 	Stage stage;
 	Scene proximaescena;
 	@FXML private GridPane tablerocielo;
+	@FXML private ScrollPane scrollpane;
 	
 	@FXML
 	public void inicializarTableroCielo(int[] posicionchispa) {
@@ -147,6 +149,8 @@ public class TableroCieloController {
 		
 		stage = mainStage;
 	}
-	
+	public ScrollPane getScrollPane(){
+		return scrollpane;
+	}
 	
 }
