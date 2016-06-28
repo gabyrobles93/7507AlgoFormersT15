@@ -10,7 +10,6 @@ import java.io.IOException;
 
 import Modelo.Juego;
 import Vista.Controlador.CartelBienvenidosController;
-import Vista.Controlador.ContenedorPrincipalController;
 
 
 
@@ -25,12 +24,12 @@ public class Aplicacion extends Application {
     
     
 
-    public void start(final Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception {
 
-    	ContenedorPrincipal contenedorprincipal = new ContenedorPrincipal();
+    	ContenedorPrincipal contenedorprincipal = new ContenedorPrincipal(stage);
+    	contenedorprincipal.setStage(stage);
     	
-    	contenedorprincipal.mostrarTableroCielo(stage);
-   // 	contenedorprincipal.mostrarTableroTierra(stage);
+    	contenedorprincipal.mostrarTableroTierra();
     	
 
 

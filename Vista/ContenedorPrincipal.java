@@ -2,7 +2,6 @@ package Vista;
 
 import java.io.IOException;
 
-import Vista.Controlador.ContenedorPrincipalController;
 import Vista.Controlador.TableroCieloController;
 import Vista.Controlador.TableroTierraController;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +20,13 @@ public class ContenedorPrincipal {
 	Parent rootTableroTierra;
 	Parent rootTableroCielo;
 
+	Stage mainStage;
+	Scene vistaTierra;
+	Scene vistaCielo;
 	
-	public ContenedorPrincipal() throws Exception{
+	public ContenedorPrincipal(Stage stage) throws Exception{
+		
+		mainStage = stage;
 		
 		fxmlTableroTierraLoader = new FXMLLoader(getClass().getResource("Tablero_Tierra.fxml"));
 	    controllerTableroTierra = new TableroTierraController();
@@ -36,8 +40,23 @@ public class ContenedorPrincipal {
 	    rootTableroTierra = fxmlTableroTierraLoader.load();
 	    rootTableroCielo = fxmlTableroCieloLoader.load();
 	    
+	    vistaTierra = new Scene(rootTableroTierra);
+	    vistaCielo = new Scene(rootTableroCielo);
+	    
+	    controllerTableroTierra.setStage(mainStage);
+	    controllerTableroCielo.setStage(mainStage);
+	    
+	    controllerTableroTierra.setProximaEscena(vistaCielo);
+	    controllerTableroCielo.setProximaEscena(vistaTierra);
+	    
 	    inicializarTableros();
 
+	}
+	
+	public void setStage(Stage stg){
+		mainStage = stg;
+	    controllerTableroTierra.setStage(mainStage);
+	    controllerTableroCielo.setStage(mainStage);
 	}
 
 	private void inicializarTableros() {
@@ -45,22 +64,18 @@ public class ContenedorPrincipal {
 		controllerTableroCielo.inicializarTableroCielo(controllerTableroTierra.inicializarTableroTierra());
 	}
 
-	public void mostrarTableroTierra(Stage stage) throws Exception {
-
-		Scene scene = new Scene(rootTableroTierra);
+	public void mostrarTableroTierra() throws Exception {
 		
-		stage.setScene(scene);
+		mainStage.setScene(vistaTierra);
 		
-		stage.show();
+		mainStage.show();
 	}
 	
-	public void mostrarTableroCielo(Stage stage) throws Exception {
-
-		Scene scene = new Scene(rootTableroCielo);
+	public void mostrarTableroCielo() throws Exception {
 		
-		stage.setScene(scene);
-		
-		stage.show();
+		mainStage.setScene(vistaCielo);
+		mainStage.setFullScreen(false);
+		mainStage.show();
 	}
 
 	public void setModoSeleccionar(boolean b) {

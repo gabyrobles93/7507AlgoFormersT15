@@ -4,12 +4,16 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class TableroCieloController {
 
+	Stage stage;
+	Scene proximaescena;
 	@FXML private GridPane tablerocielo;
 	
 	public void inicializarTableroCielo(int[] posicionchispa) {
@@ -131,6 +135,16 @@ public class TableroCieloController {
 	    pic.setImage(image);
 		tablerocielo.add(pic,posicionchispa[0],posicionchispa[1]);
 		
+	}
+
+	public void setProximaEscena(Scene vistaTierra) {
+		// TODO Auto-generated method stub
+		proximaescena = vistaTierra;
+	}
+
+	public void setStage(Stage mainStage) {
+		
+		stage = mainStage;
 	}
 	
 	

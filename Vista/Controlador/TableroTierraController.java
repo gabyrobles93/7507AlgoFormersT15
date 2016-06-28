@@ -4,21 +4,56 @@ import java.io.File;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class TableroTierraController {
 
+	Stage stage;
+	Scene proximaescena;
+	
 	@FXML private GridPane tablerotierra;
+	@FXML private MenuItem ver_resumen;
+	@FXML private MenuItem ver_tierra;
+	@FXML private MenuItem ver_cielo;
+	@FXML private MenuItem ayuda;
+	@FXML private MenuItem acerca_de;
+	
+	public void setProximaEscena(Scene scene){
+		proximaescena = scene;
+	}
+	
+	public void setStage(Stage nuevostage){
+		stage = nuevostage;
+	}
 	
 	public int[] inicializarTableroTierra(){
 		
 		inicializarSuperficies();
 		ubicarAutobots();
 		ubicarDecepticons();
+		inicializarBotones();
 		
 		return ubicarChispa();
+	}
+
+	private void inicializarBotones() {
+		// TODO Auto-generated method stub
+		BotonVerResumenController verResumenController = new BotonVerResumenController();
+		BotonVerCieloController verCieloController = new BotonVerCieloController(stage, proximaescena);
+		BotonAyudaController ayudaController = new BotonAyudaController();
+		BotonAcercaDeController acercaDeController = new BotonAcercaDeController();
+		ver_tierra.setDisable(true);
+		
+		ver_resumen.setOnAction(verResumenController);
+		ver_cielo.setOnAction(verCieloController);
+		ayuda.setOnAction(ayudaController);
+		acerca_de.setOnAction(acercaDeController);
 	}
 
 	private int[] ubicarChispa() {
