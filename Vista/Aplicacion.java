@@ -113,8 +113,10 @@ public class Aplicacion extends Application {
 		           
 		           
 	             controladorTablero.setTableroCieloController(controllerTableroCielo);
-		        
-		        
+		        int posicionchispa[]=new int[2];
+		        posicionchispa[0]=25;
+		        posicionchispa[1]=25;
+		        controllerTableroCielo.inicializarTableroCielo(posicionchispa);
 	            // Set person overview into the center of root layout.
 	           controladorTablero.setCenter(vistaTableroCielo);
 	        } catch (IOException e) {
