@@ -1,4 +1,4 @@
-package Vista.Controlador;
+package Vista;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class TableroTierraController {
 	@FXML private GridPane tablero_tierra;
 
 	
-
+	@FXML
 	public int[] inicializarTableroTierra(){
 		
 		inicializarSuperficies();
@@ -32,7 +32,7 @@ public class TableroTierraController {
 	}
 
 	
-
+	@FXML
 	private int[] ubicarChispa() {
 		
 		int[] posicionchispa = new int[2];
@@ -61,7 +61,7 @@ public class TableroTierraController {
 		
 		return posicionchispa;
 	}
-
+	@FXML
 	private void ubicarDecepticons() {
 		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\decepticons\\humanoide");
 		File[] filelist1 = file.listFiles();
@@ -97,7 +97,7 @@ public class TableroTierraController {
 		tablero_tierra.add(picmegatron,2,0);
 		
 	}
-
+	@FXML
 	private void ubicarAutobots() {
 		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
 		File[] filelist1 = file.listFiles();
@@ -133,7 +133,7 @@ public class TableroTierraController {
 		picratchet.setImage(imageratchet);
 		tablero_tierra.add(picratchet,49,47);
 	}
-
+	@FXML
 	private void inicializarSuperficies() {
 		// TODO Auto-generated method stub
 

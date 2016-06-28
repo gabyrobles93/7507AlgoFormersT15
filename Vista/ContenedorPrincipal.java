@@ -2,9 +2,6 @@ package Vista;
 
 import java.io.IOException;
 
-import Vista.Controlador.TableroCieloController;
-import Vista.Controlador.TableroController;
-import Vista.Controlador.TableroTierraController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

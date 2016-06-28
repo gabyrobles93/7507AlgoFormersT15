@@ -1,4 +1,4 @@
-package Vista.Controlador;
+package Vista;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ public class TableroCieloController {
 	Scene proximaescena;
 	@FXML private GridPane tablerocielo;
 	
+	@FXML
 	public void inicializarTableroCielo(int[] posicionchispa) {
 		// TODO Auto-generated method stub
 		inicializarSuperficies();

@@ -1,4 +1,4 @@
-package Vista.Controlador;
+package Vista;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;

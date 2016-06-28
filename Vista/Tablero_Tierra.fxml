@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<ScrollPane fx:id="scrollpane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fx:id="scrollpane" prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.TableroTierraController">
    <content>
       <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="3750.0" prefWidth="3750.0">
          <children>

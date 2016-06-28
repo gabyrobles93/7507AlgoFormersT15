@@ -13,9 +13,6 @@ import java.io.IOException;
 
 import Modelo.Juego;
 import Vista.Controlador.CartelBienvenidosController;
-import Vista.Controlador.TableroCieloController;
-import Vista.Controlador.TableroController;
-import Vista.Controlador.TableroTierraController;
 
 
 
@@ -74,7 +71,7 @@ public class Aplicacion extends Application {
 		            Scene scene = new Scene(Tablero);
 		            ventanaPrincipal.setScene(scene);
 		            ventanaPrincipal.show();
-		            showVistaTableroTierra();
+		           showVistaTableroTierra();
 		        } catch (IOException e) {
 		            e.printStackTrace();
 		        }
@@ -83,17 +80,17 @@ public class Aplicacion extends Application {
 	 public void showVistaTableroTierra() {
 	        try {
 	            // Load person overview.
-	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(Aplicacion.class.getResource("Tablero_Tierra.fxml"));
-	        vistaTableroTierra =  loader.load();
+	            FXMLLoader loader2 = new FXMLLoader();
+	            loader2.setLocation(Aplicacion.class.getResource("Tablero_Tierra.fxml"));
+	        vistaTableroTierra =  loader2.load();
 
-	           controllerTableroTierra = new TableroTierraController();
+	          
 	           
-	           loader.setController(controllerTableroTierra);
+	        controllerTableroTierra = loader2.getController();
 	           
 	           
 	        
-	           
+	           Tablero.setCenter(vistaTableroTierra);
 	           controllerTableroTierra.inicializarTableroTierra();
 	            // Set person overview into the center of root layout.
 	            
