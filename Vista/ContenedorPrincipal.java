@@ -3,6 +3,7 @@ package Vista;
 import java.io.IOException;
 
 import Vista.Controlador.TableroCieloController;
+import Vista.Controlador.TableroController;
 import Vista.Controlador.TableroTierraController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,8 +12,22 @@ import javafx.stage.Stage;
 
 
 public class ContenedorPrincipal {
+TableroController controllerTablero;
+Stage mainStage;
+Scene vistaTablero;
+FXMLLoader fxmlTableroLoader;
+Parent rootTablero;
 
-	TableroTierraController controllerTableroTierra;
+public ContenedorPrincipal(Stage stage)throws Exception{
+	
+	mainStage=stage;
+	fxmlTableroLoader=new FXMLLoader(getClass().getResource("TableroRaiz.fxml"));
+	rootTablero=fxmlTableroLoader.load();
+	TableroController controllerTableroRaiz=new TableroController();
+	fxmlTableroLoader.setController(controllerTablero);
+	
+}
+	/*TableroTierraController controllerTableroTierra;
 	TableroCieloController controllerTableroCielo;
 	FXMLLoader fxmlTableroTierraLoader;
 	FXMLLoader fxmlTableroCieloLoader;
@@ -20,9 +35,9 @@ public class ContenedorPrincipal {
 	Parent rootTableroTierra;
 	Parent rootTableroCielo;
 
-	Stage mainStage;
+	
 	Scene vistaTierra;
-	Scene vistaCielo;
+	
 	
 	public ContenedorPrincipal(Stage stage) throws Exception{
 		
@@ -50,13 +65,13 @@ public class ContenedorPrincipal {
 	    controllerTableroCielo.setProximaEscena(vistaTierra);
 	    
 	    inicializarTableros();
-
-	}
+*/
 	
+/*	
 	public void setStage(Stage stg){
 		mainStage = stg;
-	    controllerTableroTierra.setStage(mainStage);
-	    controllerTableroCielo.setStage(mainStage);
+	    controllerTablero.setStage(mainStage);
+	   
 	}
 
 	private void inicializarTableros() {
@@ -82,7 +97,7 @@ public class ContenedorPrincipal {
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 
 	
 }

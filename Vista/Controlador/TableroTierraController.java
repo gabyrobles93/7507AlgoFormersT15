@@ -17,44 +17,21 @@ public class TableroTierraController {
 	Stage stage;
 	Scene proximaescena;
 	
-	@FXML private GridPane tablerotierra;
-	@FXML private MenuItem ver_resumen;
-	@FXML private MenuItem ver_tierra;
-	@FXML private MenuItem ver_cielo;
-	@FXML private MenuItem ayuda;
-	@FXML private MenuItem acerca_de;
+	@FXML private GridPane tablero_tierra;
+
 	
-	public void setProximaEscena(Scene scene){
-		proximaescena = scene;
-	}
-	
-	public void setStage(Stage nuevostage){
-		stage = nuevostage;
-	}
-	
+
 	public int[] inicializarTableroTierra(){
 		
 		inicializarSuperficies();
 		ubicarAutobots();
 		ubicarDecepticons();
-		inicializarBotones();
+		
 		
 		return ubicarChispa();
 	}
 
-	private void inicializarBotones() {
-		// TODO Auto-generated method stub
-		BotonVerResumenController verResumenController = new BotonVerResumenController();
-		BotonVerCieloController verCieloController = new BotonVerCieloController(stage, proximaescena);
-		BotonAyudaController ayudaController = new BotonAyudaController();
-		BotonAcercaDeController acercaDeController = new BotonAcercaDeController();
-		ver_tierra.setDisable(true);
-		
-		ver_resumen.setOnAction(verResumenController);
-		ver_cielo.setOnAction(verCieloController);
-		ayuda.setOnAction(ayudaController);
-		acerca_de.setOnAction(acercaDeController);
-	}
+	
 
 	private int[] ubicarChispa() {
 		
@@ -66,7 +43,7 @@ public class TableroTierraController {
 		posicionchispa[0] = posFila;
 		posicionchispa[1] = posColumna;
 		
-		File file = new File("C:\\Users\\Gabriel\\workspace\\Trabajo_Practico_2_ALGO3\\7507AlgoFormersT15\\Vista\\imagenes\\chispapoder");
+		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -80,13 +57,13 @@ public class TableroTierraController {
 	    pic.setFitHeight(75);
 	    
 	    pic.setImage(image);
-		tablerotierra.add(pic,posFila,posColumna);
+		tablero_tierra.add(pic,posFila,posColumna);
 		
 		return posicionchispa;
 	}
 
 	private void ubicarDecepticons() {
-		File file = new File("C:\\Users\\Gabriel\\workspace\\Trabajo_Practico_2_ALGO3\\7507AlgoFormersT15\\Vista\\imagenes\\decepticons\\humanoide");
+		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\decepticons\\humanoide");
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -101,7 +78,7 @@ public class TableroTierraController {
 		picbonecrusher.setFitHeight(75);
 	    
 		picbonecrusher.setImage(imagebonecrusher);
-		tablerotierra.add(picbonecrusher,0,0);		
+		tablero_tierra.add(picbonecrusher,0,0);		
 		
 		Image imagefrenzy = new Image(filelist2.get(1).toURI().toString());
 		ImageView picfrenzy = new ImageView();
@@ -109,7 +86,7 @@ public class TableroTierraController {
 		picfrenzy.setFitHeight(75);
 	    
 		picfrenzy.setImage(imagefrenzy);
-		tablerotierra.add(picfrenzy,0,2);
+		tablero_tierra.add(picfrenzy,0,2);
 	
 		Image imagemegatron = new Image(filelist2.get(2).toURI().toString());
 		ImageView picmegatron = new ImageView();
@@ -117,12 +94,12 @@ public class TableroTierraController {
 		picmegatron.setFitHeight(75);
 	    
 		picmegatron.setImage(imagemegatron);
-		tablerotierra.add(picmegatron,2,0);
+		tablero_tierra.add(picmegatron,2,0);
 		
 	}
 
 	private void ubicarAutobots() {
-		File file = new File("C:\\Users\\Gabriel\\workspace\\Trabajo_Practico_2_ALGO3\\7507AlgoFormersT15\\Vista\\imagenes\\autobots\\humanoide");
+		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -136,7 +113,7 @@ public class TableroTierraController {
 		picbumblebee.setFitHeight(75);
 	    
 		picbumblebee.setImage(imagebumblebee);
-		tablerotierra.add(picbumblebee,49,49);
+		tablero_tierra.add(picbumblebee,49,49);
 
 		
 		Image imageoptimus = new Image(filelist2.get(1).toURI().toString());
@@ -145,7 +122,7 @@ public class TableroTierraController {
 		picoptimus.setFitHeight(75);
 	    
 		picoptimus.setImage(imageoptimus);
-		tablerotierra.add(picoptimus,47,49);
+		tablero_tierra.add(picoptimus,47,49);
 
 		
 		Image imageratchet = new Image(filelist2.get(2).toURI().toString());
@@ -154,13 +131,13 @@ public class TableroTierraController {
 		picratchet.setFitHeight(75);
 	    
 		picratchet.setImage(imageratchet);
-		tablerotierra.add(picratchet,49,47);
+		tablero_tierra.add(picratchet,49,47);
 	}
 
 	private void inicializarSuperficies() {
 		// TODO Auto-generated method stub
 
-				File file = new File("C:\\Users\\gabriel\\workspace\\Trabajo_Practico_2_ALGO3\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
+				File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
 				File[] filelist1 = file.listFiles();
 				ArrayList<File> filelist2 = new ArrayList<>();
 				
@@ -182,7 +159,7 @@ public class TableroTierraController {
 					    pic.setFitHeight(75);
 					    
 					    pic.setImage(image);
-						tablerotierra.add(pic,fila,columna);
+						tablero_tierra.add(pic,fila,columna);
 					}
 				}
 				
@@ -202,7 +179,7 @@ public class TableroTierraController {
 						    pic.setFitHeight(75);
 						    
 						    pic.setImage(image);
-						    tablerotierra.add(pic,fila,columna);
+						    tablero_tierra.add(pic,fila,columna);
 						}
 						
 						if(randomNum == 5 || randomNum == 15){
@@ -212,7 +189,7 @@ public class TableroTierraController {
 						    pic.setFitHeight(75);
 						    
 						    pic.setImage(image);
-						    tablerotierra.add(pic,fila,columna);
+						    tablero_tierra.add(pic,fila,columna);
 						}
 
 					}
@@ -231,7 +208,7 @@ public class TableroTierraController {
 						    pic.setFitHeight(75);
 						    
 						    pic.setImage(image);
-							tablerotierra.add(pic,fila,columna);
+							tablero_tierra.add(pic,fila,columna);
 						}
 						
 						if(randomNum == 5){
@@ -241,7 +218,7 @@ public class TableroTierraController {
 						    pic.setFitHeight(75);
 						    
 						    pic.setImage(image);
-						    tablerotierra.add(pic,fila,columna);
+						    tablero_tierra.add(pic,fila,columna);
 						}
 
 					}

@@ -35,7 +35,7 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
 		
 		tablero.dibujarZonaObjetivoMovimiento(algof,vistaAlgo);
 		
-        contenedor.setModoSeleccionar(false);
+        
         
         
     }
