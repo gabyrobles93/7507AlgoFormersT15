@@ -1,9 +1,8 @@
-package Vista.eventos;
+package Vista.Controlador;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
-import src.modelo.Robot;
 import Modelo.Algoformer;
 import Modelo.Juego;
 import Modelo.Posicion;
@@ -16,12 +15,13 @@ public class BotonMoverHandler implements EventHandler<ActionEvent> {
     private final Algoformer algof;
     private final VistaTerreno tablero;
     private final ContenedorPrincipal contenedor;
-
-   /* public BotonMoverHandler(VistaAlgoformer vistaAlgoformer, Algoformer algof) {
-        this.vista = vistaAlgoformer;
+	private VistaAlgoformer vista;
+/*
+    public BotonMoverHandler(VistaAlgoformer vistaAlgoformer, Algoformer algof) {
+        this.vista  = vistaAlgoformer;
         this.algof = algof;
-    }*/
-
+    }
+*/
     public BotonMoverHandler(VistaTerreno tablero, Algoformer algof2,ContenedorPrincipal contenedor,VistaAlgoformer vista) {
 	this.tablero=tablero;
 	this.algof=algof2;

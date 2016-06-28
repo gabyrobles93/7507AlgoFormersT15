@@ -4,12 +4,12 @@ import java.util.Iterator;
 
 import Modelo.Algoformer;
 import Modelo.Juego;
-import Vista.eventos.BotonAtacarHandler;
-import Vista.eventos.BotonCambiarModoHandler;
-import Vista.eventos.BotonCapturarChispaHandler;
-import Vista.eventos.BotonMoverHandler;
-import Vista.eventos.BotonSeleccionarAlgoformerEventHandler;
-import Vista.eventos.BotonVerEstadoHandler;
+import Vista.Controlador.BotonAtacarHandler;
+import Vista.Controlador.BotonCambiarModoHandler;
+import Vista.Controlador.BotonCapturarChispaHandler;
+import Vista.Controlador.BotonMoverHandler;
+import Vista.Controlador.BotonSeleccionarAlgoformerEventHandler;
+import Vista.Controlador.BotonVerEstadoHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
@@ -23,7 +23,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import src.modelo.Robot;
+
 
 public class VistaAlgoformer {
 	private Juego juego;

@@ -1,18 +1,23 @@
 package Vista;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import src.modelo.Direccion;
-import src.modelo.Posicion;
-import src.modelo.Robot;
-import src.modelo.Terreno;
+
+import java.io.IOException;
+
 import Modelo.Juego;
-import Vista.eventos.AplicacionOnKeyPressEventHandler;
+import Vista.Controlador.CartelBienvenidosController;
+import Vista.Controlador.ContenedorPrincipalController;
+
+
 
 
 public class Aplicacion extends Application {
 
+	
     public static void main(String[] args) {
         launch(args);
     }
@@ -20,41 +25,41 @@ public class Aplicacion extends Application {
     
     
 
-    @Override
     public void start(final Stage stage) throws Exception {
 
-        stage.setTitle("Algoformers");
+    	ContenedorPrincipal contenedorprincipal = new ContenedorPrincipal();
+    	
+    	contenedorprincipal.mostrarTableroCielo(stage);
+   // 	contenedorprincipal.mostrarTableroTierra(stage);
+    	
 
-        Juego juego = crearModelo();
-        
-        
-        
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, juego);
-        
-        Scene escenaTurnoAutobots = new Scene(contenedorPrincipal, 640, 480);
 
-        
-       AplicacionOnKeyPressEventHandler AplicacionOnKeyPressEventHandler = new AplicacionOnKeyPressEventHandler(stage, contenedorPrincipal);
-        escenaTurnoAutobots.setOnKeyPressed(AplicacionOnKeyPressEventHandler);
-        
-        ContenedorBienvenidos contenedorBienvenidos = new ContenedorBienvenidos(stage, escenaTurnoAutobots);
-        Scene escenaBienvenidos = new Scene(contenedorBienvenidos, 640, 480);
-        
-        stage.setScene(escenaBienvenidos);
-        stage.setFullScreen(false);
+    }
 
+    
+	private void iniciarInterfazGrafica(Stage mainStage) throws Exception {
+
+	}
+
+
+/*
+	private void iniciarContenedorPrincipal(Stage mainStage) throws Exception{
+    	
+		// TODO Auto-generated method stub
+    	
+		Parent rootContendorPrincipal = loadContenedorPrincipal().load();
+		
+        mainStage.setTitle("Algoformers: El Juego");
      
-        // add handler to this:
-        // stage.setOnCloseRequest()
-
-       
-
-        stage.show();
-
+        Scene vistaContenedorPrincipal = new Scene(rootContendorPrincipal);
+        
+        mainStage.setScene(vistaContenedorPrincipal);
+        mainStage.setResizable(true);
+        mainStage.setFullScreen(false);
+        mainStage.show();
+        
+        
     }
+	*/
 
-    private Juego crearModelo() {
-      Juego juego=new Juego();
-      return juego;
-    }
 }

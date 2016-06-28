@@ -1,4 +1,4 @@
-package Vista.eventos;
+/*package Vista.Controlador;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -30,3 +30,4 @@ public class AplicacionOnKeyPressEventHandler implements EventHandler<KeyEvent> 
        
     }
 }
+*/

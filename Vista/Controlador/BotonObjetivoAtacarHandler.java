@@ -1,4 +1,4 @@
-package Vista.eventos;
+package Vista.Controlador;
 
 import Modelo.Algoformer;
 import Modelo.Casillero;

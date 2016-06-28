@@ -1,5 +1,6 @@
 package Vista;
 
+import Vista.Controlador.BotonEntrarEventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,7 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import src.vista.eventos.BotonEntrarEventHandler;
+
 
 public class ContenedorBienvenidos extends VBox {
 
