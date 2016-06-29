@@ -44,10 +44,38 @@ public class TableroTierraController {
 
 	
 	@FXML
+<<<<<<< HEAD
 	public void ubicarChispa() {
 
 		VistaChispaSuprema vistaChispa=new VistaChispaSuprema();
 		vistaChispa.dibujar(tablero_tierra);
+=======
+	private int[] ubicarChispa() {
+		
+		int[] posicionchispa = new int[2];
+		
+		int posFila = 20 + (int)(Math.random() * 10);
+		int posColumna = 20 + (int)(Math.random() * 10);
+		
+		posicionchispa[0] = posFila;
+		posicionchispa[1] = posColumna;
+		
+		File file = new File("C:\\imagenes\\chispapoder");
+		File[] filelist1 = file.listFiles();
+		ArrayList<File> filelist2 = new ArrayList<>();
+		
+		for (File file1 : filelist1) {
+		     filelist2.add(file1);
+		}
+		
+		Image image = new Image(filelist2.get(0).toURI().toString());
+		ImageView pic = new ImageView();
+	    pic.setFitWidth(75);
+	    pic.setFitHeight(75);
+	    
+	    pic.setImage(image);
+		tablero_tierra.add(pic,posFila,posColumna);
+>>>>>>> e3f7fc3db9f93e4284a7e5b78d16a63d454ec8df
 		
 	}
 	
@@ -74,6 +102,20 @@ public class TableroTierraController {
 	@FXML
 	private void inicializarSuperficies(Tablero tablero) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
+=======
+
+				File file = new File("C:\\imagenes\\superficietierra");
+				File[] filelist1 = file.listFiles();
+				ArrayList<File> filelist2 = new ArrayList<>();
+				
+				for (File file1 : filelist1) {
+				     filelist2.add(file1);
+				}
+
+				int imageCol = 0;
+				int imageRow = 0;
+>>>>>>> e3f7fc3db9f93e4284a7e5b78d16a63d454ec8df
 			
 				for( int fila = 0; fila < 50; fila++){
 					

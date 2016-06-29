@@ -1,6 +1,11 @@
 package Vista;
 
+import java.io.IOException;
+
+import Vista.Controlador.BotonAyudaController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -22,11 +27,6 @@ public class TableroController {
 	@FXML private MenuItem acerca_de;
 	@FXML private MenuBar barra_de_menu;
 
-
-
-
-	
-	
 	
 public void setCenter(ScrollPane tablero){
 	tableroGeneral.setCenter(tablero);
@@ -47,10 +47,25 @@ public void setTableroCieloController(TableroCieloController controllerTableroCi
 }
 
 
-
-
 public void setTableroTierraController(TableroTierraController controllerTableroTierra) {
 	tabtierra=controllerTableroTierra;
 	
 }
+
+public void mostrarAyuda() throws Exception {
+
+	BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
+	
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(Aplicacion.class.getResource("Ayuda.fxml"));
+    loader.setController(ayudacontroller);
+    
+    Parent vistaayuda =  loader.load();
+    
+    Scene nuevascene = new Scene(vistaayuda);
+	
+    
+	
+}
+
 }
