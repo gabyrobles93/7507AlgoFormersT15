@@ -42,6 +42,7 @@ public class Aplicacion extends Application {
     	contenedorprincipal.mostrarTableroTierra();
     	
     	 */
+    	Juego juego =new Juego();
     	
     this.ventanaPrincipal = stage;
     this.ventanaPrincipal.setTitle("Algoformers");

@@ -1,4 +1,4 @@
-package EJEMPLOS;
+package Vista.Controlador;
 
 import java.io.IOException;
 

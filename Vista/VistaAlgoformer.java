@@ -26,25 +26,28 @@ import javafx.stage.Stage;
 
 
 public class VistaAlgoformer {
-	private Juego juego;
-	private Algoformer algof;
-	final GridPane tablero;
-	String nombre;
-	private final ContenedorPrincipal contenedor;
+
+	protected Algoformer algof;
+	GridPane tablero;
+	/*String nombre;
+	private  ContenedorPrincipal contenedor;
 	private VistaTerreno vista;
-	Stage stage;
+	Stage stage;*/
 	
 	 public VistaAlgoformer(Stage stage,Algoformer algof, GridPane paneCentral,String nombre,ContenedorPrincipal contenedor,Juego juego,VistaTerreno vista) {
-	        this.algof = algof;
+	       /* this.algof = algof;
 	        this.tablero = paneCentral;
 	        this.nombre=nombre;
 	        this.contenedor=contenedor;
 	        this.juego=juego;
 	        this.vista=vista;
-	        this.stage=stage;
+	        this.stage=stage;*/
 	    }
-	public void dibujar() {
-		if(algof.getVida()==0){
+	public VistaAlgoformer() {
+		// TODO Auto-generated constructor stub
+	}
+	public void dibujar(GridPane tablero_tierra) {
+		/*if(algof.getVida()==0){
 			return;
 		}
 		if(algof.getEfecto().esperaturnos!=0){
@@ -81,12 +84,13 @@ public class VistaAlgoformer {
 		verEstado.setOnAction(botonHandler);
 		
 		GridPane.setConstraints(algo, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
-		tablero.getChildren().add(algo);
+		
+		*/
 		
 	}
 	public void update() {
 		tablero.getChildren().clear();
-		vista.dibujar();
+		//vista.dibujar();
 		
 	}
 	public void resaltar() {
@@ -98,7 +102,7 @@ public class VistaAlgoformer {
 		
 	}
 	public void dibujarImagen(String string,Color color) {
-		if(algof.getVida()==0){
+	/*	if(algof.getVida()==0){
 			return;
 		}
 		
@@ -112,7 +116,7 @@ public class VistaAlgoformer {
 		
 		GridPane.setConstraints(button, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
 		tablero.getChildren().add(button);
-		
+	*/	
 	}
 	public void actualizarAlgof(Algoformer algof2) {
 		// TODO Auto-generated method stub

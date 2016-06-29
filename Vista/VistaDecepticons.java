@@ -18,7 +18,7 @@ public class VistaDecepticons extends VistaEquipo {
 		this.juego=juego;
 		this.stage=stage;
 	}
-@Override
+/*@Override
 public void dibujarBotonesJugador() {
 		 VistaAlgoformer vistaMega=new VistaAlgoformer(stage,((Decepticons) equipo).getMegatron(),tab,"M",contenedor,juego,vistaTerreno);
 		vistaMega.dibujar();
@@ -35,5 +35,5 @@ public void dibujarImagenEnemigo(){
 		vistaBone.dibujarImagen("B",Color.RED);
 		VistaAlgoformer vistaFrenzy=new VistaAlgoformer(stage,((Decepticons) equipo).getFrenzy(),tab,"F",contenedor,juego,vistaTerreno);
 		vistaFrenzy.dibujarImagen("F",Color.RED);
-}
+}*/
 }

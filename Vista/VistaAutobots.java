@@ -19,7 +19,7 @@ public class VistaAutobots extends VistaEquipo {
 		this.juego=juego;
 		this.stage=stage;
 	}
-@Override
+/*@Override
 public void dibujarBotonesJugador() {
 	VistaAlgoformer vistaOptimus=new VistaAlgoformer(stage,((Autobots) equipo).getOptimus(),tab,"O",contenedor,juego,vistaTerreno);
 	vistaOptimus.dibujar();
@@ -38,5 +38,5 @@ public void dibujarImagenEnemigo(){
 	VistaAlgoformer vistaRatchet=new VistaAlgoformer(stage,((Autobots) equipo).getRatchet(),tab,"R",contenedor,juego,vistaTerreno);
 	vistaRatchet.dibujarImagen("R",Color.BLUE);
 	
-}
+}*/
 }

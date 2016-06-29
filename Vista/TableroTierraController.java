@@ -3,6 +3,12 @@ package Vista;
 import java.io.File;
 import java.util.ArrayList;
 
+import Modelo.Bonecrusher;
+import Modelo.Bumblebee;
+import Modelo.Frenzy;
+import Modelo.Megatron;
+import Modelo.Optimus;
+import Modelo.Ratchet;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
@@ -63,9 +69,17 @@ public class TableroTierraController {
 		
 		return posicionchispa;
 	}
-	@FXML
+	
 	private void ubicarDecepticons() {
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\decepticons\\humanoide");
+		
+		VistaAlgoformer vistaMegatron=new VistaMegatron(Megatron.getMegatron());
+		vistaMegatron.dibujar(tablero_tierra);
+		VistaAlgoformer vistaBonecrusher=new VistaBonecrusher(Bonecrusher.getBonecrusher());
+		vistaBonecrusher.dibujar(tablero_tierra);
+		VistaAlgoformer vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy());
+		vistaFrenzy.dibujar(tablero_tierra);
+		
+	/*	
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -97,43 +111,16 @@ public class TableroTierraController {
 	    
 		picmegatron.setImage(imagemegatron);
 		tablero_tierra.add(picmegatron,2,0);
-		
+	*/	
 	}
 	@FXML
 	private void ubicarAutobots() {
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
-		File[] filelist1 = file.listFiles();
-		ArrayList<File> filelist2 = new ArrayList<>();
-		
-		for (File file1 : filelist1) {
-		     filelist2.add(file1);
-		}
-		
-		Image imagebumblebee = new Image(filelist2.get(0).toURI().toString());
-		ImageView picbumblebee = new ImageView();
-		picbumblebee.setFitWidth(75);
-		picbumblebee.setFitHeight(75);
-	    
-		picbumblebee.setImage(imagebumblebee);
-		tablero_tierra.add(picbumblebee,49,49);
-
-		
-		Image imageoptimus = new Image(filelist2.get(1).toURI().toString());
-		ImageView picoptimus = new ImageView();
-		picoptimus.setFitWidth(75);
-		picoptimus.setFitHeight(75);
-	    
-		picoptimus.setImage(imageoptimus);
-		tablero_tierra.add(picoptimus,47,49);
-
-		
-		Image imageratchet = new Image(filelist2.get(2).toURI().toString());
-		ImageView picratchet = new ImageView();
-		picratchet.setFitWidth(75);
-		picratchet.setFitHeight(75);
-	    
-		picratchet.setImage(imageratchet);
-		tablero_tierra.add(picratchet,49,47);
+		VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
+		vistaOptimus.dibujar(tablero_tierra);
+		VistaAlgoformer vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee());
+		vistaBumblebee.dibujar(tablero_tierra);
+		VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
+		vistaRatchet.dibujar(tablero_tierra);
 	}
 	@FXML
 	private void inicializarSuperficies() {
