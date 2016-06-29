@@ -34,7 +34,7 @@ public class TableroCieloController {
 		ubicarAutobots();
 		ubicarDecepticons();
 	}
-<<<<<<< HEAD
+
 	private void ubicarAutobots() {
 		VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
 		vistaOptimus.dibujar(tablerocielo);
@@ -44,20 +44,8 @@ public class TableroCieloController {
 		vistaRatchet.dibujar(tablerocielo);
 	}
 private void ubicarDecepticons() {
-=======
 	
-	public void inicializarSuperficies() {
-		// TODO Auto-generated method stub
-		
-		File file = new File("C:\\imagenes\\superficiecielo");		
-		File[] filelist1 = file.listFiles();
-		ArrayList<File> filelist2 = new ArrayList<>();
-		
-		for (File file1 : filelist1) {
-		     filelist2.add(file1);
-		}
-		
->>>>>>> e3f7fc3db9f93e4284a7e5b78d16a63d454ec8df
+
 		
 		VistaAlgoformer vistaMegatron=new VistaMegatron(Megatron.getMegatron());
 		vistaMegatron.dibujar(tablerocielo);
@@ -85,23 +73,13 @@ private void ubicarDecepticons() {
 	}
 
 	
-<<<<<<< HEAD
+
 	public void ubicarChispa() {
 
 		VistaChispaSuprema vistaChispa=new VistaChispaSuprema();
 		vistaChispa.dibujar(tablerocielo);
-=======
-	public void ubicarChispa(int[] posicionchispa) {
-		// TODO Auto-generated method stub
-		
-		File file = new File("C:\\imagenes\\chispapoder");
-		File[] filelist1 = file.listFiles();
-		ArrayList<File> filelist2 = new ArrayList<>();
-		
-		for (File file1 : filelist1) {
-		     filelist2.add(file1);
-		}
->>>>>>> e3f7fc3db9f93e4284a7e5b78d16a63d454ec8df
+
+	
 		
 		
 	}

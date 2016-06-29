@@ -54,11 +54,11 @@ public void setTableroTierraController(TableroTierraController controllerTablero
 
 public void mostrarAyuda() throws Exception {
 
-	BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
+	//BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
 	
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(Aplicacion.class.getResource("Ayuda.fxml"));
-    loader.setController(ayudacontroller);
+   // loader.setController(ayudacontroller);
     
     Parent vistaayuda =  loader.load();
     
