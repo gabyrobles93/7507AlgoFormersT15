@@ -28,7 +28,7 @@ public class TableroCieloController {
 	public void inicializarSuperficies() {
 		// TODO Auto-generated method stub
 		
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
+		File file = new File("C:\\imagenes\\superficiecielo");		
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -122,7 +122,7 @@ public class TableroCieloController {
 	public void ubicarChispa(int[] posicionchispa) {
 		// TODO Auto-generated method stub
 		
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\chispapoder");
+		File file = new File("C:\\imagenes\\chispapoder");
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		

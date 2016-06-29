@@ -16,7 +16,7 @@ public class VistaBonecrusher extends VistaAlgoformer {
 	
 	@Override
 	public void dibujar(GridPane tablero_tierra) {
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\decepticons\\humanoide\\bonecrusher.png");
+		File file = new File("C:\\imagenes\\decepticons\\humanoide\\bonecrusher.png");
 		
 		Image imagebonecrusher = new Image(file.toURI().toString());
 		ImageView picbonecrusher = new ImageView();

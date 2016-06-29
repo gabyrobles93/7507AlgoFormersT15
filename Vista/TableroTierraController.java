@@ -51,7 +51,7 @@ public class TableroTierraController {
 		posicionchispa[0] = posFila;
 		posicionchispa[1] = posColumna;
 		
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
+		File file = new File("C:\\imagenes\\chispapoder");
 		File[] filelist1 = file.listFiles();
 		ArrayList<File> filelist2 = new ArrayList<>();
 		
@@ -126,7 +126,7 @@ public class TableroTierraController {
 	private void inicializarSuperficies() {
 		// TODO Auto-generated method stub
 
-				File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
+				File file = new File("C:\\imagenes\\superficietierra");
 				File[] filelist1 = file.listFiles();
 				ArrayList<File> filelist2 = new ArrayList<>();
 				

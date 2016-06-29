@@ -14,7 +14,7 @@ public class VistaOptimus extends VistaAlgoformer {
 	}
 	@Override
 	public void dibujar(GridPane tablero_tierra) {
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\autobots\\humanoide\\optimus.png");
+		File file = new File("C:\\imagenes\\autobots\\humanoide\\optimus.png");
 		
 		Image imagebonecrusher = new Image(file.toURI().toString());
 		ImageView picbonecrusher = new ImageView();
