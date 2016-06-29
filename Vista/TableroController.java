@@ -10,8 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class TableroController {
-	Stage stage;
-	Scene proximaescena;
+	
 	TableroTierraController tabtierra;
 	TableroCieloController tabcielo;
 	

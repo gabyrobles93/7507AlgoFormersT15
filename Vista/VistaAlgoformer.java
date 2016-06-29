@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class VistaAlgoformer {
 
 	protected Algoformer algof;
-	GridPane tablero;
+	
 	/*String nombre;
 	private  ContenedorPrincipal contenedor;
 	private VistaTerreno vista;
@@ -89,7 +89,7 @@ public class VistaAlgoformer {
 		
 	}
 	public void update() {
-		tablero.getChildren().clear();
+		//tablero.getChildren().clear();
 		//vista.dibujar();
 		
 	}

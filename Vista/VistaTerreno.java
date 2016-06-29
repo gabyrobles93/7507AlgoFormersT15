@@ -49,8 +49,8 @@ public class VistaTerreno {
 		 this.clean();
 		
 	        this.dibujarFormas();
-	        VistaChispaSuprema vistaChispa=new VistaChispaSuprema(Juego.chispa,tab,this);
-			 vistaChispa.dibujar();
+	       // VistaChispaSuprema vistaChispa=new VistaChispaSuprema(Juego.chispa,tab,this);
+			// vistaChispa.dibujar();
 	        
 	       VistaEquipo vistaEq= VistaEquipo.getVistaEquipo(stage,juego,juego.getEjecutorDeTurnoActual(),tab,contenedor,this);
 	       vistaEq.dibujarBotonesJugador();

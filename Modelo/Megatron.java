@@ -1,7 +1,7 @@
 package Modelo;
 
 public  class Megatron extends Algoformer {
-	private  static Megatron INSTANCE=new Megatron().new MegatronAlterno();
+	private  static Megatron INSTANCE=new Megatron().new MegatronHumanoide();
 
 	
 	

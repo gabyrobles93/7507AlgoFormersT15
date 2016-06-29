@@ -187,7 +187,7 @@ subtab.setearSuperficieTierra(supEsp);
 SuperficiePantanosa supPant=new SuperficiePantanosa();
 Tablero subtab2=this.getArea(pos2, 2);
 subtab2.setearSuperficieTierra(supPant);
-this.setearSuperficieTierra(supPant);
+
 
 SuperficieNebulosaDeAndromeda supNeb=new SuperficieNebulosaDeAndromeda();
 Tablero subtab3=this.getArea(pos3, 2);

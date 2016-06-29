@@ -3,6 +3,14 @@ package Vista;
 import java.io.File;
 import java.util.ArrayList;
 
+import Modelo.Bonecrusher;
+import Modelo.Bumblebee;
+import Modelo.Frenzy;
+import Modelo.Juego;
+import Modelo.Megatron;
+import Modelo.Optimus;
+import Modelo.Ratchet;
+import Modelo.Tablero;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -19,124 +27,54 @@ public class TableroCieloController {
 	@FXML private ScrollPane scrollpane;
 	
 	@FXML
-	public void inicializarTableroCielo(int[] posicionchispa) {
+	public void inicializarTableroCielo(Tablero tablero) {
 		// TODO Auto-generated method stub
-		inicializarSuperficies();
-		ubicarChispa(posicionchispa);
+		inicializarSuperficies(tablero);
+		ubicarChispa();
+		ubicarAutobots();
+		ubicarDecepticons();
+	}
+	private void ubicarAutobots() {
+		VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
+		vistaOptimus.dibujar(tablerocielo);
+		VistaAlgoformer vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee());
+		vistaBumblebee.dibujar(tablerocielo);
+		VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
+		vistaRatchet.dibujar(tablerocielo);
+	}
+private void ubicarDecepticons() {
+		
+		VistaAlgoformer vistaMegatron=new VistaMegatron(Megatron.getMegatron());
+		vistaMegatron.dibujar(tablerocielo);
+		VistaAlgoformer vistaBonecrusher=new VistaBonecrusher(Bonecrusher.getBonecrusher());
+		vistaBonecrusher.dibujar(tablerocielo);
+		VistaAlgoformer vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy());
+		vistaFrenzy.dibujar(tablerocielo);
+		
+
 	}
 	
-	public void inicializarSuperficies() {
+	public void inicializarSuperficies(Tablero tablero) {
 		// TODO Auto-generated method stub
 		
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\superficietierra");
-		File[] filelist1 = file.listFiles();
-		ArrayList<File> filelist2 = new ArrayList<>();
-		
-		for (File file1 : filelist1) {
-		     filelist2.add(file1);
-		}
-		
-		
-		
-		int imageCol = 0;
-		int imageRow = 0;
+	
 	
 		for( int fila = 0; fila < 50; fila++){
 			
 			for( int columna = 0; columna < 50; columna ++){
-				
-				int randomNum = 0 + (int)(Math.random() * 3); 
-				Image image = new Image(filelist2.get(0).toURI().toString());
-				ImageView pic = new ImageView();
-			    pic.setFitWidth(75);
-			    pic.setFitHeight(75);
-			    
-			    pic.setImage(image);
-				tablerocielo.add(pic,fila,columna);
+				VistaSuperficie vista=VistaSuperficie.crearVista(tablero.getCasillero(fila, columna).getSuperficieCielo());
+				vista.dibujar(tablerocielo,fila,columna);
 			}
 		}
-		
-		imageCol = 0;
-		imageRow = 0;
 	
-		for( int fila = 0; fila < 50; fila++){
-			
-			for( int columna = 0; columna < 50; columna ++){
-				
-				int randomNum = 0 + (int)(Math.random() * 30);
-				
-				if(randomNum == 4 || randomNum == 8){
-					Image image = new Image(filelist2.get(1).toURI().toString());
-					ImageView pic = new ImageView();
-				    pic.setFitWidth(75);
-				    pic.setFitHeight(75);
-				    
-				    pic.setImage(image);
-					tablerocielo.add(pic,fila,columna);
-				}
-				
-				if(randomNum == 5){
-					Image image = new Image(filelist2.get(2).toURI().toString());
-					ImageView pic = new ImageView();
-				    pic.setFitWidth(75);
-				    pic.setFitHeight(75);
-				    
-				    pic.setImage(image);
-					tablerocielo.add(pic,fila,columna);
-				}
-
-			}
-		}
-		
-		for( int fila = 20; fila < 31; fila++){
-			
-			for( int columna = 20; columna < 31; columna ++){
-				
-				int randomNum = 0 + (int)(Math.random() * 10);
-				
-				if(randomNum == 4 || randomNum == 8){
-					Image image = new Image(filelist2.get(1).toURI().toString());
-					ImageView pic = new ImageView();
-				    pic.setFitWidth(75);
-				    pic.setFitHeight(75);
-				    
-				    pic.setImage(image);
-					tablerocielo.add(pic,fila,columna);
-				}
-				
-				if(randomNum == 5){
-					Image image = new Image(filelist2.get(2).toURI().toString());
-					ImageView pic = new ImageView();
-				    pic.setFitWidth(75);
-				    pic.setFitHeight(75);
-				    
-				    pic.setImage(image);
-					tablerocielo.add(pic,fila,columna);
-				}
-
-			}
-		}
 	}
 
 	
-	public void ubicarChispa(int[] posicionchispa) {
-		// TODO Auto-generated method stub
+	public void ubicarChispa() {
+
+		VistaChispaSuprema vistaChispa=new VistaChispaSuprema();
+		vistaChispa.dibujar(tablerocielo);
 		
-		File file = new File("C:\\Users\\juancruz\\Desktop\\AlgoritmosIII\\TP2\\7507AlgoFormersT15\\Vista\\imagenes\\chispapoder");
-		File[] filelist1 = file.listFiles();
-		ArrayList<File> filelist2 = new ArrayList<>();
-		
-		for (File file1 : filelist1) {
-		     filelist2.add(file1);
-		}
-		
-		Image image = new Image(filelist2.get(0).toURI().toString());
-		ImageView pic = new ImageView();
-	    pic.setFitWidth(75);
-	    pic.setFitHeight(75);
-	    
-	    pic.setImage(image);
-		tablerocielo.add(pic,posicionchispa[0],posicionchispa[1]);
 		
 	}
 

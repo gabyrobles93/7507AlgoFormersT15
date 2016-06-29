@@ -1,26 +1,33 @@
 package Vista;
 
+import java.io.File;
+
 import Modelo.ChispaSuprema;
+import Modelo.Juego;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class VistaChispaSuprema {
 	
-	final GridPane tablero;
-	private VistaTerreno vista;
-	private final ChispaSuprema chispa;
 	
-	public VistaChispaSuprema(ChispaSuprema chispa,GridPane tablero,VistaTerreno vista){
-		this.tablero=tablero;
-		this.vista=vista;
-		this.chispa=chispa;
+	
+	public VistaChispaSuprema(){
+		
 	}
-	public void dibujar(){
-		Button botonChispa=new Button("C");
-		botonChispa.setTextFill(Color.YELLOW);
-		GridPane.setConstraints(botonChispa, chispa.getPosicion().getColumna(), chispa.getPosicion().getFila());
-		tablero.getChildren().add(botonChispa);
+	public void dibujar(GridPane tablero){
+
+		File file = new File("C:\\imagenes\\chispapoder\\chispapoder.png");
+	
+		Image image = new Image(file.toURI().toString());
+		ImageView pic = new ImageView();
+	    pic.setFitWidth(75);
+	    pic.setFitHeight(75);
+	    
+	    pic.setImage(image);
+		tablero.add(pic,Juego.chispa.getPosicion().getColumna(),Juego.chispa.getPosicion().getFila());
 		
 	}
 
