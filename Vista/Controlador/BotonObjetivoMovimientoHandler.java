@@ -28,12 +28,14 @@ private final int columna;
 private Algoformer algof;
 private  VistaBumblebee2 vistaAlgof;
 private  Juego juego;
+private menuAccionesAlgoformerController menuacciones;
 	
-	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebee2 vistaAlgof, menuAccionesAlgoformerController menuAccionesAlgoformerController){
+	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebee2 vistaAlgof, menuAccionesAlgoformerController menu){
 		this.fila=fila;
 		this.columna=columna;
 		this.algof=algof;
 		this.vistaAlgof=vistaAlgof;
+		this.menuacciones = menu;
 		//this.juego=juego;
 	}
 	@Override
@@ -41,6 +43,7 @@ private  Juego juego;
 		Posicion pos= new Posicion(fila,columna);
 		try{
 		algof.mover(pos);
+		menuacciones.borrarZonaObjetivoMovimiento();
 		vistaAlgof.cerrarMenu();
 		vistaAlgof.update();
 		//juego.jugarTurno();
