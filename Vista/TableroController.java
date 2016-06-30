@@ -64,7 +64,11 @@ public void mostrarAyuda() throws Exception {
     
     Scene nuevascene = new Scene(vistaayuda);
 	
-    
+    Stage stage = new Stage();
+    stage.setScene(nuevascene);
+    stage.setFullScreen(false);
+    stage.setResizable(false);
+    stage.show();
 	
 }
 

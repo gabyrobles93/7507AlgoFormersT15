@@ -26,6 +26,7 @@ public class VistaMegatron extends VistaAlgoformer {
 		picmegatron.setFitWidth(75);
 		picmegatron.setFitHeight(75);
 		
+		
 		VerEstadoAlgoformerController controller = new VerEstadoAlgoformerController(algof);
 		
 		picmegatron.setOnMouseClicked(controller);

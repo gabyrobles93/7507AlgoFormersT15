@@ -6,7 +6,9 @@ import Modelo.Bonecrusher;
 import Vista.Controlador.VerEstadoAlgoformerController;
 import Vista.Controlador.menuAccionesAlgoformerController;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,7 +33,7 @@ public class VistaBonecrusher extends VistaAlgoformer {
 		picbonecrusher.setId("imagenBonecrusher");
 		picbonecrusher.setFitWidth(75);
 		picbonecrusher.setFitHeight(75);
-	    
+	   		
 		VerEstadoAlgoformerController controller = new VerEstadoAlgoformerController(algof);
 		
 		picbonecrusher.setOnMouseClicked(controller);

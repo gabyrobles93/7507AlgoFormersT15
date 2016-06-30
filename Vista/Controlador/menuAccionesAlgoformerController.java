@@ -30,26 +30,35 @@ public class menuAccionesAlgoformerController implements EventHandler<MouseEvent
 	@Override
 	public void handle(MouseEvent event){
 		// TODO Auto-generated method stub
-
+		
+		
 		try {
-			FXMLLoader loadermenuacciones = new FXMLLoader(getClass().getResource("MenuAccionesAlgoformer.fxml"));
-			Parent rootMenuAcciones;
-			rootMenuAcciones = loadermenuacciones.load();
-			
-			menuAccionesAlgoformerController controllerMenuAcciones = loadermenuacciones.getController();
-			Scene sceneMenuAcciones = new Scene(rootMenuAcciones);
-			Stage st = new Stage();
-			
-			st.setScene(sceneMenuAcciones);
-			st.setFullScreen(false);
-			st.show();
-			
-		} catch (IOException e) {
+			mostrarMenuEstado();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
 	}
 	
-	
+		
+	private void mostrarMenuEstado() throws Exception{
+		
+		//BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
+		
+	    FXMLLoader loader = new FXMLLoader();
+	    loader.setLocation(Aplicacion.class.getResource("Menu_Estado_Algoformer.fxml"));
+	   // loader.setController(ayudacontroller);
+	    
+	    Parent vistaayuda =  loader.load();
+	    
+	    Scene nuevascene = new Scene(vistaayuda);
+		
+	    Stage stage = new Stage();
+	    stage.setScene(nuevascene);
+	    stage.setFullScreen(false);
+	    stage.setResizable(false);
+	    stage.show();
+		
+	}
 }

@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 public class VerEstadoAlgoformerController implements EventHandler<MouseEvent> {
 
 	Algoformer algof;
-	@FXML private Button boton_ver_estado;
 	
 	public VerEstadoAlgoformerController(Algoformer algoformer) {
 		// TODO Auto-generated constructor stub
@@ -32,11 +31,11 @@ public class VerEstadoAlgoformerController implements EventHandler<MouseEvent> {
 		// TODO Auto-generated method stub
 
 		try {
-			FXMLLoader loadermenuverestado = new FXMLLoader(getClass().getResource("Estado_Algoformer.fxml"));
+			FXMLLoader loadermenuverestado = new FXMLLoader(getClass().getResource("Menu_Estado_Algoformer.fxml"));
 			Parent rootEstado;
 			rootEstado = loadermenuverestado.load();
 			
-			menuAccionesAlgoformerController controllerMenuAcciones = loadermenuverestado.getController();
+			
 			Scene sceneMenuEstado = new Scene(rootEstado);
 			Stage st = new Stage();
 			
@@ -54,6 +53,7 @@ public class VerEstadoAlgoformerController implements EventHandler<MouseEvent> {
 	public void mostrarEstado() {
 		
 		VBox hb=new VBox();
+		
 		Text txt1=new Text("Vida "+String.valueOf(algof.getVida()));
 		Text txt2=new Text("Ataque "+String.valueOf(algof.getAtaque()));
 		Text txt3=new Text("Velocidad "+String.valueOf(algof.getVelocidad()));
