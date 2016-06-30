@@ -1,7 +1,6 @@
 package Vista.Controlador;
 
 import Modelo.Algoformer;
-import Vista.VistaTerreno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -9,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import Vista.VistaTerreno;
 
 public class BotonCapturarChispaHandler implements EventHandler<ActionEvent>{
 

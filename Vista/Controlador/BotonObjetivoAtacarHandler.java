@@ -6,8 +6,6 @@ import Modelo.ErrorAlgoformerInexistente;
 import Modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import Modelo.Juego;
 import Modelo.Posicion;
-import Vista.VistaAlgoformer;
-import Vista.VistaTerreno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -15,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import Vista.VistaAlgoformer;
+import Vista.VistaTerreno;
 
 public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
 

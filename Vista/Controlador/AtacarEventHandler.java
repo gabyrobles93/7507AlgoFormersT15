@@ -2,11 +2,11 @@ package Vista.Controlador;
 
 import Modelo.Algoformer;
 import Modelo.Megatron;
-import Vista.VistaAlgoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
+import Vista.VistaAlgoformer;
 
 public class AtacarEventHandler implements EventHandler<ActionEvent> {
 	private final VistaAlgoformer vista;

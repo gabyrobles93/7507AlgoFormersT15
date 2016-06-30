@@ -2,9 +2,9 @@ package Vista.Controlador;
 
 import Modelo.Algoformer;
 import Modelo.Juego;
-import Vista.VistaAlgoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import Vista.VistaAlgoformer;
 
 public class BotonSeleccionarAlgoformerEventHandler implements EventHandler<ActionEvent> {
 private final Algoformer algof;

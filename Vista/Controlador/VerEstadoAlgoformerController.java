@@ -27,19 +27,24 @@ public class VerEstadoAlgoformerController implements EventHandler<MouseEvent> {
 	}
 
 	@Override
-	public void handle(MouseEvent arg0) {
+	public void handle(MouseEvent event) {
 		// TODO Auto-generated method stub
 
 		try {
+			
+			BotonVerEstadoHandler botonestadohandler = new BotonVerEstadoHandler(algof);
+			
 			FXMLLoader loadermenuverestado = new FXMLLoader(getClass().getResource("Menu_Estado_Algoformer.fxml"));
+			loadermenuverestado.setController(botonestadohandler);
 			Parent rootEstado;
+			
 			rootEstado = loadermenuverestado.load();
-			
-			
-			Scene sceneMenuEstado = new Scene(rootEstado);
+						
+					
+			Scene sceneMenuAcciones = new Scene(rootEstado);
 			Stage st = new Stage();
 			
-			st.setScene(sceneMenuEstado);
+			st.setScene(sceneMenuAcciones);
 			st.setFullScreen(false);
 			st.show();
 			
@@ -47,26 +52,8 @@ public class VerEstadoAlgoformerController implements EventHandler<MouseEvent> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-	}
-	
-	public void mostrarEstado() {
-		
-		VBox hb=new VBox();
-		
-		Text txt1=new Text("Vida "+String.valueOf(algof.getVida()));
-		Text txt2=new Text("Ataque "+String.valueOf(algof.getAtaque()));
-		Text txt3=new Text("Velocidad "+String.valueOf(algof.getVelocidad()));
-		Text txt4=new Text("Espera Turnos "+String.valueOf(algof.getEfecto().esperaturnos));
-		hb.getChildren().addAll(txt1,txt2,txt3,txt4);
-		hb.setAlignment(Pos.CENTER);
-		Scene sc=new Scene(hb,200,200);
-		Stage st = new Stage();
-		st.setTitle("Estado del Algoformer");
-		st.setScene(sc);
-		st.setFullScreen(false);
-		st.show();
 		
 	}
+	
 
 }

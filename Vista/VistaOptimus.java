@@ -22,7 +22,7 @@ public class VistaOptimus extends VistaAlgoformer {
 		picoptimus.setFitWidth(75);
 		picoptimus.setFitHeight(75);
 		
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof);
 		
 		picoptimus.setOnMouseClicked(controller);
 	    

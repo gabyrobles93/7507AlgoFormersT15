@@ -1,10 +1,10 @@
 package Vista.Controlador;
 
 import Modelo.Algoformer;
-import Vista.VistaAlgoformer;
-import Vista.VistaTerreno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import Vista.VistaAlgoformer;
+import Vista.VistaTerreno;
 
 public class BotonCambiarModoHandler implements EventHandler<ActionEvent>{
 VistaTerreno vista;

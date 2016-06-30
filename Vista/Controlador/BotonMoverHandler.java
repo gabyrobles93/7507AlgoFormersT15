@@ -3,12 +3,12 @@ package Vista.Controlador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
-import Modelo.Algoformer;
-import Modelo.Juego;
-import Modelo.Posicion;
 import Vista.ContenedorPrincipal;
 import Vista.VistaAlgoformer;
 import Vista.VistaTerreno;
+import Modelo.Algoformer;
+import Modelo.Juego;
+import Modelo.Posicion;
 public class BotonMoverHandler implements EventHandler<ActionEvent> {
 
    private final VistaAlgoformer vistaAlgo;

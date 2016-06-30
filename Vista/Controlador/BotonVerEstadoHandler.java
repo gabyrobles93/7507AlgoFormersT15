@@ -3,14 +3,16 @@ package Vista.Controlador;
 import Modelo.Algoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class BotonVerEstadoHandler implements EventHandler<ActionEvent> {
+public class BotonVerEstadoHandler {
 	
 	private Algoformer algof;
 	
@@ -18,8 +20,7 @@ public class BotonVerEstadoHandler implements EventHandler<ActionEvent> {
 		this.algof=algof;
 	}
 
-	@Override
-	public void handle(ActionEvent event) {
+	public void mostrarEstado(ActionEvent event) {
 		
 		VBox hb=new VBox();
 		Text txt1=new Text("Vida "+String.valueOf(algof.getVida()));

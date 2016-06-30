@@ -8,8 +8,6 @@ import Modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import Modelo.ErrorVelocidadDelMovilInsuficiente;
 import Modelo.Juego;
 import Modelo.Posicion;
-import Vista.VistaAlgoformer;
-import Vista.VistaTerreno;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -18,6 +16,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import Vista.VistaAlgoformer;
+import Vista.VistaTerreno;
 
 public class BotonObjetivoMovimientoHandler implements EventHandler<ActionEvent>{
 private final int fila;

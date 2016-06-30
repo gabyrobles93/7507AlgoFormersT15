@@ -23,7 +23,7 @@ public class VistaBumblebee extends VistaAlgoformer {
 		picbumblebee.setFitWidth(75);
 		picbumblebee.setFitHeight(75);
 	    
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof);
 		
 		picbumblebee.setOnMouseClicked(controller);
 		

@@ -2,7 +2,7 @@ package Vista.Controlador;
 
 import java.io.IOException;
 
-import Vista.Aplicacion;
+import Modelo.Algoformer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,49 +16,40 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import Vista.Aplicacion;
 
 public class menuAccionesAlgoformerController implements EventHandler<MouseEvent> {
 
-/*
-	@FXML private Button boton_atacar;
-	@FXML private Button boton_mover;
-	@FXML private Button boton_transformar;
-	@FXML private Button boton_combinar;
-	@FXML private Button boton_ver_estado;
-*/
+	Algoformer algof;
+	
+	public menuAccionesAlgoformerController(Algoformer algoformer) {
+		// TODO Auto-generated constructor stub
+		algof = algoformer;
+	}
+
 
 	@Override
 	public void handle(MouseEvent event){
 		// TODO Auto-generated method stub
 		
-		
 		try {
-			mostrarMenuEstado();
-		} catch (Exception e) {
+			FXMLLoader loadermenuacciones = new FXMLLoader(getClass().getResource("MenuAccionesAlgoformer.fxml"));
+			Parent rootMenuAcciones;
+			rootMenuAcciones = loadermenuacciones.load();
+			
+			Scene sceneMenuAcciones = new Scene(rootMenuAcciones);
+			Stage st = new Stage();
+			
+			st.setScene(sceneMenuAcciones);
+			st.setFullScreen(false);
+			st.show();
+			
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-	}
-	
-		
-	private void mostrarMenuEstado() throws Exception{
-		
-		//BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
-		
-	    FXMLLoader loader = new FXMLLoader();
-	    loader.setLocation(Aplicacion.class.getResource("Menu_Estado_Algoformer.fxml"));
-	   // loader.setController(ayudacontroller);
 	    
-	    Parent vistaayuda =  loader.load();
-	    
-	    Scene nuevascene = new Scene(vistaayuda);
-		
-	    Stage stage = new Stage();
-	    stage.setScene(nuevascene);
-	    stage.setFullScreen(false);
-	    stage.setResizable(false);
-	    stage.show();
-		
+
 	}
+
 }

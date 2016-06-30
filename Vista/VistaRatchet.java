@@ -22,7 +22,7 @@ public class VistaRatchet extends VistaAlgoformer {
 		picratchet.setFitWidth(75);
 		picratchet.setFitHeight(75);
 		
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof);
 		
 		picratchet.setOnMouseClicked(controller);
 	    
