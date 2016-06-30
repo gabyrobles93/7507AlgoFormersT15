@@ -27,6 +27,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Vista.Aplicacion;
 import Vista.Controlador.BotonMoverHandler;
+import Vista.Controlador.BotonObjetivoAtacarHandler;
 import Vista.Controlador.BotonObjetivoMovimientoHandler;
 
 public class menuAccionesAlgoformerController  {
@@ -105,6 +106,42 @@ public void mostrarZonaMovimiento() {
 	        		picmoverse.setImage(flechamoverse);
 	        		
 	        	 	BotonObjetivoMovimientoHandler movHandler=new BotonObjetivoMovimientoHandler(algof,row,column,vistaAlgof,this);          
+	        	 	picmoverse.setOnMouseClicked(movHandler);
+	        		
+	        	 	listaReferencias.add(picmoverse);
+	        	 	
+	        	 	vistaTablero.dibujarNodo(picmoverse, column, row);	         
+	            }
+	        }
+
+    vistaTablero.setReferenciasObjetivoMovimiento(listaReferencias);
+    
+}
+public void mostrarZonaAtaque() {
+	
+	int distanciaACubrir=algof.getDistanciaDeAtaque();
+	int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;
+	int maxColumn = (algof.getPosicion().getColumna()+distanciaACubrir>=50)?49:algof.getPosicion().getColumna()+distanciaACubrir;	
+	
+	int minFila = (algof.getPosicion().getFila()-distanciaACubrir>=0)?algof.getPosicion().getFila()-distanciaACubrir:0;
+	int maxFila = (algof.getPosicion().getFila()+distanciaACubrir>=50)?49:algof.getPosicion().getFila()+distanciaACubrir;	
+	
+	List<ImageView> listaReferencias = new ArrayList<ImageView>();
+
+	
+	
+		 for (int column=minColumn; column<=maxColumn; column++) {
+	            for (int row = minFila ; row<=maxFila; row++) {
+	            	
+	        		File file = new File("C:\\imagenes\\acciones\\moverse_permitido.png");
+	        		
+	        		Image flechamoverse = new Image(file.toURI().toString());
+	        		ImageView picmoverse = new ImageView();
+	        		picmoverse.setFitWidth(75);
+	        		picmoverse.setFitHeight(75);
+	        		picmoverse.setImage(flechamoverse);
+	        		
+	        	 	BotonObjetivoAtacarHandler movHandler=new BotonObjetivoAtacarHandler(algof,row,column,vistaAlgof,this);          
 	        	 	picmoverse.setOnMouseClicked(movHandler);
 	        		
 	        	 	listaReferencias.add(picmoverse);

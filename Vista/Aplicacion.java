@@ -25,7 +25,7 @@ public class Aplicacion extends Application {
 	TableroCieloController controllerTableroCielo;
 	protected AnchorPane vistaBumblebee;
 	protected VistaBumblebee controllerBumblebee;
-	Juego juego;
+	public static Juego juego;
 
 	public static void main(String[] args) {
 		launch(args);

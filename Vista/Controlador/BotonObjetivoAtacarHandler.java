@@ -10,44 +10,49 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import src.vista.Aplicacion;
 import Vista.VistaAlgoformer;
+import Vista.VistaBumblebee2;
 import Vista.VistaTerreno;
+import Vista.menuAccionesAlgoformerController;
 
-public class BotonObjetivoAtacarHandler implements EventHandler<ActionEvent>{
+public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 
-	Juego juego;
 	Algoformer algof;
-	VistaAlgoformer vista;
+	VistaBumblebee2 vista;
 	int fila;
 	int columna;
 	Scene escenaFinal;
 	Stage stage;
+	menuAccionesAlgoformerController menuAccionesController;
 	
-	public BotonObjetivoAtacarHandler(Juego juego, Algoformer algof, int row, int column, VistaAlgoformer vista,Scene escenaFinal,Stage stage) {
+	public BotonObjetivoAtacarHandler(Algoformer algof, int row, int column, VistaBumblebee2 vista, menuAccionesAlgoformerController menuAccionesController) {
 		this.fila=row;
 		this.columna=column;
 		this.algof=algof;
 		this.vista=vista;
-		this.juego=juego;
+	
 		this.stage=stage;
 		this.escenaFinal=escenaFinal;
+		this.menuAccionesController=menuAccionesController;
 	}
 
 	@Override
-	public void handle(ActionEvent event) {
+	public void handle(MouseEvent event) {
 		
 		Casillero casAux;
-		casAux=juego.getTablero().getCasillero(fila, columna);
+		casAux=Aplicacion..getTablero().getCasillero(fila, columna);
 		
 		try{
 		algof.atacar((Algoformer)(casAux.getMovilOcupa()));
-		if(juego.getGanador()!=null){
+		/*if(juego.getGanador()!=null){
 			stage.setScene(escenaFinal);
-		}
-		juego.jugarTurno();
+		}*/
+		//juego.jugarTurno();
 		}catch(ErrorAlgoformerInexistente e){
 			
 			HBox hb=new HBox();
