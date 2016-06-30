@@ -1,5 +1,10 @@
 package Modelo;
 
+import java.io.File;
+import java.util.ArrayList;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public  class Tablero{
 protected  Casillero matriz[][];
@@ -170,6 +175,154 @@ public void LiberarCasillero(Posicion posicion) {
 	
 }
 private void fijarSuperficiesIniciales(){
+		
+	SuperficieRocosa suproc = new SuperficieRocosa();
+	SuperficiePantanosa suppant = new SuperficiePantanosa();
+	SuperficieEspinosa supesp = new SuperficieEspinosa();
+
+	
+	SuperficieNubosa supnub = new SuperficieNubosa();
+	SuperficieTormentaPsionica suptormpsio = new SuperficieTormentaPsionica();
+	SuperficieNebulosaDeAndromeda supnebandr = new SuperficieNebulosaDeAndromeda();
+
+
+	/*Seteo superficie rocosa en todo el tablero tierra*/
+	for( int fila = 0; fila < 50; fila++){
+		
+		for( int columna = 0; columna < 50; columna ++){
+					   		
+			Posicion pos = new Posicion(fila,columna);
+			this.setSuperficieTierraEnCasillero(pos, suproc);
+			
+		}
+	}
+	
+	/*Seteo superficie nubosa en todo el tablero cielo*/
+
+	for( int fila = 0; fila < 50; fila++){
+		
+		for( int columna = 0; columna < 50; columna ++){
+					   		
+			Posicion pos = new Posicion(fila,columna);
+			this.setSuperficieCieloEnCasillero(pos, supnub);
+			
+		}
+	}
+	
+	/*Seteo superficies adversas en partes del tablero tierra*/
+	
+	for( int fila = 0; fila < 50; fila++){
+		
+		/* seteo superficies tierra */
+		for( int columna = 0; columna < 50; columna ++){
+			
+			int randomNum = 0 + (int)(Math.random() * 30);
+			
+			if(randomNum == 4 || randomNum == 8){
+
+				Posicion pos = new Posicion(fila,columna);
+				this.setSuperficieTierraEnCasillero(pos, suppant);
+			}
+			
+			if(randomNum == 5 || randomNum == 15){
+			    
+				Posicion pos = new Posicion(fila,columna);
+				this.setSuperficieTierraEnCasillero(pos, supesp);
+			}
+		
+		}
+		
+	}
+				
+		for( int fila = 0; fila < 50; fila++){
+			/* seteo superficies cielo */
+			for( int columna = 0; columna < 50; columna ++){
+				
+				int randomNum = 0 + (int)(Math.random() * 30);
+				
+				if(randomNum == 4 || randomNum == 8){
+
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieCieloEnCasillero(pos, suptormpsio);
+				}
+				
+				if(randomNum == 5 || randomNum == 15){
+				    
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieCieloEnCasillero(pos, supnebandr);
+				}	
+			}
+		}
+		
+		/* En torno a la chispa en el cielo */
+		for( int fila = 20; fila < 30; fila++){
+			for( int columna = 20; columna < 30; columna ++){
+				
+				int randomNum = 0 + (int)(Math.random() * 20);
+				
+				if(randomNum == 4 || randomNum == 8 ){
+
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieCieloEnCasillero(pos, suptormpsio);
+				}
+				
+				if(randomNum == 5 || randomNum == 15){
+				    
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieCieloEnCasillero(pos, supnebandr);
+				}	
+			}
+		}
+
+		
+		/* En torno a la chispa en la tierra */
+		for( int fila = 20; fila < 30; fila++){
+			
+			/* seteo superficies tierra */
+			for( int columna = 20; columna < 30; columna ++){
+				
+				int randomNum = 0 + (int)(Math.random() * 20);
+				
+				if(randomNum == 4 || randomNum == 8){
+
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieTierraEnCasillero(pos, suppant);
+				}
+				
+				if(randomNum == 5 || randomNum == 15){
+				    
+					Posicion pos = new Posicion(fila,columna);
+					this.setSuperficieTierraEnCasillero(pos, supesp);
+				}
+			
+			}
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	
+	
+	
+	
 	Posicion pos1 = new Posicion(10,10);
 	Posicion pos2 = new Posicion(40,40);
 	Posicion pos3 = new Posicion(10,40);
@@ -197,9 +350,9 @@ SuperficieTormentaPsionica supTorm=new SuperficieTormentaPsionica();
 Tablero subtab4=this.getArea(pos4, 2);
 subtab4.setearSuperficieCielo(supTorm);
 
-	
+	*/
 
-}
+
 private void setearSuperficieTierra(SuperficieTierra sup){
 	for(int i=0;i<CantidadCasilleros;i++){
 		for(int j=0;j<CantidadCasilleros;j++){

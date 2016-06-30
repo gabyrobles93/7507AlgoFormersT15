@@ -68,4 +68,43 @@ public void mostrarAyuda() throws Exception {
 	
 }
 
+public void mostrarResumenJuego() throws Exception {
+
+	//BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
+	
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(Aplicacion.class.getResource("Resumen_Juego.fxml"));
+   // loader.setController(ayudacontroller);
+    
+    Parent vistaayuda =  loader.load();
+    
+    Scene nuevascene = new Scene(vistaayuda);
+	
+    Stage stage = new Stage();
+    stage.setScene(nuevascene);
+    stage.setFullScreen(false);
+    stage.setResizable(false);
+    stage.show();
+	
+}
+
+public void mostrarAcercaDe() throws Exception {
+
+	//BotonAyudaController ayudacontroller = new BotonAyudaController(stage);
+	
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(Aplicacion.class.getResource("Acerca_De.fxml"));
+   // loader.setController(ayudacontroller);
+    
+    Parent vistaayuda =  loader.load();
+    
+    Scene nuevascene = new Scene(vistaayuda);
+	
+    Stage stage = new Stage();
+    stage.setScene(nuevascene);
+    stage.setFullScreen(false);
+    stage.setResizable(false);
+    stage.show();
+}
+
 }

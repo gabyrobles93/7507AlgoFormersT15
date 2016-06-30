@@ -3,6 +3,7 @@ package Vista;
 import java.io.File;
 
 import Modelo.Optimus;
+import Vista.Controlador.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -16,12 +17,16 @@ public class VistaOptimus extends VistaAlgoformer {
 	public void dibujar(GridPane tablero_tierra) {
 		File file = new File("C:\\imagenes\\autobots\\humanoide\\optimus.png");
 		
-		Image imagebonecrusher = new Image(file.toURI().toString());
-		ImageView picbonecrusher = new ImageView();
-		picbonecrusher.setFitWidth(75);
-		picbonecrusher.setFitHeight(75);
+		Image imageoptimus = new Image(file.toURI().toString());
+		ImageView picoptimus = new ImageView();
+		picoptimus.setFitWidth(75);
+		picoptimus.setFitHeight(75);
+		
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		
+		picoptimus.setOnMouseClicked(controller);
 	    
-		picbonecrusher.setImage(imagebonecrusher);
-		tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		picoptimus.setImage(imageoptimus);
+		tablero_tierra.add(picoptimus,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }

@@ -11,13 +11,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class BotonVerEstadoHandler implements EventHandler<ActionEvent> {
+	
 	private Algoformer algof;
+	
 	public BotonVerEstadoHandler(Algoformer algof){
 		this.algof=algof;
 	}
 
 	@Override
 	public void handle(ActionEvent event) {
+		
 		VBox hb=new VBox();
 		Text txt1=new Text("Vida "+String.valueOf(algof.getVida()));
 		Text txt2=new Text("Ataque "+String.valueOf(algof.getAtaque()));

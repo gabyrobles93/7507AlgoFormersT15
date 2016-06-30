@@ -3,6 +3,7 @@ package Vista;
 import java.io.File;
 
 import Modelo.Ratchet;
+import Vista.Controlador.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -16,12 +17,16 @@ public class VistaRatchet extends VistaAlgoformer {
 	public void dibujar(GridPane tablero_tierra) {
 		File file = new File("C:\\imagenes\\autobots\\humanoide\\ratchet.png");
 		
-		Image imagebonecrusher = new Image(file.toURI().toString());
-		ImageView picbonecrusher = new ImageView();
-		picbonecrusher.setFitWidth(75);
-		picbonecrusher.setFitHeight(75);
+		Image imageratchet = new Image(file.toURI().toString());
+		ImageView picratchet = new ImageView();
+		picratchet.setFitWidth(75);
+		picratchet.setFitHeight(75);
+		
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		
+		picratchet.setOnMouseClicked(controller);
 	    
-		picbonecrusher.setImage(imagebonecrusher);
-		tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		picratchet.setImage(imageratchet);
+		tablero_tierra.add(picratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }

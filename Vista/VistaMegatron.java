@@ -4,6 +4,8 @@ package Vista;
 import java.io.File;
 
 import Modelo.Megatron;
+import Vista.Controlador.VerEstadoAlgoformerController;
+import Vista.Controlador.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -19,13 +21,17 @@ public class VistaMegatron extends VistaAlgoformer {
 	public void dibujar(GridPane tablero_tierra) {
 		File file = new File("C:\\imagenes\\decepticons\\humanoide\\megatron.png");
 		
-		Image imagebonecrusher = new Image(file.toURI().toString());
-		ImageView picbonecrusher = new ImageView();
-		picbonecrusher.setFitWidth(75);
-		picbonecrusher.setFitHeight(75);
+		Image imagemegatron = new Image(file.toURI().toString());
+		ImageView picmegatron = new ImageView();
+		picmegatron.setFitWidth(75);
+		picmegatron.setFitHeight(75);
+		
+		VerEstadoAlgoformerController controller = new VerEstadoAlgoformerController(algof);
+		
+		picmegatron.setOnMouseClicked(controller);
 	    
-		picbonecrusher.setImage(imagebonecrusher);
-		tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		picmegatron.setImage(imagemegatron);
+		tablero_tierra.add(picmegatron,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 		
 	
 		

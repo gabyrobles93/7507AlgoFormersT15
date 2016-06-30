@@ -3,6 +3,7 @@ package Vista;
 import java.io.File;
 
 import Modelo.Bumblebee;
+import Vista.Controlador.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -17,12 +18,16 @@ public class VistaBumblebee extends VistaAlgoformer {
 	public void dibujar(GridPane tablero_tierra) {
 		File file = new File("C:\\imagenes\\autobots\\humanoide\\bumblebee.png");
 		
-		Image imagebonecrusher = new Image(file.toURI().toString());
-		ImageView picbonecrusher = new ImageView();
-		picbonecrusher.setFitWidth(75);
-		picbonecrusher.setFitHeight(75);
+		Image imagebumblebee = new Image(file.toURI().toString());
+		ImageView picbumblebee = new ImageView();
+		picbumblebee.setFitWidth(75);
+		picbumblebee.setFitHeight(75);
 	    
-		picbonecrusher.setImage(imagebonecrusher);
-		tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController();
+		
+		picbumblebee.setOnMouseClicked(controller);
+		
+		picbumblebee.setImage(imagebumblebee);
+		tablero_tierra.add(picbumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }
