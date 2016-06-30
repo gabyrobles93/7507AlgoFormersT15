@@ -23,8 +23,8 @@ public class MovimientoNorEste extends MovimientoDiagonal {
 			ErrorAlgoformerHumanoideNoPuedePasarPorPantano err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;
 			
-		}
+		}else{
 		unTablero.ubicarMovil(movil,posAux);
-		
+		}
 	}
 }

@@ -4,7 +4,7 @@ import java.io.File;
 
 import Modelo.Bonecrusher;
 import Vista.Controlador.VerEstadoAlgoformerController;
-import Vista.Controlador.menuAccionesAlgoformerController;
+import Vista.menuAccionesAlgoformerController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;

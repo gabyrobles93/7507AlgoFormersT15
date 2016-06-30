@@ -75,7 +75,7 @@ public class OptimusHumaboideTest {
 	public void test03OptimusHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
 		Optimus.ResetearInstancia();
 		Megatron.ResetearInstancia();
-		
+		Optimus.getOptimus().cambiarModo();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);

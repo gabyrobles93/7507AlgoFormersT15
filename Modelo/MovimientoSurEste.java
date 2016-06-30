@@ -22,8 +22,8 @@ public class MovimientoSurEste extends MovimientoDiagonal {
 		if(((afectable)movil).getEfecto().afectavelocidad == 999){
 			ErrorAlgoformerHumanoideNoPuedePasarPorPantano err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;
-		}
+		}else{
 		unTablero.ubicarMovil(movil,posAux);
-		
+		}
 	}
 }

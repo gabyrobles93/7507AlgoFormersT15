@@ -21,8 +21,8 @@ public class MovimientoEste extends MovimientoHorizontal {
 		if(((afectable)movil).getEfecto().afectavelocidad == 999){
 			ErrorAlgoformerHumanoideNoPuedePasarPorPantano err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;
-		}
-		unTablero.ubicarMovil(movil,posAux);
+		}else{unTablero.ubicarMovil(movil,posAux);}
+		
 	}
 
 

@@ -3,7 +3,7 @@ package Modelo;
 
 
 public  class Bumblebee extends Algoformer {
-	private static Bumblebee INSTANCE=new Bumblebee().new BumblebeeAlterno();
+	private static Bumblebee INSTANCE=new Bumblebee().new BumblebeeHumanoide();
 	
 	private Bumblebee(){
 		
@@ -15,7 +15,7 @@ public  class Bumblebee extends Algoformer {
 			vida=350;
 			ataque=40;
 			alcance=1;
-			velocidad=2;
+			velocidad=10;
 			efecto.velocidadAfectada=velocidad;
 			setEquipo();
 		}
@@ -57,6 +57,7 @@ public  class Bumblebee extends Algoformer {
 		}
 		@Override
 		public void afectarPorPantano(double coeficiente) {
+			miPosicion.LiberarPosicion();
 			RuntimeException err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;
 		}

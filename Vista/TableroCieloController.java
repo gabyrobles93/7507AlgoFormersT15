@@ -36,17 +36,17 @@ public class TableroCieloController {
 	}
 
 	private void ubicarAutobots() {
-		VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
+		/*VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
 		vistaOptimus.dibujar(tablerocielo);
 		VistaAlgoformer vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee());
 		vistaBumblebee.dibujar(tablerocielo);
 		VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
-		vistaRatchet.dibujar(tablerocielo);
+		vistaRatchet.dibujar(tablerocielo);*/
 	}
 private void ubicarDecepticons() {
 	
 
-		
+	/*	
 		VistaAlgoformer vistaMegatron=new VistaMegatron(Megatron.getMegatron());
 		vistaMegatron.dibujar(tablerocielo);
 		VistaAlgoformer vistaBonecrusher=new VistaBonecrusher(Bonecrusher.getBonecrusher());
@@ -54,7 +54,7 @@ private void ubicarDecepticons() {
 		VistaAlgoformer vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy());
 		vistaFrenzy.dibujar(tablerocielo);
 		
-
+*/
 	}
 	
 	public void inicializarSuperficies(Tablero tablero) {

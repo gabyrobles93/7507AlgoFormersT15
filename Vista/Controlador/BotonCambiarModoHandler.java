@@ -22,7 +22,7 @@ VistaAlgoformer vistaAlgoformer;
 	public void handle(ActionEvent arg0) {
 		
 		algof=algof.cambiarModo();
-		vistaAlgoformer.actualizarAlgof(algof);
+		//vistaAlgoformer.actualizarAlgof(algof);
 		vistaAlgoformer.update();
 		
 		

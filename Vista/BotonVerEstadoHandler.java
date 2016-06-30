@@ -1,4 +1,4 @@
-package Vista.Controlador;
+package Vista;
 
 import Modelo.Algoformer;
 import javafx.event.ActionEvent;

@@ -118,6 +118,7 @@ public class SuperficieTest {
 	@Test
 	public void test04bumblebeeAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		Bumblebee.ResetearInstancia();
+	
 		
 			Tablero tab = new Tablero();
 			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
@@ -386,8 +387,11 @@ public class SuperficieTest {
 			
 			tab.ubicarMovil(megatron, posinicial);
 			area.setAreaPantanosa(tab); // El area en las posiciones indicadas por arearocosa se copia tal cual en el tablero.	
-			
+	try{		
 			megatron.mover(posfinal);
+	}catch(RuntimeException e){
+		megatron.mover(posfinal);
+	}
 	}
 	
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)

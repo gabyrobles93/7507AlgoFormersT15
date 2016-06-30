@@ -3,6 +3,7 @@ package Vista.Controlador;
 import java.io.IOException;
 
 import Modelo.Algoformer;
+import Vista.BotonVerEstadoHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

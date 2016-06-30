@@ -1,15 +1,18 @@
 package Vista;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 import Modelo.Algoformer;
+import Modelo.Bumblebee;
 import Modelo.Juego;
 import Vista.Controlador.BotonAtacarHandler;
 import Vista.Controlador.BotonCambiarModoHandler;
 import Vista.Controlador.BotonCapturarChispaHandler;
 import Vista.Controlador.BotonMoverHandler;
 import Vista.Controlador.BotonSeleccionarAlgoformerEventHandler;
-import Vista.Controlador.BotonVerEstadoHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuButton;
@@ -17,6 +20,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -28,25 +32,44 @@ import javafx.stage.Stage;
 public class VistaAlgoformer {
 
 	protected Algoformer algof;
-	
+	protected Pane vistaBumblebee;
+	protected VistaBumblebee2 controllerBumblebee;
+	TableroTierraController tableroTierraController;
 	/*String nombre;
 	private  ContenedorPrincipal contenedor;
 	private VistaTerreno vista;
 	Stage stage;*/
 	
 	 public VistaAlgoformer(Stage stage,Algoformer algof, GridPane paneCentral,String nombre,ContenedorPrincipal contenedor,Juego juego,VistaTerreno vista) {
-	       /* this.algof = algof;
-	        this.tablero = paneCentral;
-	        this.nombre=nombre;
-	        this.contenedor=contenedor;
-	        this.juego=juego;
-	        this.vista=vista;
-	        this.stage=stage;*/
-	    }
-	public VistaAlgoformer() {
+	 }
+	 public VistaAlgoformer(){
+		 
+	 }
+
+	public VistaAlgoformer(TableroTierraController tableroTierraController) {
+		
+	this.tableroTierraController=tableroTierraController;
+
+		
+    }
+	 
 		// TODO Auto-generated constructor stub
-	}
+
 	public void dibujar(GridPane tablero_tierra) {
+		try {
+			FXMLLoader loader3 = new FXMLLoader();
+			loader3.setLocation(Aplicacion.class.getResource("Bumblebee.fxml"));
+			
+			
+					vistaBumblebee = loader3.load();
+					
+					controllerBumblebee = loader3.getController();
+					controllerBumblebee.setAlgoformer(Bumblebee.getBumblebee());
+					controllerBumblebee.setControllerTableroTierra(tableroTierraController);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		/*if(algof.getVida()==0){
 			return;
 		}
@@ -86,7 +109,7 @@ public class VistaAlgoformer {
 		GridPane.setConstraints(algo, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
 		
 		*/
-		
+		controllerBumblebee.dibujar();
 	}
 	public void update() {
 		//tablero.getChildren().clear();
@@ -118,7 +141,7 @@ public class VistaAlgoformer {
 		tablero.getChildren().add(button);
 	*/	
 	}
-	public void actualizarAlgof(Algoformer algof2) {
+	public void setAlgoformer(Algoformer algof2) {
 		// TODO Auto-generated method stub
 		this.algof=algof2;
 	}

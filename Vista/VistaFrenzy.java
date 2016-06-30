@@ -4,7 +4,7 @@ import java.io.File;
 
 import Modelo.Frenzy;
 import Vista.Controlador.VerEstadoAlgoformerController;
-import Vista.Controlador.menuAccionesAlgoformerController;
+import Vista.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;

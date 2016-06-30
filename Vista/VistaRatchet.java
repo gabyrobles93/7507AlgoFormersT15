@@ -3,7 +3,7 @@ package Vista;
 import java.io.File;
 
 import Modelo.Ratchet;
-import Vista.Controlador.menuAccionesAlgoformerController;
+import Vista.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -22,9 +22,9 @@ public class VistaRatchet extends VistaAlgoformer {
 		picratchet.setFitWidth(75);
 		picratchet.setFitHeight(75);
 		
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof);
+		//menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof,tablero_tierra);
 		
-		picratchet.setOnMouseClicked(controller);
+		//picratchet.setOnMouseClicked(controller);
 	    
 		picratchet.setImage(imageratchet);
 		tablero_tierra.add(picratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		

@@ -175,8 +175,35 @@ public void LiberarCasillero(Posicion posicion) {
 	
 }
 private void fijarSuperficiesIniciales(){
+	
+	Posicion pos1 = new Posicion(10,10);
+	Posicion pos2 = new Posicion(40,40);
+	Posicion pos3 = new Posicion(10,40);
+	Posicion pos4 = new Posicion(40,10);
+	
+	SuperficieNubosa supCielo=new SuperficieNubosa();
+	SuperficieRocosa supRoca=new SuperficieRocosa();
+		this.setearSuperficieCielo(supCielo);
+		this.setearSuperficieTierra(supRoca);
+	
+SuperficieEspinosa supEsp=new SuperficieEspinosa();	
+Tablero subtab=this.getArea(pos1, 2);
+subtab.setearSuperficieTierra(supEsp);
+
+SuperficiePantanosa supPant=new SuperficiePantanosa();
+Tablero subtab2=this.getArea(pos2, 2);
+subtab2.setearSuperficieTierra(supPant);
+
+
+SuperficieNebulosaDeAndromeda supNeb=new SuperficieNebulosaDeAndromeda();
+Tablero subtab3=this.getArea(pos3, 2);
+subtab3.setearSuperficieCielo(supNeb);
+
+SuperficieTormentaPsionica supTorm=new SuperficieTormentaPsionica();
+Tablero subtab4=this.getArea(pos4, 2);
+subtab4.setearSuperficieCielo(supTorm);
 		
-	SuperficieRocosa suproc = new SuperficieRocosa();
+	/*SuperficieRocosa suproc = new SuperficieRocosa();
 	SuperficiePantanosa suppant = new SuperficiePantanosa();
 	SuperficieEspinosa supesp = new SuperficieEspinosa();
 
@@ -186,7 +213,7 @@ private void fijarSuperficiesIniciales(){
 	SuperficieNebulosaDeAndromeda supnebandr = new SuperficieNebulosaDeAndromeda();
 
 
-	/*Seteo superficie rocosa en todo el tablero tierra*/
+	Seteo superficie rocosa en todo el tablero tierra
 	for( int fila = 0; fila < 50; fila++){
 		
 		for( int columna = 0; columna < 50; columna ++){
@@ -197,7 +224,7 @@ private void fijarSuperficiesIniciales(){
 		}
 	}
 	
-	/*Seteo superficie nubosa en todo el tablero cielo*/
+	/*Seteo superficie nubosa en todo el tablero cielo
 
 	for( int fila = 0; fila < 50; fila++){
 		
@@ -209,11 +236,11 @@ private void fijarSuperficiesIniciales(){
 		}
 	}
 	
-	/*Seteo superficies adversas en partes del tablero tierra*/
+	/*Seteo superficies adversas en partes del tablero tierra
 	
 	for( int fila = 0; fila < 50; fila++){
 		
-		/* seteo superficies tierra */
+		/* seteo superficies tierra 
 		for( int columna = 0; columna < 50; columna ++){
 			
 			int randomNum = 0 + (int)(Math.random() * 30);
@@ -235,7 +262,7 @@ private void fijarSuperficiesIniciales(){
 	}
 				
 		for( int fila = 0; fila < 50; fila++){
-			/* seteo superficies cielo */
+			/* seteo superficies cielo 
 			for( int columna = 0; columna < 50; columna ++){
 				
 				int randomNum = 0 + (int)(Math.random() * 30);
@@ -254,7 +281,7 @@ private void fijarSuperficiesIniciales(){
 			}
 		}
 		
-		/* En torno a la chispa en el cielo */
+		/* En torno a la chispa en el cielo 
 		for( int fila = 20; fila < 30; fila++){
 			for( int columna = 20; columna < 30; columna ++){
 				
@@ -275,10 +302,10 @@ private void fijarSuperficiesIniciales(){
 		}
 
 		
-		/* En torno a la chispa en la tierra */
+		/* En torno a la chispa en la tierra 
 		for( int fila = 20; fila < 30; fila++){
 			
-			/* seteo superficies tierra */
+			/* seteo superficies tierra 
 			for( int columna = 20; columna < 30; columna ++){
 				
 				int randomNum = 0 + (int)(Math.random() * 20);
@@ -297,7 +324,7 @@ private void fijarSuperficiesIniciales(){
 			
 			}
 			
-		}
+		}*/
 		
 		
 		

@@ -3,7 +3,7 @@ package Vista;
 import java.io.File;
 
 import Modelo.Optimus;
-import Vista.Controlador.menuAccionesAlgoformerController;
+import Vista.menuAccionesAlgoformerController;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -22,9 +22,9 @@ public class VistaOptimus extends VistaAlgoformer {
 		picoptimus.setFitWidth(75);
 		picoptimus.setFitHeight(75);
 		
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof);
+		//menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof,tablero_tierra);
 		
-		picoptimus.setOnMouseClicked(controller);
+		//picoptimus.setOnMouseClicked(controller);
 	    
 		picoptimus.setImage(imageoptimus);
 		tablero_tierra.add(picoptimus,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		

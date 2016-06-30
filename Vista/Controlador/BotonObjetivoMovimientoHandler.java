@@ -13,33 +13,37 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Vista.VistaAlgoformer;
+import Vista.VistaBumblebee2;
 import Vista.VistaTerreno;
+import Vista.menuAccionesAlgoformerController;
 
-public class BotonObjetivoMovimientoHandler implements EventHandler<ActionEvent>{
+public class BotonObjetivoMovimientoHandler implements EventHandler<MouseEvent>{
 private final int fila;
 private final int columna;
 private Algoformer algof;
-private final VistaAlgoformer tab;
-private final Juego juego;
+private  VistaBumblebee2 vistaAlgof;
+private  Juego juego;
 	
-	public BotonObjetivoMovimientoHandler(Juego juego, Algoformer algof,int fila,int columna,VistaAlgoformer tab){
+	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebee2 vistaAlgof, menuAccionesAlgoformerController menuAccionesAlgoformerController){
 		this.fila=fila;
 		this.columna=columna;
 		this.algof=algof;
-		this.tab=tab;
-		this.juego=juego;
+		this.vistaAlgof=vistaAlgof;
+		//this.juego=juego;
 	}
 	@Override
-	public void handle(ActionEvent arg0) {
+	public void handle(MouseEvent arg0) {
 		Posicion pos= new Posicion(fila,columna);
 		try{
 		algof.mover(pos);
-		
-		juego.jugarTurno();
+		vistaAlgof.cerrarMenu();
+		vistaAlgof.update();
+		//juego.jugarTurno();
 		}catch(ErrorCasillerOcupado e){
 			
 			HBox hb=new HBox();
@@ -77,7 +81,7 @@ private final Juego juego;
 			st.show();
 		}catch(ErrorVelocidadDelMovilInsuficiente e){
 			HBox hb=new HBox();
-			Text txt=new Text("Distancia de Ataque Insuficiente, atento con el pantano");
+			Text txt=new Text("velocidad Insuficiente, atento con el pantano");
 			hb.getChildren().add(txt);
 			hb.setAlignment(Pos.CENTER);
 			Scene sc=new Scene(hb,200,200);
@@ -88,7 +92,7 @@ private final Juego juego;
 			st.show();
 		}
 		
-		tab.update();
+		
 		
 		
 		

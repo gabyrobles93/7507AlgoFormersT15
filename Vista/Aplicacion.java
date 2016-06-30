@@ -23,6 +23,8 @@ public class Aplicacion extends Application {
 	private TableroController controladorTablero;
 	TableroTierraController controllerTableroTierra;
 	TableroCieloController controllerTableroCielo;
+	protected AnchorPane vistaBumblebee;
+	protected VistaBumblebee controllerBumblebee;
 	Juego juego;
 
 	public static void main(String[] args) {
@@ -42,7 +44,10 @@ public class Aplicacion extends Application {
 		this.ventanaPrincipal = stage;
 		this.ventanaPrincipal.setTitle("Algoformers");
 
+		
 		initRootTablero();
+		
+
 
 	}
 
@@ -108,7 +113,7 @@ public class Aplicacion extends Application {
 			e.printStackTrace();
 		}
 	}
-
+	
 	private void iniciarInterfazGrafica(Stage mainStage) throws Exception {
 
 	}

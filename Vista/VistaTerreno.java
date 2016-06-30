@@ -120,12 +120,12 @@ public class VistaTerreno {
 			 for (int column=minColumn; column<=maxColumn; column++) {
  	            for (int row = minFila ; row<=maxFila; row++) {
  	            	
- 	            	BotonObjetivoMovimientoHandler handler = new BotonObjetivoMovimientoHandler(juego,algof,row,column,vista);
- 	            	Button botonObjetivoMovimiento = new Button("");
- 	            	botonObjetivoMovimiento.setOnAction(handler);
+ 	            //	BotonObjetivoMovimientoHandler handler = new BotonObjetivoMovimientoHandler(juego,algof,row,column,vista);
+ 	            	//Button botonObjetivoMovimiento = new Button("");
+ 	           // 	botonObjetivoMovimiento.setOnAction(handler);
  	       
- 	                GridPane.setConstraints(botonObjetivoMovimiento, column, row);
- 	                tab.getChildren().add(botonObjetivoMovimiento);
+ 	            //    GridPane.setConstraints(botonObjetivoMovimiento, column, row);
+ 	              //  tab.getChildren().add(botonObjetivoMovimiento);
  	            }
  	        }
 			

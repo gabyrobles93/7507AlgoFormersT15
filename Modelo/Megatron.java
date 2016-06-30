@@ -145,6 +145,7 @@ public  class Megatron extends Algoformer {
 		}
 		@Override
 		public void afectarPorPantano(double coeficiente) {
+			miPosicion.LiberarPosicion();
 			RuntimeException err = new ErrorAlgoformerHumanoideNoPuedePasarPorPantano();
 			throw err;
 		}
