@@ -27,12 +27,10 @@ private final int fila;
 private final int columna;
 private Algoformer algof;
 private  VistaBumblebee2 vistaAlgof;
-<<<<<<< HEAD
 
-=======
 private  Juego juego;
 private menuAccionesAlgoformerController menuacciones;
->>>>>>> 06e14d374c0e8233ca1f390ded8bdd12014fffbd
+
 	
 	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebee2 vistaAlgof, menuAccionesAlgoformerController menu){
 		this.fila=fila;

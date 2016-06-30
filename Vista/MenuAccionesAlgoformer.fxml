@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="210.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.menuAccionesAlgoformerController">
    <children>
       <BorderPane layoutX="4.0" prefHeight="265.0" prefWidth="200.0" />
-      <Button fx:id="boton_atacar" layoutX="79.0" layoutY="30.0" mnemonicParsing="false" text="Atacar" />
+      <Button fx:id="boton_atacar" layoutX="79.0" layoutY="30.0" mnemonicParsing="false" onAction="#mostrarZonaAtaque" text="Atacar" />
       <Button fx:id="boton_mover" layoutX="79.0" layoutY="75.0" mnemonicParsing="false" onAction="#mostrarZonaMovimiento" text="Mover" />
       <Button fx:id="boton_transformar" layoutX="65.0" layoutY="120.0" mnemonicParsing="false" text="Transformar" />
       <Button fx:id="boton_combinar" layoutX="72.0" layoutY="162.0" mnemonicParsing="false" text="Combinar" />

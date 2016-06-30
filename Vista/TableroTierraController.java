@@ -126,6 +126,7 @@ public class TableroTierraController {
 		while(iter.hasNext()){
 			tablero_tierra.getChildren().remove(iter.next());
 		}
+		listaReferencias.clear();
 		
 	}
 	

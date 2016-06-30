@@ -82,6 +82,7 @@ public void setTablero(TableroTierraController controllerTablero) {
 	this.vistaTablero=controllerTablero;
 }
 public void mostrarZonaMovimiento() {
+	this.borrarZonaObjetivoMovimiento();
 	
 	int distanciaACubrir=algof.getVelocidad();
 	int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;
@@ -92,12 +93,12 @@ public void mostrarZonaMovimiento() {
 	
 	List<ImageView> listaReferencias = new ArrayList<ImageView>();
 
-	
+	File file = new File("C:\\imagenes\\acciones\\moverse_permitido.png");
 	
 		 for (int column=minColumn; column<=maxColumn; column++) {
 	            for (int row = minFila ; row<=maxFila; row++) {
 	            	
-	        		File file = new File("C:\\imagenes\\acciones\\moverse_permitido.png");
+	        		
 	        		
 	        		Image flechamoverse = new Image(file.toURI().toString());
 	        		ImageView picmoverse = new ImageView();
@@ -118,6 +119,8 @@ public void mostrarZonaMovimiento() {
     
 }
 public void mostrarZonaAtaque() {
+	
+	this.borrarZonaObjetivoMovimiento();
 	
 	int distanciaACubrir=algof.getDistanciaDeAtaque();
 	int minColumn = (algof.getPosicion().getColumna()-distanciaACubrir>=0)?algof.getPosicion().getColumna()-distanciaACubrir:0;

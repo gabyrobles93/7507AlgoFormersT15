@@ -164,9 +164,9 @@ public class VistaTerreno {
 	 	            	ContenedorJuegoFinalizado contenedorFinal= new ContenedorJuegoFinalizado(stage,juego);
 	 	       		Scene escenaFinal =new Scene(contenedorFinal);
 	 	            	
-	 	            	BotonObjetivoAtacarHandler handler = new BotonObjetivoAtacarHandler(juego,algof,row,column,vista,escenaFinal,stage);
+	 	            	//BotonObjetivoAtacarHandler handler = new BotonObjetivoAtacarHandler(juego,algof,row,column,vista,escenaFinal,stage);
 	 	            	Button botonObjetivoAtaque = new Button("");
-	 	            	botonObjetivoAtaque.setOnAction(handler);
+	 	            	//botonObjetivoAtaque.setOnMouseClicked(handler);
 	 	       
 	 	                GridPane.setConstraints(botonObjetivoAtaque, column, row);
 	 	                tab.getChildren().add(botonObjetivoAtaque);

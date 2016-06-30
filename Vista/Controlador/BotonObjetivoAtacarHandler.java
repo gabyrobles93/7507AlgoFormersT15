@@ -14,11 +14,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import src.vista.Aplicacion;
+
 import Vista.VistaAlgoformer;
 import Vista.VistaBumblebee2;
 import Vista.VistaTerreno;
 import Vista.menuAccionesAlgoformerController;
+import Vista.Aplicacion;
 
 public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 
@@ -45,10 +46,11 @@ public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 	public void handle(MouseEvent event) {
 		
 		Casillero casAux;
-		casAux=Aplicacion..getTablero().getCasillero(fila, columna);
+		casAux=Aplicacion.juego.getTablero().getCasillero(fila, columna);
 		
 		try{
 		algof.atacar((Algoformer)(casAux.getMovilOcupa()));
+		menuAccionesController.borrarZonaObjetivoMovimiento();
 		/*if(juego.getGanador()!=null){
 			stage.setScene(escenaFinal);
 		}*/
