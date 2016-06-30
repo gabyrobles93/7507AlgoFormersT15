@@ -90,13 +90,7 @@ private  Juego juego;
 			st.setScene(sc);
 			st.setFullScreen(false);
 			st.show();
-		}
-		
-		
-		
-		
-		
-		
+		}	
 	}
 
 }

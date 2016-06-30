@@ -2,6 +2,7 @@ package Vista;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import Modelo.Bonecrusher;
 import Modelo.Bumblebee;
@@ -107,6 +108,12 @@ public class TableroTierraController {
 	public void eliminarNodo(Node img) {
 		// TODO Auto-generated method stub
 		tablero_tierra.getChildren().remove(img);
+	}
+
+
+	public void setReferenciasObjetivoMovimiento(List<ImageView> listaReferencias) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

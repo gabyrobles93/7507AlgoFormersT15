@@ -1,6 +1,9 @@
 package Vista;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import Modelo.Algoformer;
 import javafx.collections.ObservableList;
@@ -14,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -84,24 +89,31 @@ public void mostrarZonaMovimiento() {
 	int minFila = (algof.getPosicion().getFila()-distanciaACubrir>=0)?algof.getPosicion().getFila()-distanciaACubrir:0;
 	int maxFila = (algof.getPosicion().getFila()+distanciaACubrir>=50)?49:algof.getPosicion().getFila()+distanciaACubrir;	
 	
+	List<ImageView> listaReferencias = new ArrayList<ImageView>();
+
+	
+	
 		 for (int column=minColumn; column<=maxColumn; column++) {
 	            for (int row = minFila ; row<=maxFila; row++) {
 	            	
-	            Text label =new Text("X");
-	            
-	            label.setFill(Color.BLACK);
-	            label.setStyle("-fx-text-alignment:center");
-	         vistaTablero.dibujarNodo(label, column, row);
-	            
-	           BotonObjetivoMovimientoHandler movHandler=new BotonObjetivoMovimientoHandler(algof,row,column,vistaAlgof,this);
-	            
-	            label.setOnMouseClicked(movHandler);
+	        		File file = new File("C:\\imagenes\\acciones\\moverse_permitido.png");
+	        		
+	        		Image flechamoverse = new Image(file.toURI().toString());
+	        		ImageView picmoverse = new ImageView();
+	        		picmoverse.setFitWidth(75);
+	        		picmoverse.setFitHeight(75);
+	        		picmoverse.setImage(flechamoverse);
+	        		
+	        	 	BotonObjetivoMovimientoHandler movHandler=new BotonObjetivoMovimientoHandler(algof,row,column,vistaAlgof,this);          
+	        	 	picmoverse.setOnMouseClicked(movHandler);
+	        		
+	        	 	listaReferencias.add(picmoverse);
+	        	 	
+	        	 	vistaTablero.dibujarNodo(picmoverse, column, row);	         
 	            }
 	        }
 
-	
-    
-    
+    vistaTablero.setReferenciasObjetivoMovimiento(listaReferencias);
     
 }
 
