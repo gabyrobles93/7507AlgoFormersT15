@@ -2,7 +2,9 @@ package Vista;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import Modelo.Bonecrusher;
 import Modelo.Bumblebee;
@@ -115,6 +117,16 @@ public class TableroTierraController {
 	public void setReferenciasObjetivoMovimiento(List<ImageView> nuevaLista) {
 		// TODO Auto-generated method stub
 		listaReferencias.addAll(nuevaLista);	
+	}
+	
+	public void borrarReferenciasObjetivoMovimiento(){
+		
+		Iterator iter = listaReferencias.iterator();
+		
+		while(iter.hasNext()){
+			tablero_tierra.getChildren().remove(iter.next());
+		}
+		
 	}
 	
 }

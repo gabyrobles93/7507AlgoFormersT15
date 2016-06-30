@@ -154,6 +154,12 @@ public void mostrarZonaAtaque() {
     
 }
 
+public void borrarZonaObjetivoMovimiento() {
+	// TODO Auto-generated method stub
+	vistaTablero.borrarReferenciasObjetivoMovimiento();
+	
+}
+
 
 	
 	}
