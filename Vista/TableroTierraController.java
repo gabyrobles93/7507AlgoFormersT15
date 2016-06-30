@@ -28,6 +28,7 @@ public class TableroTierraController {
 
 	Stage stage;
 	Scene proximaescena;
+	List<ImageView> listaReferencias;
 	
 	@FXML private GridPane tablero_tierra;
 	@FXML private ScrollPane scrollpane;
@@ -36,7 +37,7 @@ public class TableroTierraController {
 	@FXML
 	public void inicializarTableroTierra(Tablero tablero){
 		
-		
+		listaReferencias = new ArrayList<ImageView>();
 		
 		inicializarSuperficies(tablero);
 		ubicarAutobots();
@@ -111,9 +112,9 @@ public class TableroTierraController {
 	}
 
 
-	public void setReferenciasObjetivoMovimiento(List<ImageView> listaReferencias) {
+	public void setReferenciasObjetivoMovimiento(List<ImageView> nuevaLista) {
 		// TODO Auto-generated method stub
-		
+		listaReferencias.addAll(nuevaLista);	
 	}
 	
 }
