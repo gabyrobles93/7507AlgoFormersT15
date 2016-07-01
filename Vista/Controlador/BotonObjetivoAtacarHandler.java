@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import Vista.VistaAlgoformer;
-import Vista.VistaBumblebee2;
+import Vista.VistaBumblebeeController;
 import Vista.VistaTerreno;
 import Vista.menuAccionesAlgoformerController;
 import Vista.Aplicacion;
@@ -24,14 +24,14 @@ import Vista.Aplicacion;
 public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 
 	Algoformer algof;
-	VistaBumblebee2 vista;
+	VistaBumblebeeController vista;
 	int fila;
 	int columna;
 	Scene escenaFinal;
 	Stage stage;
 	menuAccionesAlgoformerController menuAccionesController;
 	
-	public BotonObjetivoAtacarHandler(Algoformer algof, int row, int column, VistaBumblebee2 vista, menuAccionesAlgoformerController menuAccionesController) {
+	public BotonObjetivoAtacarHandler(Algoformer algof, int row, int column, VistaBumblebeeController vista, menuAccionesAlgoformerController menuAccionesController) {
 		this.fila=row;
 		this.columna=column;
 		this.algof=algof;

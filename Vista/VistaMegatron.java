@@ -18,7 +18,7 @@ public class VistaMegatron extends VistaAlgoformer {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public void dibujar(GridPane tablero_tierra) {
+	public void dibujar() {
 		File file = new File("C:\\imagenes\\decepticons\\humanoide\\megatron.png");
 		
 		Image imagemegatron = new Image(file.toURI().toString());
@@ -32,7 +32,7 @@ public class VistaMegatron extends VistaAlgoformer {
 		picmegatron.setOnMouseClicked(controller);
 	    
 		picmegatron.setImage(imagemegatron);
-		tablero_tierra.add(picmegatron,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		//tablero_tierra.add(picmegatron,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 		
 	
 		

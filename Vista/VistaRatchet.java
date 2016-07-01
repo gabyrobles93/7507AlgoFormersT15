@@ -14,7 +14,7 @@ public class VistaRatchet extends VistaAlgoformer {
 		this.algof=ratchet;
 	}
 	@Override
-	public void dibujar(GridPane tablero_tierra) {
+	public void dibujar() {
 		File file = new File("C:\\imagenes\\autobots\\humanoide\\ratchet.png");
 		
 		Image imageratchet = new Image(file.toURI().toString());
@@ -27,6 +27,6 @@ public class VistaRatchet extends VistaAlgoformer {
 		//picratchet.setOnMouseClicked(controller);
 	    
 		picratchet.setImage(imageratchet);
-		tablero_tierra.add(picratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		//tablero_tierra.add(picratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }

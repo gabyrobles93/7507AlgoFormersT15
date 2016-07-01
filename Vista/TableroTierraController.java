@@ -34,11 +34,11 @@ public class TableroTierraController {
 	
 	@FXML private GridPane tablero_tierra;
 	@FXML private ScrollPane scrollpane;
-
+	private TableroController tableroController;
 	
-	@FXML
-	public void inicializarTableroTierra(Tablero tablero){
-		
+	
+	public void inicializarTableroTierra(Tablero tablero,TableroController tableroController){
+		this.tableroController=tableroController;
 		listaReferencias = new ArrayList<ImageView>();
 		
 		inicializarSuperficies(tablero);
@@ -73,14 +73,14 @@ public class TableroTierraController {
 	private void ubicarAutobots() {
 	//	VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
 		//vistaOptimus.dibujar(tablero_tierra);
-		VistaAlgoformer vistaBumblebee=new VistaAlgoformer(this);
+		VistaBumblebee vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee(),tableroController);
 	
-		vistaBumblebee.dibujar(tablero_tierra);
+		vistaBumblebee.dibujar();
 	//	VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
 		//vistaRatchet.dibujar(tablero_tierra);
 	}
 	@FXML
-	private void inicializarSuperficies(Tablero tablero) {
+	public void inicializarSuperficies(Tablero tablero) {
 		// TODO Auto-generated method stub
 
 

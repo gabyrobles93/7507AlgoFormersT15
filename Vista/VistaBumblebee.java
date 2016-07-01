@@ -16,50 +16,74 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class VistaBumblebee {
-@FXML ImageView img_bumblebee;
-private Algoformer algof;
-private GridPane tablero;
-	public VistaBumblebee(Bumblebee bumblebee,GridPane tablero) {
-		this.algof=bumblebee;
-		this.tablero=tablero;
-	}
+public class VistaBumblebee extends VistaAlgoformer{
 
-	public void dibujar(GridPane tablero_tierra) {
-		/*File file = new File("C:\\imagenes\\autobots\\humanoide\\bumblebee.png");
-		
-		Image imagebumblebee = new Image(file.toURI().toString());
-		ImageView picbumblebee = new ImageView();
-		picbumblebee.setFitWidth(75);
-		picbumblebee.setFitHeight(75);
-	    
-		menuAccionesAlgoformerController controller = new menuAccionesAlgoformerController(algof,tablero_tierra);
-		
-		picbumblebee.setOnMouseClicked(controller);
-		
-		picbumblebee.setImage(imagebumblebee);
-		tablero_tierra.add(picbumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());	*/
-		tablero_tierra.add(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+
+private GridPane tablero;
+	public VistaBumblebee(Bumblebee bumblebee,TableroController tableroController) {
+		this.algof=bumblebee;
+		this.tableroController=tableroController;
 	}
-	public void mostrarMenuAcciones(){
-	try {
-		FXMLLoader loadermenuacciones = new FXMLLoader(getClass().getResource("MenuAccionesAlgoformer.fxml"));
-		Parent rootMenuAcciones;
-		rootMenuAcciones = loadermenuacciones.load();
+	@Override
+	public void dibujar() {
+		try {
+			FXMLLoader loader3 = new FXMLLoader();
+			loader3.setLocation(Aplicacion.class.getResource("Bumblebee.fxml"));
+			
+			
+					vistaBumblebee = loader3.load();
+					
+					controllerBumblebee = loader3.getController();
+					
+					controllerBumblebee.setControllerTablero(tableroController);
+					controllerBumblebee.setAlgoformer(algof);
+					controllerBumblebee.dibujar();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		/*if(algof.getVida()==0){
+			return;
+		}
+		if(algof.getEfecto().esperaturnos!=0){
+			dibujarImagen(nombre,Color.GREEN);
+			return;
+		}
 		
+		MenuItem mi=new MenuItem("atacar");
+		MenuItem mi2=new MenuItem("mover");
+		MenuItem mi3 =new MenuItem("cambiar modo");
+		MenuItem verEstado =new MenuItem("ver estado");
+		MenuItem capturarChispa =new MenuItem("capturar chispa");
 		
-		Scene sceneMenuAcciones = new Scene(rootMenuAcciones);
-		Stage st = new Stage();
+		MenuButton algo =new MenuButton(nombre,null,mi,mi2,mi3,verEstado,capturarChispa);
+		algo.setTextFill(Color.AZURE);
+		//BotonSeleccionarAlgoformerEventHandler handlerSeleccionar= new BotonSeleccionarAlgoformerEventHandler();
+		//algo.setOnAction(handlerSeleccionar);
+		ContenedorJuegoFinalizado contenedorFinal= new ContenedorJuegoFinalizado(stage,juego);
+		Scene escenaFinal =new Scene(contenedorFinal);
 		
-		st.setScene(sceneMenuAcciones);
-		st.setFullScreen(false);
-		st.show();
+		BotonCapturarChispaHandler handlerCapturarChispa=new BotonCapturarChispaHandler(stage,this.algof,this.vista,escenaFinal);
+		capturarChispa.setOnAction(handlerCapturarChispa);
 		
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+		BotonMoverHandler handlerMover=new BotonMoverHandler(vista,algof,contenedor, this);
+		mi2.setOnAction(handlerMover);
+		
+		BotonAtacarHandler handlerAtacar=new BotonAtacarHandler(vista,algof,this);
+		mi.setOnAction(handlerAtacar);
+		
+		BotonCambiarModoHandler handlerCambiarModo= new BotonCambiarModoHandler(vista,algof,this);
+		mi3.setOnAction(handlerCambiarModo);
+		
+		BotonVerEstadoHandler botonHandler=new BotonVerEstadoHandler(algof);
+		verEstado.setOnAction(botonHandler);
+		
+		GridPane.setConstraints(algo, algof.getPosicion().getColumna(), algof.getPosicion().getFila());
+		
+		*/
+		///controllerBumblebee.dibujar();
 	}
-	}
+	
 	
     
 }

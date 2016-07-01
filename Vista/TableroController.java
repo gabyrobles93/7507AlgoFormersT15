@@ -1,15 +1,20 @@
 package Vista;
 
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
+import Modelo.Bumblebee;
 import Vista.Controlador.BotonAyudaController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -111,4 +116,50 @@ public void mostrarAcercaDe() throws Exception {
     stage.show();
 }
 
+public void dibujarNodo(Node label, int columna, int fila) {
+	// TODO Auto-generated method stub
+	tabtierra.dibujarNodo(label, columna, fila);
+	tabcielo.dibujarNodo(label, columna, fila);
 }
+
+
+public void eliminarNodo(Node img) {
+	// TODO Auto-generated method stub
+	tabtierra.eliminarNodo(img);
+	tabcielo.eliminarNodo(img);
+	
+}
+
+
+public void setReferenciasObjetivoMovimiento(List<ImageView> nuevaLista) {
+	// TODO Auto-generated method stub
+	tabtierra.setReferenciasObjetivoMovimiento(nuevaLista);
+	tabcielo.setReferenciasObjetivoMovimiento(nuevaLista);
+}
+
+public void borrarReferenciasObjetivoMovimiento(){
+	
+	tabtierra.borrarReferenciasObjetivoMovimiento();
+	tabcielo.borrarReferenciasObjetivoMovimiento();
+	
+	
+}
+public void inicializarTableros(Modelo.Tablero tablero, TableroCieloController controllerTableroCielo, TableroTierraController controllerTableroTierra) {
+	// TODO Auto-generated method stub
+	
+	
+	controllerTableroCielo.inicializarSuperficies(tablero);
+	controllerTableroTierra.inicializarSuperficies(tablero);
+	ubicarAutobots();
+}
+	private void ubicarAutobots() {
+		//	VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
+			//vistaOptimus.dibujar(tablero_tierra);
+			VistaBumblebee vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee(),this);
+		
+			vistaBumblebee.dibujar();
+		//	VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
+			//vistaRatchet.dibujar(tablero_tierra);
+		}
+}
+

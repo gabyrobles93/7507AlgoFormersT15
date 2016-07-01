@@ -34,8 +34,8 @@ public class menuAccionesAlgoformerController  {
 
 	Algoformer algof;
 	GridPane tablero;
-	VistaBumblebee2 vistaAlgof;
-	TableroTierraController vistaTablero;
+	VistaBumblebeeController vistaAlgof;
+	TableroController vistaTablero;
 	
 	
 	@FXML Button boton_atacar;
@@ -73,11 +73,11 @@ public void setAlgoformer(Algoformer algof2) {
 	// TODO Auto-generated method stub
 	this.algof=algof2;
 }
-public void setVistaAlgoformer(VistaBumblebee2 algof2) {
+public void setVistaAlgoformer(VistaBumblebeeController algof2) {
 	// TODO Auto-generated method stub
 	this.vistaAlgof=algof2;
 }
-public void setTablero(TableroTierraController controllerTablero) {
+public void setTablero(TableroController controllerTablero) {
 	// TODO Auto-generated method stub
 	this.vistaTablero=controllerTablero;
 }

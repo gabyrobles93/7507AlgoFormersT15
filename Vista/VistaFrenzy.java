@@ -16,7 +16,7 @@ public class VistaFrenzy extends VistaAlgoformer {
 		this.algof=frenzy;
 	}
 	@Override
-	public void dibujar(GridPane tablero_tierra) {
+	public void dibujar() {
 		File file = new File("C:\\imagenes\\decepticons\\humanoide\\frenzy.png");
 		
 		Image imagefrenzy = new Image(file.toURI().toString());
@@ -29,6 +29,6 @@ public class VistaFrenzy extends VistaAlgoformer {
 		picfrenzy.setOnMouseClicked(controller);
 	    
 		picfrenzy.setImage(imagefrenzy);
-		tablero_tierra.add(picfrenzy,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		//tablero_tierra.add(picfrenzy,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }

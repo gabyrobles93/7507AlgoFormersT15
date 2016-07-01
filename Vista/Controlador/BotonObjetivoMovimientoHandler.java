@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Vista.VistaAlgoformer;
-import Vista.VistaBumblebee2;
+import Vista.VistaBumblebeeController;
 import Vista.VistaTerreno;
 import Vista.menuAccionesAlgoformerController;
 
@@ -26,13 +26,13 @@ public class BotonObjetivoMovimientoHandler implements EventHandler<MouseEvent>{
 private final int fila;
 private final int columna;
 private Algoformer algof;
-private  VistaBumblebee2 vistaAlgof;
+private  VistaBumblebeeController vistaAlgof;
 
 private  Juego juego;
 private menuAccionesAlgoformerController menuacciones;
 
 	
-	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebee2 vistaAlgof, menuAccionesAlgoformerController menu){
+	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebeeController vistaAlgof, menuAccionesAlgoformerController menu){
 		this.fila=fila;
 		this.columna=columna;
 		this.algof=algof;

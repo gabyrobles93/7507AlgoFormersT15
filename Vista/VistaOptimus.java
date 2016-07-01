@@ -14,7 +14,7 @@ public class VistaOptimus extends VistaAlgoformer {
 		this.algof=optimus;
 	}
 	@Override
-	public void dibujar(GridPane tablero_tierra) {
+	public void dibujar() {
 		File file = new File("C:\\imagenes\\autobots\\humanoide\\optimus.png");
 		
 		Image imageoptimus = new Image(file.toURI().toString());
@@ -27,6 +27,6 @@ public class VistaOptimus extends VistaAlgoformer {
 		//picoptimus.setOnMouseClicked(controller);
 	    
 		picoptimus.setImage(imageoptimus);
-		tablero_tierra.add(picoptimus,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+	//	tablero_tierra.add(picoptimus,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}
 }

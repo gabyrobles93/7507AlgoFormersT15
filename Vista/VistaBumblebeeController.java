@@ -12,14 +12,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class VistaBumblebee2 {
+public class VistaBumblebeeController {
 	Algoformer algof;
 	@FXML ImageView img_bumblebee;
-	TableroTierraController controllerTablero_tierra;
+	TableroController controllerTablero;
 	Stage ventana_acciones;
 	public void dibujar() {
 		
-		controllerTablero_tierra.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+		controllerTablero.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
 		//tablero_tierra.add(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
 	
 	
@@ -38,7 +38,7 @@ public class VistaBumblebee2 {
 			controller.setAlgoformer(algof);
 		
 			controller.setVistaAlgoformer(this);
-			controller.setTablero(controllerTablero_tierra);
+			controller.setTablero(controllerTablero);
 			Scene sceneMenuAcciones = new Scene(rootMenuAcciones);
 			ventana_acciones = new Stage();
 			
@@ -56,13 +56,13 @@ public class VistaBumblebee2 {
 	public void inicializar(){
 	}
 	public void update() {
-		controllerTablero_tierra.eliminarNodo(img_bumblebee);// TODO Auto-generated method stub
-		controllerTablero_tierra.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+		controllerTablero.eliminarNodo(img_bumblebee);// TODO Auto-generated method stub
+		controllerTablero.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
 	}
 	public void cerrarMenu(){
 		ventana_acciones.close();
 	}
-	public void setControllerTableroTierra(TableroTierraController tab){
-		this.controllerTablero_tierra=tab;
+	public void setControllerTablero(TableroController tab){
+		this.controllerTablero=tab;
 	}
 }

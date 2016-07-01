@@ -67,8 +67,8 @@ public class Aplicacion extends Application {
 			ventanaPrincipal.show();
 			initVistaTableroTierra();
 			initVistaTableroCielo();
-			
-
+			controladorTablero.inicializarTableros(juego.getTablero(),controllerTableroCielo,controllerTableroTierra);
+			controladorTablero.setCenter(vistaTableroCielo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -85,9 +85,9 @@ public class Aplicacion extends Application {
 			//el controlador del tablero general tiene ref a los controladores especificos
 			controladorTablero.setTableroTierraController(controllerTableroTierra);
 			
-			controllerTableroTierra.inicializarTableroTierra(juego.getTablero());
+			//controllerTableroTierra.inicializarTableroTierra(juego.getTablero(),controladorTablero);
 
-			Tablero.setCenter(vistaTableroTierra);
+			//Tablero.setCenter(vistaTableroTierra);
 			// Set person overview into the center of root layout.
 
 		} catch (IOException e) {
@@ -106,9 +106,9 @@ public class Aplicacion extends Application {
 
 			controladorTablero.setTableroCieloController(controllerTableroCielo);
 			//el controlador del tablero general tiene ref a los controladores especificos
-			controllerTableroCielo.inicializarTableroCielo(juego.getTablero());
+			//controllerTableroCielo.inicializarTableroCielo(juego.getTablero(),controladorTablero);
 			// Set person overview into the center of root layout.
-			controladorTablero.setCenter(vistaTableroCielo);
+			//controladorTablero.setCenter(vistaTableroCielo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

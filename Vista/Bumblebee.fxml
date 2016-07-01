@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane fx:id="Bumblebee" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.VistaBumblebee2">
+<Pane fx:id="Bumblebee" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.VistaBumblebeeController">
    <children>
       <ImageView fx:id="img_bumblebee" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#mostrarMenuAcciones" pickOnBounds="true" preserveRatio="true">
          <image>

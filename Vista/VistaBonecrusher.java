@@ -25,7 +25,7 @@ public class VistaBonecrusher extends VistaAlgoformer {
 	
 	
 	@Override
-	public void dibujar(GridPane tablero_tierra) {
+	public void dibujar() {
 		File file = new File("C:\\imagenes\\decepticons\\humanoide\\bonecrusher.png");
 		
 		Image imagebonecrusher = new Image(file.toURI().toString());
@@ -39,7 +39,7 @@ public class VistaBonecrusher extends VistaAlgoformer {
 		picbonecrusher.setOnMouseClicked(controller);
 		
 		picbonecrusher.setImage(imagebonecrusher);
-		tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
+		//tablero_tierra.add(picbonecrusher,algof.getPosicion().getColumna(),algof.getPosicion().getFila());		
 	}	
 	
 	
