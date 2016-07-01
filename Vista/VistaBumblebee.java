@@ -6,6 +6,7 @@ import java.io.IOException;
 import Modelo.Algoformer;
 import Modelo.Bumblebee;
 import Vista.Controlador.BotonMoverHandler;
+import Vista.Controlador.VerEstadoAlgoformerController;
 import Vista.menuAccionesAlgoformerController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,9 +30,20 @@ private GridPane tablero;
 		try {
 			FXMLLoader loader3 = new FXMLLoader();
 			loader3.setLocation(Aplicacion.class.getResource("Bumblebee.fxml"));
-			
+					
+					File file = new File("C:\\imagenes\\decepticons\\humanoide\\bonecrusher.png");
+	
+					Image imagebonecrusher = new Image(file.toURI().toString());
+					ImageView picbonecrusher = new ImageView();
+					picbonecrusher.setId("imagenBumblebeeHumanoide");
+					picbonecrusher.setFitWidth(75);
+					picbonecrusher.setFitHeight(75);
+					picbonecrusher.setImage(imagebonecrusher);
+						
 			
 					vistaBumblebee = loader3.load();
+					
+					vistaBumblebee.getChildren().add(picbonecrusher);
 					
 					controllerBumblebee = loader3.getController();
 					

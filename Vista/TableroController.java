@@ -116,10 +116,11 @@ public void mostrarAcercaDe() throws Exception {
     stage.show();
 }
 
-public void dibujarNodo(Node label, int columna, int fila) {
+public void dibujarNodo(Node image, int columna, int fila) {
 	// TODO Auto-generated method stub
-	tabtierra.dibujarNodo(label, columna, fila);
-	tabcielo.dibujarNodo(label, columna, fila);
+	
+	tabtierra.dibujarNodo(image, columna, fila);
+	tabcielo.dibujarNodo(image, columna, fila);
 }
 
 
@@ -147,9 +148,9 @@ public void borrarReferenciasObjetivoMovimiento(){
 public void inicializarTableros(Modelo.Tablero tablero, TableroCieloController controllerTableroCielo, TableroTierraController controllerTableroTierra) {
 	// TODO Auto-generated method stub
 	
-	
-	controllerTableroCielo.inicializarSuperficies(tablero);
 	controllerTableroTierra.inicializarSuperficies(tablero);
+	controllerTableroCielo.inicializarSuperficies(tablero);
+	
 	ubicarAutobots();
 }
 	private void ubicarAutobots() {
