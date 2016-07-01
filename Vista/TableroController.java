@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import Modelo.Bumblebee;
+import Modelo.Juego;
 import Vista.Controlador.BotonAyudaController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,10 +38,14 @@ public void setCenter(ScrollPane tablero){
 	tableroGeneral.setCenter(tablero);
 }
 public void setTableroTierra(){
+	tabtierra.inicializarSuperficiesTierra(Aplicacion.juego.getTablero());
+	this.ubicarAutobots();
 	setCenter(tabtierra.getScrollPane());
 }
 public void setTableroCielo(){
-	setCenter(tabcielo.getScrollPane());
+	tabtierra.inicializarSuperficiesCielo(Aplicacion.juego.getTablero());
+	this.ubicarAutobots();
+	setCenter(tabtierra.getScrollPane());
 }
 
 
@@ -120,7 +125,7 @@ public void dibujarNodo(Node image, int columna, int fila) {
 	// TODO Auto-generated method stub
 	
 	tabtierra.dibujarNodo(image, columna, fila);
-	tabcielo.dibujarNodo(image, columna, fila);
+	//tabcielo.dibujarNodo(image, columna, fila);
 }
 
 
@@ -148,8 +153,8 @@ public void borrarReferenciasObjetivoMovimiento(){
 public void inicializarTableros(Modelo.Tablero tablero, TableroCieloController controllerTableroCielo, TableroTierraController controllerTableroTierra) {
 	// TODO Auto-generated method stub
 	
-	controllerTableroTierra.inicializarSuperficies(tablero);
-	controllerTableroCielo.inicializarSuperficies(tablero);
+	controllerTableroTierra.inicializarSuperficiesTierra(tablero);
+	//controllerTableroCielo.inicializarSuperficies(tablero);
 	
 	ubicarAutobots();
 }

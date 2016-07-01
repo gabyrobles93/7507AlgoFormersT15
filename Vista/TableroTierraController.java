@@ -41,7 +41,7 @@ public class TableroTierraController {
 		this.tableroController=tableroController;
 		listaReferencias = new ArrayList<ImageView>();
 		
-		inicializarSuperficies(tablero);
+		inicializarSuperficiesTierra(tablero);
 		ubicarAutobots();
 		ubicarDecepticons();
 		ubicarChispa();
@@ -80,16 +80,33 @@ public class TableroTierraController {
 		//vistaRatchet.dibujar(tablero_tierra);
 	}
 	@FXML
-	public void inicializarSuperficies(Tablero tablero) {
+	public void inicializarSuperficiesTierra(Tablero tablero) {
 		// TODO Auto-generated method stub
 
-
+tablero_tierra.getChildren().clear();
 			
 				for( int fila = 0; fila < 50; fila++){
 					
 					for( int columna = 0; columna < 50; columna ++){
 					
 					VistaSuperficie vista=VistaSuperficie.crearVista(tablero.getCasillero(fila, columna).getSuperficieTierra());
+					vista.dibujar(tablero_tierra,fila,columna);
+					
+					}
+				}
+				
+			
+	}
+	public void inicializarSuperficiesCielo(Tablero tablero) {
+		// TODO Auto-generated method stub
+		tablero_tierra.getChildren().clear();
+
+			
+				for( int fila = 0; fila < 50; fila++){
+					
+					for( int columna = 0; columna < 50; columna ++){
+					
+					VistaSuperficie vista=VistaSuperficie.crearVista(tablero.getCasillero(fila, columna).getSuperficieCielo());
 					vista.dibujar(tablero_tierra,fila,columna);
 					
 					}

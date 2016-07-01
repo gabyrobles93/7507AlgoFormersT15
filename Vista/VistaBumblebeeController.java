@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class VistaBumblebeeController {
 	Algoformer algof;
-	@FXML AnchorPane img_bumblebee;
+	@FXML ImageView img_bumblebee;
 	ImageView img_bumblebee2;
 	TableroController controllerTablero;
 	Stage ventana_acciones;
