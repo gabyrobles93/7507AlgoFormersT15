@@ -2,24 +2,20 @@ package Vista;
 
 import java.io.IOException;
 
-import Modelo.Algoformer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class VistaBumblebeeController extends VistaAlgoformerController {
-
+public class VistaRatchetController extends VistaAlgoformerController {
+	
 //	ImageView img_bumblebee2;
 
-	@FXML ImageView img_bumblebee;
+	@FXML ImageView img_ratchet;
 	
-	public void VistaBumblebeeController(){
+	public void VistaRatchetController(){
 		
 	
 	}
@@ -27,11 +23,11 @@ public class VistaBumblebeeController extends VistaAlgoformerController {
 	@Override
 	public void dibujar() {
 		if(algof.getVida()==0){
-			controllerTablero.eliminarNodo(img_bumblebee);
+			controllerTablero.eliminarNodo(img_ratchet);
 			return;
-		}
-		controllerTablero.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
-		//tablero_tierra.add(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+		}	
+		controllerTablero.dibujarNodo(img_ratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+		//tablero_tierra.add(img_Ratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
 	
 	
 	}
@@ -45,8 +41,7 @@ public class VistaBumblebeeController extends VistaAlgoformerController {
 			menuAccionesAlgoformerController controller=loadermenuacciones.getController();
 			controller.setAlgoformer(algof);
 		
-			
-		controller.setVistaAlgoformer(this);
+			controller.setVistaAlgoformer(this);
 			controller.setTablero(controllerTablero);
 			Scene sceneMenuAcciones = new Scene(rootMenuAcciones);
 			ventana_acciones = new Stage();
@@ -65,11 +60,12 @@ public class VistaBumblebeeController extends VistaAlgoformerController {
 	public void inicializar(){
 	}
 
-	/*@Override
+/*	@Override
 	public void update() {
-		controllerTablero.eliminarNodo(img_bumblebee);// TODO Auto-generated method stub
-		controllerTablero.dibujarNodo(img_bumblebee,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
+		controllerTablero.eliminarNodo(img_ratchet);// TODO Auto-generated method stub
+		controllerTablero.dibujarNodo(img_ratchet,algof.getPosicion().getColumna(),algof.getPosicion().getFila());
 	}
-	*/
+*/	
 	
+
 }

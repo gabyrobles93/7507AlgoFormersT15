@@ -34,7 +34,7 @@ public class menuAccionesAlgoformerController  {
 
 	Algoformer algof;
 	GridPane tablero;
-	VistaBumblebeeController vistaAlgof;
+	VistaAlgoformerController vistaAlgof;
 	TableroController vistaTablero;
 	
 	
@@ -73,9 +73,9 @@ public void setAlgoformer(Algoformer algof2) {
 	// TODO Auto-generated method stub
 	this.algof=algof2;
 }
-public void setVistaAlgoformer(VistaBumblebeeController algof2) {
+public void setVistaAlgoformer(VistaAlgoformerController valgof2) {
 	// TODO Auto-generated method stub
-	this.vistaAlgof=algof2;
+	this.vistaAlgof=valgof2;
 }
 public void setTablero(TableroController controllerTablero) {
 	// TODO Auto-generated method stub
@@ -106,8 +106,8 @@ public void mostrarZonaMovimiento() {
 	        		picmoverse.setFitHeight(75);
 	        		picmoverse.setImage(flechamoverse);
 	        		
-	        	 	BotonObjetivoMovimientoHandler movHandler=new BotonObjetivoMovimientoHandler(algof,row,column,vistaAlgof,this);          
-	        	 	picmoverse.setOnMouseClicked(movHandler);
+	        	BotonObjetivoMovimientoHandler movHandler=new BotonObjetivoMovimientoHandler(algof,row,column,vistaAlgof,this);          
+	        	picmoverse.setOnMouseClicked(movHandler);
 	        		
 	        	 	listaReferencias.add(picmoverse);
 	        	 	

@@ -33,8 +33,8 @@ import javafx.stage.Stage;
 public class VistaAlgoformer {
 
 	protected Algoformer algof;
-	protected ImageView vistaBumblebee;
-	protected VistaBumblebeeController controllerBumblebee;
+	/*protected ImageView vistaBumblebee;
+	protected VistaBumblebeeController controllerBumblebee;*/
 	TableroController tableroController;
 	/*String nombre;
 	private  ContenedorPrincipal contenedor;

@@ -3,7 +3,7 @@ package Modelo;
 
 
 public  class  Bonecrusher extends Algoformer {
-	private static Bonecrusher INSTANCE=new Bonecrusher().new BonecrusherAlterno();
+	private static Bonecrusher INSTANCE=new Bonecrusher().new BonecrusherHumanoide();
 	
 	private Bonecrusher(){
 		

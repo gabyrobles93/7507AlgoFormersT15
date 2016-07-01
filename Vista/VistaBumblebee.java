@@ -18,12 +18,14 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class VistaBumblebee extends VistaAlgoformer{
-
+	protected ImageView vistaBumblebee;
+	protected VistaBumblebeeController controllerBumblebee;
 
 private GridPane tablero;
 	public VistaBumblebee(Bumblebee bumblebee,TableroController tableroController) {
 		this.algof=bumblebee;
 		this.tableroController=tableroController;
+
 	}
 	@Override
 	public void dibujar() {

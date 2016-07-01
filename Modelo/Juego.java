@@ -45,7 +45,7 @@ public class Juego {
 	
 		Posicion posOptimus=new Posicion(2,2);
 		Posicion posRatchet=new Posicion(0,2);
-		Posicion posBumblebee=new Posicion(2,0);
+		Posicion posBumblebee=new Posicion(49,46);
 		
 		autobots.ubicarMoviles(tablero,posOptimus,posBumblebee,posRatchet);
 	}

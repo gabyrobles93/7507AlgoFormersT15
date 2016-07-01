@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import Vista.VistaAlgoformer;
+import Vista.VistaAlgoformerController;
 import Vista.VistaBumblebeeController;
 import Vista.VistaTerreno;
 import Vista.menuAccionesAlgoformerController;
@@ -26,17 +27,17 @@ public class BotonObjetivoMovimientoHandler implements EventHandler<MouseEvent>{
 private final int fila;
 private final int columna;
 private Algoformer algof;
-private  VistaBumblebeeController vistaAlgof;
+private  VistaAlgoformerController vistaAlgof;
 
 private  Juego juego;
 private menuAccionesAlgoformerController menuacciones;
 
 	
-	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaBumblebeeController vistaAlgof, menuAccionesAlgoformerController menu){
+	public BotonObjetivoMovimientoHandler( Algoformer algof,int fila,int columna,VistaAlgoformerController vistaAlgof2, menuAccionesAlgoformerController menu){
 		this.fila=fila;
 		this.columna=columna;
 		this.algof=algof;
-		this.vistaAlgof=vistaAlgof;
+		this.vistaAlgof=vistaAlgof2;
 		this.menuacciones = menu;
 		//this.juego=juego;
 	}
@@ -47,7 +48,7 @@ private menuAccionesAlgoformerController menuacciones;
 		algof.mover(pos);
 		menuacciones.borrarZonaObjetivoMovimiento();
 		vistaAlgof.cerrarMenu();
-		vistaAlgof.update();
+
 		//juego.jugarTurno();
 		}catch(ErrorCasillerOcupado e){
 			

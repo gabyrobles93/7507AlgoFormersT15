@@ -35,6 +35,7 @@ public class TableroTierraController implements Initializable{
 	Scene proximaescena;
 	List<ImageView> listaReferencias;
 	
+	
 	@FXML private GridPane tablero_tierra;
 	@FXML private ScrollPane scrollpane;
 	private TableroController tableroController;
@@ -65,24 +66,27 @@ public class TableroTierraController implements Initializable{
 	
 	private void ubicarDecepticons() {
 		
-		//VistaAlgoformer vistaMegatron=new VistaMegatron(Megatron.getMegatron());
-	//	vistaMegatron.dibujar(tablero_tierra);
-	//	VistaAlgoformer vistaBonecrusher=new VistaBonecrusher(Bonecrusher.getBonecrusher());
-	//	vistaBonecrusher.dibujar(tablero_tierra);
-	//	VistaAlgoformer vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy());
-		//vistaFrenzy.dibujar(tablero_tierra);
+		VistaMegatron vistaMegatron=new VistaMegatron(Megatron.getMegatron(),tableroController);
+		vistaMegatron.dibujar();
 		
+		VistaBonecrusher vistaBone=new VistaBonecrusher(Bonecrusher.getBonecrusher(),tableroController);
+		vistaBone.dibujar();
+		
+		VistaFrenzy vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy(),tableroController);
+		vistaFrenzy.dibujar();
+	
 
 	}
 	@FXML
 	private void ubicarAutobots() {
-	//	VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
-		//vistaOptimus.dibujar(tablero_tierra);
 		VistaBumblebee vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee(),tableroController);
-	
 		vistaBumblebee.dibujar();
-	//	VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
-		//vistaRatchet.dibujar(tablero_tierra);
+		
+		VistaOptimus vistaOptimus=new VistaOptimus(Optimus.getOptimus(),tableroController);
+		vistaOptimus.dibujar();
+			
+		VistaRatchet vistaRatchet=new VistaRatchet(Ratchet.getRatchet(),tableroController);
+		vistaRatchet.dibujar();
 	}
 	@FXML
 	public void inicializarSuperficiesTierra(Tablero tablero) {
@@ -159,5 +163,9 @@ tablero_tierra.getChildren().clear();
 	public void setListaRef(ArrayList<ImageView> lista){
 		listaReferencias=lista;
 	}
-	
+	public void redibujarAlgoformers() {
+		ubicarAutobots();
+		ubicarDecepticons();
+	}
+
 }

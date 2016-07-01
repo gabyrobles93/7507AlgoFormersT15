@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import Vista.VistaAlgoformer;
+import Vista.VistaAlgoformerController;
 import Vista.VistaBumblebeeController;
 import Vista.VistaTerreno;
 import Vista.menuAccionesAlgoformerController;
@@ -24,18 +25,18 @@ import Vista.Aplicacion;
 public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 
 	Algoformer algof;
-	VistaBumblebeeController vista;
+	VistaAlgoformerController vista;
 	int fila;
 	int columna;
 	Scene escenaFinal;
 	Stage stage;
 	menuAccionesAlgoformerController menuAccionesController;
 	
-	public BotonObjetivoAtacarHandler(Algoformer algof, int row, int column, VistaBumblebeeController vista, menuAccionesAlgoformerController menuAccionesController) {
+	public BotonObjetivoAtacarHandler(Algoformer algof, int row, int column, VistaAlgoformerController vistaAlgof, menuAccionesAlgoformerController menuAccionesController) {
 		this.fila=row;
 		this.columna=column;
 		this.algof=algof;
-		this.vista=vista;
+		this.vista=vistaAlgof;
 	
 		this.stage=stage;
 		this.escenaFinal=escenaFinal;
@@ -50,7 +51,9 @@ public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 		
 		try{
 		algof.atacar((Algoformer)(casAux.getMovilOcupa()));
+		vista.update();
 		menuAccionesController.borrarZonaObjetivoMovimiento();
+		
 		/*if(juego.getGanador()!=null){
 			stage.setScene(escenaFinal);
 		}*/
@@ -81,7 +84,7 @@ public class BotonObjetivoAtacarHandler implements EventHandler<MouseEvent>{
 			st.show();
 		}
 		
-		vista.update();
+	
 	}
 		
 	

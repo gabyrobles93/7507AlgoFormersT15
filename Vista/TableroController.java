@@ -4,8 +4,13 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import Modelo.Bonecrusher;
 import Modelo.Bumblebee;
+import Modelo.Frenzy;
 import Modelo.Juego;
+import Modelo.Megatron;
+import Modelo.Optimus;
+import Modelo.Ratchet;
 import Vista.Controlador.BotonAyudaController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,11 +45,13 @@ public void setCenter(ScrollPane tablero){
 public void setTableroTierra(){
 	tabtierra.inicializarSuperficiesTierra(Aplicacion.juego.getTablero());
 	this.ubicarAutobots();
+	this.ubicarDecepticons();
 	setCenter(tabtierra.getScrollPane());
 }
 public void setTableroCielo(){
 	tabtierra.inicializarSuperficiesCielo(Aplicacion.juego.getTablero());
 	this.ubicarAutobots();
+	this.ubicarDecepticons();
 	setCenter(tabtierra.getScrollPane());
 }
 
@@ -132,6 +139,7 @@ public void dibujarNodo(Node image, int columna, int fila) {
 public void eliminarNodo(Node img) {
 	// TODO Auto-generated method stub
 	tabtierra.eliminarNodo(img);
+	
 //	tabcielo.eliminarNodo(img);
 	
 }
@@ -157,15 +165,35 @@ public void inicializarTableros(Modelo.Tablero tablero, TableroCieloController c
 	//controllerTableroCielo.inicializarSuperficies(tablero);
 	
 	ubicarAutobots();
+	ubicarDecepticons();
 }
 	private void ubicarAutobots() {
-		//	VistaAlgoformer vistaOptimus=new VistaOptimus(Optimus.getOptimus());
-			//vistaOptimus.dibujar(tablero_tierra);
-			VistaBumblebee vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee(),this);
 		
-			vistaBumblebee.dibujar();
-		//	VistaAlgoformer vistaRatchet=new VistaRatchet(Ratchet.getRatchet());
-			//vistaRatchet.dibujar(tablero_tierra);
+		VistaBumblebee vistaBumblebee=new VistaBumblebee(Bumblebee.getBumblebee(),this);
+		vistaBumblebee.dibujar();
+			
+		VistaOptimus vistaOptimus=new VistaOptimus(Optimus.getOptimus(),this);
+		vistaOptimus.dibujar();
+			
+		VistaRatchet vistaRatchet=new VistaRatchet(Ratchet.getRatchet(),this);
+		vistaRatchet.dibujar();
 		}
+
+	private void ubicarDecepticons() {
+			VistaBonecrusher vistaBonecrusher=new VistaBonecrusher(Bonecrusher.getBonecrusher(),this);
+			vistaBonecrusher.dibujar();
+		
+			VistaMegatron vistaMegatron=new VistaMegatron(Megatron.getMegatron(),this);
+			vistaMegatron.dibujar();
+			
+			VistaFrenzy vistaFrenzy=new VistaFrenzy(Frenzy.getFrenzy(),this);
+			vistaFrenzy.dibujar();
+		}
+	
+	public void redibujarAlgoformers(){
+		tabtierra.redibujarAlgoformers();
+		//tabtierra.redibujarAlgoformers();
+		//tabcielo.redibujarAlgoformers();
+	}
 }
 
