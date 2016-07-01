@@ -1,10 +1,12 @@
 package Vista;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.ResourceBundle;
 
 import Modelo.Bonecrusher;
 import Modelo.Bumblebee;
@@ -15,6 +17,7 @@ import Modelo.Optimus;
 import Modelo.Ratchet;
 import Modelo.Tablero;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
@@ -26,7 +29,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class TableroTierraController {
+public class TableroTierraController implements Initializable{
 
 	Stage stage;
 	Scene proximaescena;
@@ -35,11 +38,13 @@ public class TableroTierraController {
 	@FXML private GridPane tablero_tierra;
 	@FXML private ScrollPane scrollpane;
 	private TableroController tableroController;
-	
-	
+	@FXML
+	public void TableroTierraControler(){
+		
+	}
 	public void inicializarTableroTierra(Tablero tablero,TableroController tableroController){
 		this.tableroController=tableroController;
-		listaReferencias = new ArrayList<ImageView>();
+		
 		
 		inicializarSuperficiesTierra(tablero);
 		ubicarAutobots();
@@ -145,6 +150,14 @@ tablero_tierra.getChildren().clear();
 		}
 		listaReferencias.clear();
 		
+	}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		listaReferencias = new ArrayList<ImageView>();
+	}
+	public void setListaRef(ArrayList<ImageView> lista){
+		listaReferencias=lista;
 	}
 	
 }

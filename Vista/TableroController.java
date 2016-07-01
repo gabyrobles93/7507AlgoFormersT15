@@ -132,7 +132,7 @@ public void dibujarNodo(Node image, int columna, int fila) {
 public void eliminarNodo(Node img) {
 	// TODO Auto-generated method stub
 	tabtierra.eliminarNodo(img);
-	tabcielo.eliminarNodo(img);
+//	tabcielo.eliminarNodo(img);
 	
 }
 
@@ -140,13 +140,13 @@ public void eliminarNodo(Node img) {
 public void setReferenciasObjetivoMovimiento(List<ImageView> nuevaLista) {
 	// TODO Auto-generated method stub
 	tabtierra.setReferenciasObjetivoMovimiento(nuevaLista);
-	tabcielo.setReferenciasObjetivoMovimiento(nuevaLista);
+	//tabcielo.setReferenciasObjetivoMovimiento(nuevaLista);
 }
 
 public void borrarReferenciasObjetivoMovimiento(){
 	
 	tabtierra.borrarReferenciasObjetivoMovimiento();
-	tabcielo.borrarReferenciasObjetivoMovimiento();
+	//tabcielo.borrarReferenciasObjetivoMovimiento();
 	
 	
 }
