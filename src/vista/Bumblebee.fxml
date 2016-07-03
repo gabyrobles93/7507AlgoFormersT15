@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ImageView fx:id="vista_bumblebee" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#mostrarMenu" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.controller.VistaBumblebeeController">
+   <image>
+      <Image url="@../../../../../../../imagenes/autobots/humanoide/bumblebee.png" />
+   </image>
+</ImageView>
