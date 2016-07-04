@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/rt.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/alt-rt.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/charsets.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/deploy.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/javaws.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jce.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jfr.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jfxrt.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/jsse.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/management-agent.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/plugin.jar"/>
-	<classpathentry kind="lib" path="C:/Archivos de programa/Java/jre7/lib/resources.jar"/>
-	<classpathentry kind="output" path=""/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files (x86)/Java/jdk1.8.0_91/bin"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

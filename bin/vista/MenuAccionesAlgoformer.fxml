@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane fx:id="vista_menu_acciones" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="207.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.controller.MenuAccionesAlgoformerController">
+   <children>
+      <BorderPane layoutX="-12.0" layoutY="-17.0" prefHeight="330.0" prefWidth="236.0" AnchorPane.bottomAnchor="-18.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="-17.0" AnchorPane.topAnchor="-17.0" />
+      <Button layoutX="79.0" layoutY="117.0" mnemonicParsing="false" onAction="#mostrarZonaAtaque" text="Atacar" />
+      <Button layoutX="78.0" layoutY="81.0" mnemonicParsing="false" onAction="#mostrarZonaMovimiento" text="Mover" />
+      <Button layoutX="65.0" layoutY="154.0" mnemonicParsing="false" text="Transformar" />
+       <Button layoutX="47.0" layoutY="42.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" onAction="#capturarChispa" text="Capturar Chispa" />
+      <Button layoutX="72.0" layoutY="196.0" mnemonicParsing="false" text="Combinar" onAction="#combinar" />
+      <Button layoutX="67.0" layoutY="246.0" mnemonicParsing="false" onAction="#mostrarEstado" text="Ver Estado" />
+   </children>
+</AnchorPane>
