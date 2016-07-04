@@ -13,7 +13,7 @@ public class Menasor extends Algoformer{
 		velocidad=2;
 		vida=megatron.getVida()+bonecrusher.getVida()+frenzy.getVida();
 		efecto.velocidadAfectada=velocidad;
-		setEquipo();
+		setEquipo(megatron.getEquipo());
 		actualizarPosiciones(megatron,bonecrusher,frenzy,posMenasor);
 	}
 	private boolean posicionesValidas(Algoformer megatron, Algoformer bonecrusher, Algoformer frenzy) {
@@ -28,7 +28,7 @@ public class Menasor extends Algoformer{
 		megatron.borrarDeTablero();
 		bonecrusher.borrarDeTablero();
 		frenzy.borrarDeTablero();
-		posMenasor.setMovilOcupa(this);
+		posMenasor.setMovilOcupa(this);//lo ubica en tablero
 		miPosicion=posMenasor;
 		
 	}
@@ -43,14 +43,15 @@ public class Menasor extends Algoformer{
 		
 	}
 	public void separar(){
+		miEquipo.superalgof=null;
 		this.borrarDeTablero();
 		Frenzy.getFrenzy().ExtirparDesdeMenasor(this);
 		Bonecrusher.getBonecrusher().ExtirparDesdeMenasor(this);
 		Megatron.getMegatron().ExtirparDesdeMenasor(this);
 	}
 	
-	private void setEquipo(){
-		miEquipo=new Decepticons();
+	public void setEquipo(Equipo eq){
+		miEquipo=eq;
 	}
 	
 
@@ -97,7 +98,17 @@ public class Menasor extends Algoformer{
 		return null;
 		
 	}
-	
+	@Override
+	public void atacate(int danio){
+		if(vida<=danio){
+			vida=0;
+			miEquipo.algof1.vida=0;
+			miEquipo.algof2.vida=0;
+			miEquipo.algof3.vida=0;//si muere superion se termina el juego;
+			this.borrarDeTablero();
+		}
+		else vida=vida-danio;
+	}
 
 
 }

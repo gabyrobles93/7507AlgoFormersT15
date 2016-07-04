@@ -21,7 +21,7 @@ public class VistaOptimusController {
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&optimus.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
@@ -41,6 +41,8 @@ public class VistaOptimusController {
 		ventana.setTitle("Optimus");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 				
 	}
@@ -60,6 +62,8 @@ public class VistaOptimusController {
 		ventana.setTitle("Optimus");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 		
 	}

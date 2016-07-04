@@ -23,19 +23,20 @@ public class PosibleMovimientoController {
 	@FXML ImageView vista_posible_movimiento;
 	Algoformer algoformer;
 	VistaAlgoformer vistaalgoformer;
-	MenuAccionesAlgoformerController menucontroller;
+	menuAccionesController menucontroller;
+	
 	int fila;
 	int columna;
 	Stage ventana;
 	
 	public void setParametros(Algoformer algof, int row, int column, VistaAlgoformer vistaalgof,
-		MenuAccionesAlgoformerController menuAccionesAlgoformerController, Stage vent) {
+		menuAccionesController menuAccionesController, Stage vent) {
 		// TODO Auto-generated method stub
 		algoformer = algof;
 		fila = row;
 		columna = column;
 		vistaalgoformer = vistaalgof;
-		menucontroller = menuAccionesAlgoformerController;
+		menucontroller = menuAccionesController;
 		ventana = vent;
 	}
 	
@@ -131,7 +132,7 @@ public class PosibleMovimientoController {
 		st.show();
 	}
 	
-
+	
 
 
 	

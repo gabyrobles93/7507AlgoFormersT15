@@ -8,7 +8,8 @@ public abstract class  Equipo {
 
 	protected Algoformer algof1;
 	protected Algoformer algof2;
-	protected Algoformer algof3;	
+	protected Algoformer algof3;
+	protected Algoformer superalgof;
 	protected int vida;
 	protected int cantidadMiembrosVivos; 
 
@@ -66,7 +67,19 @@ public abstract class  Equipo {
 		
 	}
 
-
+	public Algoformer combinar(Posicion posCombiner) {
+		// TODO Auto-generated method stub
+		//sobreescrito en Decep y Autob
+		return null;
+	}
+public boolean puedeJugar(){
+	if(algof1.getEfecto().esperaturnos!=0&&algof2.getEfecto().esperaturnos!=0&&algof3.getEfecto().esperaturnos!=0){
+	
+		return false;
+	}else{
+		return true;
+	}
+}
 	
 
 }

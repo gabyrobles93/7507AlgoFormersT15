@@ -25,12 +25,13 @@ public class PosibleAtaqueController {
 	@FXML ImageView vista_posible_ataque;
 	Algoformer algoformer;
 	VistaAlgoformer vistaalgoformer;
-	MenuAccionesAlgoformerController menucontroller;
+	menuAccionesController menucontroller;
+
 	int fila;
 	int columna;
 	Stage ventana;
 	
-	public void setParametros(Algoformer algof, int row, int column, VistaAlgoformer vistaalgof,MenuAccionesAlgoformerController menuAccionesAlgoformerController, Stage vent) {
+	public void setParametros(Algoformer algof, int row, int column, VistaAlgoformer vistaalgof,menuAccionesController menuAccionesAlgoformerController, Stage vent) {
 	
 		algoformer = algof;
 		fila = row;
@@ -39,6 +40,7 @@ public class PosibleAtaqueController {
 		menucontroller = menuAccionesAlgoformerController;
 		ventana = vent;
 	}
+	
 	
 	public void atacar(){
 		
@@ -143,4 +145,7 @@ public class PosibleAtaqueController {
 		// TODO Auto-generated method stub
 		return vista_posible_ataque;
 	}
+
+
+
 }

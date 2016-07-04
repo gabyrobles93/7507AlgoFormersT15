@@ -3,6 +3,7 @@ package vista.controller;
 import vista.Aplicacion;
 import vista.VistaAlgoformer;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -26,7 +27,7 @@ public class VistaBumblebeeController {
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&bumblebee.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
@@ -47,6 +48,8 @@ public class VistaBumblebeeController {
 		ventana.setResizable(false);
 		ventana.setScene(scene);
 		ventana.show();
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 				
 	}
 
@@ -66,6 +69,8 @@ public class VistaBumblebeeController {
 		ventana.setResizable(false);
 		ventana.setScene(scene);
 		ventana.show();
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		
 	}
 	

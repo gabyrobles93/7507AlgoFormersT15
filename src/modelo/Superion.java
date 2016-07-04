@@ -13,7 +13,7 @@ public class Superion extends Algoformer{
 		velocidad=3;
 		vida=optimus.getVida()+bumblebee.getVida()+ratchet.getVida();
 		efecto.velocidadAfectada=velocidad;
-		setEquipo();
+		setEquipo(optimus.getEquipo());
 		
 		actualizarPosiciones(optimus,bumblebee,ratchet,posSuperion);
 	}
@@ -35,13 +35,13 @@ public class Superion extends Algoformer{
 		optimus.borrarDeTablero();
 		bumblebee.borrarDeTablero();
 		ratchet.borrarDeTablero();
-		posSuperion.setMovilOcupa(this);
+		posSuperion.setMovilOcupa(this);//lo ubica en el tablero
 		miPosicion=posSuperion;
 		
 	}
 
-	private void  setEquipo(){
-		miEquipo=new Autobots();
+	public void  setEquipo(Equipo eq){
+		miEquipo=eq;
 	}
 	
 	@Override
@@ -86,10 +86,12 @@ public class Superion extends Algoformer{
 		return null;
 	}
 	public void separar(){
+		miEquipo.superalgof=null;
 		this.borrarDeTablero();
 		Ratchet.getRatchet().ExtirparDesdeSuperion(this);
 		Bumblebee.getBumblebee().ExtirparDesdeSuperion(this);
 		Optimus.getOptimus().ExtirparDesdeSuperion(this);
+		
 	}
 
 	public int vidaAlSeparar() {
@@ -103,5 +105,17 @@ public class Superion extends Algoformer{
 		vida=i;
 		
 	}
+	@Override
+	public void atacate(int danio){
+		if(vida<=danio){
+			vida=0;
+			miEquipo.algof1.vida=0;
+			miEquipo.algof2.vida=0;
+			miEquipo.algof3.vida=0;//si muere superion se termina el juego;
+			this.borrarDeTablero();
+		}
+		else vida=vida-danio;
+	}
+	
 
 }

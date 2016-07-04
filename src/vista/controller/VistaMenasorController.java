@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modelo.Algoformer;
+import modelo.Autobots;
 import vista.Aplicacion;
 import vista.VistaAlgoformer;
 
@@ -16,12 +17,12 @@ public class VistaMenasorController {
 	VistaAlgoformer vistamenasor;
 	TableroController tabcontroller;
 	
-	MenuAccionesAlgoformerController menuaccionescontroller;
+	MenuAccionesCombinerController menuaccionescontroller;
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
-		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots){
+	
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&Aplicacion.juego.decepticons.puedeJugar()){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
@@ -41,13 +42,15 @@ public class VistaMenasorController {
 		ventana.setTitle("Menasor");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 				
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesCombiner.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -60,6 +63,8 @@ public class VistaMenasorController {
 		ventana.setTitle("Menasor");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 		
 	}

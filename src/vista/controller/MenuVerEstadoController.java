@@ -35,7 +35,9 @@ public class MenuVerEstadoController {
 		Text txt2=new Text("Ataque "+String.valueOf(algof.getAtaque()));
 		Text txt3=new Text("Velocidad "+String.valueOf(algof.getVelocidad()));
 		Text txt4=new Text("Espera Turnos "+String.valueOf(algof.getEfecto().esperaturnos));
+		
 		hb.getChildren().addAll(txt1,txt2,txt3,txt4);
+		
 		hb.setAlignment(Pos.CENTER);
 		Scene sc=new Scene(hb,200,200);
 		Stage st = new Stage();

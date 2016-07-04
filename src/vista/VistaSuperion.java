@@ -2,6 +2,7 @@ package vista;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
+import modelo.Algoformer;
 import modelo.Posicion;
 import modelo.Superion;
 import vista.controller.TableroController;
@@ -35,6 +36,17 @@ public class VistaSuperion extends VistaAlgoformer {
 	public ImageView getVista() {
 		// TODO Auto-generated method stub
 		return vistaalgoformer;
+	}
+
+	public void setAlgoformer(Algoformer algof) {
+		this.algoformer=algof;
+		controllervistasuperion.setSuperion(algoformer, this);
+		
+	}
+
+	public Algoformer getSuperion() {
+		// TODO Auto-generated method stub
+		return algoformer;
 	}
 }
 

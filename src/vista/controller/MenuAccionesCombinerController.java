@@ -3,8 +3,6 @@ package vista.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
-import modelo.ErrorDistanciaExcesivaParaFormarSuperion;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -17,7 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Algoformer;
-import modelo.Juego;
+import modelo.ErrorDistanciaExcesivaParaFormarSuperion;
+import modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
+import modelo.ErrorVidaSuperionInsuficienteParaSepararse;
 import modelo.Megatron;
 import modelo.Optimus;
 import modelo.Posicion;
@@ -25,8 +25,7 @@ import modelo.Superion;
 import vista.Aplicacion;
 import vista.VistaAlgoformer;
 
-public class MenuAccionesAlgoformerController extends menuAccionesController{
-
+public class MenuAccionesCombinerController extends menuAccionesController{
 	@FXML AnchorPane vista_menu_acciones;
 	Algoformer algof;
 	VistaAlgoformer vistaalgof;
@@ -34,8 +33,6 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	Stage ventana;
 	
 	public void mostrarZonaAtaque() throws Exception{
-		this.borrarZonaObjetivoAtaque();
-		this.borrarZonaObjetivoMovimiento();
 		PosibleAtaqueController posibleataquecontroller;
 		
 		int distanciaACubrir = algof.getDistanciaDeAtaque();
@@ -70,8 +67,6 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 
 	
 	public void mostrarZonaMovimiento() throws Exception{
-		this.borrarZonaObjetivoAtaque();
-		this.borrarZonaObjetivoMovimiento();
 		
 		PosibleMovimientoController posiblemovimientocontroller;
 		
@@ -104,47 +99,9 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 			 tablerocontroller.setReferenciasObjetivoMovimiento(listaReferencias);		
 	}
 	
-	public void capturarChispa(){
-		try{
-			algof.capturarChispa();
-			ventana.close();
-			mostrarMensajeVictoria();
-
-		}catch(RuntimeException e){
-			
-			mostrarErrorImposibleCapturarChispa();
-			
-		}
-	}
-	
-	public void combinar(){
 
 	
-			try{ 
-				tablerocontroller.setReferenciaSuperalgoformer( algof.combinar());//creo el super y se lo asigno a la vista cargada en main
-				this.redibujarAlgoformers();
-				ventana.close();
-				Aplicacion.juego.jugarTurno();
-				VBox vb=new VBox();
-				Text txt=new Text("Formar superAlgoformer tomara dos turnos");
-				vb.getChildren().add(txt);
-				Scene sc=new Scene(vb,200,200);
-				vb.setAlignment(Pos.CENTER);
-				Stage st =new Stage();
-				st.setTitle("formando superAlgoformer");
-				st.setScene(sc);
-				st.show();
-				
-				
-				
-			}catch(ErrorDistanciaExcesivaParaFormarSuperion e){
-				mostrarErrorSuperionDistanciaExcesiva();
-			}catch(ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores e){
-				mostrarErrorSuperionPosicionInvalida();
-			}
-		}
 
-	
 	
 	
 	private void mostrarErrorSuperionPosicionInvalida() {
@@ -160,7 +117,30 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		st.setFullScreen(false);
 		st.show();		
 	}
-
+public void separar(){
+	try{
+	algof.separar();
+	if(algof.comparteEquipoCon(Megatron.getMegatron())){
+	tablerocontroller.vistaMenasor.setAlgoformer(null);
+	}else{
+		tablerocontroller.vistaSuperion.setAlgoformer(null);//seteo esta ref en null para q no lo dibuje mas
+	}
+	redibujarAlgoformers();
+	ventana.close();
+	Aplicacion.juego.jugarTurno();
+	}catch(ErrorVidaSuperionInsuficienteParaSepararse e){
+		HBox hb=new HBox();
+		Text txt=new Text("Imposible separar.");
+		hb.getChildren().add(txt);
+		hb.setAlignment(Pos.CENTER);
+		Scene sc=new Scene(hb,200,200);
+		Stage st = new Stage();
+		st.setTitle("Error");
+		st.setScene(sc);
+		st.setFullScreen(false);
+		st.show();		
+	}
+}
 
 
 	private void mostrarErrorSuperionDistanciaExcesiva() {
@@ -240,7 +220,11 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		Text txt2=new Text("Ataque "+String.valueOf(algof.getAtaque()));
 		Text txt3=new Text("Velocidad "+String.valueOf(algof.getVelocidad()));
 		Text txt4=new Text("Espera Turnos "+String.valueOf(algof.getEfecto().esperaturnos));
+		
+	
+		
 		hb.getChildren().addAll(txt1,txt2,txt3,txt4);
+
 		hb.setAlignment(Pos.CENTER);
 		Scene sc=new Scene(hb,200,200);
 		Stage st = new Stage();
@@ -289,4 +273,5 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		tablerocontroller.borrarZonaObjetivoAtaque();
 	}
 	
+
 }

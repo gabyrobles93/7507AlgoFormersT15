@@ -3,6 +3,7 @@ package vista;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import modelo.Posicion;
+import modelo.Algoformer;
 import modelo.Menasor;
 import vista.controller.TableroController;
 import vista.controller.VistaMenasorController;
@@ -35,6 +36,17 @@ public class VistaMenasor extends VistaAlgoformer{
 	public ImageView getVista() {
 		// TODO Auto-generated method stub
 		return vistaalgoformer;
+	}
+
+	public void setAlgoformer(Algoformer algof) {
+		// TODO Auto-generated method stub
+		this.algoformer=algof;
+		controllervistamenasor.setMenasor(algoformer, this);
+	}
+
+	public Algoformer getSuperion() {
+		// TODO Auto-generated method stub
+		return algoformer;
 	}
 }
 

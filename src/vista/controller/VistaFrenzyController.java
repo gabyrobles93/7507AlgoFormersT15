@@ -23,7 +23,7 @@ public class VistaFrenzyController {
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&frenzy.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 			return;
 		}else{
@@ -47,6 +47,8 @@ public class VistaFrenzyController {
 		ventana.setTitle("Frenzy");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 		
 	}
@@ -66,6 +68,8 @@ public class VistaFrenzyController {
 		ventana.setTitle("Frenzy");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 				
 	}

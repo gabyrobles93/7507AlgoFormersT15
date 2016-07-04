@@ -8,6 +8,7 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorDistanciaExcesivaParaFormarMenasor;
 import modelo.ErrorMenasorNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
@@ -48,7 +49,8 @@ public class MenasorTest {
 		Algoformer frenzy=Frenzy.getFrenzy();
 		Posicion pos3=new Posicion(6,3);
 		tab.ubicarMovil(frenzy,pos3);
-		Algoformer menasor = new Menasor(megatron,bonecrusher,frenzy,pos1);
+		Equipo decep=new Decepticons((Megatron)megatron,(Bonecrusher)bonecrusher,(Frenzy)frenzy);
+		Algoformer menasor =megatron.combinar();
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus=Optimus.getOptimus();
 		Posicion pos4=new Posicion(3,5);

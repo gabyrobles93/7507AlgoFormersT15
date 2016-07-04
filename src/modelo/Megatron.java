@@ -97,7 +97,7 @@ public  class Megatron extends Algoformer {
 		public MegatronHumanoide(){
 			super();
 			vida=550;
-			ataque=10;
+			ataque=200;
 			alcance=3;
 			velocidad=1;
 			efecto.velocidadAfectada=velocidad;

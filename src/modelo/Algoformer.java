@@ -176,7 +176,7 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 		return (this.getEquipo().equals( otroalgoformer.getEquipo()));
 	}
 
-	private Object getEquipo() {
+	public Equipo getEquipo() {
 		return miEquipo;
 	}
 	
@@ -234,6 +234,19 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 		if(vida!=0)
 			return true;
 		return false;
+	}
+	public Algoformer combinar(){
+		return miEquipo.combinar(miPosicion);
+	}
+
+	public void setEquipo(Equipo miEquipo) {
+		
+		this.miEquipo=miEquipo;
+	}
+
+	public void separar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

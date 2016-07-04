@@ -22,7 +22,7 @@ public class VistaMegatronController {
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&megatron.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 			return;
 		}else{
@@ -46,6 +46,8 @@ public class VistaMegatronController {
 		ventana.setTitle("Megatron");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 		
 	}
@@ -65,6 +67,8 @@ public class VistaMegatronController {
 		ventana.setTitle("Megatron");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 				
 	}

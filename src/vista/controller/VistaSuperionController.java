@@ -17,12 +17,12 @@ public class VistaSuperionController {
 	VistaAlgoformer vistasuperion;
 	TableroController tabcontroller;
 	
-	MenuAccionesAlgoformerController menuaccionescontroller;
+	menuAccionesController menuaccionescontroller;
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&Aplicacion.juego.decepticons.puedeJugar()){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
@@ -42,13 +42,15 @@ public class VistaSuperionController {
 		ventana.setTitle("Superion");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 				
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesCombiner.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -61,6 +63,8 @@ public class VistaSuperionController {
 		ventana.setTitle("Superion");
 		ventana.setResizable(false);
 		ventana.setScene(scene);
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
 		
 	}

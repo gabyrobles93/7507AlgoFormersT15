@@ -22,7 +22,7 @@ public class VistaBonecrusherController {
 	
 	public void mostrarMenu() throws Exception{
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons){
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&bonecrusher.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 			return;
 		}else{
@@ -47,6 +47,8 @@ public class VistaBonecrusherController {
 		ventana.setResizable(false);
 		ventana.setScene(scene);
 		ventana.show();
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 		
 	}
 	
@@ -66,6 +68,8 @@ public class VistaBonecrusherController {
 		ventana.setResizable(false);
 		ventana.setScene(scene);
 		ventana.show();
+		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
+		ventana.setOnCloseRequest(ventCont);
 				
 	}
 

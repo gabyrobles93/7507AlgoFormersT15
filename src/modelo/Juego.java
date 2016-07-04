@@ -43,9 +43,9 @@ public class Juego {
 	
 	private void ubicarAutobots() {
 	
-		Posicion posOptimus=new Posicion(24,26);
-		Posicion posRatchet=new Posicion(24,24);
-		Posicion posBumblebee=new Posicion(24,25);
+		Posicion posOptimus=new Posicion(0,1);
+		Posicion posRatchet=new Posicion(1,0);
+		Posicion posBumblebee=new Posicion(1,1);
 		
 		autobots.ubicarMoviles(tablero,posOptimus,posBumblebee,posRatchet);
 	}
@@ -94,7 +94,7 @@ public class Juego {
 		if(turnoDelEquipo==autobots){
 			setProximoTurno(decepticons);
 		}
-		else{
+		else {
 			setProximoTurno(autobots);
 		}
 	}
@@ -105,10 +105,26 @@ public class Juego {
 	}
 
 	public  void jugarTurno(){
-		turnoDelEquipo.jugarTurno();//CAMBIAR POR EL ATRIBUTOS
+		
+		
+		turnoDelEquipo.jugarTurno();
 		cambiarTurno();
+		while(!turnoDelEquipo.puedeJugar()){
+		
+			turnoDelEquipo.jugarTurno();
+			cambiarTurno();
+		}
+		
+	
+	
+		
+		
+		
+		//cambio de equipo una vez.
+		
 		
 	}
+	
 /*	
 	public Equipo getGanador(){
 		

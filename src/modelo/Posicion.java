@@ -7,7 +7,7 @@ private int Columna;
 private static Tablero tablero;
 
 public Posicion(int fila, int columna) {
-	if(fila<0&&fila>49&&columna>49&&columna<0){
+	if(fila<0||fila>49||columna>49||columna<0){
 		throw new ErrorPosicionInvalida();
 	}
 	Fila=fila;
@@ -57,11 +57,27 @@ public boolean validarDistanciaSuperAlgoformer(Algoformer bumblebee, Algoformer 
 	int FilaAux,ColumnaAux;
 	for(int i=-distanciaDeFormacion;i<=distanciaDeFormacion;i++){
 		for(int j=-distanciaDeFormacion;j<=distanciaDeFormacion;j++){
-	 FilaAux=(Fila+i<0)?0:Fila+i;		
-	 FilaAux=(Fila+i>49)?49:Fila+i;	//para que no se generen filas nicolumnas invalidas
-	 ColumnaAux=(Columna+j<0)?0:Columna+j;		
-	 ColumnaAux=(Columna+j>49)?49:Columna+j;	
-			
+			if(Fila+i<0){
+				FilaAux=0;
+			}else{
+				FilaAux=Fila+i;
+			}
+			if(FilaAux!=0&&FilaAux>49){
+				FilaAux=49;
+			}
+			if(Columna+i<0){
+				ColumnaAux=0;
+			}else{
+				ColumnaAux=Columna+i;
+			}
+			if(ColumnaAux!=0&&ColumnaAux>49){
+				ColumnaAux=49;
+			}
+	 //FilaAux=(Fila+i<0)?0:Fila+i;		
+	 //FilaAux=(FilaAux!=0&&Fila+i>49)?49:Fila+i;	//para que no se generen filas nicolumnas invalidas
+	 //ColumnaAux=(Columna+j<0)?0:Columna+j;		
+	 //ColumnaAux=(ColumnaAux!=0&&Columna+j>49)?49:Columna+j;	
+		
 	Posicion posAux=new Posicion(FilaAux,ColumnaAux);
 	Tablero subtab=tablero.getArea(posAux, distanciaDeFormacion);
 	if(subtab.existeMovil(bumblebee)&&subtab.existeMovil(ratchet)){
