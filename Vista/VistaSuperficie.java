@@ -19,7 +19,9 @@ public abstract class VistaSuperficie {
 	public VistaSuperficie(){
 		
 	}
+	
 public abstract void dibujar(GridPane tablero,int fila,int columna);
+
 public static VistaSuperficie crearVista(Superficie superficie) {
 	// TODO Auto-generated method stub
 	SuperficieTierra supPant=new SuperficiePantanosa();

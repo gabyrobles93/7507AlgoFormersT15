@@ -1,6 +1,6 @@
-package Modelo;
+package modelo;
 
-/*public class Posicion {
+public class Posicion {
 
 private int Fila;
 private int Columna;

@@ -27,10 +27,12 @@ public class Casillero {
 	}
 
 	public void setSuperficieTierra(Superficie nuevasuperficie){
+		
 		superficietierra = nuevasuperficie;
 	}
 	
 	public void setSuperficieCielo(Superficie nuevasuperficie){
+		
 		superficiecielo = nuevasuperficie;
 	}
 

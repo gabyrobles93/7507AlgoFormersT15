@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+
+<MenuBar fx:id="barra_de_menu" fx:controller="vista.controller.BarraDeMenuController" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60">
+  <menus>
+    <Menu mnemonicParsing="false" text="Juego">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Ver resumen" onAction="#botonVerResumenController"/>
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Vista">
+      <items>
+        <MenuItem fx:id="boton_ver_tierra" mnemonicParsing="false" text="Ver Tierra" onAction="#botonVerTierraController"/>
+            <MenuItem fx:id="boton_ver_cielo" mnemonicParsing="false" text="Ver Cielo" onAction="#botonVerCieloController"/>
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Ayuda" >
+      <items>
+        <MenuItem mnemonicParsing="false" text="Acerca de ..." onAction="#botonAcercaDeController"/>
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>

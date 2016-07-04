@@ -5,13 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import Modelo.Juego;
 import Vista.Controlador.CartelBienvenidosController;
@@ -70,6 +68,7 @@ public class Aplicacion extends Application {
 			initVistaTableroTierra();
 			initVistaTableroCielo();
 			controladorTablero.inicializarTableros(juego.getTablero(),controllerTableroCielo,controllerTableroTierra);
+			
 			controladorTablero.setCenter(vistaTableroCielo);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -86,8 +85,7 @@ public class Aplicacion extends Application {
 			controllerTableroTierra = loader2.getController();
 			//el controlador del tablero general tiene ref a los controladores especificos
 			controladorTablero.setTableroTierraController(controllerTableroTierra);
-			ArrayList<ImageView> listaReferencias = new ArrayList<ImageView>();
-			controllerTableroTierra.setListaRef(listaReferencias);
+			
 			//controllerTableroTierra.inicializarTableroTierra(juego.getTablero(),controladorTablero);
 
 			//Tablero.setCenter(vistaTableroTierra);
