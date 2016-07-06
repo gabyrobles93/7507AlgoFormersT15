@@ -192,6 +192,12 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 				this.redibujarAlgoformers();
 				
 				Aplicacion.juego.jugarTurno();
+				
+				Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+				Label error=new Label("Formar Super Algoformer tomará dos turnos.");
+				Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+				
+				/*
 				VBox vb=new VBox();
 				Text txt=new Text("Formar superAlgoformer tomara dos turnos");
 				vb.getChildren().add(txt);
@@ -202,7 +208,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 				st.setScene(sc);
 				st.show();
 				
-				
+				*/
 				
 			}catch(ErrorDistanciaExcesivaParaFormarSuperion e){
 				mostrarErrorSuperionDistanciaExcesiva();
@@ -235,7 +241,12 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 	
 	private void mostrarErrorSuperionPosicionInvalida() {
 		// TODO Auto-generated method stub
-		HBox hb=new HBox();
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Posicion de nacimiento de superion invalida.");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		/*HBox hb=new HBox();
 		Text txt=new Text("Posicion de nacimiento de superion invalida.");
 		hb.getChildren().add(txt);
 		hb.setAlignment(Pos.CENTER);
@@ -244,14 +255,19 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		st.setTitle("Error");
 		st.setScene(sc);
 		st.setFullScreen(false);
-		st.show();		
+		st.show();		*/
 	}
 
 
 
 	private void mostrarErrorSuperionDistanciaExcesiva() {
 		// TODO Auto-generated method stub
-		HBox hb=new HBox();
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Distancia Excesiva entre Autobots para formar Superion.");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+	/*	HBox hb=new HBox();
 		Text txt=new Text("Distancia Excesiva entre Autobots para formar Superion.");
 		hb.getChildren().add(txt);
 		hb.setAlignment(Pos.CENTER);
@@ -260,7 +276,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		st.setTitle("Error");
 		st.setScene(sc);
 		st.setFullScreen(false);
-		st.show();		
+		st.show();		*/
 	}
 
 
@@ -276,7 +292,12 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 
 
 	private void mostrarDecepticonsGanaron() {
-		HBox hb=new HBox();
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Han Ganado los Decepticons.");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		/*HBox hb=new HBox();
 		Text txt=new Text("Han Ganado los Decepticons");
 		hb.getChildren().add(txt);
 		hb.setAlignment(Pos.CENTER);
@@ -284,13 +305,17 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		Aplicacion.ventanaPrincipal.setTitle("Juego Terminado");
 		Aplicacion.ventanaPrincipal.setScene(sc);
 		Aplicacion.ventanaPrincipal.setFullScreen(true);
-		Aplicacion.ventanaPrincipal.show();		
+		Aplicacion.ventanaPrincipal.show();		*/
 	}
 
 
 
 	private void mostrarAutobotsGanaron() {
 		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Han ganado los Autobots");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	/*	
 		HBox hb=new HBox();
 		Text txt=new Text("Han ganado los Autobots");
 		hb.getChildren().add(txt);
@@ -300,12 +325,17 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		Aplicacion.ventanaPrincipal.setScene(sc);
 		Aplicacion.ventanaPrincipal.setFullScreen(true);
 		Aplicacion.ventanaPrincipal.show();		
+	*/
 	}
 
 
 
 	private void mostrarErrorImposibleCapturarChispa() {
-
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Error imposible capturar Chispa");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+/*
 		HBox hb=new HBox();
 		Text txt=new Text("Error imposible capturar Chispa");
 		hb.getChildren().add(txt);
@@ -316,6 +346,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();		
+*/
 	}
 
 
@@ -334,7 +365,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
-		
+	
 	}
 
 
