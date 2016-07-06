@@ -117,6 +117,7 @@ public class MenuAccionesCombinerController extends menuAccionesController{
 		st.setFullScreen(false);
 		st.show();		
 	}
+	
 public void separar(){
 	try{
 	algof.separar();

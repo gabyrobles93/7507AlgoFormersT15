@@ -454,4 +454,34 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		combinar.setDisable(false);
 	}
 	
+	public void separarSuperFormer(){
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Superformer separado.");
+		error.setTextFill(Color.WHITE);
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		try{
+			algof.separar();
+			if(algof.comparteEquipoCon(Megatron.getMegatron())){
+			tablerocontroller.vistaMenasor.setAlgoformer(null);
+			}else{
+				tablerocontroller.vistaSuperion.setAlgoformer(null);//seteo esta ref en null para q no lo dibuje mas
+			}
+			redibujarAlgoformers();
+			Aplicacion.juego.jugarTurno();
+			}catch(RuntimeException e){
+				HBox hb=new HBox();
+				Text txt=new Text("Imposible separar.");
+				hb.getChildren().add(txt);
+				hb.setAlignment(Pos.CENTER);
+				Scene sc=new Scene(hb,200,200);
+				Stage st = new Stage();
+				st.setTitle("Error");
+				st.setScene(sc);
+				st.setFullScreen(false);
+				st.show();		
+			}
+	}
+	
 }

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Algoformer;
@@ -83,6 +84,7 @@ public class PosibleAtaqueController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Han Ganado los Decepticons");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	/*
 		HBox hb=new HBox();
@@ -104,6 +106,7 @@ public class PosibleAtaqueController {
 	
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Juego Terminado");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	 /*
 		HBox hb=new HBox();
@@ -123,6 +126,7 @@ public class PosibleAtaqueController {
 
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Error, no hay ninguna victima en ese casillero");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
 		/*
@@ -144,6 +148,7 @@ public class PosibleAtaqueController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Error, no puedes atacar otro algoformer de tu mismo equipo");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
 		/*
