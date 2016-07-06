@@ -84,19 +84,19 @@ public void test08ubicarMovilLoPoneDondeDebe()
 	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getMegatron().getPosicion().equals(pos1));
 	
 	
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().equals(pos2));
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getBonecrusher().getPosicion().equals(pos3));
 
 	
 
-	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().equals(pos3));
+	Assert.assertTrue(((Decepticons) juego.getDecepticons()).getFrenzy().getPosicion().equals(pos2));
 	
 
 	Assert.assertTrue(((Autobots) juego.getAutobots()).getOptimus().getPosicion().equals(pos4));
 	
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().equals(pos5));
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getRatchet().getPosicion().equals(pos6));
 	
 	
-	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().equals(pos6));
+	Assert.assertTrue(((Autobots) juego.getAutobots()).getBumblebee().getPosicion().equals(pos5));
 
 
 	}
