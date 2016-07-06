@@ -11,8 +11,9 @@ public class VistaRocosa extends VistaSuperficie {
 	@Override
 	public void cargar() {
 		// TODO Auto-generated method stub
+		File file;
 		
-		File file = new File("C:\\imagenes\\superficietierra\\03_rocosa.jpg");
+		file = new File("src/vista/resources/imagenes/superficietierra/03_rocosa.jpg");		
 		
 		Image imagesuptierra = new Image(file.toURI().toString());
 		ImageView picsuptierra = new ImageView();

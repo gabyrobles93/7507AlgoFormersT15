@@ -11,7 +11,9 @@ public class VistaTormentaPsionica extends VistaSuperficie {
 	@Override
 	public void cargar() {
 		// TODO Auto-generated method stub
-		File file = new File("C:\\imagenes\\superficiecielo\\02_tormentosa.gif");
+		File file;
+		
+		file = new File("src/vista/resources/imagenes/superficiecielo/02_tormentosa.gif");		
 		
 		Image imagesuptormentosa = new Image(file.toURI().toString());
 		ImageView picsuptormentosa = new ImageView();

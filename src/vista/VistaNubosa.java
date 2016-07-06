@@ -11,7 +11,9 @@ public class VistaNubosa extends VistaSuperficie {
 	@Override
 	public void cargar() {
 		// TODO Auto-generated method stub
-		File file = new File("C:\\imagenes\\superficiecielo\\01_nubosa.png");
+		File file;
+		
+		file = new File("src/vista/resources/imagenes/superficiecielo/01_nubosa.png");		
 		
 		Image imagesupnubosa = new Image(file.toURI().toString());
 		ImageView picsupnubosa = new ImageView();

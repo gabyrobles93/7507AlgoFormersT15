@@ -11,7 +11,9 @@ public class VistaPantano extends VistaSuperficie{
 	@Override
 	public void cargar() {
 		// TODO Auto-generated method stub
-		File file = new File("C:\\imagenes\\superficietierra\\02_pantanosa.jpg");
+		File file;
+		
+		file = new File("src/vista/resources/imagenes/superficietierra/02_pantanosa.jpg");		
 		
 		Image imagesuppantanosa = new Image(file.toURI().toString());
 		ImageView picsuppantanosa = new ImageView();
