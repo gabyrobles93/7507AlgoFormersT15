@@ -6,6 +6,7 @@ import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -80,6 +81,10 @@ public class PosibleAtaqueController {
 
 	private void mostrarDecepticonsGanaron() {
 		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Han Ganado los Decepticons");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	/*
 		HBox hb=new HBox();
 		Text txt=new Text("Han Ganado los Decepticons");
 		hb.getChildren().add(txt);
@@ -89,12 +94,18 @@ public class PosibleAtaqueController {
 		Aplicacion.ventanaPrincipal.setScene(sc);
 		Aplicacion.ventanaPrincipal.setFullScreen(true);
 		Aplicacion.ventanaPrincipal.show();		
+	*/
 	}
+	
 
 
 
 	private void mostrarAutobotsGanaron() {
-		
+	
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Juego Terminado");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	 /*
 		HBox hb=new HBox();
 		Text txt=new Text("Han ganado los Autobots");
 		hb.getChildren().add(txt);
@@ -104,10 +115,17 @@ public class PosibleAtaqueController {
 		Aplicacion.ventanaPrincipal.setScene(sc);
 		Aplicacion.ventanaPrincipal.setFullScreen(true);
 		Aplicacion.ventanaPrincipal.show();		
+		*/
 	}
 		
 	
 	private void mostrarErrorAlgoformerInexistente() {
+
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Error, no hay ninguna victima en ese casillero");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		/*
 		HBox hb=new HBox();
 		Text txt=new Text("Error, no hay ninguna victima en ese casillero");
 		hb.getChildren().add(txt);
@@ -118,10 +136,17 @@ public class PosibleAtaqueController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();		
+		*/
 	}
 
 	private void mostrarNoSePuedeAtacarIntegranteDeEquipo() {
 		// TODO Auto-generated method stub
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Error, no puedes atacar otro algoformer de tu mismo equipo");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		/*
 		HBox hb=new HBox();
 		Text txt=new Text("Error, no puedes atacar otro algoformer de tu mismo equipo");
 		hb.getChildren().add(txt);
@@ -132,6 +157,8 @@ public class PosibleAtaqueController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
+		
+		*/
 	}
 
 

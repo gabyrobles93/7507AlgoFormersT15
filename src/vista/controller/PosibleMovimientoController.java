@@ -9,6 +9,7 @@ import modelo.Juego;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -75,6 +76,11 @@ public class PosibleMovimientoController {
 	private void mostrarErrorVelocidadDelMovilInsuficiente() {
 		// TODO Auto-generated method stub
 		
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("velocidad Insuficiente, atento con el pantano");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		/*
 		HBox hb=new HBox();
 		Text txt=new Text("velocidad Insuficiente, atento con el pantano");
 		hb.getChildren().add(txt);
@@ -85,11 +91,17 @@ public class PosibleMovimientoController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
+		*/
 	}
 
 	private void mostrarErrorAlgoformerHumanoideNoPuedePasarPorPantano() {
 		// TODO Auto-generated method stub
 		
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Oh! te has topado con una superficie pantanosa, no puedes pisarla en modo humanoide");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	/*
 		HBox hb=new HBox();
 		Text txt=new Text("Oh! te has topado con una superficie pantanosa, no puedes pisarla en modo humanoide");
 		hb.getChildren().add(txt);
@@ -100,11 +112,16 @@ public class PosibleMovimientoController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
+	*/
 	}
 
 	private void mostrarErrorCasillerosNoConectadosPorLineaRecta() {
 		// TODO Auto-generated method stub
 		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Los Casilleros deben estar en linea recta");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		/*
 		HBox hb=new HBox();
 		Text txt=new Text("Los Casilleros deben estar en linea recta ");
 		hb.getChildren().add(txt);
@@ -115,11 +132,16 @@ public class PosibleMovimientoController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
+	*/
 	}
 
 	private void mostrarErrorCasilleroOcupado() {
 		// TODO Auto-generated method stub
 		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Los Casilleros deben estar desocupados");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		/*
 		HBox hb=new HBox();
 		Text txt=new Text("Los Casilleros deben estar desocupados ");
 		hb.getChildren().add(txt);
@@ -130,6 +152,7 @@ public class PosibleMovimientoController {
 		st.setScene(sc);
 		st.setFullScreen(false);
 		st.show();
+		*/
 	}
 	
 	
