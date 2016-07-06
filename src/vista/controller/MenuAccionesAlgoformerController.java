@@ -157,6 +157,8 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	}
 	
 	public void capturarChispa(){
+		this.borrarZonaObjetivoAtaque();
+		this.borrarZonaObjetivoMovimiento();
 if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 			
 			mostrarErrorNoEsTuTurno();
@@ -178,6 +180,8 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 	}
 	
 	public void combinar(){
+		this.borrarZonaObjetivoAtaque();
+		this.borrarZonaObjetivoMovimiento();
 if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 			
 			mostrarErrorNoEsTuTurno();
@@ -217,6 +221,8 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 			}
 		}
 	public void cambiarModo(){
+		this.borrarZonaObjetivoAtaque();
+		this.borrarZonaObjetivoMovimiento();
 if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 			
 			mostrarErrorNoEsTuTurno();
@@ -282,6 +288,8 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 
 
 	private void mostrarMensajeVictoria() {
+		this.borrarZonaObjetivoAtaque();
+		this.borrarZonaObjetivoMovimiento();
 		if(Aplicacion.juego.getGanador()==Aplicacion.juego.autobots){
 			mostrarAutobotsGanaron();
 		}else{

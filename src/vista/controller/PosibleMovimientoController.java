@@ -57,7 +57,6 @@ public class PosibleMovimientoController {
 			
 			mostrarErrorCasilleroOcupado();
 
-			
 		}catch(ErrorCasillerosNoConectadosPorLineaRecta e){
 			
 			mostrarErrorCasillerosNoConectadosPorLineaRecta();
