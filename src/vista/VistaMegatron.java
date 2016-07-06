@@ -30,16 +30,48 @@ public class VistaMegatron extends VistaAlgoformer {
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Megatron.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistamegatron = loader.getController();
 		controllervistamegatron.setMegatron(algoformer, this);
 		controllervistamegatron.setTableroController(tablerocontroller);
 		
 	}
-
-	public ImageView getVista() {
+	@Override
+	public void cargarAlterno() throws Exception{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("MegatronAlterno.fxml"));
 		
-		return vistaalgoformer;	
+		loader.setController(controllervistamegatron);
+		
+		vistaalgoformerAlterno = (ImageView) loader.load();
+		
+		
+		
 	}
+
+	@Override
+	public void cambiarModoActualizarRef(){
+		algoformer=Megatron.getMegatron();
+		controllervistamegatron.setMegatron(Megatron.getMegatron(), this);
+		tablerocontroller.borrarAlgoformers();
+		tablerocontroller.imagenMegatron=this.getVista();
+		
+		
+	}
+	public ImageView getVista(){
+		if(algoformer.getVelocidad()==8){
+			return getVistaAlterno();
+		}else{return getVistaHumanoide();}
+		
+	}
+	
+	public ImageView getVistaHumanoide() {
+		// TODO Auto-generated method stub
+		return vistaalgoformerHumanoide;
+	}
+	public ImageView getVistaAlterno(){
+		return vistaalgoformerAlterno;
+	}
+
 }

@@ -28,17 +28,46 @@ public class VistaBonecrusher extends VistaAlgoformer{
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Bonecrusher.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistabonecrusher = loader.getController();
 		controllervistabonecrusher.setBonecrusher(algoformer, this);
 		controllervistabonecrusher.setTableroController(tablerocontroller);
 		
 	}
-
-	public ImageView getVista() {
+	@Override
+	public void cargarAlterno() throws Exception{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("BonecrusherAlterno.fxml"));
 		
-		return vistaalgoformer;	
+		loader.setController(controllervistabonecrusher);
+		
+		vistaalgoformerAlterno = (ImageView) loader.load();
+		
+		
+		
+	}
+	@Override
+	public void cambiarModoActualizarRef(){
+		algoformer=Bonecrusher.getBonecrusher();
+		controllervistabonecrusher.setBonecrusher(Bonecrusher.getBonecrusher(), this);
+		tablerocontroller.borrarAlgoformers();
+		tablerocontroller.imagenBonecrusher=this.getVista();
+		
+		
+	}
+	public ImageView getVista(){
+		if(this.algoformer.getVelocidad()==8){
+			return getVistaAlterno();
+		}else {return getVistaHumanoide();}
+	}
+
+	public ImageView getVistaHumanoide() {
+		
+		return vistaalgoformerHumanoide;	
+	}
+	public ImageView getVistaAlterno(){
+		return vistaalgoformerAlterno;
 	}
 }
 

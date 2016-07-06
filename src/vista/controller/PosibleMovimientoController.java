@@ -49,7 +49,7 @@ public class PosibleMovimientoController {
 			algoformer.mover(nuevaposicion);
 			menucontroller.borrarZonaObjetivoMovimiento();
 			menucontroller.redibujarAlgoformers();
-			ventana.close();
+			
 			Aplicacion.juego.jugarTurno();
 			
 		}catch(ErrorCasillerOcupado e){

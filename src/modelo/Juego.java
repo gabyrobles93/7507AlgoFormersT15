@@ -36,24 +36,24 @@ public class Juego {
 		setDecepticons();
 		ubicarDecepticons();
 		ubicarAutobots();
-		turnoDelEquipo=this.getDecepticons();
+		turnoDelEquipo=this.getAutobots();
 		chispa.ubicarEnCentro(tablero);
 		
 	}
 	
 	private void ubicarAutobots() {
 	
-		Posicion posOptimus=new Posicion(0,1);
-		Posicion posRatchet=new Posicion(1,0);
-		Posicion posBumblebee=new Posicion(1,1);
+		Posicion posOptimus=new Posicion(2,2);
+		Posicion posRatchet=new Posicion(0,2);
+		Posicion posBumblebee=new Posicion(2,0);
 		
 		autobots.ubicarMoviles(tablero,posOptimus,posBumblebee,posRatchet);
 	}
 	private void ubicarDecepticons() {
 		
-		Posicion posMegatron=new Posicion(26,26);
-		Posicion posBonecrusher=new Posicion(26,25);
-		Posicion posFrenzy=new Posicion(26,24);
+		Posicion posMegatron=new Posicion(47,47);
+		Posicion posBonecrusher=new Posicion(49,47);
+		Posicion posFrenzy=new Posicion(47,49);
 		
 		decepticons.ubicarMoviles(tablero, posMegatron, posBonecrusher, posFrenzy);
 	}

@@ -22,19 +22,23 @@ public class VistaFrenzyController {
 	
 	
 	public void mostrarMenu() throws Exception{
+		Aplicacion.menuaccionescontroller.setAlgoformer(frenzy, vistafrenzy);
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&frenzy.getEfecto().esperaturnos==0){
+		Aplicacion.menuaccionescontroller.actualizarInfo("Frenzy");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Aplicacion.menuaccionescontroller.HabilitarBotonesAlgoformer();
+		/*if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&frenzy.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 			return;
 		}else{
 			mostrarVerEstado();
 			return;
-		}
+		}*/
 	}
 	
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+		/*FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 		
@@ -50,11 +54,11 @@ public class VistaFrenzyController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-		
+		*/
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+		/*FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -71,7 +75,7 @@ public class VistaFrenzyController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-				
+			*/	
 	}
 
 

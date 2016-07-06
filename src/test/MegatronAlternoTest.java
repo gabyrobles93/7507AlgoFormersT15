@@ -8,9 +8,11 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
+import modelo.Frenzy;
 import modelo.Megatron;
 import modelo.Movimiento;
 import modelo.Optimus;
@@ -24,9 +26,14 @@ public class MegatronAlternoTest {
 		Megatron.ResetearInstancia();
 		Optimus.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1  =new Posicion(3,3);
@@ -46,10 +53,16 @@ public class MegatronAlternoTest {
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02MegatronAlternoNoPuedeAtacarDecepticons(){
 		Megatron.ResetearInstancia();
+		Bonecrusher.ResetearInstancia();
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
 		
 		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1 = new Posicion(3,3);
@@ -91,7 +104,10 @@ public class MegatronAlternoTest {
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 		
-		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+
+	
 		
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
@@ -115,7 +131,7 @@ public class MegatronAlternoTest {
 	public void test06MegatronAlternoSeMueve(){
 		Megatron.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
@@ -134,7 +150,7 @@ public class MegatronAlternoTest {
 	public void test07MegatronAlternoTieneLimiteDeVelocidad(){
 		
 		Megatron.ResetearInstancia();
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Algoformer megatron =  Megatron.getMegatron();
 		Posicion posIni=new Posicion(1,4);
@@ -153,6 +169,11 @@ public class MegatronAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);
@@ -177,6 +198,11 @@ public class MegatronAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,4);
 		tab.ubicarMovil(megatron, pos1);
@@ -200,7 +226,11 @@ public class MegatronAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
-		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+
 		Algoformer megatron =  Megatron.getMegatron();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(megatron, pos1);

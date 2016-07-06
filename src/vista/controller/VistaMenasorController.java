@@ -21,16 +21,20 @@ public class VistaMenasorController {
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
-	
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&Aplicacion.juego.decepticons.puedeJugar()){
+Aplicacion.menuaccionescontroller.setAlgoformer(menasor, vistamenasor);
+		
+		Aplicacion.menuaccionescontroller.actualizarInfo("Menasor");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Aplicacion.menuaccionescontroller.HabilitarBotonesSuper();
+		/*if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&Aplicacion.juego.decepticons.puedeJugar()){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
-		}
+		}*/
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+		/*FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -45,12 +49,12 @@ public class VistaMenasorController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-				
+			*/	
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesCombiner.fxml"));
+		/*FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesCombiner.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -66,7 +70,7 @@ public class VistaMenasorController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-		
+		*/
 	}
 	
 

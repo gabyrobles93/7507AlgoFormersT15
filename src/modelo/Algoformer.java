@@ -57,10 +57,12 @@ public abstract  class Algoformer implements movil,atacable,atacante,afectable  
 				}
 				efecto.velocidadAfectada=velocidad;
 				
+		}catch(ErrorAlgoformerAtascadoEnNebulosaDeAndromeda e){
+			return ;
+			
 		}catch(RuntimeException e){
 			cambiarPosicion(posicionInicial);//lo pongo donde estaba
 			throw e; //no se pudo mover
-			
 		}
 		
 		

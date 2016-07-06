@@ -11,7 +11,7 @@ public class VistaNebulosaDeAndromeda extends VistaSuperficie {
 	@Override
 	public void cargar() {
 		// TODO Auto-generated method stub
-		File file = new File("C:\\imagenes\\superficiecielo\\03_tomerntadeandromeda.gif");
+		File file = new File("C:\\imagenes\\superficiecielo\\03_nebulosadeandromeda.gif");
 		
 		Image imagesuptormentadeandromeda = new Image(file.toURI().toString());
 		ImageView picsuptormentadeandromeda = new ImageView();

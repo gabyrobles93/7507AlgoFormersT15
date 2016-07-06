@@ -8,6 +8,7 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -30,6 +31,11 @@ public class OptimusHumaboideTest {
 		Posicion.setTablero(tab);
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Optimus.getOptimus().cambiarModo();//paso a humanoide
 		Algoformer optimus = Optimus.getOptimus();
@@ -58,6 +64,12 @@ public class OptimusHumaboideTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
+		
+		
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(optimus, pos1);
@@ -74,11 +86,19 @@ public class OptimusHumaboideTest {
 	public void test03OptimusHumanoideNoPuedeAtacarDecepticonFueraDeRango(){
 		Optimus.ResetearInstancia();
 		Megatron.ResetearInstancia();
-		Optimus.getOptimus().cambiarModo();
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		Posicion.setTablero(tab);
+		
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
+		Optimus.getOptimus().cambiarModo();
+
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(2,0);
@@ -100,8 +120,13 @@ public class OptimusHumaboideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-		Optimus.getOptimus().cambiarModo();
 		
+		
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
+		Optimus.getOptimus().cambiarModo();
 		
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
@@ -124,7 +149,7 @@ public class OptimusHumaboideTest {
 	public void test06OptimusHumanoideSeMueve(){
 		Optimus.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
@@ -142,10 +167,13 @@ public class OptimusHumaboideTest {
 	public void test07OptimusHumanoideTieneLimiteDeVelocidad(){
 		Optimus.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 		Ataque.setTablero(tab);
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Optimus.getOptimus().cambiarModo();//paso a humanoide
 		
@@ -166,6 +194,13 @@ public class OptimusHumaboideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(2,2);
@@ -191,7 +226,16 @@ public class OptimusHumaboideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Optimus.getOptimus().cambiarModo();
+		
+		
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(3,4);
@@ -215,6 +259,12 @@ public class OptimusHumaboideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Optimus.getOptimus().cambiarModo();
 		Algoformer optimus = Optimus.getOptimus();

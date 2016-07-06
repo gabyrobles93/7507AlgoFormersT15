@@ -25,9 +25,11 @@ public  class Megatron extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE =new MegatronHumanoide(miPosicion,vida,efecto.afectaataque);
-			
-			miEquipo.algof1=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof1=INSTANCE;
 			return INSTANCE;
 			
 		}
@@ -38,7 +40,7 @@ public  class Megatron extends Algoformer {
 			alcance=2;
 			velocidad=8;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public MegatronAlterno(Posicion unaPos, int unaVida, double afectaAtaque) {
 			super();
@@ -48,7 +50,7 @@ public  class Megatron extends Algoformer {
 			velocidad=8;
 			alcance=2;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -74,6 +76,7 @@ public  class Megatron extends Algoformer {
 		@Override
 		public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
 			efecto.esperaturnos = cantidadturnos;	
+			throw new ErrorAlgoformerAtascadoEnNebulosaDeAndromeda();
 		}
 		@Override
 		public void afectarPorTormentaPsionica(double coeficiente) {
@@ -132,9 +135,11 @@ public  class Megatron extends Algoformer {
 
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE =new MegatronAlterno(miPosicion,vida,efecto.afectaataque);
-			
-			miEquipo.algof1=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof1=INSTANCE;
 			return INSTANCE;
 		}
 

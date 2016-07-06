@@ -5,7 +5,10 @@ import org.junit.Test;
 
 import modelo.Algoformer;
 import modelo.Ataque;
+import modelo.Autobots;
 import modelo.Bumblebee;
+import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorDistanciaExcesivaParaFormarSuperion;
 import modelo.ErrorSuperionNoPuedeNacerFueraDeLasPosicionesDeSusFormadores;
@@ -27,7 +30,15 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		 Megatron.ResetearInstancia();
+		 
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
 		
+	
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -64,6 +75,15 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		 Megatron.ResetearInstancia();
+		 
+	 
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -99,6 +119,13 @@ public class SuperionTest {
 		 Bumblebee.ResetearInstancia();
 		
 		 
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
@@ -131,6 +158,14 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		 
+		 
+
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
@@ -162,6 +197,15 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 		 Megatron.ResetearInstancia();
+		 
+		 
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -206,6 +250,15 @@ public class SuperionTest {
 		 Bumblebee.ResetearInstancia();
 		 Megatron.ResetearInstancia();
 		
+		 
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -239,6 +292,14 @@ public class SuperionTest {
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+	 
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+		
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -275,6 +336,13 @@ public class SuperionTest {
 		 Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 	
 		 
 		Tablero tab=new Tablero();
@@ -306,6 +374,13 @@ public class SuperionTest {
 		 Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+	
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			Bumblebee.getBumblebee().setEquipo(autobots);
+			Ratchet.getRatchet().setEquipo(autobots);
+			
 	
 		 
 		Tablero tab=new Tablero();
@@ -338,6 +413,13 @@ public class SuperionTest {
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
 	
+		 
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 		 
 		Tablero tab=new Tablero();
 		Posicion.setTablero(tab);
@@ -396,26 +478,33 @@ public class SuperionTest {
 			 Optimus.ResetearInstancia();
 			 Bumblebee.ResetearInstancia();
 			 
-		Tablero tab=new Tablero();
-		Posicion.setTablero(tab);
-		
-		Optimus.getOptimus().cambiarModo();
-		Algoformer optimus = Optimus.getOptimus();
-		
-		Posicion pos1  =new Posicion(3,3);
-		tab.ubicarMovil(optimus,pos1);
-		Algoformer bumblebee =  Bumblebee.getBumblebee();
-		Posicion pos2  =new Posicion(6,3);
-		tab.ubicarMovil(bumblebee,pos2);
-		
-		Ratchet.getRatchet().cambiarModo();
-		Algoformer ratchet = Ratchet.getRatchet();
-		
-		Posicion pos3  =new Posicion(5,3);
-		tab.ubicarMovil(ratchet,pos3);
-		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
-		 
-		Assert.assertTrue(superion.getVida()==1000);
+			 
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			Bumblebee.getBumblebee().setEquipo(autobots);
+			Ratchet.getRatchet().setEquipo(autobots);
+					
+				 
+			Tablero tab=new Tablero();
+			Posicion.setTablero(tab);
+			
+			Optimus.getOptimus().cambiarModo();
+			Algoformer optimus = Optimus.getOptimus();
+			
+			Posicion pos1  =new Posicion(3,3);
+			tab.ubicarMovil(optimus,pos1);
+			Algoformer bumblebee =  Bumblebee.getBumblebee();
+			Posicion pos2  =new Posicion(6,3);
+			tab.ubicarMovil(bumblebee,pos2);
+			
+			Ratchet.getRatchet().cambiarModo();
+			Algoformer ratchet = Ratchet.getRatchet();
+			
+			Posicion pos3  =new Posicion(5,3);
+			tab.ubicarMovil(ratchet,pos3);
+			Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+			 
+			Assert.assertTrue(superion.getVida()==1000);
 		
 		 }
 	
@@ -425,30 +514,39 @@ public class SuperionTest {
 			 Ratchet.ResetearInstancia();
 			 Optimus.ResetearInstancia();
 			 Bumblebee.ResetearInstancia();
-		Tablero tab=new Tablero();
-		Posicion.setTablero(tab);
+			 
+			 
 		
-		Optimus.getOptimus().cambiarModo();	
-		Algoformer optimus = Optimus.getOptimus();
-		
-		Posicion pos1  =new Posicion(3,3);
-		tab.ubicarMovil(optimus,pos1);
-		
-		Bumblebee.getBumblebee().cambiarModo();
-		Algoformer bumblebee = Bumblebee.getBumblebee();
-		
-		Posicion pos2  =new Posicion(6,3);
-		tab.ubicarMovil(bumblebee,pos2);
-		
-		Ratchet.getRatchet().cambiarModo();
-		Algoformer ratchet = Ratchet.getRatchet();
-		
-		Posicion pos3  =new Posicion(5,3);
-		tab.ubicarMovil(ratchet,pos3);
-		Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
-		 
-		//Verifico que este en la posicion que se encontraba optimus
-		Assert.assertTrue(superion.getPosicion()==pos1);
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			Bumblebee.getBumblebee().setEquipo(autobots);
+			Ratchet.getRatchet().setEquipo(autobots);
+			
+			 
+			Tablero tab=new Tablero();
+			Posicion.setTablero(tab);
+			
+			Optimus.getOptimus().cambiarModo();	
+			Algoformer optimus = Optimus.getOptimus();
+			
+			Posicion pos1  =new Posicion(3,3);
+			tab.ubicarMovil(optimus,pos1);
+			
+			Bumblebee.getBumblebee().cambiarModo();
+			Algoformer bumblebee = Bumblebee.getBumblebee();
+			
+			Posicion pos2  =new Posicion(6,3);
+			tab.ubicarMovil(bumblebee,pos2);
+			
+			Ratchet.getRatchet().cambiarModo();
+			Algoformer ratchet = Ratchet.getRatchet();
+			
+			Posicion pos3  =new Posicion(5,3);
+			tab.ubicarMovil(ratchet,pos3);
+			Algoformer superion = new Superion(optimus,bumblebee,ratchet,pos1);
+			 
+			//Verifico que este en la posicion que se encontraba optimus
+			Assert.assertTrue(superion.getPosicion()==pos1);
 		
 		 }
 		 
@@ -458,6 +556,14 @@ public class SuperionTest {
 			Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+		 
+
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 		 
 		Tablero tab=new Tablero();
 		Posicion.setTablero(tab);
@@ -484,6 +590,14 @@ public class SuperionTest {
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+		 
+
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
 		 
 		Tablero tab=new Tablero();
 		Posicion.setTablero(tab);
@@ -520,6 +634,14 @@ public class SuperionTest {
 		Ratchet.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 Bumblebee.ResetearInstancia();
+		 
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		Ratchet.getRatchet().setEquipo(autobots);
+			
+		 
 		Tablero tab=new Tablero();
 		 Posicion.setTablero(tab);
 		

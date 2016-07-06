@@ -3,6 +3,7 @@ package vista.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modelo.Algoformer;
@@ -20,16 +21,25 @@ public class VistaRatchetController {
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
+Aplicacion.menuaccionescontroller.setAlgoformer(ratchet, vistaratchet);
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&ratchet.getEfecto().esperaturnos==0){
+		Aplicacion.menuaccionescontroller.actualizarInfo("Ratchet");
+		
+	//	Image img=new Image("C:/imagenes/autobots/humanoide/ratchet.png");
+		
+	//	Aplicacion.menuaccionescontroller.imagen.setImage(img);
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Aplicacion.menuaccionescontroller.HabilitarBotonesAlgoformer();
+		/*if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&ratchet.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
-		}
+		}*/
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+		/*FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -44,12 +54,12 @@ public class VistaRatchetController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-				
+			*/	
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+	/*	FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -65,7 +75,7 @@ public class VistaRatchetController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-		
+		*/
 	}
 	
 

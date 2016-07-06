@@ -12,27 +12,32 @@ import vista.VistaAlgoformer;
 public class VistaBonecrusherController {
 	
 	@FXML ImageView vista_bonecrusher;
+	
 	Algoformer bonecrusher;
 	VistaAlgoformer vistabonecrusher;
 	TableroController tabcontroller;
 	
-	MenuAccionesAlgoformerController menuaccionescontroller;
-	MenuVerEstadoController menuestadocontroller;
+	
 	
 	
 	public void mostrarMenu() throws Exception{
+		Aplicacion.menuaccionescontroller.setAlgoformer(bonecrusher, vistabonecrusher);
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&bonecrusher.getEfecto().esperaturnos==0){
+		Aplicacion.menuaccionescontroller.actualizarInfo("Bonecrusher");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		
+		Aplicacion.menuaccionescontroller.HabilitarBotonesAlgoformer();
+		/*if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.decepticons&&bonecrusher.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 			return;
 		}else{
 			mostrarVerEstado();
 			return;
-		}
+		}*/
 	}
 	
 	public void mostrarMenuAcciones() throws Exception{
-		
+	/*	
 		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
@@ -49,11 +54,11 @@ public class VistaBonecrusherController {
 		ventana.show();
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
-		
+		*/
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+	/*FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -69,8 +74,8 @@ public class VistaBonecrusherController {
 		ventana.setScene(scene);
 		ventana.show();
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
-		ventana.setOnCloseRequest(ventCont);
-				
+		ventana.setOnCloseRequest(ventCont);//si se cierra lA VENTANA desaparece todo
+			*/	
 	}
 
 	public void setBonecrusher(Algoformer bone, VistaAlgoformer vistabone) {

@@ -9,6 +9,7 @@ import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -28,6 +29,12 @@ public class BumblebeeAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos1  =new Posicion(3,3);
@@ -52,6 +59,10 @@ public class BumblebeeAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		
 		Algoformer bumblebee = Bumblebee.getBumblebee();
 		Posicion pos1 = new Posicion(3,3);
@@ -93,7 +104,9 @@ public class BumblebeeAlternoTest {
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 		
-		
+
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
@@ -114,12 +127,21 @@ public class BumblebeeAlternoTest {
 		
 	@Test
 	public void test06BumblebeeAlternoSeMueve(){
+		
+		
 		Bumblebee.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-
+		Ataque.setTablero(tab);
+		
+		Equipo autobots=new Autobots();
+		
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
+	
+		
 		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(bumblebee,posIni);
@@ -135,7 +157,7 @@ public class BumblebeeAlternoTest {
 	public void test07BumblebeeAlternoTieneLimiteDeVelocidad(){
 		Bumblebee.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 
 		Algoformer bumblebee = Bumblebee.getBumblebee();
@@ -153,9 +175,15 @@ public class BumblebeeAlternoTest {
 		Megatron.ResetearInstancia();
 		
 		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
 
 		
 		Algoformer bumblebee =Bumblebee.getBumblebee();
@@ -183,6 +211,11 @@ public class BumblebeeAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
 		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion pos1=new Posicion(3,3);
 		tab.ubicarMovil(bumblebee, pos1);
@@ -206,6 +239,10 @@ public class BumblebeeAlternoTest {
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
 		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		
 		Algoformer bumblebee= Bumblebee.getBumblebee();
 		Posicion pos1=new Posicion(2,2);

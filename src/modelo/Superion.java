@@ -92,6 +92,7 @@ public class Superion extends Algoformer{
 		Bumblebee.getBumblebee().ExtirparDesdeSuperion(this);
 		Optimus.getOptimus().ExtirparDesdeSuperion(this);
 		
+		
 	}
 
 	public int vidaAlSeparar() {

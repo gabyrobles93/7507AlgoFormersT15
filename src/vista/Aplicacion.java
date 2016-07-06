@@ -3,21 +3,31 @@ package vista;
 import modelo.Juego;
 import vista.Aplicacion;
 import vista.controller.BarraDeMenuController;
+import vista.controller.MenuAccionesAlgoformerController;
 import vista.controller.TableroController;
 import vista.controller.VentanaPrincipalController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
 
 	public static Juego juego;
+	public static HBox msgUsuario;
+	public static VBox opcUsuario;
 	public static Stage ventanaPrincipal;
-	VentanaPrincipalController ventanaprincipalcontroller;
+	public static VentanaPrincipalController ventanaprincipalcontroller;
 	BarraDeMenuController barrademenucontroller;	
+	public static MenuAccionesAlgoformerController menuaccionescontroller;
 	TableroController tablerocontroller;
+	VBox menuAcciones;
 	ImageView[][] superficiestierra;
 	ImageView[][] superficiescielo;
 	
@@ -35,10 +45,13 @@ public class Aplicacion extends Application {
 		ventanaPrincipal = ventana;
 		ventana.setTitle("Algoformers");
 		
+	
+		
 		inicializarSuperficies();
 
 		inicializarTableroRaiz();
 	
+		
 		inicializarVentanaPrincipal();	
 		ventanaprincipalcontroller.setTablero(tablerocontroller);
 		ventanaprincipalcontroller.setVentana(ventanaPrincipal);
@@ -49,11 +62,36 @@ public class Aplicacion extends Application {
 		
 		inicializarChispa();
 		
+		inicializarPanelAcciones();
+		
+		setMenuAcciones(menuAcciones);
+		 
 		mostrarVentanaPrincipal();
 		
 		mostrarTablero();
 				
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -77,7 +115,9 @@ public class Aplicacion extends Application {
 		// TODO Auto-generated method stub
 		ventanaprincipalcontroller.mostrarTablero();
 	}
-
+private void setMenuAcciones(VBox menu){
+	ventanaprincipalcontroller.setMenuAcciones(menu);
+}
 
 
 
@@ -144,6 +184,15 @@ public class Aplicacion extends Application {
 		loader.load();
 		
 		ventanaprincipalcontroller = (VentanaPrincipalController) loader.getController();
+	}
+	private void inicializarPanelAcciones() throws Exception{
+		// TODO Auto-generated method stub
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("MenuAccionesAlgoformer2.fxml"));
+		menuAcciones=loader.load();
+		
+		menuaccionescontroller =  loader.getController();
+		menuaccionescontroller.setTableroController(tablerocontroller);
 	}
 	
 

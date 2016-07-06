@@ -18,7 +18,7 @@ public  class  Bonecrusher extends Algoformer {
 			alcance=3;
 			velocidad=8;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+		
 		}
 		public BonecrusherAlterno(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -29,7 +29,7 @@ public  class  Bonecrusher extends Algoformer {
 			alcance=3;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -44,8 +44,11 @@ public  class  Bonecrusher extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+		INSTANCE.miPosicion.LiberarPosicion();
 		INSTANCE= new BonecrusherHumanoide(miPosicion,vida,efecto.afectaataque);
-		miEquipo.algof2=INSTANCE;
+		INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+		INSTANCE.miEquipo=miEquipo;
+		INSTANCE.miEquipo.algof2=INSTANCE;
 		return INSTANCE;
 		}
 		
@@ -118,8 +121,12 @@ public  class  Bonecrusher extends Algoformer {
 
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE= new BonecrusherAlterno(miPosicion,vida,efecto.afectaataque);
-			miEquipo.algof2=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof2=INSTANCE;
+			
 			return INSTANCE;
 		}
 

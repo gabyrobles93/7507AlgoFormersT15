@@ -8,6 +8,7 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -27,6 +28,14 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+		
 		 Ratchet.getRatchet().cambiarModo();
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1  =new Posicion(3,3);
@@ -50,7 +59,18 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		 Ratchet.getRatchet().cambiarModo();
+		Posicion.setTablero(tab);
+		
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
+		Ratchet.getRatchet().cambiarModo();
+		
+		
+		
+	
+		
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1 = new Posicion(3,3);
 		tab.ubicarMovil(ratchet, pos1);
@@ -72,13 +92,23 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		 Ratchet.getRatchet().cambiarModo();
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+		Ratchet.getRatchet().cambiarModo();
 		Algoformer ratchet = Ratchet.getRatchet();
-		Posicion pos1 = new Posicion(2,0);
+		
+		
+		Posicion pos1 = new Posicion(3,0);
 		tab.ubicarMovil(ratchet, pos1);
-		Megatron.getMegatron().cambiarModo();
+		
+		
 		Algoformer megatron=Megatron.getMegatron();
-		Posicion pos2=new Posicion(8,0);
+		Posicion pos2=new Posicion(9,0);
 		tab.ubicarMovil(megatron, pos2);
 		
 		ratchet.atacar(megatron);	
@@ -92,6 +122,11 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
+		
+
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
 		Ratchet.getRatchet().cambiarModo();
 		
 		
@@ -116,9 +151,14 @@ public class RatchetHumanoideTest {
 	public void test06RatchetHumanoideSeMueve(){
 		Ratchet.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
+
+		
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
 		 Ratchet.getRatchet().cambiarModo();
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion posIni=new Posicion(1,4);
@@ -135,9 +175,15 @@ public class RatchetHumanoideTest {
 	public void test07RatchetHumanoideTieneLimiteDeVelocidad(){
 		Ratchet.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
-		 Ratchet.getRatchet().cambiarModo();
+		Posicion.setTablero(tab);
+		
+		
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		Ratchet.getRatchet().cambiarModo();
+		
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(ratchet,posIni);
@@ -155,6 +201,13 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
 		 Ratchet.getRatchet().cambiarModo();
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1=new Posicion(2,2);
@@ -179,6 +232,12 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
 		
 		Ratchet.getRatchet().cambiarModo();
 		Algoformer ratchet = Ratchet.getRatchet();
@@ -203,8 +262,17 @@ public class RatchetHumanoideTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		 Ratchet.getRatchet().cambiarModo();
+		Posicion.setTablero(tab);
 		
+		
+		
+		 Equipo decepticons=new Decepticons();
+			Megatron.getMegatron().setEquipo(decepticons);
+			Equipo autobots=new Autobots();
+			Ratchet.getRatchet().setEquipo(autobots);
+			
+			 Ratchet.getRatchet().cambiarModo();
+		 
 		Algoformer ratchet = Ratchet.getRatchet();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(ratchet, pos1);

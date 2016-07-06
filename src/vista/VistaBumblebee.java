@@ -7,6 +7,7 @@ import vista.controller.VistaBumblebeeController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import modelo.Bonecrusher;
 import modelo.Bumblebee;
 import modelo.Posicion;
 
@@ -27,17 +28,47 @@ public class VistaBumblebee extends VistaAlgoformer {
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Bumblebee.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistabumblebee = loader.getController();
 		controllervistabumblebee.setBumblebee(algoformer, this);
 		controllervistabumblebee.setTableroController(tablerocontroller);
 		
 	}
-
-	public ImageView getVista() {
+	@Override
+	public void cargarAlterno() throws Exception{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("BumblebeeAlterno.fxml"));
+		
+		loader.setController(controllervistabumblebee);
+		
+		vistaalgoformerAlterno = (ImageView) loader.load();
+		
+		
+		
+	}
+	@Override
+	public void cambiarModoActualizarRef(){
+		algoformer=Bumblebee.getBumblebee();
+		controllervistabumblebee.setBumblebee(Bumblebee.getBumblebee(), this);
+		tablerocontroller.borrarAlgoformers();
+		tablerocontroller.imagenBumblebee=this.getVista();
+		
+		
+	}
+	public ImageView getVista(){
+		if(algoformer.getVelocidad()==5){
+			return getVistaAlterno();
+		}else{return getVistaHumanoide();}
+		
+	}
+	
+	public ImageView getVistaHumanoide() {
 		// TODO Auto-generated method stub
-		return vistaalgoformer;
+		return vistaalgoformerHumanoide;
+	}
+	public ImageView getVistaAlterno(){
+		return vistaalgoformerAlterno;
 	}
 
 

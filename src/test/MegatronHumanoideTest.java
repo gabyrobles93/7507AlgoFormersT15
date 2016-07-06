@@ -8,6 +8,7 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -27,6 +28,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1  =new Posicion(3,3);
@@ -50,6 +57,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1 = new Posicion(3,3);
@@ -71,6 +84,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1 = new Posicion(2,0);
@@ -90,15 +109,19 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
-		Megatron.getMegatron().cambiarModo();
-		Megatron.ResetearInstancia();
 		
+		
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		
+		Megatron.getMegatron().cambiarModo();
 		//nace en modo alterno
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil( Megatron.getMegatron(), posIni);
 		
 	
-		Assert.assertTrue( Megatron.getMegatron().getDistanciaDeAtaque()==2);
+		Assert.assertTrue( Megatron.getMegatron().getDistanciaDeAtaque()==3);
 		
 		Megatron mega1=Megatron.getMegatron();
 		
@@ -106,7 +129,7 @@ public class MegatronHumanoideTest{
 		
 		
 		
-		Assert.assertTrue(Megatron.getMegatron().getDistanciaDeAtaque()==3);//en modo humanoide alcance==3
+		Assert.assertTrue(Megatron.getMegatron().getDistanciaDeAtaque()==2);//en modo humanoide alcance==3
 		// si al cambiar modo me guardan una referencia me podrian hacer trampa
 		
 	}
@@ -115,9 +138,14 @@ public class MegatronHumanoideTest{
 	public void test06MegatronHumanoideSeMueve(){
 		Megatron.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion posIni=new Posicion(1,4);
@@ -134,9 +162,16 @@ public class MegatronHumanoideTest{
 	public void test07MegatronHumanoideTieneLimiteDeVelocidad(){
 		Megatron.ResetearInstancia();
 		
-		Megatron.getMegatron().cambiarModo();
-		Tablero tab=new Tablero();
+	
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
+		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil(megatron,posIni);
@@ -155,6 +190,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Megatron.getMegatron().cambiarModo();
 		Optimus.getOptimus().cambiarModo();
 		
@@ -183,6 +224,12 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();
 		Posicion pos1=new Posicion(3,4);
@@ -206,6 +253,11 @@ public class MegatronHumanoideTest{
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Megatron.getMegatron().cambiarModo();
 		Algoformer megatron = Megatron.getMegatron();

@@ -8,6 +8,7 @@ import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -28,6 +29,12 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1  =new Posicion(3,3);
@@ -50,6 +57,13 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+
+	
+		
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1 = new Posicion(3,3);
@@ -73,6 +87,13 @@ public class OptimusAlternoTest {
 		Ataque.setTablero(tab);
 		Posicion.setTablero(tab);
 		
+		
+
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Optimus.getOptimus().cambiarModo();
 		
 		Algoformer optimus = Optimus.getOptimus();
@@ -94,15 +115,21 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
+		
+
+	
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Optimus.getOptimus().cambiarModo();
-		Optimus.ResetearInstancia();
+		
 		
 		
 		Posicion posIni=new Posicion(1,4);
 		tab.ubicarMovil( Optimus.getOptimus(), posIni);
 		
 	
-		Assert.assertTrue( Optimus.getOptimus().getDistanciaDeAtaque()==4);
+		Assert.assertTrue( Optimus.getOptimus().getDistanciaDeAtaque()==2);
 		
 		Optimus mega1=Optimus.getOptimus();
 		
@@ -110,7 +137,7 @@ public class OptimusAlternoTest {
 		
 		
 		
-		Assert.assertTrue(Optimus.getOptimus().getDistanciaDeAtaque()==2);//en modo humanoide alcance==3
+		Assert.assertTrue(Optimus.getOptimus().getDistanciaDeAtaque()==4);//en modo humanoide alcance==3
 		// si al cambiar modo me guardan una referencia me podrian hacer trampa
 	}
 		
@@ -118,7 +145,7 @@ public class OptimusAlternoTest {
 	public void test06OptimusAlternoSeMueve(){
 		Optimus.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
@@ -137,7 +164,7 @@ public class OptimusAlternoTest {
 	public void test07OptimusAlternoTieneLimiteDeVelocidad(){
 		Optimus.ResetearInstancia();
 		
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion posIni=new Posicion(1,4);
@@ -156,7 +183,14 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
 
+
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(2,2);
 		tab.ubicarMovil(optimus, pos1);
@@ -179,6 +213,12 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
+		Posicion.setTablero(tab);
+
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(3,4);
@@ -201,7 +241,12 @@ public class OptimusAlternoTest {
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
-		
+		Posicion.setTablero(tab);
+
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Algoformer optimus = Optimus.getOptimus();
 		Posicion pos1=new Posicion(2,2);

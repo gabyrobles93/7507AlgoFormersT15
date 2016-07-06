@@ -9,6 +9,7 @@ import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -30,6 +31,12 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
+
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			
 			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1  =new Posicion(3,3);
 			tab.ubicarMovil(frenzy,pos1);
@@ -49,6 +56,10 @@ public class FrenzyAlternoTest {
 		@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 		public void test02FrenzyAlternoNoPuedeAtacarDecepticons(){
 			Frenzy.ResetearInstancia();
+			
+			
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
 			
 			
 			Tablero tab=new Tablero();
@@ -97,6 +108,9 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 			
+
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
 			
 			
 			//nace en modo alterno
@@ -124,7 +138,7 @@ public class FrenzyAlternoTest {
 		public void test06FrenzyAlternoSeMueve(){
 			Frenzy.ResetearInstancia();
 			
-			Tablero tab=new Tablero();
+			Tablero tab=new Tablero(50);
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
 
@@ -144,7 +158,7 @@ public class FrenzyAlternoTest {
 			Frenzy.ResetearInstancia();
 			
 			
-			Tablero tab=new Tablero();
+			Tablero tab=new Tablero(50);
 			Movimiento.setTablero(tab);
 			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion posIni=new Posicion(1,4);
@@ -164,6 +178,12 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
+
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			
 			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(2,2);
 			tab.ubicarMovil(frenzy, pos1);
@@ -189,6 +209,12 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
+
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			
 			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(3,4);
 			tab.ubicarMovil(frenzy, pos1);
@@ -212,6 +238,12 @@ public class FrenzyAlternoTest {
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
 			
+
+			Equipo decepticons=new Decepticons();
+			Frenzy.getFrenzy().setEquipo(decepticons);
+
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
 			
 			Algoformer frenzy = Frenzy.getFrenzy();
 			Posicion pos1=new Posicion(2,2);

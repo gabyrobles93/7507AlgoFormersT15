@@ -16,9 +16,9 @@ public  class Bumblebee extends Algoformer {
 			vida=350;
 			ataque=500;
 			alcance=1;
-			velocidad=10;
+			velocidad=2;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public BumblebeeHumanoide(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -29,7 +29,7 @@ public  class Bumblebee extends Algoformer {
 			alcance=1;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -47,8 +47,11 @@ public  class Bumblebee extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE= new BumblebeeAlterno(miPosicion,vida,efecto.afectaataque);
-			miEquipo.algof2=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof2=INSTANCE;
 			return INSTANCE;
 		}
 
@@ -91,7 +94,7 @@ public  class Bumblebee extends Algoformer {
 			alcance=3;
 			velocidad=5;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public BumblebeeAlterno(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -102,21 +105,24 @@ public  class Bumblebee extends Algoformer {
 			alcance=3;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
 			throw new ErrorEnModoAlternoNoSePuedeCapturarChispa();
 			
 		}
-		private void setEquipo(){
-			miEquipo=new Autobots();
+		public void setEquipo(Equipo equipo){
+			miEquipo=equipo;
 		}
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 		INSTANCE=new BumblebeeHumanoide(miPosicion,vida,efecto.afectaataque);
-		miEquipo.algof2=INSTANCE;
+		INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+		INSTANCE.miEquipo=miEquipo;
+		INSTANCE.miEquipo.algof2=INSTANCE;
 		return INSTANCE;
 		}
 

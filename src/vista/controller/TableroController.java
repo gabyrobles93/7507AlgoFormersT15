@@ -10,9 +10,14 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import modelo.Algoformer;
 import modelo.Autobots;
+import modelo.Bonecrusher;
+import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Frenzy;
 import modelo.Juego;
 import modelo.Megatron;
+import modelo.Optimus;
+import modelo.Ratchet;
 import vista.Aplicacion;
 import vista.VistaBumblebee;
 import vista.VistaChispa;
@@ -34,16 +39,18 @@ public class TableroController {
 	ImageView[][] superficiestierra;
 	ImageView[][] superficiescielo;
 	
-	ImageView imagenBumblebee;
-	ImageView imagenOptimus;
-	ImageView imagenRatchet;
-	ImageView imagenMegatron;
-	ImageView imagenBonecrusher;
-	ImageView imagenFrenzy;
-	ImageView imagenMenasor;
-	ImageView imagenSuperion;
+	public ImageView imagenBumblebee;
 	
-	ImageView imagenChispa;
+	public ImageView imagenOptimus;
+	public ImageView imagenRatchet;
+	public ImageView imagenMegatron;
+	public ImageView imagenBonecrusher;
+	
+	public ImageView imagenFrenzy;
+	public ImageView imagenMenasor;
+	public ImageView imagenSuperion;
+	
+	 ImageView imagenChispa;
 	
 	VistaMenasor vistaMenasor;
 	VistaSuperion vistaSuperion;
@@ -116,14 +123,19 @@ public class TableroController {
 	private void cargarDecepticons(Decepticons decepticons) throws Exception{
 		VistaMegatron vistaMegatron = new VistaMegatron(decepticons.getMegatron(), this);
 		vistaMegatron.cargar();
+		vistaMegatron.cargarAlterno();
 		imagenMegatron = vistaMegatron.getVista();
 		
 		VistaFrenzy vistaFrenzy = new VistaFrenzy(decepticons.getFrenzy(), this);
 		vistaFrenzy.cargar();
+		vistaFrenzy.cargarAlterno();
+		
 		imagenFrenzy = vistaFrenzy.getVista();
 		
 		VistaBonecrusher vistaBonecrusher = new VistaBonecrusher(decepticons.getBonecrusher(), this);
 		vistaBonecrusher.cargar();
+		vistaBonecrusher.cargarAlterno();
+		
 		imagenBonecrusher = vistaBonecrusher.getVista();
 		
 		 vistaMenasor=new VistaMenasor(null,this);
@@ -157,14 +169,17 @@ public class TableroController {
 		// TODO Auto-generated method stub
 		VistaBumblebee vistaBumblebee = new VistaBumblebee(autobots.getBumblebee(), this);
 		vistaBumblebee.cargar();
+		vistaBumblebee.cargarAlterno();
 		imagenBumblebee = vistaBumblebee.getVista();
 
 		VistaOptimus vistaOptimus = new VistaOptimus(autobots.getOptimus(), this);
 		vistaOptimus.cargar();
+		vistaOptimus.cargarAlterno();
 		imagenOptimus = vistaOptimus.getVista();
 		
 		VistaRatchet vistaRatchet = new VistaRatchet(autobots.getRatchet(), this);
 		vistaRatchet.cargar();
+		vistaRatchet.cargarAlterno();
 		imagenRatchet = vistaRatchet.getVista();
 		
 		vistaSuperion =new VistaSuperion(null,this);
@@ -180,15 +195,15 @@ public class TableroController {
 		
 		if(juego.getAutobots().getBumblebee().getVida()>0){
 			
-			vistatablerocontroller.getTablero().add(imagenBumblebee, juego.getAutobots().getBumblebee().getPosicion().getColumna(), juego.getAutobots().getBumblebee().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenBumblebee, Bumblebee.getBumblebee().getPosicion().getColumna(),Bumblebee.getBumblebee().getPosicion().getFila());		
 		}
 		
 		if(juego.getAutobots().getRatchet().getVida()>0){
-			vistatablerocontroller.getTablero().add(imagenRatchet, juego.getAutobots().getRatchet().getPosicion().getColumna(), juego.getAutobots().getRatchet().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenRatchet, Ratchet.getRatchet().getPosicion().getColumna(), Ratchet.getRatchet().getPosicion().getFila());		
 		}
 		
 		if(juego.getAutobots().getOptimus().getVida()>0){
-			vistatablerocontroller.getTablero().add(imagenOptimus, juego.getAutobots().getOptimus().getPosicion().getColumna(), juego.getAutobots().getOptimus().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenOptimus, Optimus.getOptimus().getPosicion().getColumna(), Optimus.getOptimus().getPosicion().getFila());		
 		}
 		if(vistaSuperion.getSuperion()!=null){//VistaSuperion tiene algof asociado(alguien creo un superion), cuando lo desarmo lo seteo en null
 			if(vistaSuperion.getSuperion().getVida()!=0){
@@ -198,15 +213,15 @@ public class TableroController {
 		}
 		
 		if(juego.getDecepticons().getBonecrusher().getVida()>0){
-			vistatablerocontroller.getTablero().add(imagenBonecrusher, juego.getDecepticons().getBonecrusher().getPosicion().getColumna(), juego.getDecepticons().getBonecrusher().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenBonecrusher, Bonecrusher.getBonecrusher().getPosicion().getColumna(), Bonecrusher.getBonecrusher().getPosicion().getFila());		
 		}
 		if(juego.getDecepticons().getMegatron().getVida()>0){
-			vistatablerocontroller.getTablero().add(imagenMegatron, juego.getDecepticons().getMegatron().getPosicion().getColumna(), juego.getDecepticons().getMegatron().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenMegatron, Megatron.getMegatron().getPosicion().getColumna(), Megatron.getMegatron().getPosicion().getFila());		
 		}
 		
 		
 		if(juego.getDecepticons().getFrenzy().getVida()>0){
-			vistatablerocontroller.getTablero().add(imagenFrenzy, juego.getDecepticons().getFrenzy().getPosicion().getColumna(), juego.getDecepticons().getFrenzy().getPosicion().getFila());		
+			vistatablerocontroller.getTablero().add(imagenFrenzy,Frenzy.getFrenzy().getPosicion().getColumna(), Frenzy.getFrenzy().getPosicion().getFila());		
 		}
 		if(vistaMenasor.getSuperion()!=null){//VistaMenasor tiene algof asociado(alguien creo un Menasor), cuando lo desarmo lo seteo en null
 			if(vistaMenasor.getSuperion().getVida()!=0){
@@ -267,6 +282,7 @@ public class TableroController {
 
 	public void dibujarChispa() {
 		// TODO Auto-generated method stub
+		vistatablerocontroller.getTablero().getChildren().remove(imagenChispa);
 		vistatablerocontroller.getTablero().add(imagenChispa, juego.getPosicionChispa().getFila(), juego.getPosicionChispa().getFila());		
 
 	}

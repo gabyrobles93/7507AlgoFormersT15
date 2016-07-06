@@ -128,7 +128,7 @@ public void separar(){
 	redibujarAlgoformers();
 	ventana.close();
 	Aplicacion.juego.jugarTurno();
-	}catch(ErrorVidaSuperionInsuficienteParaSepararse e){
+	}catch(RuntimeException e){
 		HBox hb=new HBox();
 		Text txt=new Text("Imposible separar.");
 		hb.getChildren().add(txt);

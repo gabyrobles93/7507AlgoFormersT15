@@ -44,6 +44,7 @@ public class BarraDeMenuController implements Initializable{
 		tablerocontroller.dibujarTierra();
 		tablerocontroller.borrarAlgoformers();
 		tablerocontroller.dibujarAlgoformers();
+		tablerocontroller.dibujarChispa();
 		ventana.setTitle("Algoformers - Tablero Tierra");
 		ventanaprincipalcontroller.mostrarTablero();
 	}
@@ -55,6 +56,7 @@ public class BarraDeMenuController implements Initializable{
 		tablerocontroller.dibujarCielo();
 		tablerocontroller.borrarAlgoformers();
 		tablerocontroller.dibujarAlgoformers();
+		tablerocontroller.dibujarChispa();
 		ventana.setTitle("Algoformers - Tablero Cielo");
 		ventanaprincipalcontroller.mostrarTablero();
 	}

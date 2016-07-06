@@ -7,6 +7,7 @@ import modelo.Algoformer;
 import modelo.Ataque;
 import modelo.Autobots;
 import modelo.Bonecrusher;
+import modelo.Bumblebee;
 import modelo.Decepticons;
 import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
@@ -20,6 +21,7 @@ import modelo.Menasor;
 import modelo.Movimiento;
 import modelo.Optimus;
 import modelo.Posicion;
+import modelo.Ratchet;
 import modelo.Tablero;
 
 public class MenasorTest {
@@ -31,6 +33,13 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 Optimus.ResetearInstancia();
+		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -71,6 +80,16 @@ public class MenasorTest {
 		 Bonecrusher.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 
+		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+
+			
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Ataque.setTablero(tab);
@@ -106,6 +125,12 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 
+			Equipo decepticons=new Decepticons();
+			Bonecrusher.getBonecrusher().setEquipo(decepticons);
+			Frenzy.getFrenzy().setEquipo(decepticons);
+			Megatron.getMegatron().setEquipo(decepticons);
+		
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
@@ -139,6 +164,12 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+			
+		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
@@ -169,6 +200,13 @@ public class MenasorTest {
 		Frenzy.ResetearInstancia();
 		Bonecrusher.ResetearInstancia();
 		Optimus.ResetearInstancia();
+		
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		 
 		 
 		Tablero tab=new Tablero();
@@ -205,6 +243,13 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 Optimus.ResetearInstancia();
+		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
 		 
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -245,6 +290,13 @@ public class MenasorTest {
 		 Bonecrusher.ResetearInstancia();
 		 Optimus.ResetearInstancia();
 		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		 
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -282,6 +334,13 @@ public class MenasorTest {
 		 Megatron.ResetearInstancia();
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
+		 
+		 
+			Equipo decepticons=new Decepticons();
+			Bonecrusher.getBonecrusher().setEquipo(decepticons);
+			Frenzy.getFrenzy().setEquipo(decepticons);
+			Megatron.getMegatron().setEquipo(decepticons);
+	
 		 
 	Tablero tab=new Tablero();
 	Posicion.setTablero(tab);
@@ -358,6 +417,12 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+
+		 
 	Tablero tab=new Tablero();
 	Posicion.setTablero(tab);
 	Megatron.getMegatron().cambiarModo();
@@ -383,6 +448,12 @@ public class MenasorTest {
 		 Megatron.ResetearInstancia();
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
+		 
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		Megatron.getMegatron().setEquipo(decepticons);
+
 		 
 		
 	Tablero tab=new Tablero();
@@ -436,6 +507,12 @@ public class MenasorTest {
 		 Frenzy.ResetearInstancia();
 		 Bonecrusher.ResetearInstancia();
 		 
+			Equipo decepticons=new Decepticons();
+			Bonecrusher.getBonecrusher().setEquipo(decepticons);
+			Frenzy.getFrenzy().setEquipo(decepticons);
+			Megatron.getMegatron().setEquipo(decepticons);
+
+		 
 	Tablero tab=new Tablero();
 	Posicion.setTablero(tab);
 	
@@ -463,6 +540,12 @@ public class MenasorTest {
 	public void test14MenasorConVidaInsuficeinteNoPuedeSeperarse(){
 	Tablero tab=new Tablero();
 	Posicion.setTablero(tab);
+	
+	Equipo decepticons=new Decepticons();
+	Bonecrusher.getBonecrusher().setEquipo(decepticons);
+	Frenzy.getFrenzy().setEquipo(decepticons);
+	Megatron.getMegatron().setEquipo(decepticons);
+
 
 	Algoformer megatron=Megatron.getMegatron();
 	Posicion pos1=new Posicion(3,3);

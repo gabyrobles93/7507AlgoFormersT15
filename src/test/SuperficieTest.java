@@ -49,7 +49,12 @@ public class SuperficieTest {
 	@Test
 	public void test01optimusHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		Optimus.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -71,7 +76,7 @@ public class SuperficieTest {
 	@Test
 	public void test02optimusAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		Optimus.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(13,17,13,17);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -91,7 +96,12 @@ public class SuperficieTest {
 	@Test
 	public void test03bumblebeeHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		Bumblebee.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+	
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -112,12 +122,18 @@ public class SuperficieTest {
 	@Test
 	public void test04bumblebeeAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		Bumblebee.ResetearInstancia();
+		
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 	
 		
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(23,27,23,27);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
+			Ataque.setTablero(tab);
+			
+			
 			Algoformer bumblebee = Bumblebee.getBumblebee();
 			Posicion posinicial = new Posicion(25,25);
 			Posicion posfinal = new Posicion(30,25);
@@ -135,8 +151,12 @@ public class SuperficieTest {
 	public void test05ratchetHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		Ratchet.ResetearInstancia();
 		
+	
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
 		
-			Tablero tab = new Tablero();
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -158,7 +178,10 @@ public class SuperficieTest {
 	public void test06ratchetAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		Ratchet.ResetearInstancia();
 		
-			Tablero tab = new Tablero();
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(33,37,33,37);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -179,8 +202,11 @@ public class SuperficieTest {
 	public void test07megatronHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		Megatron.ResetearInstancia();
 		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
 		
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -203,7 +229,7 @@ public class SuperficieTest {
 		Megatron.ResetearInstancia();
 		
 		
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(2,8,2,8);			// Es un area de 5 x 5
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -225,8 +251,10 @@ public class SuperficieTest {
 		
 		Bonecrusher.ResetearInstancia();
 		
-		
-			Tablero tab = new Tablero();
+			Equipo decepticons=new Decepticons();
+			Bonecrusher.getBonecrusher().setEquipo(decepticons);
+
+			Tablero tab = new Tablero(50);
 			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -248,7 +276,7 @@ public class SuperficieTest {
 	public void test10bonecrusherAlternoTransitaSinProblemasPorSuperficieRocosa(){
 		Bonecrusher.ResetearInstancia();
 		
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(14,25,14,17);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -269,7 +297,11 @@ public class SuperficieTest {
 	public void test11frenzyHumanoideTransitaSinProblemasPorSuperficieRocosa(){
 		Frenzy.ResetearInstancia();
 		
-			Tablero tab = new Tablero();
+	
+		Equipo decepticons=new Decepticons();
+		Frenzy.getFrenzy().setEquipo(decepticons);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(44,49,30,35);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -291,7 +323,7 @@ public class SuperficieTest {
 	public void test12frenzyAlternoTransitaSinProblemasPorSuperficieRocosa(){
 			Frenzy.ResetearInstancia();
 		
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(44,49,30,49);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -314,10 +346,16 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test13optimusHumanoideNoPuedePasarPorPantano(){
 		Optimus.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
+			
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
+			
+			
+			
 			 Optimus.getOptimus().cambiarModo();
 			Algoformer optimus = Optimus.getOptimus();
 			Posicion posinicial = new Posicion(15,14);
@@ -333,7 +371,12 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test14bumblebeeHumanoideNoPuedePasarPorPantano(){
 		Bumblebee.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+	
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -351,7 +394,11 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test15ratchetHumanoideNoPuedePasarPorPantano(){
 		Ratchet.ResetearInstancia();
-			Tablero tab = new Tablero();
+	
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -370,7 +417,11 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test16megatronHumanoideNoPuedePasarPorPantano(){
 		Megatron.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -391,7 +442,12 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test17bonecrusherHumanoideNoPuedePasarPorPantano(){
 		Bonecrusher.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -409,7 +465,12 @@ public class SuperficieTest {
 	@Test(expected=ErrorAlgoformerHumanoideNoPuedePasarPorPantano.class)
 	public void test18frenzyHumanoideNoPuedePasarPorPantano(){
 		Frenzy.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Frenzy.getFrenzy().setEquipo(decepticons);
+	
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -431,7 +492,7 @@ public class SuperficieTest {
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test15BumblebeeAlternoPasaPorPantanoPeroTardaElDoble(){
 		Bumblebee.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -462,7 +523,11 @@ public class SuperficieTest {
 	@Test
 	public void test19ratchetAlternoVoladorPuedePasarPorPantano(){
 		Ratchet.ResetearInstancia();
-			Tablero tab = new Tablero();
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -481,7 +546,7 @@ public class SuperficieTest {
 	@Test
 	public void test20megatronAlternoVoladorPuedePasarPorPantano(){
 		Megatron.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -504,7 +569,11 @@ public class SuperficieTest {
 	@Test
 	public void test21optimusHumanoideEsDaniadoPorEspinas(){
 		Optimus.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo autobots=new Autobots();
+		Optimus.getOptimus().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -524,7 +593,7 @@ public class SuperficieTest {
 	@Test
 	public void test22optimusAlternoEsDaniadoPorEspinas(){
 		Optimus.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -543,7 +612,12 @@ public class SuperficieTest {
 	@Test
 	public void test23bumblebeeHumanoideEsDaniadoPorEspinas(){
 		Bumblebee.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+	
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -563,7 +637,7 @@ public class SuperficieTest {
 	@Test
 	public void test24bumblebeeAlternoEsDaniadoPorEspinas(){
 		Bumblebee.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -582,7 +656,11 @@ public class SuperficieTest {
 	@Test
 	public void test25ratchetHumanoideEsDaniadoPorEspinas(){
 		Ratchet.ResetearInstancia();
-			Tablero tab = new Tablero();
+
+		Equipo autobots=new Autobots();
+		Ratchet.getRatchet().setEquipo(autobots);
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -601,7 +679,11 @@ public class SuperficieTest {
 	@Test
 	public void test26MegatronHumanoideEsDaniadoPorEspinas(){
 		Megatron.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+	
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -623,7 +705,13 @@ public class SuperficieTest {
 	@Test
 	public void test27BonecrusherHumanoideEsDaniadoPorEspinas(){
 		Bonecrusher.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+
+
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -644,7 +732,7 @@ public class SuperficieTest {
 	@Test
 	public void test28BonecrusherAlternoEsDaniadoPorEspinas(){
 		Bonecrusher.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -664,7 +752,12 @@ public class SuperficieTest {
 	@Test
 	public void test29FrenzyHumanoideEsDaniadoPorEspinas(){
 		Frenzy.ResetearInstancia();
-			Tablero tab = new Tablero();
+		
+		Equipo decepticons=new Decepticons();
+		Frenzy.getFrenzy().setEquipo(decepticons);
+
+		
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -685,7 +778,7 @@ public class SuperficieTest {
 	@Test
 	public void test30FrenzyAlternoEsDaniadoPorEspinas(){
 		Frenzy.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -713,7 +806,7 @@ public class SuperficieTest {
 	@Test
 	public void test31MegatronAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
 		Megatron.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -734,7 +827,7 @@ public class SuperficieTest {
 	@Test
 	public void test32RatchetAlternoNoEsDaniadoPorEspinasPorSerUnidadAerea(){
 		Ratchet.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -757,7 +850,7 @@ public class SuperficieTest {
 	@Test
 	public void test33RatchetAlternoAtraviesaNubesSinProblema(){
 		Ratchet.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -776,7 +869,7 @@ public class SuperficieTest {
 	@Test
 	public void test34MegatronAlternoAtraviesaNubesSinProblema(){
 		Megatron.ResetearInstancia();
-			Tablero tab = new Tablero();
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Posicion.setTablero(tab);
@@ -799,6 +892,11 @@ public class SuperficieTest {
 	@Test
 	public void test35MegatronAlternoQuedaAtrapado3TurnosEnNebulosaDeAndromeda(){
 		Megatron.ResetearInstancia();
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+
+		
 			Juego juego = new Juego();
 			Area area = new Area(46,49,46,49);			// Pongo una tormenta donde nace
 			Posicion.setTablero(juego.getTablero());
@@ -806,7 +904,8 @@ public class SuperficieTest {
 			area.setAreaNebulosaDeAndromeda(juego.getTablero());
 			
 			Algoformer mega = juego.getDecepticons().getMegatron();
-			juego.getDecepticons().getMegatron().cambiarModo();//Lo Paso a alterno
+		
+			
 			
 			Posicion pos = new Posicion(46,46);
 			
@@ -844,9 +943,18 @@ public class SuperficieTest {
 	@Test
 	public void test36MegatronAlternoReduceSuAtaqueAlPasarPorTormentaPsionica(){
 		Megatron.ResetearInstancia();
-			Equipo autobots=new Decepticons();
+		Optimus.ResetearInstancia();
+		
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
+		
+		
+			Equipo autobots=new Autobots();
+			Optimus.getOptimus().setEquipo(autobots);
 			
-			Tablero tab = new Tablero();
+			
+			
+			Tablero tab = new Tablero(50);
 			Area area = new Area(15,20,15,20);			// Es un area de 12 x 4
 			Movimiento.setTablero(tab);
 			Ataque.setTablero(tab);
@@ -854,7 +962,7 @@ public class SuperficieTest {
 			
 			Algoformer algoformer = Megatron.getMegatron();
 			Algoformer optimus = Optimus.getOptimus();
-			/*algoformer.setEquipo(autobots);*/
+			
 			Posicion posinicial = new Posicion(15,15);
 			Posicion posfinal = new Posicion(16,16);
 			Posicion posfinal2 =new Posicion(17,17); 

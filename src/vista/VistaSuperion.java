@@ -25,7 +25,7 @@ public class VistaSuperion extends VistaAlgoformer {
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Superion.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistasuperion = loader.getController();
 		controllervistasuperion.setSuperion(algoformer, this);
@@ -35,7 +35,7 @@ public class VistaSuperion extends VistaAlgoformer {
 
 	public ImageView getVista() {
 		// TODO Auto-generated method stub
-		return vistaalgoformer;
+		return vistaalgoformerHumanoide;
 	}
 
 	public void setAlgoformer(Algoformer algof) {

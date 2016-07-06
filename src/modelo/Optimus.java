@@ -19,7 +19,7 @@ public  class Optimus extends Algoformer {
 			alcance=4;
 			velocidad=5;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public OptimusAlterno(Posicion unaPos, int unaVida) {
 			super();
@@ -29,7 +29,7 @@ public  class Optimus extends Algoformer {
 			velocidad=5;
 			alcance=4;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+		
 		}
 		@Override
 		public void capturarChispa(){
@@ -42,8 +42,11 @@ public  class Optimus extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 		INSTANCE= new OptimusHumanoide(miPosicion,vida,efecto.afectaataque);
-		miEquipo.algof1=INSTANCE;
+		INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+		INSTANCE.miEquipo=miEquipo;
+		INSTANCE.miEquipo.algof1=INSTANCE;
 		return INSTANCE;
 		}
 
@@ -88,7 +91,7 @@ public  class Optimus extends Algoformer {
 			alcance=2;
 			velocidad=2;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+		
 		}
 		public OptimusHumanoide(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -99,7 +102,7 @@ public  class Optimus extends Algoformer {
 			alcance=2;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -118,8 +121,11 @@ public  class Optimus extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE= new OptimusAlterno(miPosicion,vida);
-			miEquipo.algof1=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof1=INSTANCE;
 			return INSTANCE;
 		}
 

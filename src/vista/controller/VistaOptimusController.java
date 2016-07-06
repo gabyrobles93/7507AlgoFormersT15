@@ -20,16 +20,21 @@ public class VistaOptimusController {
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
+Aplicacion.menuaccionescontroller.setAlgoformer(optimus, vistaoptimus);
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&optimus.getEfecto().esperaturnos==0){
+		Aplicacion.menuaccionescontroller.actualizarInfo("Optimus");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Aplicacion.menuaccionescontroller.HabilitarBotonesAlgoformer();
+	
+		//if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&optimus.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
-		}else{
-			mostrarVerEstado();
-		}
+		//}else{
+			//mostrarVerEstado();
+		//}
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+	/*	FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -44,12 +49,12 @@ public class VistaOptimusController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-				
+			*/	
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+	/*	FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -65,7 +70,7 @@ public class VistaOptimusController {
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
 		ventana.show();
-		
+		*/
 	}
 	
 

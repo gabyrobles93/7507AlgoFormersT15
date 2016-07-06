@@ -9,9 +9,11 @@ import modelo.Autobots;
 import modelo.Bonecrusher;
 import modelo.Bumblebee;
 import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorDistanciaDeAtaqueInsuficiente;
 import modelo.ErrorNoSePuedeAtacarIntegranteDeEquipo;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
+import modelo.Juego;
 import modelo.Megatron;
 import modelo.Movimiento;
 import modelo.Posicion;
@@ -23,7 +25,13 @@ public class BumblebeeHumanoideTest {
 	@Test
 	public void test01BumblebeeHumanoideAtacaEnemigoHumanoide(){
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		Bonecrusher.ResetearInstancia();
+		Equipo decepticons=new Decepticons();
+		Bonecrusher.getBonecrusher().setEquipo(decepticons);
+		
+		
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -48,7 +56,11 @@ public class BumblebeeHumanoideTest {
 	@Test(expected=ErrorNoSePuedeAtacarIntegranteDeEquipo.class)
 	public void test02BumblebeeHumanoideNoPuedeAtacarAutobots(){
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		Ratchet.ResetearInstancia();
+		Ratchet.getRatchet().setEquipo(autobots);
+	
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -89,7 +101,11 @@ public class BumblebeeHumanoideTest {
 	
 	@Test
 	public void test04CambioBumblebeeAModoAlterno(){
+		
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
+		
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -121,7 +137,7 @@ public class BumblebeeHumanoideTest {
 	@Test
 	public void test06BumblebeeHumanoideSeMueve(){
 		Bumblebee.ResetearInstancia();
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Posicion.setTablero(tab);
 
@@ -139,7 +155,7 @@ public class BumblebeeHumanoideTest {
 	@Test(expected=ErrorVelocidadDelMovilInsuficiente.class)
 	public void test07BumblebeeHumanoideTieneLimiteDeVelocidad(){
 		Bumblebee.ResetearInstancia();
-		Tablero tab=new Tablero();
+		Tablero tab=new Tablero(50);
 		Movimiento.setTablero(tab);
 		Algoformer bumblebee =  Bumblebee.getBumblebee();
 		Posicion posIni=new Posicion(1,4);
@@ -153,7 +169,11 @@ public class BumblebeeHumanoideTest {
 	@Test
 	public void test08BumblebeeHumanoideEsAtacadoPorEnemigoHumanoide(){
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		Megatron.ResetearInstancia();
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -181,7 +201,11 @@ public class BumblebeeHumanoideTest {
 	@Test
 	public void test09BumblebeeHumanoideAtacaEnemigoAlterno(){
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		Megatron.ResetearInstancia();
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
 		
 		Tablero tab=new Tablero();
 		Movimiento.setTablero(tab);
@@ -204,7 +228,11 @@ public class BumblebeeHumanoideTest {
 	@Test
 	public void test10BumblebeeHumanoideEsAtacadoPorEnemigoAlterno(){
 		Bumblebee.ResetearInstancia();
+		Equipo autobots=new Autobots();
+		Bumblebee.getBumblebee().setEquipo(autobots);
 		Megatron.ResetearInstancia();
+		Equipo decepticons=new Decepticons();
+		Megatron.getMegatron().setEquipo(decepticons);
 		
 		
 		Tablero tab=new Tablero();

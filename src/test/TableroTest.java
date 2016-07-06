@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import modelo.Algoformer;
+import modelo.Autobots;
+import modelo.Decepticons;
+import modelo.Equipo;
 import modelo.ErrorAreaFueraDeRangoPosible;
 import modelo.ErrorCasillerosNoConectadosPorLineaRecta;
 import modelo.ErrorVelocidadDelMovilInsuficiente;
@@ -38,6 +41,14 @@ public class TableroTest {
 @Test
 public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros(){
 	Tablero tablero1 =new Tablero();
+	
+	
+	Equipo decepticons =new Decepticons();
+	Megatron.getMegatron().setEquipo(decepticons);
+	
+	Equipo autobots =new Autobots();
+	Optimus.getOptimus().setEquipo(autobots);
+	
 	Megatron.getMegatron().cambiarModo();
 	Algoformer megatron= Megatron.getMegatron();
 	Optimus.getOptimus().cambiarModo();
@@ -55,6 +66,8 @@ public void test76ObtengoSubAreaYverificoEstarReferenciandoLosmismosCasilleros()
 public void test88getAreaReferenciaHastaDondePuede(){
 	Tablero tablero1=new Tablero();
 	Posicion pos=new Posicion(3,3);
+	Equipo decepticons =new Decepticons();
+	Megatron.getMegatron().setEquipo(decepticons);
 	Megatron.getMegatron().cambiarModo();
 	Megatron mega=Megatron.getMegatron();
 	tablero1.ubicarMovil(mega, pos);

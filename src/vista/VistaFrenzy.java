@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import modelo.Bumblebee;
 import modelo.Frenzy;
 import modelo.Posicion;
 import vista.controller.TableroController;
@@ -28,18 +29,50 @@ public class VistaFrenzy extends VistaAlgoformer {
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Frenzy.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistafrenzy = loader.getController();
 		controllervistafrenzy.setFrenzy(algoformer, this);
 		controllervistafrenzy.setTableroController(tablerocontroller);
 		
 	}
-
-	public ImageView getVista() {
+	@Override
+	public void cargarAlterno() throws Exception{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("FrenzyAlterno.fxml"));
 		
-		return vistaalgoformer;	
+		loader.setController(controllervistafrenzy);
+		
+		vistaalgoformerAlterno = (ImageView) loader.load();
+		
+		
+		
 	}
+
+	@Override
+	public void cambiarModoActualizarRef(){
+		algoformer=Frenzy.getFrenzy();
+		controllervistafrenzy.setFrenzy(Frenzy.getFrenzy(), this);
+		tablerocontroller.borrarAlgoformers();
+		tablerocontroller.imagenFrenzy=this.getVista();
+		
+		
+	}
+	public ImageView getVista(){
+		if(algoformer.getVelocidad()==6){
+			return getVistaAlterno();
+		}else{return getVistaHumanoide();}
+		
+	}
+	
+	public ImageView getVistaHumanoide() {
+		// TODO Auto-generated method stub
+		return vistaalgoformerHumanoide;
+	}
+	public ImageView getVistaAlterno(){
+		return vistaalgoformerAlterno;
+	}
+
 }
 
 

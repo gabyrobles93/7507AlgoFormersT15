@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import modelo.Bumblebee;
 import modelo.Optimus;
 import modelo.Posicion;
 import vista.controller.MenuAccionesAlgoformerController;
@@ -29,18 +30,50 @@ public class VistaOptimus extends VistaAlgoformer{
 		
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Aplicacion.class.getResource("Optimus.fxml"));
-		vistaalgoformer = (ImageView) loader.load();
+		vistaalgoformerHumanoide = (ImageView) loader.load();
 		
 		controllervistaoptimus = loader.getController();
 		controllervistaoptimus.setOptimus(algoformer, this);
 		controllervistaoptimus.setTableroController(tablerocontroller);
 		
 	}
-	
-	public ImageView getVista() {
-		// TODO Auto-generated method stub
-		return vistaalgoformer;
+	@Override
+	public void cargarAlterno() throws Exception{
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("OptimusAlterno.fxml"));
+		
+		loader.setController(controllervistaoptimus);
+		
+		vistaalgoformerAlterno = (ImageView) loader.load();
+		
+		
+		
 	}
+	
+	@Override
+	public void cambiarModoActualizarRef(){
+		algoformer=Optimus.getOptimus();
+		controllervistaoptimus.setOptimus(Optimus.getOptimus(), this);
+		tablerocontroller.borrarAlgoformers();
+		tablerocontroller.imagenOptimus=this.getVista();
+		
+		
+	}
+	public ImageView getVista(){
+		if(algoformer.getVelocidad()==5){
+			return getVistaAlterno();
+		}else{return getVistaHumanoide();}
+		
+	}
+	
+	public ImageView getVistaHumanoide() {
+		// TODO Auto-generated method stub
+		return vistaalgoformerHumanoide;
+	}
+	public ImageView getVistaAlterno(){
+		return vistaalgoformerAlterno;
+	}
+
 	
 
 }

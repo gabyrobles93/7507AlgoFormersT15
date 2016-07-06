@@ -18,7 +18,7 @@ public  class Frenzy extends Algoformer {
 			alcance=2;
 			velocidad=6;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public FrenzyAlterno(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -29,7 +29,7 @@ public  class Frenzy extends Algoformer {
 			alcance=2;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+		
 		}
 		@Override
 		public void capturarChispa(){
@@ -43,8 +43,11 @@ public  class Frenzy extends Algoformer {
 
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 		INSTANCE= new FrenzyHumanoide(miPosicion,vida);
-		miEquipo.algof3=INSTANCE;
+		INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+		INSTANCE.miEquipo=miEquipo;
+		INSTANCE.miEquipo.algof3=INSTANCE;
 		return INSTANCE;
 		}
 
@@ -86,7 +89,7 @@ public  class Frenzy extends Algoformer {
 			alcance=5;
 			velocidad=2;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 			
 		}
 		public FrenzyHumanoide(Posicion unaPos, int unaVida) {
@@ -97,7 +100,7 @@ public  class Frenzy extends Algoformer {
 			velocidad=2;
 			alcance=5;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -115,8 +118,11 @@ public  class Frenzy extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE= new FrenzyAlterno(miPosicion,vida,efecto.afectaataque);
-			miEquipo.algof3=INSTANCE;
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof3=INSTANCE;
 			return INSTANCE;
 		}
 

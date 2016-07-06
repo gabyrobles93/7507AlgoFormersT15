@@ -51,7 +51,7 @@ public class PosibleAtaqueController {
 			algoformer.atacar((Algoformer)(casAux.getMovilOcupa()));
 			menucontroller.borrarZonaObjetivoAtaque();
 			menucontroller.redibujarAlgoformers();
-			ventana.close();
+			
 			if(Aplicacion.juego.getGanador()!=null){
 				mostrarMensajeVictoria();
 			}

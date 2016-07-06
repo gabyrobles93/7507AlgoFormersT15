@@ -26,16 +26,20 @@ public class VistaBumblebeeController {
 	MenuVerEstadoController menuestadocontroller;
 	
 	public void mostrarMenu() throws Exception{
+		Aplicacion.menuaccionescontroller.setAlgoformer(bumblebee, vistabumblebee);
 		
-		if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&bumblebee.getEfecto().esperaturnos==0){
+		Aplicacion.menuaccionescontroller.actualizarInfo("Bumblebee");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Aplicacion.menuaccionescontroller.HabilitarBotonesAlgoformer();
+		/*if(Aplicacion.juego.getEjecutorDeTurnoActual()==Aplicacion.juego.autobots&&bumblebee.getEfecto().esperaturnos==0){
 			mostrarMenuAcciones();
 		}else{
 			mostrarVerEstado();
-		}
+		}*/
 	}
 	
 	private void mostrarVerEstado() throws Exception{
-		FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
+	/*	FXMLLoader loadermenuestado = new FXMLLoader(Aplicacion.class.getResource("MenuVerEstado.fxml"));
 		loadermenuestado.load();
 		Stage ventana = new Stage();
 
@@ -49,13 +53,13 @@ public class VistaBumblebeeController {
 		ventana.setScene(scene);
 		ventana.show();
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
-		ventana.setOnCloseRequest(ventCont);
+		ventana.setOnCloseRequest(ventCont);*/
 				
 	}
 
 	public void mostrarMenuAcciones() throws Exception{
 		
-		FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
+		/*FXMLLoader loadermenuacciones = new FXMLLoader(Aplicacion.class.getResource("MenuAccionesAlgoformer.fxml"));
 		loadermenuacciones.load();
 		Stage ventana = new Stage();
 
@@ -71,7 +75,7 @@ public class VistaBumblebeeController {
 		ventana.show();
 		VentanaMenuAccionesController ventCont=new VentanaMenuAccionesController(tabcontroller);
 		ventana.setOnCloseRequest(ventCont);
-		
+		*/
 	}
 	
 

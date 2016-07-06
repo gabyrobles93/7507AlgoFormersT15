@@ -18,7 +18,7 @@ public  class Ratchet extends Algoformer {
 			alcance=2;
 			velocidad=8;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public RatchetAlterno(Posicion unaPos, int unaVida, double afectaataque) {
 			super();
@@ -29,7 +29,7 @@ public  class Ratchet extends Algoformer {
 			alcance=2;
 			efecto.velocidadAfectada=velocidad;
 			efecto.afectaataque=afectaataque;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -42,8 +42,11 @@ public  class Ratchet extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 		INSTANCE=new  RatchetHumanoide(miPosicion,vida);
-		miEquipo.algof3=INSTANCE;
+		INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+		INSTANCE.miEquipo=miEquipo;
+		INSTANCE.miEquipo.algof3=INSTANCE;
 		return INSTANCE;
 		}
 
@@ -58,8 +61,11 @@ public  class Ratchet extends Algoformer {
 		}
 		@Override
 		public void afectarPorNebulosaDeAndromeda(int cantidadturnos) {
+			
 			efecto.esperaturnos = cantidadturnos;	
+		throw new ErrorAlgoformerAtascadoEnNebulosaDeAndromeda();
 		}
+		
 		@Override
 		public void afectarPorTormentaPsionica(double coeficiente) {
 			efecto.afectaataque = coeficiente; 		
@@ -84,7 +90,7 @@ public  class Ratchet extends Algoformer {
 			alcance=5;
 			velocidad=1;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		public RatchetHumanoide(Posicion unaPos, int unaVida) {
 			super();
@@ -94,7 +100,7 @@ public  class Ratchet extends Algoformer {
 			velocidad=1;
 			alcance=5;
 			efecto.velocidadAfectada=velocidad;
-			setEquipo();
+			
 		}
 		@Override
 		public void capturarChispa(){
@@ -113,9 +119,11 @@ public  class Ratchet extends Algoformer {
 		
 		@Override
 		public Algoformer cambiarModo() {
+			INSTANCE.miPosicion.LiberarPosicion();
 			INSTANCE =new RatchetAlterno(miPosicion,vida,efecto.afectaataque);
-			
-			miEquipo.algof3=INSTANCE; 
+			INSTANCE.miPosicion.setMovilOcupa(INSTANCE);
+			INSTANCE.miEquipo=miEquipo;
+			INSTANCE.miEquipo.algof3=INSTANCE;
 			return INSTANCE;
 		}
 

@@ -10,6 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -28,6 +30,21 @@ import vista.VistaAlgoformer;
 public class MenuAccionesAlgoformerController extends menuAccionesController{
 
 	@FXML AnchorPane vista_menu_acciones;
+	
+	@FXML Label nombre;
+	@FXML Label vida;
+	@FXML Label ataque;
+	@FXML Label velocidad;
+	@FXML Label esperaturnos;
+	@FXML Label alcance;
+	@FXML ImageView imagen;
+	@FXML Button mover;
+	@FXML Button atacar;
+	@FXML Button combinar;
+	@FXML Button transformar;
+	@FXML Button capturarChispa;
+	@FXML Button desarmar;
+	
 	Algoformer algof;
 	VistaAlgoformer vistaalgof;
 	TableroController tablerocontroller;
@@ -36,6 +53,15 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	public void mostrarZonaAtaque() throws Exception{
 		this.borrarZonaObjetivoAtaque();
 		this.borrarZonaObjetivoMovimiento();
+		
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+			
+			mostrarErrorNoEsTuTurno();
+			return;
+		}else if(algof.getEfecto().esperaturnos!=0){
+			mostrarErrorEsperaTurnos();
+			return;
+		}
 		PosibleAtaqueController posibleataquecontroller;
 		
 		int distanciaACubrir = algof.getDistanciaDeAtaque();
@@ -69,9 +95,35 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		
 
 	
+	private void mostrarErrorEsperaTurnos() {
+		// TODO Auto-generated method stub
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Todavia no estas habilitado para jugar con este algoformer");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	}
+
+
+
+	private void mostrarErrorNoEsTuTurno() {
+		// TODO Auto-generated method stub
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("No es tu turno.");
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+	}
+
+
+
 	public void mostrarZonaMovimiento() throws Exception{
 		this.borrarZonaObjetivoAtaque();
 		this.borrarZonaObjetivoMovimiento();
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+			
+			mostrarErrorNoEsTuTurno();
+			return;
+		}else if(algof.getEfecto().esperaturnos!=0){
+			mostrarErrorEsperaTurnos();
+			return;
+		}
 		
 		PosibleMovimientoController posiblemovimientocontroller;
 		
@@ -105,9 +157,17 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	}
 	
 	public void capturarChispa(){
+if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+			
+			mostrarErrorNoEsTuTurno();
+			return;
+		}else if(algof.getEfecto().esperaturnos!=0){
+			mostrarErrorEsperaTurnos();
+			return;
+		}
 		try{
 			algof.capturarChispa();
-			ventana.close();
+			
 			mostrarMensajeVictoria();
 
 		}catch(RuntimeException e){
@@ -118,12 +178,19 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	}
 	
 	public void combinar(){
-
+if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+			
+			mostrarErrorNoEsTuTurno();
+			return;
+		}else if(algof.getEfecto().esperaturnos!=0){
+			mostrarErrorEsperaTurnos();
+			return;
+		}
 	
 			try{ 
 				tablerocontroller.setReferenciaSuperalgoformer( algof.combinar());//creo el super y se lo asigno a la vista cargada en main
 				this.redibujarAlgoformers();
-				ventana.close();
+				
 				Aplicacion.juego.jugarTurno();
 				VBox vb=new VBox();
 				Text txt=new Text("Formar superAlgoformer tomara dos turnos");
@@ -143,6 +210,25 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 				mostrarErrorSuperionPosicionInvalida();
 			}
 		}
+	public void cambiarModo(){
+if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+			
+			mostrarErrorNoEsTuTurno();
+			return;
+		}else if(algof.getEfecto().esperaturnos!=0){
+			mostrarErrorEsperaTurnos();
+			return;
+		}
+		try{
+			algof=algof.cambiarModo();
+			vistaalgof.cambiarModoActualizarRef();
+			this.redibujarAlgoformers();
+			
+			Aplicacion.juego.jugarTurno();
+		}catch(RuntimeException e){
+			System.out.println("error en cambiar modo");
+		}
+	}
 
 	
 	
@@ -287,6 +373,37 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	public void borrarZonaObjetivoAtaque() {
 		// TODO Auto-generated method stub
 		tablerocontroller.borrarZonaObjetivoAtaque();
+	}
+
+
+
+	public void actualizarInfo(String string) {
+		// TODO Auto-generated method stub
+		nombre.setText(string);
+		vida.setText("Vida "+String.valueOf(algof.getVida()));
+		ataque.setText("Ataque "+String.valueOf(algof.getAtaque()));
+		velocidad.setText("Velocidad "+String.valueOf(algof.getVelocidad()));
+		esperaturnos.setText("Espera Turnos "+String.valueOf(algof.getEfecto().esperaturnos));
+	}
+
+
+
+	public void HabilitarBotonesSuper() {
+		// TODO Auto-generated method stub
+		atacar.setDisable(false);
+		mover.setDisable(false);
+		capturarChispa.setDisable(false);
+		desarmar.setDisable(false);
+		transformar.setDisable(true);
+		combinar.setDisable(true);
+	}
+	public void HabilitarBotonesAlgoformer(){
+		atacar.setDisable(false);
+		mover.setDisable(false);
+		capturarChispa.setDisable(false);
+		desarmar.setDisable(true);
+		transformar.setDisable(false);
+		combinar.setDisable(false);
 	}
 	
 }
