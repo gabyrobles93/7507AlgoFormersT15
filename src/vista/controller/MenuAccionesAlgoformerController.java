@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Algoformer;
@@ -99,6 +100,7 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		// TODO Auto-generated method stub
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Todavia no estas habilitado para jugar con este algoformer");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	}
 
@@ -108,6 +110,7 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 		// TODO Auto-generated method stub
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("No es tu turno.");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	}
 
@@ -199,6 +202,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 				
 				Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 				Label error=new Label("Formar Super Algoformer tomará dos turnos.");
+				error.setTextFill(Color.WHITE);
 				Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 				
 				/*
@@ -250,6 +254,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Posicion de nacimiento de superion invalida.");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
 		/*HBox hb=new HBox();
@@ -271,6 +276,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Distancia Excesiva entre Autobots para formar Superion.");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
 	/*	HBox hb=new HBox();
@@ -303,6 +309,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Han Ganado los Decepticons.");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
 		/*HBox hb=new HBox();
@@ -322,6 +329,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Han ganado los Autobots");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	/*	
 		HBox hb=new HBox();
@@ -342,6 +350,7 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Error imposible capturar Chispa");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 /*
 		HBox hb=new HBox();

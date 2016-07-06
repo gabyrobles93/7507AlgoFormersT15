@@ -47,7 +47,7 @@ public class Juego {
 		Posicion posRatchet=new Posicion(0,2);
 		Posicion posBumblebee=new Posicion(2,0);
 		
-		autobots.ubicarMoviles(tablero,posOptimus,posBumblebee,posRatchet);
+		autobots.ubicarMoviles(tablero,posOptimus,posRatchet,posBumblebee);
 	}
 	private void ubicarDecepticons() {
 		
@@ -55,7 +55,7 @@ public class Juego {
 		Posicion posBonecrusher=new Posicion(49,47);
 		Posicion posFrenzy=new Posicion(47,49);
 		
-		decepticons.ubicarMoviles(tablero, posMegatron, posBonecrusher, posFrenzy);
+		decepticons.ubicarMoviles(tablero, posMegatron, posFrenzy, posBonecrusher);
 	}
 	public Autobots getAutobots(){
 		

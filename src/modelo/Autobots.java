@@ -16,7 +16,7 @@ Superion superion;
 		algof2.setEquipo(this);
 		algof3.setEquipo(this);
 		
-		
+
 		
 		vida=algof1.getVida()+algof2.getVida()+algof3.getVida();
 		cantidadMiembrosVivos=3;

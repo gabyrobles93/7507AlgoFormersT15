@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import modelo.Algoformer;
@@ -78,6 +79,7 @@ public class PosibleMovimientoController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("velocidad Insuficiente, atento con el pantano");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		/*
 		HBox hb=new HBox();
@@ -99,6 +101,7 @@ public class PosibleMovimientoController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Oh! te has topado con una superficie pantanosa, no puedes pisarla en modo humanoide");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 	/*
 		HBox hb=new HBox();
@@ -119,6 +122,7 @@ public class PosibleMovimientoController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Los Casilleros deben estar en linea recta");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		/*
 		HBox hb=new HBox();
@@ -139,6 +143,7 @@ public class PosibleMovimientoController {
 		
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
 		Label error=new Label("Los Casilleros deben estar desocupados");
+		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		/*
 		HBox hb=new HBox();
