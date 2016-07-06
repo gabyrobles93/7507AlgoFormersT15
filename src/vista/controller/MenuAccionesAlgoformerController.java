@@ -162,7 +162,13 @@ public class MenuAccionesAlgoformerController extends menuAccionesController{
 	public void capturarChispa(){
 		this.borrarZonaObjetivoAtaque();
 		this.borrarZonaObjetivoMovimiento();
-if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
+		
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().clear();
+		Label error=new Label("Intentando capturar chispa.");
+		error.setTextFill(Color.WHITE);
+		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 			
 			mostrarErrorNoEsTuTurno();
 			return;
@@ -312,6 +318,10 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
 		
+		Label ganador = new Label("GANARON LOS AUTOBOTS");
+		
+		Aplicacion.ventanaprincipalcontroller.vista_ventana_principal.setCenter(ganador);
+		
 		/*HBox hb=new HBox();
 		Text txt=new Text("Han Ganado los Decepticons");
 		hb.getChildren().add(txt);
@@ -331,6 +341,10 @@ if(Aplicacion.juego.getEjecutorDeTurnoActual()!=algof.getEquipo()){
 		Label error=new Label("Han ganado los Autobots");
 		error.setTextFill(Color.WHITE);
 		Aplicacion.ventanaprincipalcontroller.info.getChildren().add(error);
+		
+		Label ganador = new Label("GANARON LOS AUTOBOTS");
+		
+		Aplicacion.ventanaprincipalcontroller.vista_ventana_principal.setCenter(ganador);
 	/*	
 		HBox hb=new HBox();
 		Text txt=new Text("Han ganado los Autobots");

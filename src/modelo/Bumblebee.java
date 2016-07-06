@@ -16,7 +16,7 @@ public  class Bumblebee extends Algoformer {
 			vida=350;
 			ataque=500;
 			alcance=1;
-			velocidad=2;
+			velocidad=40;
 			efecto.velocidadAfectada=velocidad;
 			
 		}
