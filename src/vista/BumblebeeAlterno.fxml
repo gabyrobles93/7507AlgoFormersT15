@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
-<ImageView fx:id="vista_bumblebee" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#mostrarMenu" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<ImageView fx:id="vista_bumblebee" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#mostrarMenu" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
    <image>
-      <Image url="@../../../../../../../imagenes/autobots/alterno/bumblebee_alterno.png" />
+      <Image url="@resources/imagenes/autobots/alterno/bumblebee_alterno.png" />
    </image>
 </ImageView>

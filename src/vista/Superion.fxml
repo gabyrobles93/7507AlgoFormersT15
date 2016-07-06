@@ -5,6 +5,6 @@
 
 <ImageView fx:id="vista_superion" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#mostrarMenu" pickOnBounds="true" preserveRatio="true" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.controller.VistaSuperionController">
    <image>
-      <Image url="@../../resources/imagenes/autobots/superion.png" />
+      <Image url="@resources/imagenes/autobots/superion.png" />
    </image>
 </ImageView>
